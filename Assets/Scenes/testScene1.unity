@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1641800249}
   - component: {fileID: 1641800253}
   m_Layer: 0
-  m_Name: Moving Platform
+  m_Name: MovingPlatform_SideToSide
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49a716d9109fe94f855f2825808911a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveVector: {x: 1, y: 0}
   moveSpeed: 0.01
 --- !u!1001 &1804754000675122880
 PrefabInstance:

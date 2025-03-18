@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
+
+    public Vector2 moveVector = new Vector2(1,0);
     public float moveSpeed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,7 +15,6 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveVector = new Vector2(1, 0);
         if (!GetComponent<Renderer>().isVisible)
         {//if the object is invisible, flip it's ovement direction
             Debug.Log("Object is now invisible");
