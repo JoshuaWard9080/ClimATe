@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      3_Cat_Jump-Sheet_0: 8698305717160559983
+      3_Cat_Jump-Sheet_1: -879127403827390100
+      3_Cat_Jump-Sheet_2: -1717004097415697048
+      3_Cat_Jump-Sheet_3: 7718173357589714328
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
