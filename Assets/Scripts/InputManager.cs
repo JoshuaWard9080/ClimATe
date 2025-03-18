@@ -14,8 +14,8 @@ public class InputManager : MonoBehaviour
     [SerializeField] private KeyCode playerTwoRight = KeyCode.RightArrow;
     [SerializeField] private KeyCode playerTwoJump = KeyCode.UpArrow;
 
-    public UnityEvent<Vector2> PlayerOneOnMove = new UnityEvent<Vector2>();
-    public UnityEvent PlayerOneOnJump = new UnityEvent();
+    public UnityEvent<Vector2> playerOneOnMove = new UnityEvent<Vector2>();
+    public UnityEvent playerOneOnJump = new UnityEvent();
 
 
     void Update()
@@ -27,8 +27,8 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(playerOneRight))
             inputVector += Vector2.right;
 
-        PlayerOneOnMove?.Invoke(inputVector);
+        playerOneOnMove?.Invoke(inputVector);
         if (Input.GetKeyDown(playerOneJump))
-            PlayerOneOnJump?.Invoke();
+            playerOneOnJump?.Invoke();
     }
 }
