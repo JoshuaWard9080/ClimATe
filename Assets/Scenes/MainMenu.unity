@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 1497542675}
   - component: {fileID: 1497542678}
   m_Layer: 5
-  m_Name: OnePlayerStart
+  m_Name: OnePlayerStartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
