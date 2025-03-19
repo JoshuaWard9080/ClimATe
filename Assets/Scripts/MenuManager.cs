@@ -3,12 +3,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private Button onePlayerStartButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private TMP_Text totalPointsText;
+    public int totalPoints = 0;
 
     //arrary to know which button the user is hovering over with the keyboard
     private Button[] buttons;
@@ -35,6 +38,8 @@ public class MenuManager : MonoBehaviour
         }
 
         SelectButton(selectedIndex);
+
+        UpdatePointsUI();
     }
 
     private void Update()
@@ -57,7 +62,8 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    private void SelectButton(int index) {
+    private void SelectButton(int index)
+    {
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
@@ -71,10 +77,23 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Quitting game...");
 
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
+    }
+
+    public void AddPoints(int amount)
+    {
+        totalPoints += amount;
+        Debug.Log("Points Updated: " + totalPoints);
+
+        UpdatePointsUI();
+    }
+
+    private void UpdatePointsUI()
+    {
+        totalPointsText.text = "Total Points: " + totalPoints;
     }
 }

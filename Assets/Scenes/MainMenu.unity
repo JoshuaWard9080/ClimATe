@@ -1417,6 +1417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onePlayerStartButton: {fileID: 1497542675}
   quitButton: {fileID: 1658952376}
+  totalPointsText: {fileID: 928908666}
+  totalPoints: 0
 --- !u!4 &1948628416
 Transform:
   m_ObjectHideFlags: 0
