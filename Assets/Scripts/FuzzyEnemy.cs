@@ -3,39 +3,50 @@ using UnityEngine;
 
 public class FuzzyEnemy : MonoBehaviour
 {
-    float moveSpeed = 0.003f;
+    float moveSpeed = 0.005f;
+    Vector3 moveVector;
     float jumpSpeed = 2;
-    Boolean direction = false; //left = false, right = true;
-    int chanceToChangeDir = 15;
+    Boolean isHurt = false;
     public SpriteRenderer spriteRenderer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        moveVector = new Vector3(1, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        move();
+        move(moveVector);
     }
-    void move()
+    void move(Vector3 moveVector)
     {
-        if (UnityEngine.Random.value * chanceToChangeDir == 1)
+        moveVector.Normalize();
+        float movementX = moveVector.x * moveSpeed;
+        this.transform.position += new Vector3(movementX, 0, 0);
+
+        if (!GetComponent<Renderer>().isVisible)
         {
             changeDirection();
         }
-        Vector3 movement = new Vector3(1, 0, 0)*moveSpeed;
-        if (!direction) { movement *= -1; }
-        this.transform.position += movement;
-    }
-    Boolean changeDirection()
-    {
-        spriteRenderer.flipX = direction;
-        direction = !direction;
-        return direction;
+        //this.transform.position += moveVector;
         
+
+    }
+    void changeDirection()
+    {
+        moveVector.x *= -1;
+        if (moveVector.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+        this.transform.position += moveVector;
+
     }
 
 
