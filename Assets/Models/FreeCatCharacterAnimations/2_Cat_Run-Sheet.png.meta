@@ -372,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      2_Cat_Run-Sheet_0: -2698658137309289751
+      2_Cat_Run-Sheet_1: 3347968482685306840
+      2_Cat_Run-Sheet_2: 3049066074964071776
+      2_Cat_Run-Sheet_3: -2980455036323118514
+      2_Cat_Run-Sheet_4: -5308005675055094261
+      2_Cat_Run-Sheet_5: -2695421780957910584
+      2_Cat_Run-Sheet_6: -3521131775601738278
+      2_Cat_Run-Sheet_7: -848056126545069496
+      2_Cat_Run-Sheet_8: -5734806690515104126
+      2_Cat_Run-Sheet_9: -2746605651840009790
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
