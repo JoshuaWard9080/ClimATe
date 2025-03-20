@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 953975668}
   - component: {fileID: 953975669}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Yeti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 953975665}
+  animator: {fileID: 953975669}
 --- !u!212 &953975665
 SpriteRenderer:
   m_ObjectHideFlags: 0

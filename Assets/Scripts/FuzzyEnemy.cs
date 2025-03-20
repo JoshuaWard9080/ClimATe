@@ -6,8 +6,9 @@ public class FuzzyEnemy : MonoBehaviour
     float moveSpeed = 0.003f;
     Vector3 moveVector;
     float jumpSpeed = 2;
-    Boolean isHurt = false;
+    Boolean isHurt = true;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +19,7 @@ public class FuzzyEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("isHurt", isHurt);
         move(moveVector);
     }
     void move(Vector3 moveVector)
@@ -50,6 +52,11 @@ public class FuzzyEnemy : MonoBehaviour
         }
         this.transform.position += (moveVector/4);
 
+    }
+
+    void onHurt()
+    {
+        
     }
 
 
