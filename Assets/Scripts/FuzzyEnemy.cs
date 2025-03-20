@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FuzzyEnemy : MonoBehaviour
 {
-    float moveSpeed = 0.005f;
+    float moveSpeed = 0.003f;
     Vector3 moveVector;
     float jumpSpeed = 2;
     Boolean isHurt = false;
@@ -23,19 +23,22 @@ public class FuzzyEnemy : MonoBehaviour
     void move(Vector3 moveVector)
     {
         moveVector.Normalize();
-        float movementX = moveVector.x * moveSpeed;
-        this.transform.position += new Vector3(movementX, 0, 0);
-
         if (!GetComponent<Renderer>().isVisible)
         {
             changeDirection();
         }
+        
+        float movementX = moveVector.x * moveSpeed;
+        this.transform.position += new Vector3(movementX, 0, 0);
+
+        
         //this.transform.position += moveVector;
         
 
     }
     void changeDirection()
     {
+
         moveVector.x *= -1;
         if (moveVector.x > 0)
         {
@@ -45,7 +48,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += moveVector;
+        this.transform.position += (moveVector/4);
 
     }
 
