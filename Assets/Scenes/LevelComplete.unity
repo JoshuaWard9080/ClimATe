@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6392157, g: 0.8666667, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.6392157, g: 0.6392157, b: 0.73333335, a: 1}
+    m_PressedColor: {r: 0.3647059, g: 0.58431375, b: 0.8, a: 1}
     m_SelectedColor: {r: 0.6392157, g: 0.8666667, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 527014839}
   - component: {fileID: 527014838}
   m_Layer: 5
-  m_Name: TitleBackgroundPanel
+  m_Name: PointsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.63999647, g: 0.8652711, b: 0.9622642, a: 1}
-    m_PressedColor: {r: 0.6392157, g: 0.6392157, b: 0.73333335, a: 1}
+    m_PressedColor: {r: 0.3647059, g: 0.58431375, b: 0.8, a: 1}
     m_SelectedColor: {r: 0.6392157, g: 0.8666667, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1479,7 +1479,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.6392157, g: 0.8666667, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.6392157, g: 0.6392157, b: 0.73333335, a: 1}
+    m_PressedColor: {r: 0.3647059, g: 0.58431375, b: 0.8, a: 1}
     m_SelectedColor: {r: 0.6392157, g: 0.8666667, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
