@@ -11,6 +11,8 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitGameButton;
     [SerializeField] private TMP_Text totalPointsText;
+    [SerializeField] AudioSource switchButtonAudio;
+    [SerializeField] AudioSource clickButtonAudio;
     public int totalPoints = 0;
 
     //array to know which button the user is hovering over with the keyboard
@@ -55,17 +57,20 @@ public class LevelCompleteManager : MonoBehaviour
         {
             selectedIndex = (selectedIndex - 1 + buttons.Length) % buttons.Length;
             SelectButton(selectedIndex);
+            switchButtonAudio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
             selectedIndex = (selectedIndex + 1 + buttons.Length) % buttons.Length;
             SelectButton(selectedIndex);
+            switchButtonAudio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             buttons[selectedIndex].onClick.Invoke();
+            clickButtonAudio.Play();
         }
     }
 
