@@ -8,6 +8,7 @@ public class TextAnimation : MonoBehaviour
 
     [SerializeField] float timeBetweenCharacters;
     [SerializeField] float timeBetweenTexts = 0.5f;
+    [SerializeField] AudioSource typingAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +42,7 @@ public class TextAnimation : MonoBehaviour
         while (visibleCharacters <= totalCharacters)
         {
             textMesh.maxVisibleCharacters = visibleCharacters;
+            typingAudio.Play();
             visibleCharacters++;
             yield return new WaitForSeconds(timeBetweenCharacters);
         }
