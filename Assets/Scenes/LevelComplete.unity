@@ -2323,6 +2323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1203337432}
   - component: {fileID: 1203337431}
+  - component: {fileID: 1203337433}
   m_Layer: 0
   m_Name: LevelCompleteManager
   m_TagString: Untagged
@@ -2362,6 +2363,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203337433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203337430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text1: {fileID: 978922487}
+  timeBetweenCharacters: 0.1
+  stringArray:
+  - Points Earned
 --- !u!1 &1454036994
 GameObject:
   m_ObjectHideFlags: 0
