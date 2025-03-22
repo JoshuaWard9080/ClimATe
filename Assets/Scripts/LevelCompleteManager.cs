@@ -27,6 +27,10 @@ public class LevelCompleteManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //get the player stats from the previous level and update them here
+        //probably something like setText("Kill Count: " + playerStats.getKillCount())??? 
+
+
         buttons = new Button[] { nextLevelButton, mainMenuButton, quitGameButton };
 
         if (nextLevelButton != null)
