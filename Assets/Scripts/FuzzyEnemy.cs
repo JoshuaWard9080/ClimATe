@@ -1,0 +1,70 @@
+using System;
+using UnityEngine;
+
+public class FuzzyEnemy : MonoBehaviour
+{
+    float moveSpeed = 0.003f;
+    Vector3 moveVector;
+    [SerializeField] Boolean isHurt = false;
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        moveVector = new Vector3(1, 0, 0);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        animator.SetBool("isHurt", isHurt);
+        move(moveVector);
+    }
+    void move(Vector3 moveVector)
+    {
+        moveVector.Normalize();
+        if (!GetComponent<Renderer>().isVisible)
+        {
+            if (isHurt)
+            {
+                Debug.Log("is hurt and Off screen");
+                isHurt = false;
+                Vector3 otherSideOfTheScreen = this.transform.position;
+                otherSideOfTheScreen.x *= -1;
+                this.transform.position = otherSideOfTheScreen;
+            }
+            else
+            {
+                changeDirection();
+            }
+            
+        }
+        
+        float movementX = moveVector.x * moveSpeed;
+        this.transform.position += new Vector3(movementX, 0, 0);
+
+        
+        //this.transform.position += moveVector;
+        
+
+    }
+    void changeDirection()
+    {
+
+        moveVector.x *= -1;
+        if (moveVector.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+        this.transform.position += (moveVector/4);
+
+    }
+
+
+
+}
