@@ -1,50 +1,47 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System.Diagnostics.Tracing;
 
 public class TextAnimation : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI text1;
+    [SerializeField] TextMeshProUGUI[] texts;
+
     [SerializeField] float timeBetweenCharacters;
-    int i = 0;
-    public string[] stringArray;
+    [SerializeField] float timeBetweenTexts = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        EndCheck();
+         foreach (TextMeshProUGUI text in texts)
+        {
+            text.maxVisibleCharacters = 0;
+        }
+
+        StartCoroutine(AnimateTexts());
     }
 
-    void EndCheck()
+    private IEnumerator AnimateTexts()
     {
-        if (i <= stringArray.Length - 1)
+        foreach (TextMeshProUGUI textMesh in texts)
         {
-            text1.text = stringArray[i];
-            StartCoroutine(TextVisible());
+            yield return StartCoroutine(TypeText(textMesh));
+            yield return new WaitForSeconds(timeBetweenTexts);
         }
     }
 
-    private IEnumerator TextVisible()
+    private IEnumerator TypeText(TextMeshProUGUI textMesh)
     {
-        text1.ForceMeshUpdate();
-        int totalVisibleCharacters = text1.textInfo.characterCount;
-        int counter = 0;
+        string fullText = textMesh.text;
+        textMesh.ForceMeshUpdate();
+
+        int totalCharacters = textMesh.textInfo.characterCount;
+        int visibleCharacters = 0;
 
 
-        while (true)
+        while (visibleCharacters <= totalCharacters)
         {
-            int visibleCount = counter % (totalVisibleCharacters + 1);
-            text1.maxVisibleCharacters = visibleCount;
-
-            if (visibleCount >= totalVisibleCharacters)
-            {
-                i += 1;
-                Invoke("EndCheck", timeBetweenCharacters);
-                break;
-            }
-
-            counter += 1;
+            textMesh.maxVisibleCharacters = visibleCharacters;
+            visibleCharacters++;
             yield return new WaitForSeconds(timeBetweenCharacters);
         }
     }
