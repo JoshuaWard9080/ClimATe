@@ -11,6 +11,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button onePlayerStartButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private TMP_Text totalPointsText;
+    [SerializeField] AudioSource menuMusic;
+    [SerializeField] AudioSource switchButtonAudio;
+    [SerializeField] AudioSource clickButtonAudio;
     public int totalPoints = 0;
 
     //arrary to know which button the user is hovering over with the keyboard
@@ -25,6 +28,14 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
+        //play the audio, loops continuously while the menu is open
+        if (menuMusic != null && !menuMusic.isPlaying)
+        {
+            menuMusic.loop = true;
+            menuMusic.Play();
+            Debug.Log("Main menu music started and set to loop.");
+        }
+
         buttons = new Button[] { onePlayerStartButton, quitButton };
 
         if (onePlayerStartButton != null)
@@ -48,17 +59,20 @@ public class MenuManager : MonoBehaviour
         {
             selectedIndex = (selectedIndex - 1 + buttons.Length) % buttons.Length;
             SelectButton(selectedIndex);
+            switchButtonAudio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
             selectedIndex = (selectedIndex + 1 + buttons.Length) % buttons.Length;
             SelectButton(selectedIndex);
+            switchButtonAudio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             buttons[selectedIndex].onClick.Invoke();
+            clickButtonAudio.Play();
         }
     }
 
@@ -69,6 +83,12 @@ public class MenuManager : MonoBehaviour
 
     private void StartGame()
     {
+        //stop the menu music from playing before switching to main menu
+        if (menuMusic.isPlaying)
+        {
+            menuMusic.Stop();
+        }
+
         Debug.Log("Starting game...");
         SceneManager.LoadScene("Level1");
     }
