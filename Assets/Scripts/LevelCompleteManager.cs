@@ -13,6 +13,7 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] private TMP_Text totalPointsText;
     [SerializeField] AudioSource switchButtonAudio;
     [SerializeField] AudioSource clickButtonAudio;
+    [SerializeField] AudioSource levelCompleteAudio;
     public int totalPoints = 0;
 
     //array to know which button the user is hovering over with the keyboard
@@ -27,6 +28,14 @@ public class LevelCompleteManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //play the audio, loops continuously while the menu is open
+        if (levelCompleteAudio != null && !levelCompleteAudio.isPlaying)
+        {
+            levelCompleteAudio.loop = true;
+            levelCompleteAudio.Play();
+            Debug.Log("Level complete music started and set to loop.");
+        }
+
         //get the player stats from the previous level and update them here
         //probably something like setText("Kill Count: " + playerStats.getKillCount())??? 
 
@@ -93,6 +102,12 @@ public class LevelCompleteManager : MonoBehaviour
 
     private void MainMenu()
     {
+        //stop the menu music from playing before switching to main menu
+        if (levelCompleteAudio.isPlaying)
+        {
+            levelCompleteAudio.Stop();
+        }
+
         Debug.Log("Loading main menu...");
         SceneManager.LoadScene("MainMenu");
     }
