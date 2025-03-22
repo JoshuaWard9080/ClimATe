@@ -5,8 +5,7 @@ public class FuzzyEnemy : MonoBehaviour
 {
     float moveSpeed = 0.003f;
     Vector3 moveVector;
-    float jumpSpeed = 2;
-    Boolean isHurt = true;
+    [SerializeField] Boolean isHurt = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
 
@@ -27,7 +26,19 @@ public class FuzzyEnemy : MonoBehaviour
         moveVector.Normalize();
         if (!GetComponent<Renderer>().isVisible)
         {
-            changeDirection();
+            if (isHurt)
+            {
+                Debug.Log("is hurt and Off screen");
+                isHurt = false;
+                Vector3 otherSideOfTheScreen = this.transform.position;
+                otherSideOfTheScreen.x *= -1;
+                this.transform.position = otherSideOfTheScreen;
+            }
+            else
+            {
+                changeDirection();
+            }
+            
         }
         
         float movementX = moveVector.x * moveSpeed;
@@ -54,10 +65,6 @@ public class FuzzyEnemy : MonoBehaviour
 
     }
 
-    void onHurt()
-    {
-        
-    }
 
 
 }
