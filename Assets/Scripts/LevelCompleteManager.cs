@@ -10,6 +10,8 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitGameButton;
+    [SerializeField] private TMP_Text totalPointsText;
+    public int totalPoints = 0;
 
     //array to know which button the user is hovering over with the keyboard
     private Button[] buttons;
@@ -74,6 +76,8 @@ public class LevelCompleteManager : MonoBehaviour
 
     private void NextLevel()
     {
+        //Probably make an if statement where if the current level is 1 then load 2, if the current level is 2 load 3, etc.
+
         Debug.Log("Loading next level...");
         SceneManager.LoadScene("NextLevel"); //logic for next level needs to be implemented
     }
@@ -95,18 +99,16 @@ public class LevelCompleteManager : MonoBehaviour
 #endif
     }
 
-
-
     public void AddPoints(int amount)
     {
-        //totalPoints += amount;
-        //Debug.Log("Points Updated: " + totalPoints);
+        totalPoints += amount;
+        Debug.Log("Points Updated: " + totalPoints);
 
         UpdatePointsUI();
     }
 
     private void UpdatePointsUI()
     {
-        //totalPointsText.text = "Total Points: " + totalPoints;
+        totalPointsText.text = "Total Points: " + totalPoints;
     }
 }
