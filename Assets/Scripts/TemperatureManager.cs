@@ -63,7 +63,7 @@ public class TemperatureManager : MonoBehaviour
         }
 
         //make the snow pile faster
-        snowSystem.SetSnowSpeed(3f);
+        snowSystem.SetSnowSpeed(0.5f);
 
         //make icicle size larger
         //set icicles to be able to fall
@@ -110,7 +110,7 @@ public class TemperatureManager : MonoBehaviour
         }
 
         //snow pile rises at standard speed
-        snowSystem.SetSnowSpeed(1f);
+        snowSystem.SetSnowSpeed(0.1f);
 
         //icicles fall and regenerate normally
         foreach (var icicle in icicles)
@@ -157,7 +157,7 @@ public class TemperatureManager : MonoBehaviour
         }
 
         //make the snow pile at a slower pace
-        snowSystem.SetSnowSpeed(0.5f);
+        snowSystem.SetSnowSpeed(0.05f);
 
         //make icicles smaller but they fall and regenerate quickly
         foreach (var icicle in icicles)
