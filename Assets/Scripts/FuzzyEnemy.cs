@@ -61,16 +61,19 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += (moveVector/4);
+        this.transform.position += (moveVector/6);
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player"
-            && collision.gameObject.transform.position.y > this.transform.position.y)
+            && collision.gameObject.transform.position.y > this.transform.position.y+0.3)
         {
             isHurt = true;
+        }else if (collision.gameObject.tag == "Enemy")
+        {
+            changeDirection();
         }
     }
 
