@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - Moving_Platform
+  - Block
   layers:
   - Default
   - TransparentFX
