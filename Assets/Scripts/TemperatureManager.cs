@@ -6,7 +6,7 @@ public class TemperatureManager : MonoBehaviour
     public TemperatureState currTemp;
 
     //initialize player, platforms, winds, snow pile, icicles, Topi (enemies), and Nitpickers (enemies)
-    [SerializeField] private PlayerController player;
+    //[SerializeField] private PlayerController player;
     [SerializeField] private List<Icicle> icicles; //icicles
     [SerializeField] private List<Wind> winds; //winds
     [SerializeField] private List<CrackingPlatform> crackingPlatforms; //platforms
@@ -45,7 +45,7 @@ public class TemperatureManager : MonoBehaviour
     void ApplyFreezingTemp()
     {
         //make the player speed slower
-        player.SetMoveSpeed(0.5f);
+        //player.SetMoveSpeed(0.5f);
 
         //make platforms crack (then break) faster
         foreach (var cp in crackingPlatforms)
@@ -91,7 +91,7 @@ public class TemperatureManager : MonoBehaviour
     void ApplyColdTemp()
     {
         //player speed remains the same, so standard speed
-        player.SetMoveSpeed(1f);
+        //player.SetMoveSpeed(1f);
 
         //make platforms crack (then break) at standard speed
         foreach (var cp in crackingPlatforms)
@@ -138,7 +138,7 @@ public class TemperatureManager : MonoBehaviour
     void ApplyWarmTemp()
     {
         //make the player speed faster
-        player.SetMoveSpeed(3f);
+        //player.SetMoveSpeed(3f);
 
         //make platforms crack AND melt faster
         foreach (var cp in crackingPlatforms)

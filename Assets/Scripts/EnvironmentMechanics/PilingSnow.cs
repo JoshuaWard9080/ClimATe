@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class PilingSnow : MonoBehaviour
 {
-    public void SetSnowSpeed(float snowSpeed)
+    [SerializeField] private float snowSpeed = 1f;
+
+    void Update()
     {
-        Debug.Log("Snow piling speed set to: " + snowSpeed);
+        transform.position += Vector3.up * snowSpeed * Time.deltaTime;
+    }
+
+    public void SetSnowSpeed(float newSnowSpeed)
+    {
+        snowSpeed = newSnowSpeed;
+        Debug.Log("Snow piling speed set to: " + newSnowSpeed);
     }
 }
