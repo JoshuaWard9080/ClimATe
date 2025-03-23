@@ -47,7 +47,11 @@ public class Level_Colour_Swap : MonoBehaviour
 
     void changeColour(Transform transform,Color colour)
     {
-        transform.GetComponent<Renderer>().material.color = colour;
+        Renderer renderer = transform.GetComponent<Renderer>();
+        if (renderer != null) 
+        { 
+            renderer.material.color = colour; 
+        }
     }
     // Update is called once per frame
     void Update()
