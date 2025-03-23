@@ -17,7 +17,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (!GetComponent<Renderer>().isVisible)
         {//if the object is invisible, flip it's ovement direction
-            Debug.Log("Object is now invisible");
+            
             moveVector *= -1;
         }
         else
