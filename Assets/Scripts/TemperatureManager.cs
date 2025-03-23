@@ -16,7 +16,7 @@ public class TemperatureManager : MonoBehaviour
     //second enemy
     //[SerializeField] private List<> ;
 
-    [SerializeField] private SnowSystem snowSystem; //snow storm
+    [SerializeField] private PilingSnow snowSystem; //snow storm
 
     public void setTemp(TemperatureState newTemp)
     {
@@ -81,11 +81,11 @@ public class TemperatureManager : MonoBehaviour
         }
 
         //set second enemy to not fly, only waddle along walls
-        foreach (var secondEnemy in secondEnemies)
-        {
-            secondEnemy.FliesInCircle(false);
-            secondEnemy.Waddle(true);
-        }
+        // foreach (var secondEnemy in secondEnemies)
+        // {
+        //     secondEnemy.FliesInCircle(false);
+        //     secondEnemy.Waddle(true);
+        // }
     }
 
     void ApplyColdTemp()
@@ -127,12 +127,12 @@ public class TemperatureManager : MonoBehaviour
         }
 
         //set second enemy to fly in straight lines
-        foreach (var secondEnemy in secondEnemies)
-        {
-            secondEnemy.FliesInLine(true);
-            secondEnemy.FliesInCircle(false);
-            secondEnemy.Waddle(false);
-        }
+        // foreach (var secondEnemy in secondEnemies)
+        // {
+        //     secondEnemy.FliesInLine(true);
+        //     secondEnemy.FliesInCircle(false);
+        //     secondEnemy.Waddle(false);
+        // }
     }
 
     void ApplyWarmTemp()
@@ -174,11 +174,11 @@ public class TemperatureManager : MonoBehaviour
         }
 
         //set second enemy to fly in circles
-        foreach (var secondEnemy in secondEnemies)
-        {
-            secondEnemy.FliesInLine(false);
-            secondEnemy.FliesInCircle(true);
-            secondEnemy.Waddle(false);
-        }
+        // foreach (var secondEnemy in secondEnemies)
+        // {
+        //     secondEnemy.FliesInLine(false);
+        //     secondEnemy.FliesInCircle(true);
+        //     secondEnemy.Waddle(false);
+        // }
     }
 }

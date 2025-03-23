@@ -65,6 +65,8 @@ public class FuzzyEnemy : MonoBehaviour
 
     }
 
-
-
+    public void PushBlocks(bool canPush)
+    {
+        Debug.Log("Fuzzy enemy can push blocks: " + canPush);
+    }
 }
