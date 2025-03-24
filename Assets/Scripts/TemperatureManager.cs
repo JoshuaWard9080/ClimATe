@@ -10,7 +10,6 @@ public class TemperatureManager : MonoBehaviour
     [SerializeField] private List<Icicle> icicles; //icicles
     [SerializeField] private List<Wind> winds; //winds
     [SerializeField] private List<CrackingPlatform> crackingPlatforms; //platforms
-
     [SerializeField] private List<FuzzyEnemy> fuzzyEnemies; //fuzzy enemies
 
     //second enemy
