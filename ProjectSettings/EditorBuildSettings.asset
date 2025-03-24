@@ -17,12 +17,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testScene1.unity
     guid: 63ef92e0a0dc56945b39c25c490ec129
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EnemyTestingScene.unity
     guid: cef032e361672e14f9c8e90977b9e341
   - enabled: 1
     path: Assets/Scenes/testPilingSnow.unity
     guid: aa4ad03d117a1714f9aaadc5cfb989db
+  - enabled: 1
+    path: Assets/Scenes/Level_0.unity
+    guid: 14acff6d350c6a24491dee1786611592
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
