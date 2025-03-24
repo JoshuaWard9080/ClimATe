@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FuzzyEnemy : MonoBehaviour
@@ -24,11 +25,23 @@ public class FuzzyEnemy : MonoBehaviour
     void move(Vector3 moveVector)
     {
         moveVector.Normalize();
-        if (!GetComponent<Renderer>().isVisible)
+        if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
+        {
+            manageOffScreen();
+        }
+        if (!checkIfGoingToFallOffEdge())
+        {
+            changeDirection();
+        }
+        float movementX = moveVector.x * moveSpeed;
+        this.transform.position += new Vector3(movementX, 0, 0);
+    }
+    void manageOffScreen()
+    {
+        if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
         {
             if (isHurt)
             {
-                Debug.Log("is hurt and Off screen");
                 isHurt = false;
                 Vector3 otherSideOfTheScreen = this.transform.position;
                 otherSideOfTheScreen.x *= -1;
@@ -38,16 +51,19 @@ public class FuzzyEnemy : MonoBehaviour
             {
                 changeDirection();
             }
-            
+
         }
-        
-        float movementX = moveVector.x * moveSpeed;
-        this.transform.position += new Vector3(movementX, 0, 0);
-
-        
-        //this.transform.position += moveVector;
-        
-
+    }
+    Boolean checkIfGoingToFallOffEdge()
+    {
+        float direction = moveVector.x;
+        Vector2 raycastStart =
+            new Vector2(this.transform.position.x+(direction*0.3f), this.transform.position.y-0.2f);
+        Vector2 raycastDirection = transform.TransformDirection(Vector2.down);
+        float maxDistance = 0.2f;
+        Debug.DrawRay(raycastStart, raycastDirection* maxDistance);
+        RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
+        return hit;
     }
     void changeDirection()
     {
@@ -61,7 +77,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += (moveVector/4);
+        this.transform.position += (moveVector/6);
 
     }
 
@@ -72,9 +88,12 @@ public class FuzzyEnemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player"
-            && collision.gameObject.transform.position.y > this.transform.position.y)
+            && collision.gameObject.transform.position.y > this.transform.position.y+0.3)
         {
             isHurt = true;
+        }else if (collision.gameObject.tag == "Enemy")
+        {
+            changeDirection();
         }
     }
 
