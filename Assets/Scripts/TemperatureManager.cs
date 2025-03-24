@@ -69,7 +69,6 @@ public class TemperatureManager : MonoBehaviour
         //set icicles to be able to fall
         foreach (var icicle in icicles)
         {
-            icicle.SetSize(3f);
             icicle.CanFall(true);
             icicle.RegenerateSpeed(5f);
             icicle.SetFallCooldown(5f);
@@ -116,7 +115,6 @@ public class TemperatureManager : MonoBehaviour
         //icicles fall and regenerate normally
         foreach (var icicle in icicles)
         {
-            icicle.SetSize(1f);
             icicle.CanFall(true);
             icicle.RegenerateSpeed(1f);
             icicle.SetFallCooldown(1f);
@@ -164,7 +162,6 @@ public class TemperatureManager : MonoBehaviour
         //make icicles smaller but they fall and regenerate quickly
         foreach (var icicle in icicles)
         {
-            icicle.SetSize(0.8f);
             icicle.CanFall(true);
             icicle.RegenerateSpeed(3f);
             icicle.SetFallCooldown(0.5f);
