@@ -45,7 +45,15 @@ public class CrackingPlatform : MonoBehaviour
         isBroken = true;
         spriteRenderer.color = brokenColor;
         col2D.enabled = false;
+
+        Invoke(nameof(DisableRenderer), 0.25f); 
+
         Debug.Log("Platform has broken.");
+    }
+
+    private void DisableRenderer()
+    {
+        spriteRenderer.enabled = false;
     }
 
     public void SetCrackSpeed(float newCrackSpeed)
