@@ -65,6 +65,10 @@ public class FuzzyEnemy : MonoBehaviour
 
     }
 
+    public void PushBlocks(bool canPush)
+    {
+        Debug.Log("Fuzzy enemy can push blocks: " + canPush);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player"
