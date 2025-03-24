@@ -2,13 +2,80 @@ using UnityEngine;
 
 public class CrackingPlatform : MonoBehaviour
 {
-    public void SetCrackSpeed(float crackSpeed)
+    [SerializeField] private float crackSpeed;
+    [SerializeField] private float meltSpeed;
+    [SerializeField] private Color baseColor = Color.white;
+    [SerializeField] private Color crackedColor = Color.yellow;
+    [SerializeField] private Color brokenColor = Color.red;
+
+    private SpriteRenderer spriteRenderer;
+    private Collider2D col2D;
+    private bool isPlayerOn = false;
+    private float timer = 0f;
+    private bool isBroken = false;
+
+    void Start()
     {
-        Debug.Log("CrackingPlatform crack speed set to: " + crackSpeed);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        col2D = GetComponent<Collider2D>();
+        spriteRenderer.color = baseColor;
     }
 
-    public void SetMeltSpeed(float meltSpeed)
+    void Update()
     {
-        Debug.Log("CrackingPlatform melt speed set to: " + meltSpeed);
+        if (isBroken || !isPlayerOn)
+        {
+            return;
+        }
+
+        timer += Time.deltaTime * (1 + meltSpeed);
+
+        if (timer >= crackSpeed)
+        {
+            BreakPlatform();
+        }
+        else if (timer >= crackSpeed / 2f)
+        {
+            spriteRenderer.color = crackedColor;
+        }
+    }
+
+    private void BreakPlatform()
+    {
+        isBroken = true;
+        spriteRenderer.color = brokenColor;
+        col2D.enabled = false;
+        Debug.Log("Platform has broken.");
+    }
+
+    public void SetCrackSpeed(float newCrackSpeed)
+    {
+        crackSpeed = newCrackSpeed;
+        Debug.Log("CrackingPlatform crack speed set to: " + newCrackSpeed);
+    }
+
+    public void SetMeltSpeed(float newMeltSpeed)
+    {
+        meltSpeed = newMeltSpeed;
+        Debug.Log("CrackingPlatform melt speed set to: " + newMeltSpeed);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            isPlayerOn = true;
+            Debug.Log("Player stepped on cracking platform.");
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            isPlayerOn = false;
+            timer = 0f;
+            Debug.Log("Player stepped off cracking platform.");
+        }
     }
 }
