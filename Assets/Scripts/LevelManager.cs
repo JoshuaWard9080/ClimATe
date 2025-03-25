@@ -90,8 +90,20 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
-        LevelTracker.Instance.currentLevelScene = SceneManager.GetActiveScene().name;
-        LevelTracker.Instance.nextLevelScene = nextLevelSceneName;
+        string current = SceneManager.GetActiveScene().name;
+        string next = "";
+
+        // Manually define next level logic
+        if (current == "Level_1") next = "Level_2";
+        else if (current == "Level_2") next = "Level_3";
+        else if (current == "Level_3") next = "Level_4";
+        else next = "MainMenu";
+
+        LevelTracker.Instance.currentLevelScene = current;
+        LevelTracker.Instance.nextLevelScene = next;
+
+        Debug.Log("Set current to: " + current);
+        Debug.Log("Set next to: " + next);
 
         SceneManager.LoadScene("LevelComplete");
     }

@@ -45,6 +45,18 @@ public class MenuManager : MonoBehaviour
         }
 
         Debug.Log("Starting game...");
+
+        if (LevelTracker.Instance != null)
+{
+            LevelTracker.Instance.currentLevelScene = "Level_1";
+            LevelTracker.Instance.nextLevelScene = "Level_2";
+            Debug.Log("LevelTracker initialized.");
+        }
+        else
+        {
+            Debug.LogError("LevelTracker is null! Is it in the MainMenu scene?");
+        }
+
         SceneManager.LoadScene("Level_1");
     }
 

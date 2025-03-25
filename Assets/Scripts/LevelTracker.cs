@@ -5,8 +5,8 @@ public class LevelTracker : MonoBehaviour
 {
     public static LevelTracker Instance;
 
-    public string currentLevelScene;
-    public string nextLevelScene;
+    [HideInInspector] public string currentLevelScene;
+    [HideInInspector] public string nextLevelScene;
 
     void Awake()
     {
