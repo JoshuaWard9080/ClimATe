@@ -4,13 +4,66 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private string nextLevelSceneName;
-    [SerializeField] private GameObject levelFailedPanel;
+    [SerializeField] private GameObject escapeMenuPanel;
+    [SerializeField] private GameObject quitConfirmationPopup;
+    private bool isPaused = false;
 
     void Start()
     {
-        if (levelFailedPanel != null)
+        if (escapeMenuPanel != null)
         {
-            levelFailedPanel.SetActive(false);
+            escapeMenuPanel.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleEscapeMenu();
+        }
+    }
+
+    public void ToggleEscapeMenu()
+    {
+        isPaused = !isPaused;
+
+        if (escapeMenuPanel != null)
+        {
+            escapeMenuPanel.SetActive(isPaused);
+        }
+
+        Time.timeScale = isPaused ? 0f : 1f;
+
+
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        escapeMenuPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void LoadMainMenu()
+    {
+        if (quitConfirmationPopup != null)
+        {
+            quitConfirmationPopup.SetActive(true);
+        }
+    }
+
+    public void ConfirmQuitToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void CancleQuitToMainMenu()
+    {
+        if (quitConfirmationPopup != null)
+        {
+            quitConfirmationPopup.SetActive(false);
         }
     }
 
@@ -24,9 +77,9 @@ public class LevelManager : MonoBehaviour
 
     public void FailLevel()
     {
-        if (levelFailedPanel != null)
+        if (escapeMenuPanel != null)
         {
-            levelFailedPanel.SetActive(true);
+            escapeMenuPanel.SetActive(true);
             Time.timeScale = 0f;
         }
     }
@@ -35,11 +88,5 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void LoadEscapeMenu()
-    {
-        //load escape menu
-
     }
 }
