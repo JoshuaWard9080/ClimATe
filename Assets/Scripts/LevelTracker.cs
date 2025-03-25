@@ -21,22 +21,4 @@ public class LevelTracker : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void SetCurrentLevel(string sceneName)
-    {
-        currentLevelScene = sceneName;
-
-        if (sceneName == "Level_1")
-        {
-            nextLevelScene = "Level_2";
-        }
-        else if (sceneName == "Level_2")
-        {
-            nextLevelScene = "Level_3";
-        }
-        else
-        {
-            nextLevelScene = "Level_4";
-        }
-    }
 }

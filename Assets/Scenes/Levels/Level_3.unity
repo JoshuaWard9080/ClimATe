@@ -1991,8 +1991,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 729516258}
+  - component: {fileID: 729516259}
   m_Layer: 0
-  m_Name: CurrentLevelManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2013,6 +2014,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &729516259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729516256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608d8e138b94c342bc05cfa5bd32672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelSceneName: Level_4
+  escapeMenuPanel: {fileID: 149857294}
+  quitConfirmationPopup: {fileID: 212531280}
 --- !u!1 &734482657
 GameObject:
   m_ObjectHideFlags: 0

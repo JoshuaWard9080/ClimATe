@@ -3564,8 +3564,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044415407}
+  - component: {fileID: 1044415408}
   m_Layer: 0
-  m_Name: CurrentLevelManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3586,6 +3587,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044415408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044415405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608d8e138b94c342bc05cfa5bd32672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelSceneName: Level_3
+  escapeMenuPanel: {fileID: 1734836424}
+  quitConfirmationPopup: {fileID: 2098587046}
 --- !u!1 &1050424657
 GameObject:
   m_ObjectHideFlags: 0
