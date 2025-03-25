@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,7 +7,23 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string nextLevelSceneName;
     [SerializeField] private GameObject escapeMenuPanel;
     [SerializeField] private GameObject quitConfirmationPopup;
+    public static LevelManager Instance;
     private bool isPaused = false;
+    [SerializeField] private Animator transitionAnimator;
+    [SerializeField] private float transitionTime = 2f;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -93,5 +110,24 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LevelCompleteTransition()
+    {
+        Time.timeScale = 0f;
+        StartCoroutine(PlayLevelCompleteSequence());
+    }
+
+    private IEnumerator PlayLevelCompleteSequence()
+    {
+        if (transitionAnimator != null)
+        {
+            transitionAnimator.SetTrigger("SlideUp");
+        }
+
+        yield return new WaitForSecondsRealtime(transitionTime);
+
+        Time.timeScale = 1f;
+        CompleteLevel();
     }
 }
