@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Bird_Enemy : MonoBehaviour
 {
-    float moveSpeed = 0.010f;
+    float moveSpeed = 0.08f;
     public int moveTime = 100;
     public Vector3 moveVector;
     float boundX;
     [SerializeField] Boolean isHurt = false;
+    private Boolean isOnScreenEdge = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
 
@@ -21,7 +22,11 @@ public class Bird_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveBasedOnTemperature("warm");
+        if (this.transform.position.x > boundX || this.transform.position.x < -boundX)
+        {
+            isOnScreenEdge = true;
+        }
+        moveBasedOnTemperature("cold");
     }
 
     void flipSprite()
@@ -29,14 +34,22 @@ public class Bird_Enemy : MonoBehaviour
 
     }
 
-    Vector3 chooseFlyDirection()
+    Vector3 chooseFlyDirectionWarm()
     {
-        
         float theta = UnityEngine.Random.Range(0, 2*3.14159f);
-        float dirX = (float)Math.Cos(theta);
+        float dirX = (float)(2*Math.Cos(theta));
         float dirY = (float)Math.Sin(theta);
         
         moveTime = (int)Math.Abs((UnityEngine.Random.Range(100, 800)*dirX));
+        return new Vector3(dirX, dirY, 0);
+    }
+
+    Vector3 chooseFlyDirectionCold()
+    {
+        float theta = UnityEngine.Random.Range((float)-(Math.PI/8),(float)Math.PI/8);
+        float dirX = 30;
+        float dirY = (float)Math.Sin(theta);
+
         return new Vector3(dirX, dirY, 0);
     }
 
@@ -54,16 +67,16 @@ public class Bird_Enemy : MonoBehaviour
 
     void moveWarm()
     {
-        if (this.transform.position.x > boundX || this.transform.position.x < -boundX)
+        if (isOnScreenEdge)
         {
             float oppositeDirX = -(moveVector.x);
-            moveVector = chooseFlyDirection();
+            moveVector = chooseFlyDirectionWarm();
             moveVector.x = oppositeDirX;
-
+            isOnScreenEdge = false;
         }
         if (moveTime <= 0)
         {
-            moveVector = chooseFlyDirection();
+            moveVector = chooseFlyDirectionWarm();
         }
         moveTime--;
         this.transform.position += moveVector * moveSpeed;
@@ -72,7 +85,14 @@ public class Bird_Enemy : MonoBehaviour
 
     void moveCold()
     {
-
+        if (isOnScreenEdge)
+        {
+            float oppositeDirX = -(moveVector.x);
+            moveVector = chooseFlyDirectionCold();
+            moveVector.x = oppositeDirX;
+            isOnScreenEdge = false;
+        }
+        this.transform.position += moveVector * moveSpeed;
     }
 
     void moveFreezing()
