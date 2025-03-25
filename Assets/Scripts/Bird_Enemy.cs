@@ -44,7 +44,7 @@ public class Bird_Enemy : MonoBehaviour
 
     void onTempChangeToFreezing()
     {
-        moveSpeed = 0.01f;
+        moveSpeed = 0.005f;
         moveVector = new Vector3(1, 0, 0);
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
@@ -127,9 +127,10 @@ public class Bird_Enemy : MonoBehaviour
     {
         if (isOnScreenEdge)
         {
+            moveVector *= -1;
             flipSprite(moveVector.x);
+            isOnScreenEdge = false;
         }
-        float movementX = moveVector.x * moveSpeed;
-        this.transform.position += new Vector3(movementX, 0, 0);
+        this.transform.position += moveVector * moveSpeed;
     }
 }
