@@ -1,9 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,10 +8,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button onePlayerStartButton;
     [SerializeField] private Button quitButton;
     [SerializeField] AudioSource menuMusic;
-
-    //arrary to know which button the user is hovering over with the keyboard
-    private Button[] buttons;
-    private int selectedIndex = 0;
 
     private void Awake()
     {
@@ -32,8 +25,6 @@ public class MenuManager : MonoBehaviour
             Debug.Log("Main menu music started and set to loop.");
         }
 
-        buttons = new Button[] { onePlayerStartButton, quitButton };
-
         if (onePlayerStartButton != null)
         {
             onePlayerStartButton.onClick.AddListener(StartGame);
@@ -43,13 +34,6 @@ public class MenuManager : MonoBehaviour
         {
             quitButton.onClick.AddListener(QuitGame);
         }
-
-        SelectButton(selectedIndex);
-    }
-
-    private void SelectButton(int index)
-    {
-        EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
     public void StartGame()

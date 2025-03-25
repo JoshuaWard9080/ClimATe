@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
 
 public class LevelCompleteManager : MonoBehaviour
@@ -15,10 +14,6 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] AudioSource clickButtonAudio;
     [SerializeField] AudioSource levelCompleteAudio;
     public int totalPoints = 0;
-
-    //array to know which button the user is hovering over with the keyboard
-    private Button[] buttons;
-    private int selectedIndex = 0;
 
     private void Awake()
     {
@@ -37,10 +32,8 @@ public class LevelCompleteManager : MonoBehaviour
         }
 
         //get the player stats from the previous level and update them here
-        //probably something like setText("Kill Count: " + playerStats.getKillCount())??? 
+        //probably something like setText("Kill Count: " + playerStats.getKillCount())
 
-
-        buttons = new Button[] { nextLevelButton, mainMenuButton, quitGameButton };
 
         if (nextLevelButton != null)
         {
@@ -58,38 +51,7 @@ public class LevelCompleteManager : MonoBehaviour
             quitGameButton.onClick.AddListener(QuitGame);
         }
 
-        SelectButton(selectedIndex);
-
         UpdatePointsUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            selectedIndex = (selectedIndex - 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            selectedIndex = (selectedIndex + 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-        {
-            buttons[selectedIndex].onClick.Invoke();
-            clickButtonAudio.Play();
-        }
-    }
-
-    private void SelectButton(int index)
-    {
-        EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
     public void NextLevel()
