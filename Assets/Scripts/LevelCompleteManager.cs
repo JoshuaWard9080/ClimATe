@@ -92,7 +92,7 @@ public class LevelCompleteManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
-    private void NextLevel()
+    public void NextLevel()
     {
         //Probably make an if statement where if the current level is 1 then load 2, if the current level is 2 load 3, etc.
 
@@ -102,7 +102,7 @@ public class LevelCompleteManager : MonoBehaviour
         SceneManager.LoadScene(LevelTracker.Instance.nextLevelScene);
     }
 
-    private void MainMenu()
+    public void MainMenu()
     {
         //stop the menu music from playing before switching to main menu
         if (levelCompleteAudio.isPlaying)
@@ -114,7 +114,7 @@ public class LevelCompleteManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Debug.Log("Quitting game...");
 

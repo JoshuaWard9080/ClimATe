@@ -994,7 +994,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 437988126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1203337431}
+        m_TargetAssemblyTypeName: LevelCompleteManager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &437988126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,7 +1567,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 645952188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1203337431}
+        m_TargetAssemblyTypeName: LevelCompleteManager, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &645952188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2108,7 +2132,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 826240019}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1203337431}
+        m_TargetAssemblyTypeName: LevelCompleteManager, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &826240019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2453,6 +2489,7 @@ GameObject:
   - component: {fileID: 1203337432}
   - component: {fileID: 1203337431}
   - component: {fileID: 1203337433}
+  - component: {fileID: 1203337434}
   m_Layer: 0
   m_Name: LevelCompleteManager
   m_TagString: Untagged
@@ -2515,6 +2552,24 @@ MonoBehaviour:
   timeBetweenCharacters: 0.1
   timeBetweenTexts: 0.3
   typingAudio: {fileID: 1996199906}
+--- !u!114 &1203337434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203337430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae21d363e51ebe45b25a47b26390437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 645952187}
+  - {fileID: 826240018}
+  - {fileID: 437988125}
+  switchButtonAudio: {fileID: 1398818255}
+  clickButtonAudio: {fileID: 1725165917}
 --- !u!1 &1398818254
 GameObject:
   m_ObjectHideFlags: 0
