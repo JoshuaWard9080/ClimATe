@@ -61,7 +61,7 @@ public class MenuManager : MonoBehaviour
         }
 
         Debug.Log("Starting game...");
-        SceneManager.LoadScene("testPilingSnow");
+        SceneManager.LoadScene("Level_1");
     }
 
     public void QuitGame()
