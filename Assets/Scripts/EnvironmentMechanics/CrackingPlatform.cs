@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CrackingPlatform : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] private float crackSpeed;
     [SerializeField] private float meltSpeed;
     [SerializeField] private Color baseColor = Color.white;
@@ -10,19 +11,23 @@ public class CrackingPlatform : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Collider2D col2D;
-    private bool isPlayerOn = false;
+    public bool isPlayerOn = false;
     private float timer = 0f;
     private bool isBroken = false;
 
+
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         col2D = GetComponent<Collider2D>();
         spriteRenderer.color = baseColor;
     }
 
     void Update()
     {
+        animator.SetBool("isPlayerOn", isPlayerOn);
+        animator.SetFloat("AnimSpeed", crackSpeed);
+
         if (isBroken || !isPlayerOn)
         {
             return;

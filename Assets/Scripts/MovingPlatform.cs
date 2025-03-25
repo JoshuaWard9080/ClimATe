@@ -9,16 +9,17 @@ public class MovingPlatform : MonoBehaviour
     public float moveSpeed;
     Boolean playerOnPlatform = false;
     Vector2 previousPosition;
+    Renderer sprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        sprite = transform.GetChild(0).GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponent<Renderer>().isVisible)
+        if (!sprite.isVisible)
         {//if the object is invisible, flip it's ovement direction
 
             currentPosition *= -1;
