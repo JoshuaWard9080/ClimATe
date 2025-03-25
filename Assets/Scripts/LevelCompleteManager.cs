@@ -97,7 +97,9 @@ public class LevelCompleteManager : MonoBehaviour
         //Probably make an if statement where if the current level is 1 then load 2, if the current level is 2 load 3, etc.
 
         Debug.Log("Loading next level...");
-        SceneManager.LoadScene("NextLevel"); //logic for next level needs to be implemented
+
+        //uses the LevelTracker to figure out which level is next
+        SceneManager.LoadScene(LevelTracker.Instance.nextLevelScene);
     }
 
     private void MainMenu()
