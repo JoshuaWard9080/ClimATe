@@ -14,18 +14,19 @@ public class FadeTrigger : MonoBehaviour
         {
             Debug.Log("Fading...");
 
-            //gets the CloudFadeUI object, calls the Fade function, then loads the target scene, in this case LevelComplete
             var fade = FindObjectOfType<CloudFadeUI>();
-            fade.FadeIn(() =>
+            if (fade != null)
             {
-                Debug.Log("Loading scene now...");
-
-                SceneLoader.Instance.LoadScene(targetSceneName);
-            });
-        }
-        else
-        {
-            Debug.LogWarning("CloudFadeUI not found");
+                fade.FadeIn(() =>
+                {
+                    Debug.Log("Calling CompleteLevel via FadeTrigger...");
+                    LevelManager.Instance.CompleteLevel();
+                });
+            }
+            else
+            {
+                Debug.LogWarning("CloudFadeUI not found");
+            }
         }
     }
 }
