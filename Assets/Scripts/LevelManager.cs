@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Escape pressed, loading escape menu...");
             ToggleEscapeMenu();
         }
     }
@@ -34,8 +35,6 @@ public class LevelManager : MonoBehaviour
         }
 
         Time.timeScale = isPaused ? 0f : 1f;
-
-
     }
 
     public void ResumeGame()
@@ -50,6 +49,7 @@ public class LevelManager : MonoBehaviour
         if (quitConfirmationPopup != null)
         {
             quitConfirmationPopup.SetActive(true);
+            escapeMenuPanel.SetActive(false);
         }
     }
 

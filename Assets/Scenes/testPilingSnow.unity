@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 361188553}
   - component: {fileID: 361188552}
   - component: {fileID: 361188551}
+  - component: {fileID: 361188555}
   m_Layer: 5
   m_Name: QuitConfirmationPopup
   m_TagString: Untagged
@@ -367,13 +368,13 @@ RectTransform:
   m_GameObject: {fileID: 361188549}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1.1999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1111403158}
   - {fileID: 1780375131}
   - {fileID: 1287972219}
-  m_Father: {fileID: 1346768371}
+  m_Father: {fileID: 1999478456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -448,6 +449,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361188549}
   m_CullTransparentMesh: 1
+--- !u!114 &361188555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361188549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae21d363e51ebe45b25a47b26390437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1780375133}
+  - {fileID: 1287972221}
+  switchButtonAudio: {fileID: 0}
+  clickButtonAudio: {fileID: 0}
 --- !u!1 &417892884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1035,7 @@ GameObject:
   - component: {fileID: 1013191987}
   - component: {fileID: 1013191986}
   m_Layer: 5
-  m_Name: MainMenuButton (2)
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1954,6 +1972,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325231024}
   m_CullTransparentMesh: 1
+--- !u!1 &1325358112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1325358114}
+  - component: {fileID: 1325358113}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1325358113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325358112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608d8e138b94c342bc05cfa5bd32672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelSceneName: Level_0
+  escapeMenuPanel: {fileID: 1346768370}
+  quitConfirmationPopup: {fileID: 361188549}
+--- !u!4 &1325358114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325358112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 647.2732, y: 410.89435, z: -8.992109}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1346768370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,6 +2032,7 @@ GameObject:
   - component: {fileID: 1346768374}
   - component: {fileID: 1346768373}
   - component: {fileID: 1346768372}
+  - component: {fileID: 1346768376}
   m_Layer: 5
   m_Name: EscapeMenuPanel
   m_TagString: Untagged
@@ -1991,7 +2057,6 @@ RectTransform:
   - {fileID: 1467428182}
   - {fileID: 1013191985}
   - {fileID: 1138861858}
-  - {fileID: 361188550}
   m_Father: {fileID: 1999478456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2067,6 +2132,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346768370}
   m_CullTransparentMesh: 1
+--- !u!114 &1346768376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346768370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae21d363e51ebe45b25a47b26390437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1467428184}
+  - {fileID: 1013191987}
+  - {fileID: 1138861860}
+  switchButtonAudio: {fileID: 0}
+  clickButtonAudio: {fileID: 0}
 --- !u!1 &1467428181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2164,7 @@ GameObject:
   - component: {fileID: 1467428184}
   - component: {fileID: 1467428183}
   m_Layer: 5
-  m_Name: MainMenuButton (1)
+  m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8042,6 +8125,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1346768371}
+  - {fileID: 361188550}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8524,3 +8608,4 @@ SceneRoots:
   - {fileID: 1243009991}
   - {fileID: 1999478456}
   - {fileID: 1255929017}
+  - {fileID: 1325358114}
