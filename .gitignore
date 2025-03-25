@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Ignore Joshua's testing scene
+/Assets/Scenes/Joshua's Test Scene.unity
+/Assets/Scenes/Joshua's Test Scene.unity.meta

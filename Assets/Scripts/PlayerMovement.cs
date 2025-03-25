@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Rigidbody2D rb;
     [SerializeField] private InputManager inputManager;
 
-    [SerializeField] private int playerSpeed;
+    [Header("Movement")]
+    [SerializeField] private float playerSpeed;
+    [SerializeField] private float maxAirSpeed;
+    
 
     Vector2 moveDir;
-    Rigidbody2D rb;
+    
 
     void Start()
     {

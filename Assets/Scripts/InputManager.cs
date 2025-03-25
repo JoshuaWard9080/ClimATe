@@ -22,9 +22,9 @@ public class InputManager : MonoBehaviour
     {
         Vector2 inputVector = new Vector2();
 
-        if (Input.GetKeyDown(playerOneLeft))
+        if (Input.GetKey(playerOneLeft))
             inputVector += Vector2.left;
-        if (Input.GetKeyDown(playerOneRight))
+        if (Input.GetKey(playerOneRight))
             inputVector += Vector2.right;
 
         playerOneOnMove?.Invoke(inputVector);
