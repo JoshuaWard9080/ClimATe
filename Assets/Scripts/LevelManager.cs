@@ -7,11 +7,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string nextLevelSceneName;
     [SerializeField] private GameObject escapeMenuPanel;
     [SerializeField] private GameObject quitConfirmationPopup;
-    [SerializeField] private GameObject levelCompleteTransitionCanvas;
+
     public static LevelManager Instance;
     private bool isPaused = false;
-    [SerializeField] private Animator transitionAnimator;
-    [SerializeField] private float transitionTime = 2f;
 
     void Awake()
     {
@@ -31,11 +29,6 @@ public class LevelManager : MonoBehaviour
         if (escapeMenuPanel != null)
         {
             escapeMenuPanel.SetActive(false);
-        }
-
-        if (levelCompleteTransitionCanvas != null)
-        {
-            levelCompleteTransitionCanvas.SetActive(false);
         }
     }
 
@@ -116,29 +109,5 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void LevelCompleteTransition()
-    {
-        if (levelCompleteTransitionCanvas != null)
-        {
-            levelCompleteTransitionCanvas.SetActive(true);
-        }
-
-        Time.timeScale = 0f;
-        StartCoroutine(PlayLevelCompleteSequence());
-    }
-
-    private IEnumerator PlayLevelCompleteSequence()
-    {
-        if (transitionAnimator != null)
-        {
-            transitionAnimator.SetTrigger("SlideUp");
-        }
-
-        yield return new WaitForSecondsRealtime(transitionTime);
-
-        Time.timeScale = 1f;
-        CompleteLevel();
     }
 }
