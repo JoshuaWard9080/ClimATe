@@ -1,24 +1,13 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private Button onePlayerStartButton;
     [SerializeField] private Button quitButton;
-    [SerializeField] private TMP_Text totalPointsText;
     [SerializeField] AudioSource menuMusic;
-    [SerializeField] AudioSource switchButtonAudio;
-    [SerializeField] AudioSource clickButtonAudio;
-    public int totalPoints = 0;
-
-    //arrary to know which button the user is hovering over with the keyboard
-    private Button[] buttons;
-    private int selectedIndex = 0;
 
     private void Awake()
     {
@@ -36,8 +25,6 @@ public class MenuManager : MonoBehaviour
             Debug.Log("Main menu music started and set to loop.");
         }
 
-        buttons = new Button[] { onePlayerStartButton, quitButton };
-
         if (onePlayerStartButton != null)
         {
             onePlayerStartButton.onClick.AddListener(StartGame);
@@ -47,41 +34,9 @@ public class MenuManager : MonoBehaviour
         {
             quitButton.onClick.AddListener(QuitGame);
         }
-
-        SelectButton(selectedIndex);
-
-        UpdatePointsUI();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            selectedIndex = (selectedIndex - 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            selectedIndex = (selectedIndex + 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-        {
-            buttons[selectedIndex].onClick.Invoke();
-            clickButtonAudio.Play();
-        }
-    }
-
-    private void SelectButton(int index)
-    {
-        EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
-    }
-
-    private void StartGame()
+    public void StartGame()
     {
         //stop the menu music from playing before switching to main menu
         if (menuMusic.isPlaying)
@@ -90,10 +45,22 @@ public class MenuManager : MonoBehaviour
         }
 
         Debug.Log("Starting game...");
-        SceneManager.LoadScene("Level1");
+
+        if (LevelTracker.Instance != null)
+{
+            LevelTracker.Instance.currentLevelScene = "Level_1";
+            LevelTracker.Instance.nextLevelScene = "Level_2";
+            Debug.Log("LevelTracker initialized.");
+        }
+        else
+        {
+            Debug.LogError("LevelTracker is null! Is it in the MainMenu scene?");
+        }
+
+        SceneManager.LoadScene("Level_1");
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Debug.Log("Quitting game...");
 
@@ -102,18 +69,5 @@ public class MenuManager : MonoBehaviour
 #else
             Application.Quit();
 #endif
-    }
-
-    public void AddPoints(int amount)
-    {
-        totalPoints += amount;
-        Debug.Log("Points Updated: " + totalPoints);
-
-        UpdatePointsUI();
-    }
-
-    private void UpdatePointsUI()
-    {
-        totalPointsText.text = "Total Points: " + totalPoints;
     }
 }
