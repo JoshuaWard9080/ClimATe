@@ -62,6 +62,7 @@ public class LevelCompleteManager : MonoBehaviour
 
         //uses the LevelTracker to figure out which level is next
         SceneManager.LoadScene(LevelTracker.Instance.nextLevelScene);
+        Debug.Log("Loading next level: " + LevelTracker.Instance.currentLevelScene);
     }
 
     public void MainMenu()

@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1325358113}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RetryLevel
         m_Mode: 1
@@ -1881,7 +1881,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1325358113}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
@@ -2295,7 +2295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1325358113}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: CancelQuitToMainMenu
         m_Mode: 1
@@ -2490,7 +2490,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325358114}
-  - component: {fileID: 1325358113}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2498,24 +2497,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1325358113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325358112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f608d8e138b94c342bc05cfa5bd32672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevelSceneName: Level_0
-  escapeMenuPanel: {fileID: 1346768370}
-  quitConfirmationPopup: {fileID: 361188549}
-  levelCompleteTransitionCanvas: {fileID: 0}
-  transitionAnimator: {fileID: 0}
-  transitionTime: 2
 --- !u!4 &1325358114
 Transform:
   m_ObjectHideFlags: 0
@@ -2761,7 +2742,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1325358113}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -3424,7 +3405,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1325358113}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ConfirmQuitToMainMenu
         m_Mode: 1
