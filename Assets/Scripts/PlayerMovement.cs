@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     
-
+    // add the listeners for the events that InputManager throws and get the rigidbody
     void Start()
     {
         inputManager.playerOneOnMove.AddListener(MovePlayer);
@@ -32,6 +32,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff
+    void Update()
+    {
+        SpeedControl();
+        Flip();
+    }
+
+    // adds force to the rigidbody to move the character. Applies a different speed if the character is in the air
     public void MovePlayer(Vector2 input)
     {
         if (IsGrounded())
@@ -43,9 +51,10 @@ public class PlayerMovement : MonoBehaviour
         horizontal = input.normalized.x;
     }
 
+    // handles flipping the character
     private void Flip()
     {
-        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 1f)
+        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -54,11 +63,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // checks if the player is on the ground by using the OverlapCircle method. the groundLayer should be the ground tag in the game
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
+    // handles jumps. makes the y component equal to the jump force
     public void Jump()
     {
         if (IsGrounded())
@@ -67,11 +78,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // handles the end of the jump. This makes the player slow their upward movement and end the jump early if they tap vs hold the jump key
     public void JumpEnd()
     {
         if(rb.linearVelocity.y > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+        }
+    }
+
+    // enforces the speed limit. Its a school zone after all
+    // has a different speed limit for when in the air vs on the ground, controlled by playerSpeed and maxAirSpeed
+    public void SpeedControl()
+    {
+        Vector2 flatVelocity = new Vector2(rb.linearVelocity.x, 0f);
+
+        if(flatVelocity.magnitude > playerSpeed)
+        {
+            Vector2 limitedVelocity = flatVelocity.normalized * playerSpeed;
+            rb.linearVelocity = new Vector2(limitedVelocity.x, rb.linearVelocity.y);
+        }
+
+        if(!IsGrounded() && flatVelocity.magnitude > maxAirSpeed)
+        {
+            Vector2 limitedVelocity = flatVelocity.normalized * maxAirSpeed;
+            rb.linearVelocity = new Vector2(limitedVelocity.x, rb.linearVelocity.y);
         }
     }
 }
