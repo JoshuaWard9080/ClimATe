@@ -1991,7 +1991,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 729516258}
-  - component: {fileID: 729516257}
   m_Layer: 0
   m_Name: CurrentLevelManager
   m_TagString: Untagged
@@ -1999,18 +1998,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &729516257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729516256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c3627d72b3ba7479d70ce96ad91c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &729516258
 Transform:
   m_ObjectHideFlags: 0

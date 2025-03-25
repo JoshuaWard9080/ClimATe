@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 11082490}
-  - component: {fileID: 11082489}
+  - component: {fileID: 11082491}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -136,18 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11082489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11082488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c3627d72b3ba7479d70ce96ad91c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &11082490
 Transform:
   m_ObjectHideFlags: 0
@@ -163,6 +151,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11082491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11082488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608d8e138b94c342bc05cfa5bd32672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelSceneName: Level_2
+  escapeMenuPanel: {fileID: 800610561}
+  quitConfirmationPopup: {fileID: 944921934}
 --- !u!1 &28228060
 GameObject:
   m_ObjectHideFlags: 0
