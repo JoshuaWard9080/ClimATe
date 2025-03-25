@@ -29,20 +29,32 @@ public class MenuNavigator : MonoBehaviour
         {
             selectedIndex = (selectedIndex - 1 + buttons.Count) % buttons.Count;
             SelectButton(selectedIndex);
-            switchButtonAudio.Play();
+
+            if (switchButtonAudio != null)
+            {
+                switchButtonAudio.Play();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
             selectedIndex = (selectedIndex + 1 + buttons.Count) % buttons.Count;
             SelectButton(selectedIndex);
-            switchButtonAudio.Play();
+            
+            if (switchButtonAudio != null)
+            {
+                switchButtonAudio.Play();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             buttons[selectedIndex].onClick.Invoke();
-            clickButtonAudio.Play();
+
+            if (clickButtonAudio != null)
+            {
+                clickButtonAudio.Play();
+            }
         }
     }
 

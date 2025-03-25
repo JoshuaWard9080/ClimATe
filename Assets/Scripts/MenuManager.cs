@@ -10,11 +10,7 @@ public class MenuManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private Button onePlayerStartButton;
     [SerializeField] private Button quitButton;
-    [SerializeField] private TMP_Text totalPointsText;
     [SerializeField] AudioSource menuMusic;
-    [SerializeField] AudioSource switchButtonAudio;
-    [SerializeField] AudioSource clickButtonAudio;
-    public int totalPoints = 0;
 
     //arrary to know which button the user is hovering over with the keyboard
     private Button[] buttons;
@@ -49,31 +45,6 @@ public class MenuManager : MonoBehaviour
         }
 
         SelectButton(selectedIndex);
-
-        UpdatePointsUI();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            selectedIndex = (selectedIndex - 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            selectedIndex = (selectedIndex + 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-        {
-            buttons[selectedIndex].onClick.Invoke();
-            clickButtonAudio.Play();
-        }
     }
 
     private void SelectButton(int index)
@@ -81,7 +52,7 @@ public class MenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         //stop the menu music from playing before switching to main menu
         if (menuMusic.isPlaying)
@@ -90,10 +61,10 @@ public class MenuManager : MonoBehaviour
         }
 
         Debug.Log("Starting game...");
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("testPilingSnow");
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Debug.Log("Quitting game...");
 
@@ -102,18 +73,5 @@ public class MenuManager : MonoBehaviour
 #else
             Application.Quit();
 #endif
-    }
-
-    public void AddPoints(int amount)
-    {
-        totalPoints += amount;
-        Debug.Log("Points Updated: " + totalPoints);
-
-        UpdatePointsUI();
-    }
-
-    private void UpdatePointsUI()
-    {
-        totalPointsText.text = "Total Points: " + totalPoints;
     }
 }

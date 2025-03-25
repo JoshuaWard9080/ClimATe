@@ -1953,7 +1953,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1325358113}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: CancleQuitToMainMenu
+        m_MethodName: CancelQuitToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

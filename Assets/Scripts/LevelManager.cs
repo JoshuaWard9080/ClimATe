@@ -59,11 +59,16 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void CancleQuitToMainMenu()
+    public void CancelQuitToMainMenu()
     {
         if (quitConfirmationPopup != null)
         {
             quitConfirmationPopup.SetActive(false);
+        }
+
+        if (escapeMenuPanel != null)
+        {
+            escapeMenuPanel.SetActive(true);
         }
     }
 
