@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1219224283757308623}
   - component: {fileID: 4861028811013899690}
   m_Layer: 0
-  m_Name: Icicle
+  m_Name: Icicle_Blue_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
