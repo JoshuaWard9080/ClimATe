@@ -4,7 +4,7 @@ public class LevelCompleteTrigger : MonoBehaviour
 {
     private bool triggered = false;
 
-    private void Oter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (triggered)
         {
