@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bird_Enemy : MonoBehaviour
 {
-    float moveSpeed = 0.08f;
+    float moveSpeed = 0f;
     public int moveTime = 100;
     public Vector3 moveVector;
     float boundX;
@@ -17,6 +17,7 @@ public class Bird_Enemy : MonoBehaviour
     {
         moveVector = new Vector3(1, 0, 0);
         boundX = 9;
+        onTempChangeToFreezing();
     }
 
     // Update is called once per frame
@@ -26,12 +27,37 @@ public class Bird_Enemy : MonoBehaviour
         {
             isOnScreenEdge = true;
         }
-        moveBasedOnTemperature("cold");
+        moveBasedOnTemperature("freezing");
     }
 
-    void flipSprite()
+    void onTempChangeToWarm()
     {
+        moveSpeed = 0.08f;
+        gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+    }
 
+    void onTempChangeToCold()
+    {
+        moveSpeed = 0.03f;
+        gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    void onTempChangeToFreezing()
+    {
+        moveSpeed = 0.01f;
+        moveVector = new Vector3(1, 0, 0);
+        gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+    }
+    void flipSprite(float dir)
+    {
+        if (dir > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     Vector3 chooseFlyDirectionWarm()
@@ -69,6 +95,7 @@ public class Bird_Enemy : MonoBehaviour
     {
         if (isOnScreenEdge)
         {
+            flipSprite(moveVector.x);
             float oppositeDirX = -(moveVector.x);
             moveVector = chooseFlyDirectionWarm();
             moveVector.x = oppositeDirX;
@@ -87,6 +114,7 @@ public class Bird_Enemy : MonoBehaviour
     {
         if (isOnScreenEdge)
         {
+            flipSprite(moveVector.x);
             float oppositeDirX = -(moveVector.x);
             moveVector = chooseFlyDirectionCold();
             moveVector.x = oppositeDirX;
@@ -97,6 +125,11 @@ public class Bird_Enemy : MonoBehaviour
 
     void moveFreezing()
     {
-
+        if (isOnScreenEdge)
+        {
+            flipSprite(moveVector.x);
+        }
+        float movementX = moveVector.x * moveSpeed;
+        this.transform.position += new Vector3(movementX, 0, 0);
     }
 }
