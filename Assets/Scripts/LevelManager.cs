@@ -1,12 +1,13 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private string nextLevelSceneName;
     [SerializeField] private GameObject escapeMenuPanel;
     [SerializeField] private GameObject quitConfirmationPopup;
+    [SerializeField] private MenuNavigator menuNavigator;
 
     public static LevelManager Instance;
     private bool isPaused = false;
@@ -41,6 +42,32 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("LevelManager OnSceneLoaded: " + scene.name);
+
+        GameObject canvas = GameObject.Find("EscapeCanvas");
+
+        if (canvas == null)
+        {
+            Debug.Log("EscapeCanvas not found.");
+            return;
+        }
+
+        escapeMenuPanel = canvas.transform.Find("EscapeMenuPanel")?.gameObject;
+        quitConfirmationPopup = canvas.transform.Find("QuitConfirmationPopup")?.gameObject;
+
+        if (escapeMenuPanel != null)
+        {
+            escapeMenuPanel.SetActive(false);
+            menuNavigator = escapeMenuPanel.GetComponent<MenuNavigator>();
+        }
+        else
+        {
+            Debug.LogWarning("EscapeMenuPanel not found or missing MenuNavigator.");
+        }
+    }
+
     public void ToggleEscapeMenu()
     {
         isPaused = !isPaused;
@@ -48,6 +75,16 @@ public class LevelManager : MonoBehaviour
         if (escapeMenuPanel != null)
         {
             escapeMenuPanel.SetActive(isPaused);
+
+            if (isPaused)
+            {
+                menuNavigator = escapeMenuPanel.GetComponent<MenuNavigator>();
+                menuNavigator?.ResetSelection();
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+            }
         }
 
         Time.timeScale = isPaused ? 0f : 1f;
@@ -66,6 +103,9 @@ public class LevelManager : MonoBehaviour
         {
             quitConfirmationPopup.SetActive(true);
             escapeMenuPanel.SetActive(false);
+
+            menuNavigator = quitConfirmationPopup.GetComponent<MenuNavigator>();
+            menuNavigator?.ResetSelection();
         }
     }
 
@@ -121,5 +161,5 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    }    
 }

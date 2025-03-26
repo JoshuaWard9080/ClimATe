@@ -925,7 +925,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1044415408}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: CancelQuitToMainMenu
         m_Mode: 1
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1044415408}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -3073,7 +3073,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1044415408}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ConfirmQuitToMainMenu
         m_Mode: 1
@@ -3602,6 +3602,7 @@ MonoBehaviour:
   nextLevelSceneName: Level_3
   escapeMenuPanel: {fileID: 1734836424}
   quitConfirmationPopup: {fileID: 2098587046}
+  menuNavigator: {fileID: 0}
 --- !u!1 &1050424657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5909,7 +5910,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1044415408}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RetryLevel
         m_Mode: 1
@@ -7036,7 +7037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1044415408}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1

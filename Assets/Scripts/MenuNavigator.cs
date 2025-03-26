@@ -40,7 +40,7 @@ public class MenuNavigator : MonoBehaviour
         {
             selectedIndex = (selectedIndex + 1 + buttons.Count) % buttons.Count;
             SelectButton(selectedIndex);
-            
+
             if (switchButtonAudio != null)
             {
                 switchButtonAudio.Play();
@@ -61,5 +61,18 @@ public class MenuNavigator : MonoBehaviour
     private void SelectButton(int index)
     {
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
+    }
+    
+    void OnEnable()
+    {
+        ResetSelection(); // guarantees focus when activated
+    }
+
+    public void ResetSelection()
+    {
+        if (buttons.Count == 0) return;
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
     }
 }
