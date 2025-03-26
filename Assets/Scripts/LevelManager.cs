@@ -37,10 +37,12 @@ public class LevelManager : MonoBehaviour
     {
         yield return null;
 
+        for (int i = 0; i < 3; i++) yield return null;
+
         var canvas = GameObject.Find("EscapeCanvas");
         if (canvas == null)
         {
-            Debug.LogWarning("EscapeCanvas not found.");
+            Debug.Log("EscapeCanvas not found.");
             yield break;
         }
 
@@ -55,7 +57,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("EscapeMenuPanel not found or missing MenuNavigator.");
+            Debug.Log("EscapeMenuPanel not found or missing MenuNavigator.");
         }
     }
 

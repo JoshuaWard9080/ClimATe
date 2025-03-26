@@ -14,13 +14,13 @@ public class MenuNavigator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SelectButton(selectedIndex);
+        ResetSelection();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!gameObject.activeInHierarchy)
+        if (!gameObject.activeInHierarchy || buttons.Count == 0)
         {
             return;
         }
@@ -60,15 +60,19 @@ public class MenuNavigator : MonoBehaviour
 
     private void SelectButton(int index)
     {
+        EventSystem.current.SetSelectedGameObject(null); // clear the old EventSystem stuff
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
-    
+
     public void ResetSelection()
     {
-        if (buttons.Count == 0) return;
-
         selectedIndex = 0;
-        EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(null); // clear old EventSystem stuff 
         SelectButton(selectedIndex);
+    }
+
+    void OnEnable()
+    {
+        ResetSelection();
     }
 }
