@@ -36,6 +36,17 @@ public class PlayerMovement : MonoBehaviour
     {
         SpeedControl();
         Flip();
+        if(!IsGrounded() && rb.linearVelocity.y < 0.001)
+        {
+            animator.SetBool("isFalling", true);
+            animator.SetBool("isJumping", false);
+        } else
+        {
+            animator.SetBool("isFalling", false);
+        }
+
+        if (rb.linearVelocity.y == 0)
+            animator.SetBool("isJumping", false);
     }
 
     // adds force to the rigidbody to move the character. Applies a different speed if the character is in the air
@@ -90,7 +101,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
-        animator.SetBool("isJumping", false);
     }
 
     // enforces the speed limit. Its a school zone after all
