@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        
     }
 
     // handles jumps. makes the y component equal to the jump force
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
+            animator.SetBool("isJumping", true);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
@@ -88,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
+        animator.SetBool("isJumping", false);
     }
 
     // enforces the speed limit. Its a school zone after all
