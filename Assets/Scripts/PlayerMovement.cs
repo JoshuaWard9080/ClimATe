@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
     private Rigidbody2D rb;
     [SerializeField] private InputManager inputManager;
 
@@ -41,7 +42,11 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer(Vector2 input)
     {
         if (IsGrounded())
+        {
             rb.AddForce(input.normalized * playerSpeed, ForceMode2D.Force);
+            animator.SetFloat("Speed", rb.linearVelocity.x);
+        }
+            
 
         else if (!IsGrounded())
             rb.AddForce(input.normalized * playerSpeed * airMultiplier, ForceMode2D.Force);
