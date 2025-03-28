@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5463935277037388418}
   - component: {fileID: 1772843966738997537}
   - component: {fileID: 777781671547810182}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HalfBlock
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3980615113324370522}
   - component: {fileID: 4403355023650767625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

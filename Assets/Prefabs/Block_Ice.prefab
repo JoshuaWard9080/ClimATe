@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9034789158116324895}
   - component: {fileID: 4958847624057683158}
   - component: {fileID: 8797445537941253448}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block_Ice
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8482626080819633064}
   - component: {fileID: 2955483415790186879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
