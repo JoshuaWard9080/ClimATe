@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
     private bool isFacingRight = true;
+    private Transform originalParent;
 
     [Header("Movement")]
     [SerializeField] private float playerSpeed;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         inputManager.playerOneOnJump.AddListener(Jump);
         inputManager.playerOneOnJumpEnd.AddListener(JumpEnd);
         rb = GetComponent<Rigidbody2D>();
+        originalParent = transform.parent;
     }
 
     // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff
@@ -120,5 +122,18 @@ public class PlayerMovement : MonoBehaviour
             Vector2 limitedVelocity = flatVelocity.normalized * maxAirSpeed;
             rb.linearVelocity = new Vector2(limitedVelocity.x, rb.linearVelocity.y);
         }
+    }
+
+    public void SetParent(Transform newParent)
+    {
+        originalParent = transform.parent;
+        transform.parent = newParent;
+        rb.interpolation = RigidbodyInterpolation2D.None;
+    }
+
+    public void ResetParent()
+    {
+        transform.parent = originalParent;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 }
