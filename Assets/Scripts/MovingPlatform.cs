@@ -34,7 +34,7 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var playerMovement = collision.collider.GetComponent<PlayerMovement>();
-        if (playerMovement != null && collision.rigidbody.transform.position.y > this.transform.position.y)
+        if (playerMovement != null && collision.rigidbody.transform.position.y > this.transform.position.y + 0.25)
         {
             playerMovement.SetParent(transform);
         }
