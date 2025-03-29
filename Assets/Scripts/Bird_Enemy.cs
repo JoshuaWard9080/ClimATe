@@ -11,28 +11,37 @@ public class Bird_Enemy : MonoBehaviour
     private Boolean isOnScreenEdge = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    [SerializeField]  public String temperature = "warm";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveVector = new Vector3(1, 0, 0);
         boundX = 9;
-        onTempChangeToFreezing();
+        
+        if (temperature == "warm") onTempChangeToWarm();
+        else if (temperature == "cold") onTempChangeToCold();
+        else if (temperature == "freezing") onTempChangeToFreezing();
+        else
+        {
+            Debug.Log("Invalid temperature for bird in start method");
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.x > boundX || this.transform.position.x < -boundX)
+        if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
         {
             isOnScreenEdge = true;
         }
-        moveBasedOnTemperature("freezing");
+        moveBasedOnTemperature(temperature);
     }
 
     void onTempChangeToWarm()
     {
-        moveSpeed = 0.08f;
+        moveSpeed = 0.008f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
@@ -52,11 +61,11 @@ public class Bird_Enemy : MonoBehaviour
     {
         if (dir > 0)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
         else
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
     }
 
@@ -66,7 +75,8 @@ public class Bird_Enemy : MonoBehaviour
         float dirX = (float)(2*Math.Cos(theta));
         float dirY = (float)Math.Sin(theta);
         
-        moveTime = (int)Math.Abs((UnityEngine.Random.Range(100, 800)*dirX));
+        moveTime = (int)Math.Abs((UnityEngine.Random.Range(100, 1000)*dirX));
+        flipSprite(dirX);
         return new Vector3(dirX, dirY, 0);
     }
 
@@ -75,6 +85,7 @@ public class Bird_Enemy : MonoBehaviour
         float theta = UnityEngine.Random.Range((float)-(Math.PI/8),(float)Math.PI/8);
         float dirX = 30;
         float dirY = (float)Math.Sin(theta);
+        flipSprite(dirX);
 
         return new Vector3(dirX, dirY, 0);
     }
