@@ -27,6 +27,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public bool IsPaused()
+    {
+        return isPaused;
+    }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -120,6 +124,7 @@ public class LevelManager : MonoBehaviour
 
     public void ConfirmQuitToMainMenu()
     {
+        isPaused = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
@@ -180,6 +185,7 @@ public class LevelManager : MonoBehaviour
 
     public void RetryLevel()
     {
+        isPaused = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

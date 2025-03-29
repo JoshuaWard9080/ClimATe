@@ -19,6 +19,12 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         if (!sprite.isVisible)
         {//if the object is invisible, flip it's ovement direction
 
