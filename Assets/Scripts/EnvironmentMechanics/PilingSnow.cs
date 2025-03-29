@@ -3,32 +3,23 @@ using UnityEngine;
 public class PilingSnow : MonoBehaviour
 {
     [SerializeField] private float snowSpeed = 1f;
-    [SerializeField] private float delayBeforeRising = 8f;
+    private bool isRising = false;
 
-    private float startTime;
-    private bool startedRising = false;
-
-    void Start()
-    {
-        startTime = Time.time;
-    }
 
     void Update()
     {
-        if (!startedRising)
+        if (!isRising)
         {
-            if (Time.time >= startTime + delayBeforeRising)
-            {
-                startedRising = true;
-            }
-            else
-            {
-                return;
-            }
+            return;
         }
 
         //start rising
         transform.position += Vector3.up * snowSpeed * Time.deltaTime;
+    }
+
+    public void StartRising()
+    {
+        isRising = true;
     }
 
     public void SetSnowSpeed(float newSnowSpeed)
