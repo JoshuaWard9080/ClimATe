@@ -27,7 +27,7 @@ public class Icicle : MonoBehaviour
     {
         Debug.Log("Start method called");
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
         Collider2D[] colliders = GetComponents<Collider2D>();
