@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 360630823393787450}
   - component: {fileID: 1247967404505862943}
   - component: {fileID: 281537684240032360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MovingPlatform_SideToSide
   m_TagString: Moving_Platform
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2840912539868842632}
   - component: {fileID: 820072537216684752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

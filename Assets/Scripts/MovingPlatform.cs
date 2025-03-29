@@ -39,14 +39,30 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        var playerMovement = collision.collider.GetComponent<PlayerMovement>();
+        if (playerMovement != null && collision.rigidbody.transform.position.y > this.transform.position.y)
         {
-            Rigidbody2D player = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (player != null)
-            {
-                playerOnPlatform = true;
-                //to be completed with the addition of player and input manager
-            }
+            playerMovement.SetParent(transform);
+        }
+
+
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    Rigidbody2D player = collision.gameObject.GetComponent<Rigidbody2D>();
+        //    if (player != null)
+        //    {
+        //        playerOnPlatform = true;
+        //        //to be completed with the addition of player and input manager
+        //    }
+        //}
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        var playerMovement = collision.collider.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.ResetParent();
         }
     }
 
