@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
     private Rigidbody2D rb;
     [SerializeField] private InputManager inputManager;
 
     private float horizontal;
     private bool isFacingRight = true;
+    private Transform originalParent;
 
     [Header("Movement")]
     [SerializeField] private float playerSpeed;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         inputManager.playerOneOnJump.AddListener(Jump);
         inputManager.playerOneOnJumpEnd.AddListener(JumpEnd);
         rb = GetComponent<Rigidbody2D>();
+        originalParent = transform.parent;
     }
 
     // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff
@@ -35,13 +38,28 @@ public class PlayerMovement : MonoBehaviour
     {
         SpeedControl();
         Flip();
+        if(!IsGrounded() && rb.linearVelocity.y < 0.001)
+        {
+            animator.SetBool("isFalling", true);
+            animator.SetBool("isJumping", false);
+        } else
+        {
+            animator.SetBool("isFalling", false);
+        }
+
+        if (rb.linearVelocity.y == 0)
+            animator.SetBool("isJumping", false);
     }
 
     // adds force to the rigidbody to move the character. Applies a different speed if the character is in the air
     public void MovePlayer(Vector2 input)
     {
         if (IsGrounded())
+        {
             rb.AddForce(input.normalized * playerSpeed, ForceMode2D.Force);
+            animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        }
+            
 
         else if (!IsGrounded())
             rb.AddForce(input.normalized * playerSpeed * airMultiplier, ForceMode2D.Force);
@@ -65,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        
     }
 
     // handles jumps. makes the y component equal to the jump force
@@ -72,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
+            animator.SetBool("isJumping", true);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
@@ -102,5 +122,18 @@ public class PlayerMovement : MonoBehaviour
             Vector2 limitedVelocity = flatVelocity.normalized * maxAirSpeed;
             rb.linearVelocity = new Vector2(limitedVelocity.x, rb.linearVelocity.y);
         }
+    }
+
+    public void SetParent(Transform newParent)
+    {
+        originalParent = transform.parent;
+        transform.parent = newParent;
+        rb.interpolation = RigidbodyInterpolation2D.None;
+    }
+
+    public void ResetParent()
+    {
+        transform.parent = originalParent;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 }

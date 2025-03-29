@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 510212001384331045}
   - component: {fileID: 7797290979553872390}
   - component: {fileID: 708437494987766562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block_Brittle
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -139,6 +139,7 @@ MonoBehaviour:
   baseColor: {r: 1, g: 1, b: 1, a: 1}
   crackedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   brokenColor: {r: 1, g: 0, b: 0, a: 1}
+  isPlayerOn: 0
 --- !u!1 &8155112586724280617
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ GameObject:
   - component: {fileID: 2426877732063262867}
   - component: {fileID: 8928918399055257708}
   - component: {fileID: 7777255668039630283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
