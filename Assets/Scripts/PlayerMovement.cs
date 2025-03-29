@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(input.normalized * playerSpeed, ForceMode2D.Force);
             animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
         }
-            
+
 
         else if (!IsGrounded())
             rb.AddForce(input.normalized * playerSpeed * airMultiplier, ForceMode2D.Force);
