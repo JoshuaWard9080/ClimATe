@@ -45,15 +45,16 @@ public class Icicle : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 0.2f, blockLayer);
-        if (hit.collider != null && hit.collider.CompareTag("Block"))
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position + Vector3.up * 0.5f, 0.1f, blockLayer);
+        foreach (var hit in hits)
         {
-            supportingBlock = hit.collider.gameObject;
-            Debug.Log("Icicle attached to block: " + supportingBlock.name);
-        }
-        else
-        {
-            Debug.Log("Icicle did not find the block above itself at spawn.");
+            if (hit.CompareTag("Block"))
+            {
+                supportingBlock = hit.gameObject;
+                Debug.Log("Supported by block: " + supportingBlock.name);
+                break;
+            }
         }
     }
 
@@ -159,6 +160,13 @@ public class Icicle : MonoBehaviour
 
         Debug.Log("Regrow coroutine started");
         yield return new WaitForSeconds(regenTime);
+
+        //check if supporting block was destroyed again, in case player destroyed it after the icicle falls but before it regrows
+        if (supportingBlock == null)
+        {
+            Debug.Log("Skipping regrowth, the block above has been destroyed.");
+            yield break;
+        }
 
         //set icicle back to original position
         transform.position = originalPosition;
