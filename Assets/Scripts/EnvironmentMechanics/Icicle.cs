@@ -22,6 +22,10 @@ public class Icicle : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 originalSize;
 
+    //getting block the icicle is attached too
+    private GameObject supportingBlock;
+    [SerializeField] private LayerMask blockLayer;
+
     void Start()
     {
         Debug.Log("Start method called");
@@ -40,6 +44,17 @@ public class Icicle : MonoBehaviour
         //this will be changed when the icicle should be able to fall
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 0.2f, blockLayer);
+        if (hit.collider != null && hit.collider.CompareTag("Block"))
+        {
+            supportingBlock = hit.collider.gameObject;
+            Debug.Log("Icicle attached to block: " + supportingBlock.name);
+        }
+        else
+        {
+            Debug.Log("Icicle did not find the block above itself at spawn.");
+        }
     }
 
     void Update()
@@ -127,6 +142,13 @@ public class Icicle : MonoBehaviour
     {
         isRegenerating = true;
         canTrigger = false;
+
+        //check if supporting block exists
+        if (supportingBlock == null)
+        {
+            Debug.Log("Skipping regrowth, the block above has been destroyed.");
+            yield break;
+        }
 
         //reset the icicle's physics to not falling, no gravity, kinematic
         rb.bodyType = RigidbodyType2D.Kinematic;
