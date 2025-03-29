@@ -345,6 +345,7 @@ MonoBehaviour:
   fallSpeed: 1
   regenTime: 1
   size: 1
+  canTrigger: 1
 --- !u!1 &241651019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,6 +2988,7 @@ MonoBehaviour:
   fallSpeed: 1
   regenTime: 1
   size: 1
+  canTrigger: 1
 --- !u!1 &1117814790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,6 +3300,7 @@ MonoBehaviour:
   fallSpeed: 1
   regenTime: 1
   size: 1
+  canTrigger: 1
 --- !u!1001 &1269941023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3394,9 +3397,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2510207407136938943, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
+      propertyPath: m_TagString
+      value: Block
+      objectReference: {fileID: 0}
     - target: {fileID: 2667768788220950180, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667768788220950180, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2881906236784136639, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
       propertyPath: m_Layer
@@ -3422,6 +3433,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3330818516700907426, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3351172738358851754, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3445,6 +3460,10 @@ PrefabInstance:
     - target: {fileID: 4006806499505365678, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4006806499505365678, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
+      propertyPath: m_TagString
+      value: Block
       objectReference: {fileID: 0}
     - target: {fileID: 4056803606397462620, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
       propertyPath: m_Layer
@@ -3609,6 +3628,10 @@ PrefabInstance:
     - target: {fileID: 7131223884924960502, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131223884924960502, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7159178464730357243, guid: 3256a5c57c6a6da4f8b1d0db1c02fd06, type: 3}
       propertyPath: m_Layer
@@ -5502,6 +5525,7 @@ MonoBehaviour:
   fallSpeed: 1
   regenTime: 1
   size: 1
+  canTrigger: 1
 --- !u!1001 &1447582525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5516,7 +5540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.595
+      value: -2.614
       objectReference: {fileID: 0}
     - target: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5554,6 +5578,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.18493578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0.3048053
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: 0.27667236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: 0.30072922
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5588,6 +5628,7 @@ MonoBehaviour:
   fallSpeed: 1
   regenTime: 1
   size: 1
+  canTrigger: 1
 --- !u!1001 &1464390596
 PrefabInstance:
   m_ObjectHideFlags: 0

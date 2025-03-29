@@ -74,6 +74,8 @@ public class Icicle : MonoBehaviour
         isShaking = false;
         isFalling = true;
 
+        yield return new WaitForSeconds(0.05f);
+
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = fallSpeed;
     }
@@ -90,11 +92,19 @@ public class Icicle : MonoBehaviour
         }
 
         //if the icicle htis the player or the ground
-        if (isFalling && (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Ground")))
+        if (isFalling && (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Block")))
         {
+            Debug.Log("Icicle hit object: " + collision.collider.name + ", Tag: " + collision.collider.tag);
+
             if (collision.collider.CompareTag("Player"))
             {
                 //TODO: make player lose health and play lose health animation if there is one
+            }
+
+            if (Vector2.Distance(transform.position, originalPosition) < 0.2f)
+    {
+                Debug.Log("Ignoring collision, the icicle hasn't fallen far enough yet.");
+                return;
             }
 
             //start coroutine to regrow
