@@ -71,6 +71,14 @@ public class MenuNavigator : MonoBehaviour
         SelectButton(selectedIndex);
     }
 
+    public void HoverSound()
+    {
+        if(switchButtonAudio != null)
+        {
+            switchButtonAudio.Play();
+        }
+    }
+
     void OnEnable()
     {
         ResetSelection();

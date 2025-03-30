@@ -347,6 +347,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -732,6 +733,7 @@ GameObject:
   - component: {fileID: 196288492}
   - component: {fileID: 196288491}
   - component: {fileID: 196288495}
+  - component: {fileID: 196288496}
   m_Layer: 5
   m_Name: YesQuitButton
   m_TagString: Untagged
@@ -880,6 +882,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &196288496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196288489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1360181086}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 741726490}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &197826942
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1016,7 @@ GameObject:
   - component: {fileID: 211843210}
   - component: {fileID: 211843209}
   - component: {fileID: 211843213}
+  - component: {fileID: 211843214}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -1117,6 +1165,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &211843214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211843207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1360181086}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 741726490}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &212531280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1512,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1572,6 +1666,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1744,6 +1839,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1974,6 +2070,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2401,6 +2498,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3085,6 +3183,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3191,6 +3290,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3411,6 +3511,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3546,7 +3647,8 @@ GameObject:
   - component: {fileID: 1069160551}
   - component: {fileID: 1069160550}
   - component: {fileID: 1069160549}
-  - component: {fileID: 1069160553}
+  - component: {fileID: 1069160555}
+  - component: {fileID: 1069160554}
   m_Layer: 5
   m_Name: NoQuitButton
   m_TagString: Untagged
@@ -3683,6 +3785,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069160547}
   m_CullTransparentMesh: 1
+--- !u!114 &1069160553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081809915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 1
+  fallSpeed: 1
+  regenTime: 1
+  size: 1
+  canTrigger: 1
+  temperatureManager: {fileID: 0}
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1069160554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069160547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1360181086}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 741726490}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1069160555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069160547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1081809913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3742,7 +3922,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1081809916}
+      addedObject: {fileID: 1069160553}
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &1081809914 stripped
 Transform:
@@ -3754,27 +3934,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 1081809913}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1081809916
---- !u!114 &1069160553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081809915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1124503400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3878,15 +4037,10 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_GameObject: {fileID: 1069160547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1126006881
 GameObject:
   m_ObjectHideFlags: 0
@@ -4247,6 +4401,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4531,6 +4686,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4680,6 +4836,7 @@ GameObject:
   - component: {fileID: 1346536383}
   - component: {fileID: 1346536382}
   - component: {fileID: 1346536386}
+  - component: {fileID: 1346536387}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -4828,6 +4985,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1346536387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346536380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1360181086}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 741726490}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1350897967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5239,6 +5441,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5632,6 +5835,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6341,6 +6545,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6373,32 +6578,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7c046dd4a62974fad8ce608601e9e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTempChangeToWarm:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTempChangeToCold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTempChangeToFreezing:
+    m_PersistentCalls:
+      m_Calls: []
   currTemp: 1
-  icicles:
-  - {fileID: 1246422510}
-  - {fileID: 642739411}
-  - {fileID: 2043085670}
-  - {fileID: 1081809916}
-  - {fileID: 1944118718}
-  - {fileID: 1282402537}
-  - {fileID: 118435712}
-  - {fileID: 257834825}
-  - {fileID: 1943401325}
-  - {fileID: 1246422510}
-  - {fileID: 1879409629}
-  - {fileID: 335621075}
-  - {fileID: 894422153}
-  - {fileID: 1124503403}
-  - {fileID: 1991400019}
-  - {fileID: 1708689140}
-  - {fileID: 857253117}
-  - {fileID: 844163623}
-  - {fileID: 419720051}
-  - {fileID: 509180328}
-  - {fileID: 1512045404}
-  winds: []
-  crackingPlatforms: []
-  fuzzyEnemies: []
   snowSystem: {fileID: 1275732496}
 --- !u!4 &1723578071
 Transform:
@@ -6429,6 +6618,7 @@ GameObject:
   - component: {fileID: 1728763738}
   - component: {fileID: 1728763737}
   - component: {fileID: 1728763741}
+  - component: {fileID: 1728763742}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -6577,6 +6767,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1728763742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728763735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1360181086}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 741726490}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1741486041
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,6 +7109,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7055,6 +7291,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7170,6 +7407,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7276,6 +7514,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7536,6 +7775,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7953,3 +8193,4 @@ SceneRoots:
   - {fileID: 580617}
   - {fileID: 1275732495}
   - {fileID: 1723578071}
+  - {fileID: 2146256231}
