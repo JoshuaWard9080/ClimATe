@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Bird_Enemy : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Bird_Enemy : MonoBehaviour
     private Boolean isOnScreenEdgeY = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    public String state = "cold";
+    private String state = "warm";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,7 +29,11 @@ public class Bird_Enemy : MonoBehaviour
 
         if (state == "warm") onTempChangeToWarm();
         else if (state == "cold") onTempChangeToCold();
-        else if (state == "freezing") onTempChangeToFreezing();
+        else if (state == "freezing")
+        {
+            animator.SetBool("isColdTemp", true);
+            onTempChangeToFreezing();
+        }
         else
         {
             Debug.Log("Invalid temperature for bird in start method");
@@ -60,14 +65,14 @@ public class Bird_Enemy : MonoBehaviour
 
     void onTempChangeToCold()
     {
-        animator.SetBool("isColdTemp", true);
         moveSpeed = 0.008f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
     void onTempChangeToFreezing()
     {
-        moveSpeed = 0.005f;
+        animator.SetBool("isColdTemp", true);
+        moveSpeed = 0.002f;
         moveVector = new Vector3(1, 0, 0);
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
@@ -170,7 +175,10 @@ public class Bird_Enemy : MonoBehaviour
             flipSprite(moveVector.x);
             isOnScreenEdgeX = false;
         }
-        this.transform.position += moveVector * moveSpeed;
+        float randomShake = UnityEngine.Random.Range(-moveSpeed*5,moveSpeed*5);
+        Vector3 newPosition = (moveVector * moveSpeed);
+        newPosition.x += randomShake;
+        this.transform.position += newPosition;
     }
 
     void moveDead()
@@ -186,6 +194,10 @@ public class Bird_Enemy : MonoBehaviour
             moveVector = new Vector3(0, -1, 0);
             isHurt = true;
             animator.SetBool("isHurt", true);
+        }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            isOnScreenEdgeX = true;
         }
     }
 }
