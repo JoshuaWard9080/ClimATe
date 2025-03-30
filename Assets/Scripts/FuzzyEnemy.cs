@@ -9,11 +9,18 @@ public class FuzzyEnemy : MonoBehaviour
     [SerializeField] Boolean isHurt = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    [SerializeField] TemperatureManager temperatureManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveVector = new Vector3(1, 0, 0);
+        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
+        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
+
+        
     }
 
     // Update is called once per frame
@@ -27,6 +34,20 @@ public class FuzzyEnemy : MonoBehaviour
 
         animator.SetBool("isHurt", isHurt);
         move(moveVector);
+    }
+    void tempChangeToWarm()
+    {
+        PushBlocks(false);
+    }
+
+    void tempChangeToCold()
+    {
+        PushBlocks(true);
+    }
+
+    void tempChangeToFreezing()
+    {
+        PushBlocks(true);
     }
     void move(Vector3 moveVector)
     {

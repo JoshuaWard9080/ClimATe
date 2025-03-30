@@ -2552,6 +2552,9 @@ MonoBehaviour:
   timeBetweenCharacters: 0.1
   timeBetweenTexts: 0.3
   typingAudio: {fileID: 1996199906}
+  blinkCount: 5
+  blinkInterval: 0.2
+  victoryStatsScene: VictoryStatsScene
 --- !u!114 &1203337434
 MonoBehaviour:
   m_ObjectHideFlags: 0
