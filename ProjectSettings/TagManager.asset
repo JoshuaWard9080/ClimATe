@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Moving_Platform
   - Block
+  - EscapeMenuPanel
+  - QuitConfirmationPopup
   layers:
   - Default
   - TransparentFX

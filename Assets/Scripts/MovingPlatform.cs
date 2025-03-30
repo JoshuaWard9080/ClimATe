@@ -19,6 +19,12 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         if (!sprite.isVisible)
         {//if the object is invisible, flip it's ovement direction
 
@@ -34,7 +40,7 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var playerMovement = collision.collider.GetComponent<PlayerMovement>();
-        if (playerMovement != null && collision.rigidbody.transform.position.y > this.transform.position.y)
+        if (playerMovement != null && collision.rigidbody.transform.position.y > this.transform.position.y + 0.23)
         {
             playerMovement.SetParent(transform);
         }

@@ -373,6 +373,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &166037848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166037851}
+  - component: {fileID: 166037850}
+  - component: {fileID: 166037849}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &166037849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166037848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &166037850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166037848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &166037851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166037848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &184556265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1239,6 +1307,7 @@ GameObject:
   - component: {fileID: 447119863}
   - component: {fileID: 447119862}
   - component: {fileID: 447119861}
+  - component: {fileID: 447119865}
   m_Layer: 5
   m_Name: YesQuitButton
   m_TagString: Untagged
@@ -1325,7 +1394,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11082491}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ConfirmQuitToMainMenu
         m_Mode: 1
@@ -1375,6 +1444,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447119859}
   m_CullTransparentMesh: 1
+--- !u!114 &447119865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447119859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &468416974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1914,7 +1995,7 @@ GameObject:
   - component: {fileID: 800610563}
   m_Layer: 5
   m_Name: EscapeMenuPanel
-  m_TagString: Untagged
+  m_TagString: EscapeMenuPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2882,7 +2963,7 @@ GameObject:
   - component: {fileID: 944921936}
   m_Layer: 5
   m_Name: QuitConfirmationPopup
-  m_TagString: Untagged
+  m_TagString: QuitConfirmationPopup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3486,6 +3567,7 @@ GameObject:
   - component: {fileID: 1122477835}
   - component: {fileID: 1122477834}
   - component: {fileID: 1122477833}
+  - component: {fileID: 1122477837}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -3572,7 +3654,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11082491}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -3622,6 +3704,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122477831}
   m_CullTransparentMesh: 1
+--- !u!114 &1122477837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122477831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1264922434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4686,6 +4780,7 @@ GameObject:
   - component: {fileID: 1293134224}
   - component: {fileID: 1293134223}
   - component: {fileID: 1293134222}
+  - component: {fileID: 1293134226}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -4772,7 +4867,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11082491}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
@@ -4822,6 +4917,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293134220}
   m_CullTransparentMesh: 1
+--- !u!114 &1293134226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293134220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1304798561
 GameObject:
   m_ObjectHideFlags: 0
@@ -5078,6 +5185,7 @@ GameObject:
   - component: {fileID: 1368891552}
   - component: {fileID: 1368891551}
   - component: {fileID: 1368891550}
+  - component: {fileID: 1368891554}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -5164,7 +5272,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11082491}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RetryLevel
         m_Mode: 1
@@ -5214,6 +5322,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368891548}
   m_CullTransparentMesh: 1
+--- !u!114 &1368891554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368891548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1387365052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9374,6 +9494,7 @@ GameObject:
   - component: {fileID: 2134821541}
   - component: {fileID: 2134821540}
   - component: {fileID: 2134821539}
+  - component: {fileID: 2134821543}
   m_Layer: 5
   m_Name: NoQuitButton
   m_TagString: Untagged
@@ -9460,7 +9581,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11082491}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: CancelQuitToMainMenu
         m_Mode: 1
@@ -9510,6 +9631,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134821537}
   m_CullTransparentMesh: 1
+--- !u!114 &2134821543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134821537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &691774267767767002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10338,3 +10471,4 @@ SceneRoots:
   - {fileID: 373442896}
   - {fileID: 252600405}
   - {fileID: 1627166349}
+  - {fileID: 166037851}
