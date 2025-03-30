@@ -35,7 +35,13 @@ public class PlayerMovement : MonoBehaviour
 
     // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff
     void Update()
-    {
+    {        
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         SpeedControl();
         Flip();
         if(!IsGrounded() && rb.linearVelocity.y < 0.001)
@@ -54,13 +60,19 @@ public class PlayerMovement : MonoBehaviour
     // adds force to the rigidbody to move the character. Applies a different speed if the character is in the air
     public void MovePlayer(Vector2 input)
     {
+        //pause player if pause menu is activated
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         if (IsGrounded())
         {
             rb.AddForce(input.normalized * playerSpeed, ForceMode2D.Force);
             //animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
             animator.SetFloat("Speed", Mathf.Abs(input.normalized.x));
         }
-            
+
 
         else if (!IsGrounded())
             rb.AddForce(input.normalized * playerSpeed * airMultiplier, ForceMode2D.Force);
@@ -90,6 +102,12 @@ public class PlayerMovement : MonoBehaviour
     // handles jumps. makes the y component equal to the jump force
     public void Jump()
     {
+        //pause player if pause menu is activated
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         if (IsGrounded())
         {
             animator.SetBool("isJumping", true);
@@ -100,6 +118,12 @@ public class PlayerMovement : MonoBehaviour
     // handles the end of the jump. This makes the player slow their upward movement and end the jump early if they tap vs hold the jump key
     public void JumpEnd()
     {
+        //pause player if pause menu is activated
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         if (rb.linearVelocity.y > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);

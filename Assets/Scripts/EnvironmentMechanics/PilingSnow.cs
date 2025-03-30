@@ -6,6 +6,12 @@ public class PilingSnow : MonoBehaviour
 
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+        
         transform.position += Vector3.up * snowSpeed * Time.deltaTime;
     }
 

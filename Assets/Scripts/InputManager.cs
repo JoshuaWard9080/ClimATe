@@ -20,6 +20,12 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         Vector2 inputVector = new Vector2();
 
         if (Input.GetKey(playerOneLeft))
