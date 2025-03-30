@@ -104,7 +104,10 @@ MonoBehaviour:
   fallSpeed: 1
   regenTime: 1
   size: 1
-  fallCoolDown: 1
+  canTrigger: 1
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4026323361684292353
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2199307298702945736}
   - component: {fileID: 5095728626496388467}
-  - component: {fileID: 5494004308327811373}
+  - component: {fileID: 5895064336420219406}
   m_Layer: 0
   m_Name: Icicle_Blue_Large
   m_TagString: Untagged
@@ -166,7 +169,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5494004308327811373
+--- !u!60 &5895064336420219406
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,9 +215,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.06950998, y: 0.55352235}
-      - {x: -0.18884128, y: 0.55579114}
-      - {x: 0.020542443, y: -0.4004339}
-      - {x: 0.04565358, y: -0.40101647}
-      - {x: 0.2790159, y: 0.55696887}
+    - - {x: 0.057219207, y: 0.54353774}
+      - {x: -0.18273932, y: 0.5421027}
+      - {x: 0.024839342, y: -0.39527354}
+      - {x: 0.0426383, y: -0.391722}
+      - {x: 0.27905083, y: 0.54735935}
   m_UseDelaunayMesh: 0

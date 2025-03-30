@@ -6,51 +6,56 @@ public class Icicle : MonoBehaviour
     [SerializeField] private float fallDelay; //how long it shakes before falling
     [SerializeField] private float fallSpeed; //how fast it falls
     [SerializeField] private float regenTime; //how long before it regenerates
-    [SerializeField] private float size; //changes the scale of the icicle
-    [SerializeField] private float fallCoolDown; //the time before the icicle can fall again
+    [SerializeField] private float size = 1f; //changes the scale of the icicle
+    [SerializeField] private bool canTrigger = true;
 
-    private float lastFallTime; //time the icicle last fell
     private bool isFalling = false;
     private bool canFall = true;
     private bool isRegenerating = false;
+    private bool isShaking = false;
 
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private Collider2D mainCollider;
-    private Collider2D triggerCollider;
 
     //original data from scene for the position
     private Vector3 originalPosition;
     private Vector3 originalSize;
 
+    //getting block the icicle is attached too
+    private GameObject supportingBlock;
+    [SerializeField] private LayerMask blockLayer;
+
     void Start()
     {
         Debug.Log("Start method called");
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-
-        Collider2D[] colliders = GetComponents<Collider2D>();
-        foreach (var col in colliders)
-        {
-            if (col.isTrigger)
-            {
-                triggerCollider = col;
-            }
-            else
-            {
-                mainCollider = col;
-            }
-        }
+        mainCollider = GetComponent<Collider2D>();
 
         //save the starting position
         originalPosition = transform.position;
         originalSize = transform.localScale;
+        transform.localScale = originalSize * size;
         transform.rotation = Quaternion.identity;
 
         //setting the rb to kinematic so that it will not fall
         //this will be changed when the icicle should be able to fall
         rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.gravityScale = 0f;
+
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position + Vector3.up * 0.5f, 0.1f, blockLayer);
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Block"))
+            {
+                supportingBlock = hit.gameObject;
+                Debug.Log("Supported by block: " + supportingBlock.name);
+                break;
+            }
+        }
     }
 
     void Update()
@@ -59,33 +64,12 @@ public class Icicle : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        Debug.Log("OnTriggerEnter2D method called");
-
-        //if the icicle can fall, is not regenerating, and was hit by the player then shake and fall
-        if (canFall && !isFalling && !isRegenerating && coll.CompareTag("Player"))
-        {
-            Debug.Log("RAHHHHHH pls work");
-
-            if (Time.time - lastFallTime < fallCoolDown)
-            {
-                return;
-            }
-
-            //set the last fall time to now
-            lastFallTime = Time.time;
-
-            //start shaking and falling
-            StartCoroutine(ShakeAndFall());
-        }
-    }
-
     IEnumerator ShakeAndFall()
     {
-        Debug.Log("STARTING fall: setting Rigidbody to Dynamic");
-        mainCollider.enabled = false;
-        isFalling = true;
+        Debug.Log("Starting fall: setting Rigidbody to Dynamic");
+
+        isShaking = true;
+        canTrigger = false;
 
         Vector3 original = transform.position;
         float elapsed = 0f;
@@ -103,10 +87,11 @@ public class Icicle : MonoBehaviour
         //reset to original position after it shakes but before it starts falling
         transform.position = original;
 
-        mainCollider.enabled = true;
-        yield return null;
+        isShaking = false;
+        isFalling = true;
 
-        //allow gravity to let it fall
+        yield return new WaitForSeconds(0.05f);
+
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = fallSpeed;
     }
@@ -115,34 +100,39 @@ public class Icicle : MonoBehaviour
     {
         Debug.Log("OnCollisionEnter2D method called");
 
-        if (isFalling && collision.collider.CompareTag("Player"))
+        if (!isFalling && !isShaking && !isRegenerating && canTrigger && collision.collider.CompareTag("Player"))
         {
-            //make player lose health or die (not sure which one yet)
-            //play animation of when player gets hurt
-
-            //hide sprite when it hits player
-            spriteRenderer.enabled = false;
-            mainCollider.enabled = false;
-
-            //start coroutine to regrow
-            //set icicle to not be able to fall again
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.linearVelocity = Vector2.zero;
-
-            isFalling = false;
-            StartCoroutine(Regrow()); //call method to regrow the icicle
+            Debug.Log("Player collided with icicle, starting shake and fall.");
+            StartCoroutine(ShakeAndFall()); //call method to regrow the icicle
+            return;
         }
 
-        if (isFalling && collision.collider.CompareTag("Ground"))
+        //if the icicle htis the player or the ground
+        if (isFalling && (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Block")))
         {
-            //hide sprite when it hits the ground
-            spriteRenderer.enabled = false;
-            mainCollider.enabled = false;
+            Debug.Log("Icicle hit object: " + collision.collider.name + ", Tag: " + collision.collider.tag);
+
+            if (collision.collider.CompareTag("Player"))
+            {
+                //TODO: make player lose health and play lose health animation if there is one
+            }
+
+            if (Vector2.Distance(transform.position, originalPosition) < 0.2f)
+    {
+                Debug.Log("Ignoring collision, the icicle hasn't fallen far enough yet.");
+                return;
+            }
 
             //start coroutine to regrow
-            //set icicle to not be able to fall again
             rb.bodyType = RigidbodyType2D.Kinematic;
+            rb.gravityScale = 0f;
             rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            transform.rotation = Quaternion.identity;
+
+            //hide sprite when it is hit
+            spriteRenderer.enabled = false;
+            mainCollider.enabled = false;
 
             isFalling = false;
             StartCoroutine(Regrow());
@@ -152,29 +142,48 @@ public class Icicle : MonoBehaviour
     IEnumerator Regrow()
     {
         isRegenerating = true;
+        canTrigger = false;
+
+        //check if supporting block exists
+        if (supportingBlock == null)
+        {
+            Debug.Log("Skipping regrowth, the block above has been destroyed.");
+            yield break;
+        }
 
         //reset the icicle's physics to not falling, no gravity, kinematic
+        rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        rb.bodyType = RigidbodyType2D.Kinematic;
         transform.rotation = Quaternion.identity;
 
         Debug.Log("Regrow coroutine started");
         yield return new WaitForSeconds(regenTime);
 
+        //check if supporting block was destroyed again, in case player destroyed it after the icicle falls but before it regrows
+        if (supportingBlock == null)
+        {
+            Debug.Log("Skipping regrowth, the block above has been destroyed.");
+            yield break;
+        }
+
         //set icicle back to original position
         transform.position = originalPosition;
         transform.localScale = originalSize * size;
-
-        //show sprite again
-        spriteRenderer.enabled = true;
-        mainCollider.enabled = true;
+        transform.rotation = Quaternion.identity;
 
         Debug.Log("Regrow complete: sprite & collider restored");
 
+        yield return new WaitForSeconds(0.1f);
+
         isFalling = false;
-        isRegenerating = false;
+        isRegenerating = false;   
+
+        mainCollider.enabled = true;
+        spriteRenderer.enabled = true;
+
+        canTrigger = true;     
     }
 
     public void SetSize(float icicleSize)
@@ -194,10 +203,5 @@ public class Icicle : MonoBehaviour
     {
         regenTime = regenerateSpeed;
         Debug.Log("Icicle regenerate speed set to: " + regenerateSpeed);
-    }
-    
-    public void SetFallCooldown(float cooldown)
-    {
-        fallCoolDown = cooldown;
-    }    
+    }  
 }
