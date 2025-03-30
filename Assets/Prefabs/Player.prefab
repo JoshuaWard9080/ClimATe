@@ -127,6 +127,7 @@ MonoBehaviour:
   playerSpeed: 3
   maxSpeed: 4
   maxAirSpeed: 2
+  bounceStrength: 3
   jumpForce: 8
   airMultiplier: 0.4
   groundCheck: {fileID: 2405672651882498910}
