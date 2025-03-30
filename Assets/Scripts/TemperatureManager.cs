@@ -26,7 +26,7 @@ public class TemperatureManager : MonoBehaviour
         //default state when starting game: this is just to avoid any weird bugs
         OnTempChangeToCold?.Invoke();
     }
-
+    /*
     public void setTemp(TemperatureState newTemp)
     {
         if (currTemp == newTemp)
@@ -49,9 +49,9 @@ public class TemperatureManager : MonoBehaviour
                 OnTempChangeToWarm?.Invoke();
                 break;
         }
-    }
+    }*/
 }
-
+    
     /*
     void ApplyFreezingTemp()
     {
