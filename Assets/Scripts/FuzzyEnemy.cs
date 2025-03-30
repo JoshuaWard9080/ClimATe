@@ -103,7 +103,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += (moveVector/6);
+        this.transform.position += (moveVector/4);
 
     }
 
