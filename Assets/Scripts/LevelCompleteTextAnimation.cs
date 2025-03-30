@@ -10,10 +10,15 @@ public class TextAnimation : MonoBehaviour
     [SerializeField] float timeBetweenTexts = 0.5f;
     [SerializeField] AudioSource typingAudio;
 
+    //victory scene fields
+    [SerializeField] private int blinkCount = 5;
+    [SerializeField] private float blinkInterval = 0.2f;
+    [SerializeField] string victoryStatsScene = "VictoryStatsScene";
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-         foreach (TextMeshProUGUI text in texts)
+        foreach (TextMeshProUGUI text in texts)
         {
             text.maxVisibleCharacters = 0;
         }
@@ -23,10 +28,19 @@ public class TextAnimation : MonoBehaviour
 
     private IEnumerator AnimateTexts()
     {
-        foreach (TextMeshProUGUI textMesh in texts)
+        for (int i = 0; i < texts.Length; i++)
         {
-            yield return StartCoroutine(TypeText(textMesh));
-            yield return new WaitForSeconds(timeBetweenTexts);
+            if (i == texts.Length - 1 && gameObject.scene.name == "VictoryScene")
+            {
+                yield return StartCoroutine(TypeText(texts[i]));
+                yield return StartCoroutine(BlinkText(texts[i]));
+                UnityEngine.SceneManagement.SceneManager.LoadScene(victoryStatsScene);
+            }
+            else
+            {
+                yield return StartCoroutine(TypeText(texts[i]));
+                yield return new WaitForSeconds(timeBetweenTexts);
+            }
         }
     }
 
@@ -45,6 +59,29 @@ public class TextAnimation : MonoBehaviour
             typingAudio.Play();
             visibleCharacters++;
             yield return new WaitForSeconds(timeBetweenCharacters);
+        }
+    }
+
+    private IEnumerator BlinkText(TextMeshProUGUI textMesh)
+    {
+        textMesh.ForceMeshUpdate();
+        int totalCharacters = textMesh.textInfo.characterCount;
+
+        if (totalCharacters == 0) {
+            yield break;
+        }
+
+        int finalCharacterIndex = totalCharacters - 1;
+
+        textMesh.maxVisibleCharacters = totalCharacters;
+
+        for (int i = 0; i < blinkCount; i++)
+        {
+            textMesh.maxVisibleCharacters = finalCharacterIndex;
+            yield return new WaitForSeconds(blinkInterval);
+
+            textMesh.maxVisibleCharacters = totalCharacters;
+            yield return new WaitForSeconds(blinkInterval);
         }
     }
 }
