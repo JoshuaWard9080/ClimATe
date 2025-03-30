@@ -164,8 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelSceneName: Level_2
-  escapeMenuPanel: {fileID: 800610561}
-  quitConfirmationPopup: {fileID: 944921934}
 --- !u!1001 &12117432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,6 +276,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -532,6 +531,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -745,27 +745,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7c046dd4a62974fad8ce608601e9e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTempChangeToWarm:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTempChangeToCold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTempChangeToFreezing:
+    m_PersistentCalls:
+      m_Calls: []
   currTemp: 1
-  icicles:
-  - {fileID: 1442499930}
-  - {fileID: 184556268}
-  - {fileID: 1649925380}
-  - {fileID: 1678645803}
-  - {fileID: 12117435}
-  - {fileID: 1794433186}
-  - {fileID: 997866390}
-  - {fileID: 1681269818}
-  - {fileID: 1264922437}
-  - {fileID: 1081375370}
-  - {fileID: 1447582528}
-  - {fileID: 1549478389}
-  - {fileID: 2064784646}
-  - {fileID: 1872101557}
-  - {fileID: 1359817488}
-  - {fileID: 549516761}
-  winds: []
-  crackingPlatforms: []
-  fuzzyEnemies: []
   snowSystem: {fileID: 1627166350}
 --- !u!4 &252600405
 Transform:
@@ -1054,6 +1043,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308814607}
   m_CullTransparentMesh: 1
+--- !u!1 &333863214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333863215}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333863215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333863214}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &361156983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1641,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3187,6 +3208,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3476,6 +3498,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3804,6 +3827,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5169,6 +5193,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6164,6 +6189,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6270,6 +6296,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7268,6 +7295,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8178,6 +8206,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8417,6 +8446,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8532,6 +8562,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8623,6 +8654,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8729,6 +8761,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -9188,6 +9221,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
+  temperatureManager: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -10472,3 +10506,4 @@ SceneRoots:
   - {fileID: 252600405}
   - {fileID: 1627166349}
   - {fileID: 166037851}
+  - {fileID: 333863215}
