@@ -14,19 +14,21 @@ public class Bird_Enemy : MonoBehaviour
     private Boolean isOnScreenEdgeY = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    [SerializeField]  public String temperature = "cold";
+    [SerializeField]  public String state = "cold";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator.SetBool("isHurt", isHurt);
+        animator.SetBool("isColdTemp", false);
         moveVector = new Vector3(1, 0, 0);
         boundX = 9;
         boundY = 6;
         spawnY = this.transform.position.y;
 
-        if (temperature == "warm") onTempChangeToWarm();
-        else if (temperature == "cold") onTempChangeToCold();
-        else if (temperature == "freezing") onTempChangeToFreezing();
+        if (state == "warm") onTempChangeToWarm();
+        else if (state == "cold") onTempChangeToCold();
+        else if (state == "freezing") onTempChangeToFreezing();
         else
         {
             Debug.Log("Invalid temperature for bird in start method");
@@ -47,7 +49,7 @@ public class Bird_Enemy : MonoBehaviour
             Debug.Log("is on edge y");
             isOnScreenEdgeY = true;
         }
-        moveBasedOnTemperature(temperature);
+        moveBasedOnState(state);
     }
 
     void onTempChangeToWarm()
@@ -58,6 +60,7 @@ public class Bird_Enemy : MonoBehaviour
 
     void onTempChangeToCold()
     {
+        animator.SetBool("isColdTemp", true);
         moveSpeed = 0.006f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
@@ -101,14 +104,14 @@ public class Bird_Enemy : MonoBehaviour
         return new Vector3(dirX, dirY, 0);
     }
 
-    void moveBasedOnTemperature(String temp)
+    void moveBasedOnState(String s)
     {
-        if (temp == "warm") moveWarm();
-        else if (temp == "cold") moveCold();
-        else if (temp == "freezing") moveFreezing();
+        if (s == "warm") moveWarm();
+        else if (s == "cold") moveCold();
+        else if (s == "freezing") moveFreezing();
         else
         {
-            Debug.Log("Invalid temperature for bird");
+            moveDead();
 
         }
     }
@@ -168,5 +171,20 @@ public class Bird_Enemy : MonoBehaviour
             isOnScreenEdgeX = false;
         }
         this.transform.position += moveVector * moveSpeed;
+    }
+
+    void moveDead()
+    {
+        this.transform.position += moveVector * moveSpeed;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player"
+            && collision.gameObject.transform.position.y > this.transform.position.y)
+        {
+            moveVector = new Vector3(0, -1, 0);
+            isHurt = true;
+            animator.SetBool("isHurt", true);
+        }
     }
 }
