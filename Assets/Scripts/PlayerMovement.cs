@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float maxAirSpeed;
+    [SerializeField] private float bounceStrength;
 
     [SerializeField] private float jumpForce;
     [SerializeField] private float airMultiplier;
@@ -160,5 +162,15 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.parent = originalParent;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy") && transform.position.y > collision.transform.position.y + 0.2)
+        {
+            Debug.Log("Collision with Enemy");
+            animator.SetBool("isJumping", true);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceStrength);
+        }
     }
 }
