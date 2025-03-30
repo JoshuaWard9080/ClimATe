@@ -80,9 +80,9 @@ public class FuzzyEnemy : MonoBehaviour
     {
         float direction = moveVector.x;
         Vector2 raycastStart =
-            new Vector2(this.transform.position.x + (direction * 0.3f), this.transform.position.y);
+            new Vector2(this.transform.position.x + (direction * 0.4f), this.transform.position.y);
         Vector2 raycastDirection = transform.TransformDirection(moveVector);
-        float maxDistance = 0.2f;
+        float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
         return hit;
@@ -115,7 +115,7 @@ public class FuzzyEnemy : MonoBehaviour
             isHurt = true;
         }else if (collision.gameObject.tag == "Enemy")
         {
-            changeDirection();
+            //changeDirection();
         }
     }
 
