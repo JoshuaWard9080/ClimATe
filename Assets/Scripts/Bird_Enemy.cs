@@ -14,7 +14,7 @@ public class Bird_Enemy : MonoBehaviour
     private Boolean isOnScreenEdgeY = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    [SerializeField]  public String state = "cold";
+    public String state = "cold";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,7 +61,7 @@ public class Bird_Enemy : MonoBehaviour
     void onTempChangeToCold()
     {
         animator.SetBool("isColdTemp", true);
-        moveSpeed = 0.006f;
+        moveSpeed = 0.008f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
@@ -85,7 +85,7 @@ public class Bird_Enemy : MonoBehaviour
 
     Vector3 chooseFlyDirectionWarm()
     {
-        float theta = UnityEngine.Random.Range(0, 2*3.14159f);
+        float theta = UnityEngine.Random.Range(0, 2* (float)Math.PI);
         float dirX = (float)(2*Math.Cos(theta));
         float dirY = (float)Math.Sin(theta);
         
@@ -179,6 +179,7 @@ public class Bird_Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("collided with something");
         if (collision.gameObject.tag == "Player"
             && collision.gameObject.transform.position.y > this.transform.position.y)
         {
