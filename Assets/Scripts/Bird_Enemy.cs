@@ -7,18 +7,23 @@ public class Bird_Enemy : MonoBehaviour
     public int moveTime = 100;
     public Vector3 moveVector;
     float boundX;
+    float boundY;
+    float spawnY;
     [SerializeField] Boolean isHurt = false;
-    private Boolean isOnScreenEdge = false;
+    private Boolean isOnScreenEdgeX = false;
+    private Boolean isOnScreenEdgeY = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    [SerializeField]  public String temperature = "warm";
+    [SerializeField]  public String temperature = "cold";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveVector = new Vector3(1, 0, 0);
         boundX = 9;
-        
+        boundY = 6;
+        spawnY = this.transform.position.y;
+
         if (temperature == "warm") onTempChangeToWarm();
         else if (temperature == "cold") onTempChangeToCold();
         else if (temperature == "freezing") onTempChangeToFreezing();
@@ -34,7 +39,13 @@ public class Bird_Enemy : MonoBehaviour
     {
         if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
         {
-            isOnScreenEdge = true;
+            Debug.Log("is on edge x");
+            isOnScreenEdgeX = true;
+        }
+        if ((this.transform.position.y > spawnY+boundY || this.transform.position.y < spawnY-boundY))
+        {
+            Debug.Log("is on edge y");
+            isOnScreenEdgeY = true;
         }
         moveBasedOnTemperature(temperature);
     }
@@ -47,7 +58,7 @@ public class Bird_Enemy : MonoBehaviour
 
     void onTempChangeToCold()
     {
-        moveSpeed = 0.03f;
+        moveSpeed = 0.006f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
@@ -75,7 +86,7 @@ public class Bird_Enemy : MonoBehaviour
         float dirX = (float)(2*Math.Cos(theta));
         float dirY = (float)Math.Sin(theta);
         
-        moveTime = (int)Math.Abs((UnityEngine.Random.Range(100, 1000)*dirX));
+        moveTime = (int)Math.Abs((UnityEngine.Random.Range(100, 700)*dirX));
         flipSprite(dirX);
         return new Vector3(dirX, dirY, 0);
     }
@@ -104,14 +115,21 @@ public class Bird_Enemy : MonoBehaviour
 
     void moveWarm()
     {
-        if (isOnScreenEdge)
+        if (isOnScreenEdgeY)
         {
-            flipSprite(moveVector.x);
+            moveVector.y = (moveVector.y)*-1;
+            isOnScreenEdgeY = false;
+        }
+        if (isOnScreenEdgeX)
+        {
+            
             float oppositeDirX = -(moveVector.x);
             moveVector = chooseFlyDirectionWarm();
             moveVector.x = oppositeDirX;
-            isOnScreenEdge = false;
+            flipSprite(moveVector.x);
+            isOnScreenEdgeX = false;
         }
+        
         if (moveTime <= 0)
         {
             moveVector = chooseFlyDirectionWarm();
@@ -123,24 +141,31 @@ public class Bird_Enemy : MonoBehaviour
 
     void moveCold()
     {
-        if (isOnScreenEdge)
+        if (isOnScreenEdgeY)
         {
-            flipSprite(moveVector.x);
+            moveVector.y = (moveVector.y)*-1;
+            isOnScreenEdgeY = false;
+        }
+        if (isOnScreenEdgeX)
+        {
+            
             float oppositeDirX = -(moveVector.x);
             moveVector = chooseFlyDirectionCold();
             moveVector.x = oppositeDirX;
-            isOnScreenEdge = false;
+            flipSprite(moveVector.x);
+            isOnScreenEdgeX = false;
         }
+        
         this.transform.position += moveVector * moveSpeed;
     }
 
     void moveFreezing()
     {
-        if (isOnScreenEdge)
+        if (isOnScreenEdgeX)
         {
             moveVector *= -1;
             flipSprite(moveVector.x);
-            isOnScreenEdge = false;
+            isOnScreenEdgeX = false;
         }
         this.transform.position += moveVector * moveSpeed;
     }

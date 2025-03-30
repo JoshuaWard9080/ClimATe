@@ -24,10 +24,6 @@ public class MovingPlatform : MonoBehaviour
 
             currentPosition *= -1;
         }
-        else
-        {
-            Debug.Log("Object is now visible");
-        }
         move(currentPosition);
     }
 
