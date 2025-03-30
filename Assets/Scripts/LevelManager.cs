@@ -29,8 +29,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-            Debug.Log("[LM] LevelManager start");
-
+        Debug.Log("LevelManager start RAHHHHHHH");
+        LevelStatsManager.Instance?.ResetLevelTimer();
         LevelStatsManager.Instance?.StartLevelTimer();
     }
 
@@ -93,6 +93,15 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = !isPaused;
 
+        if (isPaused == true)
+        {
+            LevelStatsManager.Instance.PauseLevelTimer();
+        }
+        else
+        {
+            LevelStatsManager.Instance.ResumeLevelTimer();
+        }
+
         if (escapeMenuPanel != null)
         {
             escapeMenuPanel.SetActive(isPaused);
@@ -113,6 +122,7 @@ public class LevelManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
+        LevelStatsManager.Instance.ResumeLevelTimer();
         escapeMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -152,7 +162,7 @@ public class LevelManager : MonoBehaviour
     public void CompleteLevel()
     {
         LevelStatsManager.Instance?.EndLevelTimer();
-        
+
         string current = SceneManager.GetActiveScene().name;
         string next = "";
 
@@ -196,6 +206,8 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        LevelStatsManager.Instance.ResetLevelTimer();
+        LevelStatsManager.Instance.StartLevelTimer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

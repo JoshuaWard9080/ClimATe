@@ -95,6 +95,7 @@ public class LevelCompleteManager : MonoBehaviour
 
         Debug.Log("Loading next level...");
 
+        LevelStatsManager.Instance.StartLevelTimer();
         //uses the LevelTracker to figure out which level is next
         SceneManager.LoadScene(LevelTracker.Instance.nextLevelScene);
         Debug.Log("Loading next level: " + LevelTracker.Instance.currentLevelScene);
@@ -138,14 +139,17 @@ public class LevelCompleteManager : MonoBehaviour
 
         livesText.text = $"Lives Lost: {stats.totalLivesLost}";
         //timeText.text = $"Time: {stats.totalTime.ToString("F1")} seconds";
-        if (stats.totalTime > 60.0f)
+
+        float levelTime = stats.elapsedTime;
+
+        if (levelTime > 60.0f)
         {
-            float totalTimeMinutes = stats.totalTime / 60;
-            timeText.text = $"Time: {totalTimeMinutes.ToString("F2")} minutes";
+            float minutes = levelTime / 60;
+            timeText.text = $"Time: {minutes.ToString("F2")} minutes";
         }
         else
         {
-            timeText.text = $"Time: {stats.totalTime.ToString("F2")} seconds";
+            timeText.text = $"Time: {levelTime.ToString("F2")} seconds";
         }
 
         killText.text = $"Kill Count: {stats.totalKills}";

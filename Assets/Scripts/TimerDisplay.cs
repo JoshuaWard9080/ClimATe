@@ -17,7 +17,7 @@ public class TimerDisplay : MonoBehaviour
         {
             float time = LevelStatsManager.Instance.elapsedTime;
             timeText.text = string.Format("{0:00}:{1:00}", Mathf.Floor(time / 60), time % 60);
-            Debug.Log("[TD] Time Display Updated: " + timeText.text);
+            //Debug.Log("Time Display Updated: " + timeText.text);
         }
         else
         {

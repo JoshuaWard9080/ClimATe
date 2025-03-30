@@ -13,6 +13,7 @@ public class LevelStatsManager : MonoBehaviour
 
     private float startTime;
     public float elapsedTime;
+    public float pausedTime;
 
     private bool isTiming = false;
 
@@ -22,7 +23,7 @@ public class LevelStatsManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        Debug.Log("[LSM] LevelStatsManager initialized");
+        Debug.Log("LevelStatsManager initialized");
     }
     else
     {
@@ -34,7 +35,7 @@ public class LevelStatsManager : MonoBehaviour
     {
         if (isTiming)
         {
-            Debug.Log("[LSM] Updating Timer: " + (Time.time - startTime));
+            //Debug.Log("Updating Timer: " + (Time.time - startTime));
             UpdateTimer();
         }
     }
@@ -44,7 +45,7 @@ public class LevelStatsManager : MonoBehaviour
         startTime = Time.time;
         elapsedTime = 0f;
         isTiming = true;
-            Debug.Log("[LSM] Timer started at " + startTime);
+        Debug.Log("Timer started at " + startTime);
 
     }
 
@@ -52,6 +53,37 @@ public class LevelStatsManager : MonoBehaviour
     {
         totalTime = Time.time - startTime;
         Debug.Log("Level TIme: " + totalTime);
+    }
+
+    public void PauseLevelTimer()
+    {
+        if (!isTiming)
+        {
+            return;
+        }
+
+        pausedTime = Time.time;
+        isTiming = false;
+    }
+
+    public void ResumeLevelTimer()
+    {
+        if (isTiming)
+        {
+            return;
+        }
+
+        float pausedDuration = Time.time - pausedTime;
+        startTime += pausedDuration;
+        isTiming = true;
+    }
+
+    public void ResetLevelTimer()
+    {
+        elapsedTime = 0f;
+        pausedTime = 0f;
+        startTime = 0f;
+        isTiming = false;
     }
 
     public void UpdateTimer()
