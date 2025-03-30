@@ -2512,11 +2512,15 @@ MonoBehaviour:
   nextLevelButton: {fileID: 645952187}
   mainMenuButton: {fileID: 826240018}
   quitGameButton: {fileID: 437988125}
-  totalPointsText: {fileID: 129617836}
   switchButtonAudio: {fileID: 1398818255}
   clickButtonAudio: {fileID: 1725165917}
   levelCompleteAudio: {fileID: 373357005}
+  textAnimator: {fileID: 1203337433}
   totalPoints: 0
+  livesText: {fileID: 545690456}
+  timeText: {fileID: 2115389650}
+  killText: {fileID: 749776086}
+  pointsText: {fileID: 129617836}
 --- !u!4 &1203337432
 Transform:
   m_ObjectHideFlags: 0

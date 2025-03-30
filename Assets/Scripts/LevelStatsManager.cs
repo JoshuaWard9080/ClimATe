@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class GlobalStatsManager : MonoBehaviour
+public class LevelStatsManager : MonoBehaviour
 {
-    public static GlobalStatsManager Instance;
-
+    public static LevelStatsManager Instance;
     public int totalLivesLost = 0;
     public float totalTime = 0f;
     public int totalYetiKills = 0;
@@ -11,18 +10,10 @@ public class GlobalStatsManager : MonoBehaviour
     public int totalKills = 0;
     public int totalPoints = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int points)
@@ -43,5 +34,10 @@ public class GlobalStatsManager : MonoBehaviour
         totalBirdKills = 0;
         totalKills = 0;
         totalPoints = 0;
+    }
+
+    public void UpdateGlobalStats()
+    {
+        GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, totalPoints);
     }
 }

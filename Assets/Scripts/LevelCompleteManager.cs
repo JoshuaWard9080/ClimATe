@@ -10,11 +10,17 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitGameButton;
-    [SerializeField] private TMP_Text totalPointsText;
     [SerializeField] AudioSource switchButtonAudio;
     [SerializeField] AudioSource clickButtonAudio;
     [SerializeField] AudioSource levelCompleteAudio;
+    [SerializeField] private TextAnimation textAnimator;
     public int totalPoints = 0;
+
+    //stats
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI killText;
+    public TextMeshProUGUI pointsText;
 
     private void Awake()
     {
@@ -127,6 +133,32 @@ public class LevelCompleteManager : MonoBehaviour
 
     private void UpdatePointsUI()
     {
-        totalPointsText.text = "Total Points: " + totalPoints;
+        //get the stats from the stast manager
+        var stats = LevelStatsManager.Instance;
+
+        livesText.text = $"Lives Lost: {stats.totalLivesLost}";
+        timeText.text = $"Time: {stats.totalTime}";
+        killText.text = $"Kill Count: {stats.totalKills}";
+        pointsText.text = $"Total Points: {stats.totalPoints}";
+
+        //check if null, if not set the texts THEN call the animation
+        //this ensures the animation does not start before the text has been updated, otherwise no stat value will be printed
+        if (textAnimator != null)
+        {
+            textAnimator.SetTexts(new TextMeshProUGUI[]
+           {
+                livesText,
+                timeText,
+                killText,
+                pointsText
+           });
+
+            StartCoroutine(textAnimator.StartAnimation());
+        }
+        else
+        {
+            Debug.LogError("TextAnimator reference is missing :/");
+        }
+
     }
 }

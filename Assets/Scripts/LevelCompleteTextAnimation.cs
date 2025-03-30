@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Linq;
 
 public class TextAnimation : MonoBehaviour
 {
@@ -15,9 +16,18 @@ public class TextAnimation : MonoBehaviour
     [SerializeField] private float blinkInterval = 0.2f;
     [SerializeField] string victoryStatsScene = "VictoryStatsScene";
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    //set the textx
+    public void SetTexts(TextMeshProUGUI[] newTexts)
     {
+        texts = newTexts;
+    }
+
+    public IEnumerator StartAnimation()
+    {
+        Debug.Log("StartAnimation called with " + texts.Length + " texts");
+
+        yield return null; //break to ensure text has been updated with stats
+
         foreach (TextMeshProUGUI text in texts)
         {
             text.maxVisibleCharacters = 0;
@@ -83,7 +93,7 @@ public class TextAnimation : MonoBehaviour
             textMesh.maxVisibleCharacters = totalCharacters;
             yield return new WaitForSeconds(blinkInterval);
         }
-        
+
         FindObjectOfType<VictorySceneManager>()?.BeginScrolling();
     }
 }
