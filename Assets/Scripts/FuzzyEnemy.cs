@@ -19,6 +19,12 @@ public class FuzzyEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         animator.SetBool("isHurt", isHurt);
         move(moveVector);
     }
@@ -77,7 +83,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += (moveVector/6);
+        this.transform.position += (moveVector/4);
 
     }
 

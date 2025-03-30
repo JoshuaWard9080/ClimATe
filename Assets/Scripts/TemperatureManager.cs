@@ -70,7 +70,6 @@ public class TemperatureManager : MonoBehaviour
         {
             icicle.CanFall(true);
             icicle.RegenerateSpeed(5f);
-            icicle.SetFallCooldown(5f);
         }
 
         //set fuzzy (enemy) to push blocks and fill in the holes made by the player in the platforms/floors
@@ -116,7 +115,6 @@ public class TemperatureManager : MonoBehaviour
         {
             icicle.CanFall(true);
             icicle.RegenerateSpeed(1f);
-            icicle.SetFallCooldown(1f);
         }
 
         //set fuzzy (enemy) to push blocks and fill in the holes made by the player in the platforms/floors
@@ -163,7 +161,6 @@ public class TemperatureManager : MonoBehaviour
         {
             icicle.CanFall(true);
             icicle.RegenerateSpeed(3f);
-            icicle.SetFallCooldown(0.5f);
         }
 
         //set fuzzy (enemy) to NOT push blocks
