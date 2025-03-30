@@ -1262,14 +1262,14 @@ MonoBehaviour:
   - {fileID: 1624923791}
   - {fileID: 1518553119}
   - {fileID: 1280451929}
-  - {fileID: 1614084835}
+  - {fileID: 0}
   - {fileID: 669480616}
   - {fileID: 1931262822}
   - {fileID: 420066524}
   - {fileID: 713912931}
   - {fileID: 742265483}
   - {fileID: 751530008}
-  - {fileID: 851693868}
+  - {fileID: 0}
   - {fileID: 1848976440}
   winds: []
   crackingPlatforms: []
@@ -3435,7 +3435,6 @@ GameObject:
   - component: {fileID: 832009983}
   - component: {fileID: 832009982}
   - component: {fileID: 832009981}
-  - component: {fileID: 832009985}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -3572,6 +3571,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832009979}
   m_CullTransparentMesh: 1
+--- !u!114 &832009985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851693867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 1
+  fallSpeed: 1
+  regenTime: 1
+  size: 1
+  canTrigger: 1
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &851693865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3646,7 +3665,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 851693868}
+      addedObject: {fileID: 832009985}
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &851693866 stripped
 Transform:
@@ -3658,33 +3677,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 851693865}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &851693868
---- !u!114 &832009985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851693867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  m_GameObject: {fileID: 832009979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &917670644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3979,7 +3971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f608d8e138b94c342bc05cfa5bd32672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelSceneName: MainMenu
+  nextLevelSceneName: VictoryScene
 --- !u!1001 &1121749608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5176,7 +5168,6 @@ GameObject:
   - component: {fileID: 1569832109}
   - component: {fileID: 1569832108}
   - component: {fileID: 1569832107}
-  - component: {fileID: 1569832111}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -5313,6 +5304,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569832105}
   m_CullTransparentMesh: 1
+--- !u!114 &1569832111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614084834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallDelay: 1
+  fallSpeed: 1
+  regenTime: 1
+  size: 1
+  canTrigger: 1
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &1614084832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5387,7 +5398,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1614084835}
+      addedObject: {fileID: 1569832111}
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1614084833 stripped
 Transform:
@@ -5399,27 +5410,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1614084832}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1614084835
---- !u!114 &1569832111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614084834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1624923788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5511,12 +5501,6 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_GameObject: {fileID: 1569832105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1635996344
 GameObject:
   m_ObjectHideFlags: 0
