@@ -55,7 +55,8 @@ public class LevelCompleteManager : MonoBehaviour
                 SceneManager.LoadScene("VictoryScene");
             });
         }
-        else {
+        else
+        {
             if (nextLevelButton != null)
             {
                 //not sure what the next level wil be yet
@@ -70,7 +71,7 @@ public class LevelCompleteManager : MonoBehaviour
             if (quitGameButton != null)
             {
                 quitGameButton.onClick.AddListener(QuitGame);
-            }   
+            }
         }
 
         UpdatePointsUI();
