@@ -34,6 +34,7 @@ public class FuzzyEnemy : MonoBehaviour
         
         if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
         {
+            Debug.Log("Renderer invisible");
             manageOffScreen();
         }
         if (!checkIfGoingToFallOffEdge())
@@ -60,6 +61,7 @@ public class FuzzyEnemy : MonoBehaviour
             }
             else
             {
+                Debug.Log("isn't hurt");
                 changeDirection();
             }
 
@@ -85,13 +87,14 @@ public class FuzzyEnemy : MonoBehaviour
         float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        if (hit.collider == null || (hit.collider.gameObject.tag == "Player")) return false;
-        if (hit.collider != null)Debug.Log(hit.collider.gameObject.tag);
+        if (hit.collider == null || (hit.collider.gameObject.tag == "Player") || (hit.collider.gameObject.tag == "Trigger")) return false;
+        if (hit.collider != null)Debug.Log("going to hit something: " + hit.collider.gameObject);
+        if (hit.collider != null) Debug.Log("going to hit something: " + hit.collider.gameObject.tag);
         return hit;
     }
     void changeDirection()
     {
-
+        Debug.Log("changing direction");
         moveVector.x *= -1;
         if (moveVector.x > 0)
         {
@@ -111,6 +114,7 @@ public class FuzzyEnemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collided with something");
         if (collision.gameObject.tag == "Player"
             && collision.gameObject.transform.position.y > this.transform.position.y+0.3)
         {
