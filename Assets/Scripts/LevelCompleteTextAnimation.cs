@@ -34,7 +34,6 @@ public class TextAnimation : MonoBehaviour
             {
                 yield return StartCoroutine(TypeText(texts[i]));
                 yield return StartCoroutine(BlinkText(texts[i]));
-                UnityEngine.SceneManagement.SceneManager.LoadScene(victoryStatsScene);
             }
             else
             {
@@ -67,7 +66,8 @@ public class TextAnimation : MonoBehaviour
         textMesh.ForceMeshUpdate();
         int totalCharacters = textMesh.textInfo.characterCount;
 
-        if (totalCharacters == 0) {
+        if (totalCharacters == 0)
+        {
             yield break;
         }
 
@@ -83,5 +83,7 @@ public class TextAnimation : MonoBehaviour
             textMesh.maxVisibleCharacters = totalCharacters;
             yield return new WaitForSeconds(blinkInterval);
         }
+        
+        FindObjectOfType<VictorySceneManager>()?.BeginScrolling();
     }
 }

@@ -1,0 +1,60 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System.Timers;
+using UnityEngine.SceneManagement;
+
+public class VictorySceneManager : MonoBehaviour
+{
+    public RectTransform statsContent;
+    public float scrollSpeed = 20f;
+    public float endDelay = 3f;
+    public GameObject returnToMenuText;
+
+    private bool scrollStarted = false;
+    private bool scrollEnded = false;
+
+    private Vector2 startPosition;
+    private Vector2 endPosition;
+
+    private void Start()
+    {
+        startPosition = statsContent.anchoredPosition;
+
+        statsContent.anchoredPosition = new Vector2(startPosition.x, -Screen.height);
+        returnToMenuText.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (scrollEnded && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    public void BeginScrolling()
+    {
+        if (!scrollStarted)
+        {
+            scrollStarted = true;
+            StartCoroutine(ScrollCredits());
+        }
+    }
+
+    private IEnumerator ScrollCredits()
+    {
+        Vector2 finalPosition = new Vector2(startPosition.x, Screen.height + statsContent.sizeDelta.y);
+
+        while (statsContent.anchoredPosition.y < finalPosition.y)
+        {
+            statsContent.anchoredPosition += Vector2.up * scrollSpeed * Time.deltaTime;
+            yield return null;
+        }
+
+        scrollEnded = true;
+        yield return new WaitForSeconds(endDelay);
+        returnToMenuText.SetActive(true);
+    }
+}

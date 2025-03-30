@@ -162,7 +162,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            next = "MainMenu";
+            next = "VictoryScene";
         }
 
         LevelTracker.Instance.currentLevelScene = current;
