@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class Icicle : MonoBehaviour
 {
+
     [SerializeField] private float fallDelay; //how long it shakes before falling
     [SerializeField] private float fallSpeed; //how fast it falls
     [SerializeField] private float regenTime; //how long before it regenerates
     [SerializeField] private float size = 1f; //changes the scale of the icicle
     [SerializeField] private bool canTrigger = true;
+    [SerializeField] TemperatureManager temperatureManager;
 
     private bool isFalling = false;
     private bool canFall = true;
@@ -28,7 +30,9 @@ public class Icicle : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Start method called");
+        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
+        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +60,24 @@ public class Icicle : MonoBehaviour
                 break;
             }
         }
+    }
+
+    void tempChangeToWarm()
+    {
+        CanFall(true);
+        RegenerateSpeed(3f);
+    }
+
+    void tempChangeToCold()
+    {
+        CanFall(true);
+        RegenerateSpeed(1f);
+    }
+
+    void tempChangeToFreezing()
+    {
+        CanFall(true);
+        RegenerateSpeed(5f);
     }
 
     void Update()

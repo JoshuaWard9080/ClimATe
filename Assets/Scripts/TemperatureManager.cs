@@ -1,8 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class TemperatureManager : MonoBehaviour
 {
+    public UnityEvent OnTempChangeToWarm = new UnityEvent();
+    public UnityEvent OnTempChangeToCold = new UnityEvent();
+    public UnityEvent OnTempChangeToFreezing = new UnityEvent();
     public TemperatureState currTemp;
 
     //initialize player, platforms, winds, snow pile, icicles, Topi (enemies), and Nitpickers (enemies)
