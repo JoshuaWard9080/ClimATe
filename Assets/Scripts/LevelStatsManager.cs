@@ -1,3 +1,4 @@
+using System.Timers;
 using UnityEngine;
 
 public class LevelStatsManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class LevelStatsManager : MonoBehaviour
     public int totalPoints = 0;
 
     private float startTime;
+    public float elapsedTime;
 
     private void Awake()
     {
@@ -20,13 +22,19 @@ public class LevelStatsManager : MonoBehaviour
 
     public void StartLevelTimer()
     {
-        startTime += Time.time;
+        startTime = Time.time;
+        elapsedTime = 0f;
     }
 
     public void EndLevelTimer()
     {
         totalTime = Time.time - startTime;
         Debug.Log("Level TIme: " + totalTime);
+    }
+
+    public void UpdateTimer()
+    {
+        elapsedTime = Time.time - startTime;
     }
 
     public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int points)

@@ -2,10 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private string nextLevelSceneName;
+    [SerializeField] private TextMeshProUGUI timeText;
     private GameObject escapeMenuPanel;
     private GameObject quitConfirmationPopup;
     private MenuNavigator menuNavigator;
@@ -31,6 +33,7 @@ public class LevelManager : MonoBehaviour
     {
         LevelStatsManager.Instance?.StartLevelTimer();
     }
+
 
     public bool IsPaused()
     {
@@ -80,6 +83,12 @@ public class LevelManager : MonoBehaviour
 
     void Update()
     {
+        if (!isPaused && LevelStatsManager.Instance != null)
+        {
+            LevelStatsManager.Instance.UpdateTimer();
+            timeText.text = LevelStatsManager.Instance.elapsedTime.ToString("F1");
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Escape pressed, loading escape menu...");
@@ -150,7 +159,7 @@ public class LevelManager : MonoBehaviour
     public void CompleteLevel()
     {
         LevelStatsManager.Instance?.EndLevelTimer();
-        
+
         string current = SceneManager.GetActiveScene().name;
         string next = "";
 
