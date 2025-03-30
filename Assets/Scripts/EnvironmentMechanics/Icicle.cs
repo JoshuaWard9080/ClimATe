@@ -30,9 +30,6 @@ public class Icicle : MonoBehaviour
 
     void Start()
     {
-        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
-        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
-        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -60,6 +57,10 @@ public class Icicle : MonoBehaviour
                 break;
             }
         }
+
+        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
+        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
     }
 
     void tempChangeToWarm()

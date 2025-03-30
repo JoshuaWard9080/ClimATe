@@ -15,11 +15,12 @@ public class FuzzyEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        moveVector = new Vector3(1, 0, 0);
         temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
         temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
         temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
 
-        moveVector = new Vector3(1, 0, 0);
+        
     }
 
     // Update is called once per frame

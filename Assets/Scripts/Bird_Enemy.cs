@@ -16,29 +16,35 @@ public class Bird_Enemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator animator;
     private String state = "warm";
+    [SerializeField] TemperatureManager temperatureManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator.SetBool("isHurt", isHurt);
         animator.SetBool("isColdTemp", false);
+
         moveVector = new Vector3(1, 0, 0);
         boundX = 9;
         boundY = 6;
         spawnY = this.transform.position.y;
 
-        if (state == "warm") onTempChangeToWarm();
-        else if (state == "cold") onTempChangeToCold();
+        if (state == "warm") tempChangeToWarm();
+        else if (state == "cold") tempChangeToCold();
         else if (state == "freezing")
         {
             animator.SetBool("isColdTemp", true);
-            onTempChangeToFreezing();
+            tempChangeToFreezing();
         }
         else
         {
             Debug.Log("Invalid temperature for bird in start method");
 
         }
+
+        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
+        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
     }
 
     // Update is called once per frame
@@ -57,19 +63,19 @@ public class Bird_Enemy : MonoBehaviour
         moveBasedOnState(state);
     }
 
-    void onTempChangeToWarm()
+    void tempChangeToWarm()
     {
         moveSpeed = 0.008f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
-    void onTempChangeToCold()
+    void tempChangeToCold()
     {
         moveSpeed = 0.008f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
-    void onTempChangeToFreezing()
+    void tempChangeToFreezing()
     {
         animator.SetBool("isColdTemp", true);
         moveSpeed = 0.002f;

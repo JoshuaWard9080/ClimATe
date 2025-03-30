@@ -11,15 +11,21 @@ public class TemperatureManager : MonoBehaviour
 
     //initialize player, platforms, winds, snow pile, icicles, Topi (enemies), and Nitpickers (enemies)
     //[SerializeField] private PlayerController player;
-    [SerializeField] private List<Icicle> icicles; //icicles
-    [SerializeField] private List<Wind> winds; //winds
-    [SerializeField] private List<CrackingPlatform> crackingPlatforms; //platforms
-    [SerializeField] private List<FuzzyEnemy> fuzzyEnemies; //fuzzy enemies
+    //[SerializeField] private List<Icicle> icicles; //icicles
+    //[SerializeField] private List<Wind> winds; //winds
+    //[SerializeField] private List<CrackingPlatform> crackingPlatforms; //platforms
+    //[SerializeField] private List<FuzzyEnemy> fuzzyEnemies; //fuzzy enemies
 
     //second enemy
     //[SerializeField] private List<> ;
 
     [SerializeField] private PilingSnow snowSystem; //snow storm
+
+    private void Start()
+    {
+        //default state when starting game: this is just to avoid any weird bugs
+        OnTempChangeToCold?.Invoke();
+    }
 
     public void setTemp(TemperatureState newTemp)
     {
@@ -44,7 +50,9 @@ public class TemperatureManager : MonoBehaviour
                 break;
         }
     }
-    
+}
+
+    /*
     void ApplyFreezingTemp()
     {
         //make the player speed slower
@@ -181,4 +189,4 @@ public class TemperatureManager : MonoBehaviour
         //     secondEnemy.Waddle(false);
         // }
     }
-}
+}*/

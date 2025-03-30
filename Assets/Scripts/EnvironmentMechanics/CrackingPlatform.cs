@@ -20,13 +20,14 @@ public class CrackingPlatform : MonoBehaviour
 
     void Start()
     {
-        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
-        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
-        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
 
         spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         col2D = GetComponent<Collider2D>();
         spriteRenderer.color = baseColor;
+
+        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
+        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
     }
 
     void Update()
