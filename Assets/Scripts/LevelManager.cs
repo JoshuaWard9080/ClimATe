@@ -21,7 +21,20 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneLoaded += (scene, mode) =>
+            {
+                Debug.Log("Scene loaded: " + scene.name);
+
+                // Rebind ONLY if it's a gameplay level scene
+                if (scene.name == "Level_1" ||
+                    scene.name == "Level_2" ||
+                    scene.name == "Level_3" ||
+                    scene.name == "Level_4")
+                {
+                    StartCoroutine(WaitUntilSceneObjectsAreReady());
+                }
+            };
+
         }
         else
         {
@@ -31,25 +44,128 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        // if (timeText == null)
+        // {
+        //     timeText = GameObject.Find("TimeText")?.GetComponent<TextMeshProUGUI>();
+        //     Debug.LogWarning("timeText auto-bound: " + (timeText != null));
+        // }
+
         LevelStatsManager.Instance?.StartLevelTimer();
     }
 
+    void Update()
+    {
+        //Debug.Log($"[Update] isPaused: {isPaused}, elapsed: {LevelStatsManager.Instance?.elapsedTime}");
+
+        LevelStatsManager.Instance.UpdateTimer();
+        float time = LevelStatsManager.Instance.elapsedTime;
+
+        if (!isPaused && LevelStatsManager.Instance != null)
+        {
+            //timeText.text = "TIMER RUNNING! YUH";
+            timeText.text = string.Format("{0:00}:{1:00}", Mathf.Floor(time / 60), time % 60);
+        }
+        else
+        {
+            Debug.LogWarning("timeText is null in LevelManager! bro :(");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape pressed, loading escape menu...");
+            ToggleEscapeMenu();
+        }
+    }
+
+    private IEnumerator WaitUntilSceneObjectsAreReady()
+    {
+        Debug.Log("Waiting for TimeText & EscapeCanvas...");
+
+        // Wait for scene to be fully active and objects to spawn
+        while (SceneManager.GetActiveScene().name.StartsWith("MainMenu"))
+            yield return null;
+
+        // Wait for key UI objects to appear
+        GameObject canvas = null;
+        GameObject time = null;
+
+        for (int i = 0; i < 40; i++)
+        {
+            canvas = GameObject.Find("EscapeCanvas");
+            time = GameObject.Find("TimeText");
+
+            if (canvas != null && time != null)
+                break;
+
+            yield return new WaitForSeconds(0.025f);
+        }
+
+        if (canvas != null)
+        {
+            escapeMenuPanel = canvas.transform.Find("EscapeMenuPanel")?.gameObject;
+            quitConfirmationPopup = canvas.transform.Find("QuitConfirmationPopup")?.gameObject;
+            menuNavigator = escapeMenuPanel?.GetComponent<MenuNavigator>();
+            escapeMenuPanel?.SetActive(false);
+
+            Debug.Log("EscapeCanvas bound.");
+        }
+        else
+        {
+            Debug.LogWarning("EscapeCanvas not found.");
+        }
+
+        if (time != null)
+        {
+            timeText = time.GetComponent<TextMeshProUGUI>();
+            Debug.Log("timeText bound: " + timeText.name);
+        }
+        else
+        {
+            Debug.LogWarning("Could not bind TimeText.");
+        }
+    }
 
     public bool IsPaused()
     {
         return isPaused;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        StartCoroutine(RebindUIElements());
-    }
+    // private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     StartCoroutine(RebindUIElements());
+    // }
 
     private IEnumerator RebindUIElements()
     {
-        yield return null;
+        TextMeshProUGUI foundText = null;
+        for (int i = 0; i < 30; i++)
+        {
+            var find = GameObject.Find("TimeText");
+            if (find != null)
+            {
+                foundText = find.GetComponent<TextMeshProUGUI>();
+                if (foundText != null)
+                {
+                    break;
+                }
+            }
 
-        for (int i = 0; i < 3; i++) yield return null;
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        if (foundText != null)
+        {
+            timeText = foundText;
+            Debug.Log("timeText rebound successfully");
+        }
+        else
+        {
+            Debug.LogWarning("Could not find TimeText in the scene after waiting, not sigma");
+        }
+
+        // yield return null;
+
+        // for (int i = 0; i < 3; i++) yield return null;
 
         var canvas = GameObject.Find("EscapeCanvas");
         if (canvas == null)
@@ -80,22 +196,6 @@ public class LevelManager : MonoBehaviour
     //         escapeMenuPanel.SetActive(false);
     //     }
     // }
-
-    void Update()
-    {
-        if (!isPaused && LevelStatsManager.Instance != null)
-        {
-            LevelStatsManager.Instance.UpdateTimer();
-            float time = LevelStatsManager.Instance.elapsedTime;
-            timeText.text = string.Format("{0:00}:{1:00}", Mathf.Floor(time / 60), time % 60);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Escape pressed, loading escape menu...");
-            ToggleEscapeMenu();
-        }
-    }
 
     public void ToggleEscapeMenu()
     {
@@ -160,6 +260,7 @@ public class LevelManager : MonoBehaviour
     public void CompleteLevel()
     {
         LevelStatsManager.Instance?.EndLevelTimer();
+        LevelStatsManager.Instance?.UpdateGlobalStats();
 
         string current = SceneManager.GetActiveScene().name;
         string next = "";
