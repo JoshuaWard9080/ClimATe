@@ -27,6 +27,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        LevelStatsManager.Instance?.StartLevelTimer();
+    }
+
     public bool IsPaused()
     {
         return isPaused;
@@ -144,6 +149,8 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
+        LevelStatsManager.Instance?.EndLevelTimer();
+        
         string current = SceneManager.GetActiveScene().name;
         string next = "";
 

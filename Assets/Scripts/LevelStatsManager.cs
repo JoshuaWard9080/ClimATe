@@ -10,10 +10,23 @@ public class LevelStatsManager : MonoBehaviour
     public int totalKills = 0;
     public int totalPoints = 0;
 
+    private float startTime;
+
     private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void StartLevelTimer()
+    {
+        startTime += Time.time;
+    }
+
+    public void EndLevelTimer()
+    {
+        totalTime = Time.time - startTime;
+        Debug.Log("Level TIme: " + totalTime);
     }
 
     public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int points)

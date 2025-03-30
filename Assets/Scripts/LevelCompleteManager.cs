@@ -137,7 +137,17 @@ public class LevelCompleteManager : MonoBehaviour
         var stats = LevelStatsManager.Instance;
 
         livesText.text = $"Lives Lost: {stats.totalLivesLost}";
-        timeText.text = $"Time: {stats.totalTime}";
+        //timeText.text = $"Time: {stats.totalTime.ToString("F1")} seconds";
+        if (stats.totalTime > 60.0f)
+        {
+            float totalTimeMinutes = stats.totalTime / 60;
+            timeText.text = $"Time: {totalTimeMinutes.ToString("F2")} minutes";
+        }
+        else
+        {
+            timeText.text = $"Time: {stats.totalTime.ToString("F2")} seconds";
+        }
+
         killText.text = $"Kill Count: {stats.totalKills}";
         pointsText.text = $"Total Points: {stats.totalPoints}";
 
