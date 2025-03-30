@@ -22,7 +22,7 @@ public class VictorySceneManager : MonoBehaviour
     {
         startPosition = statsContent.anchoredPosition;
 
-        statsContent.anchoredPosition = new Vector2(startPosition.x, -Screen.height);
+        statsContent.anchoredPosition = startPosition;
         returnToMenuText.SetActive(false);
     }
 
