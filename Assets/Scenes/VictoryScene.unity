@@ -1517,9 +1517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b39bf9476689ae4ab5761c95253c887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeUI: {fileID: 0}
   statsContent: {fileID: 2103347395}
-  scrollSpeed: 60
+  scrollSpeed: 30
   endDelay: 1
   returnToMenuText: {fileID: 771962630}
 --- !u!1 &885216691
