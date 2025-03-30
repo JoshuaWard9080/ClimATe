@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statsContent: {fileID: 2103347395}
   scrollSpeed: 30
-  endDelay: 3
+  endDelay: 1
   returnToMenuText: {fileID: 771962630}
 --- !u!1 &1150186157
 GameObject:
