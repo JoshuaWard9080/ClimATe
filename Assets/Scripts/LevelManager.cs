@@ -29,7 +29,18 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+            Debug.Log("[LM] LevelManager start");
+
         LevelStatsManager.Instance?.StartLevelTimer();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape pressed, loading escape menu...");
+            ToggleEscapeMenu();
+        }
     }
 
     public bool IsPaused()
@@ -77,15 +88,6 @@ public class LevelManager : MonoBehaviour
     //         escapeMenuPanel.SetActive(false);
     //     }
     // }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Escape pressed, loading escape menu...");
-            ToggleEscapeMenu();
-        }
-    }
 
     public void ToggleEscapeMenu()
     {

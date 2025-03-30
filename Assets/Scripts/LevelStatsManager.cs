@@ -18,14 +18,23 @@ public class LevelStatsManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+    {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        Debug.Log("[LSM] LevelStatsManager initialized");
+    }
+    else
+    {
+        Destroy(gameObject);
+    }
     }
 
     private void Update()
     {
         if (isTiming)
         {
+            Debug.Log("[LSM] Updating Timer: " + (Time.time - startTime));
             UpdateTimer();
         }
     }
@@ -35,6 +44,8 @@ public class LevelStatsManager : MonoBehaviour
         startTime = Time.time;
         elapsedTime = 0f;
         isTiming = true;
+            Debug.Log("[LSM] Timer started at " + startTime);
+
     }
 
     public void EndLevelTimer()

@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 11082490}
   - component: {fileID: 11082491}
-  - component: {fileID: 11082492}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -165,25 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelSceneName: Level_2
---- !u!114 &11082492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11082488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f340cc8cf35b7145a0e113ac9d33a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalLivesLost: 0
-  totalTime: 0
-  totalYetiKills: 0
-  totalBirdKills: 0
-  totalKills: 0
-  totalPoints: 0
-  elapsedTime: 0
 --- !u!1001 &12117432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -634,6 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9662d7af5591f2143b5f6cd35327bfc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeText: {fileID: 1801442984}
 --- !u!4 &221666211
 Transform:
   m_ObjectHideFlags: 0
