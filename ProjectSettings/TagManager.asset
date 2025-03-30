@@ -10,6 +10,7 @@ TagManager:
   - Block
   - EscapeMenuPanel
   - QuitConfirmationPopup
+  - IgnoreFloorColour
   layers:
   - Default
   - TransparentFX
