@@ -201,6 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228994482}
   - component: {fileID: 228994481}
+  - component: {fileID: 228994483}
   m_Layer: 0
   m_Name: GlobalStatsManager
   m_TagString: Untagged
@@ -222,7 +223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalLivesLost: 0
   totalTime: 0
-  totalFuzzyKills: 0
   totalYetiKills: 0
   totalBirdKills: 0
   totalKills: 0
@@ -242,6 +242,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228994483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228994480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f340cc8cf35b7145a0e113ac9d33a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalLivesLost: 0
+  totalTime: 0
+  totalYetiKills: 0
+  totalBirdKills: 0
+  totalKills: 0
+  totalPoints: 0
+  elapsedTime: 0
 --- !u!1 &283583695
 GameObject:
   m_ObjectHideFlags: 0

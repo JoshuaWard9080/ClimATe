@@ -14,16 +14,27 @@ public class LevelStatsManager : MonoBehaviour
     private float startTime;
     public float elapsedTime;
 
+    private bool isTiming = false;
+
     private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Update()
+    {
+        if (isTiming)
+        {
+            UpdateTimer();
+        }
+    }
+
     public void StartLevelTimer()
     {
         startTime = Time.time;
         elapsedTime = 0f;
+        isTiming = true;
     }
 
     public void EndLevelTimer()
