@@ -1239,7 +1239,7 @@ MonoBehaviour:
   Mountains: {fileID: 1258348128}
   Midground: {fileID: 1153795694}
   Foreground: {fileID: 1334778429}
-  speed: 10
+  speed: 0.1
 --- !u!1001 &1968502879
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,19 +11,25 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField] private float speed;
     private Transform CloudsFirst;
     private Transform CloudsSecond;
-    private Transform IntitialCloudPos;
+    private float cloudAnchor;
+    private float cloudRespawn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y, 0);
         CloudsFirst = Clouds.GetChild(0);
         CloudsSecond = Clouds.GetChild(1);
-        IntitialCloudPos = CloudsFirst.transform;
+        cloudAnchor = CloudsFirst.transform.position.x;
+        cloudRespawn = CloudsSecond.transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("CloudsFirst: " + CloudsFirst.transform.position.x);
+        Debug.Log("CloudsSecond: " + CloudsSecond.transform.position.x);
+        Debug.Log("cloudAnchor: " + cloudAnchor);
+
         Vector3 deltaPosition = calculateChangeInCameraPosition();
         transform.position += deltaPosition;
         Clouds.position -= (deltaPosition / 40);
@@ -45,6 +51,11 @@ public class BackgroundManager : MonoBehaviour
 
         CloudsFirst.transform.position -= new Vector3(moveAmount, 0,0);
         CloudsSecond.transform.position -= new Vector3(moveAmount, 0, 0);
+        if (CloudsSecond.transform.position.x < cloudAnchor)
+        {
+            CloudsFirst.transform.position = CloudsSecond.transform.position;
+            CloudsSecond.transform.position = new Vector3(cloudRespawn, CloudsSecond.transform.position.y,0);    
+        }
         
     }
 }
