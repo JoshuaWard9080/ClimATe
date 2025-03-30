@@ -31,11 +31,16 @@ public class FuzzyEnemy : MonoBehaviour
     void move(Vector3 moveVector)
     {
         moveVector.Normalize();
+        
         if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
         {
             manageOffScreen();
         }
         if (!checkIfGoingToFallOffEdge())
+        {
+            changeDirection();
+        }
+        if (checkIfGoingToHitWall())
         {
             changeDirection();
         }
@@ -68,6 +73,17 @@ public class FuzzyEnemy : MonoBehaviour
         Vector2 raycastDirection = transform.TransformDirection(Vector2.down);
         float maxDistance = 0.2f;
         Debug.DrawRay(raycastStart, raycastDirection* maxDistance);
+        RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
+        return hit;
+    }
+    Boolean checkIfGoingToHitWall()
+    {
+        float direction = moveVector.x;
+        Vector2 raycastStart =
+            new Vector2(this.transform.position.x + (direction * 0.3f), this.transform.position.y);
+        Vector2 raycastDirection = transform.TransformDirection(moveVector);
+        float maxDistance = 0.2f;
+        Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
         return hit;
     }
