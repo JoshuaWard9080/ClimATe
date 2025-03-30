@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Level_Colour_Swap : MonoBehaviour
 {
+    
     public int level;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +35,6 @@ public class Level_Colour_Swap : MonoBehaviour
         {
             for (int i = 0; i < numOfChildren; ++i)
             {
-                print("For loop: " + transform.GetChild(i));
                 findChildren(transform.GetChild(i),colour);
 
             }
@@ -48,7 +48,7 @@ public class Level_Colour_Swap : MonoBehaviour
     void changeColour(Transform transform,Color colour)
     {
         Renderer renderer = transform.GetComponent<Renderer>();
-        if (renderer != null) 
+        if (renderer != null && transform.gameObject.tag != "IgnoreFloorColour") 
         { 
             renderer.material.color = colour; 
         }
