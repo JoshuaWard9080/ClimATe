@@ -34,17 +34,17 @@ public class TemperatureManager : MonoBehaviour
         switch (newTemp)
         {
             case TemperatureState.Freezing:
-                ApplyFreezingTemp();
+                OnTempChangeToFreezing?.Invoke();
                 break;
             case TemperatureState.Cold:
-                ApplyColdTemp();
+                OnTempChangeToCold?.Invoke();
                 break;
             case TemperatureState.Warm:
-                ApplyWarmTemp();
+                OnTempChangeToWarm?.Invoke();
                 break;
         }
     }
-
+    
     void ApplyFreezingTemp()
     {
         //make the player speed slower
