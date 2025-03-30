@@ -10,6 +10,7 @@ TagManager:
   - Block
   - EscapeMenuPanel
   - QuitConfirmationPopup
+  - IgnoreFloorColour
   - Trigger
   layers:
   - Default
