@@ -86,7 +86,8 @@ public class LevelManager : MonoBehaviour
         if (!isPaused && LevelStatsManager.Instance != null)
         {
             LevelStatsManager.Instance.UpdateTimer();
-            timeText.text = LevelStatsManager.Instance.elapsedTime.ToString("F1");
+            float time = LevelStatsManager.Instance.elapsedTime;
+            timeText.text = string.Format("{0:00}:{1:00}", Mathf.Floor(time / 60), time % 60);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
