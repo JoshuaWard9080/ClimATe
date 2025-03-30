@@ -50,17 +50,26 @@ public class Bird_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
+        if (isHurt)
         {
-            Debug.Log("is on edge x");
-            isOnScreenEdgeX = true;
+            moveDead();
         }
-        if ((this.transform.position.y > spawnY+boundY || this.transform.position.y < spawnY-boundY))
+        else
         {
-            Debug.Log("is on edge y");
-            isOnScreenEdgeY = true;
+
+
+            if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
+            {
+                Debug.Log("is on edge x");
+                isOnScreenEdgeX = true;
+            }
+            if ((this.transform.position.y > spawnY + boundY || this.transform.position.y < spawnY - boundY))
+            {
+                Debug.Log("is on edge y");
+                isOnScreenEdgeY = true;
+            }
+            moveBasedOnState(state);
         }
-        moveBasedOnState(state);
     }
 
     void tempChangeToWarm()
@@ -136,7 +145,7 @@ public class Bird_Enemy : MonoBehaviour
         }
         if (isOnScreenEdgeX)
         {
-            
+            Debug.Log("isOnScreenEdgeX");
             float oppositeDirX = -(moveVector.x);
             moveVector = chooseFlyDirectionWarm();
             moveVector.x = oppositeDirX;
