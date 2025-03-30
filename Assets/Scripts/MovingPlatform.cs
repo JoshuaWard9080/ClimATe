@@ -19,28 +19,46 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         if (!sprite.isVisible)
         {//if the object is invisible, flip it's ovement direction
 
             currentPosition *= -1;
-        }
-        else
-        {
-            Debug.Log("Object is now visible");
         }
         move(currentPosition);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        var playerMovement = collision.collider.GetComponent<PlayerMovement>();
+        if (playerMovement != null && collision.rigidbody.transform.position.y > this.transform.position.y + 0.23)
         {
-            Rigidbody2D player = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (player != null)
-            {
-                playerOnPlatform = true;
-                //to be completed with the addition of player and input manager
-            }
+            playerMovement.SetParent(transform);
+        }
+
+
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    Rigidbody2D player = collision.gameObject.GetComponent<Rigidbody2D>();
+        //    if (player != null)
+        //    {
+        //        playerOnPlatform = true;
+        //        //to be completed with the addition of player and input manager
+        //    }
+        //}
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        var playerMovement = collision.collider.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.ResetParent();
         }
     }
 

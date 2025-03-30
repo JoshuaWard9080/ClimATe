@@ -4846,7 +4846,7 @@ GameObject:
   - component: {fileID: 5762787273312089720}
   m_Layer: 0
   m_Name: WarmTrigger
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5039,7 +5039,7 @@ GameObject:
   - component: {fileID: 5663030654274736321}
   m_Layer: 0
   m_Name: ColdTrigger
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5181,7 +5181,7 @@ GameObject:
   - component: {fileID: 9001161730084064326}
   m_Layer: 0
   m_Name: FreezingTrigger
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

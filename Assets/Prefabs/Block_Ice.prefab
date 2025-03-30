@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9034789158116324895}
   - component: {fileID: 4958847624057683158}
   - component: {fileID: 8797445537941253448}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Block_Ice
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -130,9 +130,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8482626080819633064}
   - component: {fileID: 2955483415790186879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: IgnoreFloorColour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 6550884562983852700, guid: 6aa08669a7798164bbc4ef1e6f503f16, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.58679235, g: 0.88594306, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

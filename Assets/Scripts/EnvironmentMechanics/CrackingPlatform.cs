@@ -8,6 +8,8 @@ public class CrackingPlatform : MonoBehaviour
     [SerializeField] private Color baseColor = Color.white;
     [SerializeField] private Color crackedColor = Color.yellow;
     [SerializeField] private Color brokenColor = Color.red;
+    [SerializeField] TemperatureManager temperatureManager;
+
 
     private SpriteRenderer spriteRenderer;
     private Collider2D col2D;
@@ -18,13 +20,24 @@ public class CrackingPlatform : MonoBehaviour
 
     void Start()
     {
+
         spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         col2D = GetComponent<Collider2D>();
         spriteRenderer.color = baseColor;
+
+        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
+        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
     }
 
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+        
         animator.SetBool("isPlayerOn", isPlayerOn);
         animator.SetFloat("AnimSpeed", crackSpeed);
 
@@ -43,6 +56,24 @@ public class CrackingPlatform : MonoBehaviour
         {
             spriteRenderer.color = crackedColor;
         }
+    }
+
+    void tempChangeToWarm()
+    {
+        SetCrackSpeed(3f);
+        SetMeltSpeed(3f);
+    }
+
+    void tempChangeToCold()
+    {
+        SetCrackSpeed(1f);
+        SetMeltSpeed(0f);
+    }
+
+    void tempChangeToFreezing()
+    {
+        SetCrackSpeed(3f);
+        SetMeltSpeed(0f);
     }
 
     private void BreakPlatform()

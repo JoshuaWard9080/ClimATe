@@ -1,22 +1,32 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class TemperatureManager : MonoBehaviour
 {
+    public UnityEvent OnTempChangeToWarm = new UnityEvent();
+    public UnityEvent OnTempChangeToCold = new UnityEvent();
+    public UnityEvent OnTempChangeToFreezing = new UnityEvent();
     public TemperatureState currTemp;
 
     //initialize player, platforms, winds, snow pile, icicles, Topi (enemies), and Nitpickers (enemies)
     //[SerializeField] private PlayerController player;
-    [SerializeField] private List<Icicle> icicles; //icicles
-    [SerializeField] private List<Wind> winds; //winds
-    [SerializeField] private List<CrackingPlatform> crackingPlatforms; //platforms
-    [SerializeField] private List<FuzzyEnemy> fuzzyEnemies; //fuzzy enemies
+    //[SerializeField] private List<Icicle> icicles; //icicles
+    //[SerializeField] private List<Wind> winds; //winds
+    //[SerializeField] private List<CrackingPlatform> crackingPlatforms; //platforms
+    //[SerializeField] private List<FuzzyEnemy> fuzzyEnemies; //fuzzy enemies
 
     //second enemy
     //[SerializeField] private List<> ;
 
     [SerializeField] private PilingSnow snowSystem; //snow storm
 
+    private void Start()
+    {
+        //default state when starting game: this is just to avoid any weird bugs
+        OnTempChangeToCold?.Invoke();
+    }
+    /*
     public void setTemp(TemperatureState newTemp)
     {
         if (currTemp == newTemp)
@@ -30,17 +40,19 @@ public class TemperatureManager : MonoBehaviour
         switch (newTemp)
         {
             case TemperatureState.Freezing:
-                ApplyFreezingTemp();
+                OnTempChangeToFreezing?.Invoke();
                 break;
             case TemperatureState.Cold:
-                ApplyColdTemp();
+                OnTempChangeToCold?.Invoke();
                 break;
             case TemperatureState.Warm:
-                ApplyWarmTemp();
+                OnTempChangeToWarm?.Invoke();
                 break;
         }
-    }
-
+    }*/
+}
+    
+    /*
     void ApplyFreezingTemp()
     {
         //make the player speed slower
@@ -70,7 +82,6 @@ public class TemperatureManager : MonoBehaviour
         {
             icicle.CanFall(true);
             icicle.RegenerateSpeed(5f);
-            icicle.SetFallCooldown(5f);
         }
 
         //set fuzzy (enemy) to push blocks and fill in the holes made by the player in the platforms/floors
@@ -116,7 +127,6 @@ public class TemperatureManager : MonoBehaviour
         {
             icicle.CanFall(true);
             icicle.RegenerateSpeed(1f);
-            icicle.SetFallCooldown(1f);
         }
 
         //set fuzzy (enemy) to push blocks and fill in the holes made by the player in the platforms/floors
@@ -163,7 +173,6 @@ public class TemperatureManager : MonoBehaviour
         {
             icicle.CanFall(true);
             icicle.RegenerateSpeed(3f);
-            icicle.SetFallCooldown(0.5f);
         }
 
         //set fuzzy (enemy) to NOT push blocks
@@ -180,4 +189,4 @@ public class TemperatureManager : MonoBehaviour
         //     secondEnemy.Waddle(false);
         // }
     }
-}
+}*/

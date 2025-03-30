@@ -9,27 +9,59 @@ public class FuzzyEnemy : MonoBehaviour
     [SerializeField] Boolean isHurt = false;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    [SerializeField] TemperatureManager temperatureManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveVector = new Vector3(1, 0, 0);
+        temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
+        temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //pause everything if the pause menu is active
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
+
         animator.SetBool("isHurt", isHurt);
         move(moveVector);
+    }
+    void tempChangeToWarm()
+    {
+        PushBlocks(false);
+    }
+
+    void tempChangeToCold()
+    {
+        PushBlocks(true);
+    }
+
+    void tempChangeToFreezing()
+    {
+        PushBlocks(true);
     }
     void move(Vector3 moveVector)
     {
         moveVector.Normalize();
+        
         if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
         {
             manageOffScreen();
         }
         if (!checkIfGoingToFallOffEdge())
+        {
+            changeDirection();
+        }
+        if (checkIfGoingToHitWall())
         {
             changeDirection();
         }
@@ -65,9 +97,22 @@ public class FuzzyEnemy : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
         return hit;
     }
+    Boolean checkIfGoingToHitWall()
+    {
+        float direction = moveVector.x;
+        Vector2 raycastStart =
+            new Vector2(this.transform.position.x + (direction * 0.4f), this.transform.position.y);
+        Vector2 raycastDirection = transform.TransformDirection(moveVector);
+        float maxDistance = 0.1f;
+        Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
+        RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
+        if (hit.collider == null || (hit.collider.gameObject.tag == "Player") || (hit.collider.gameObject.tag == "Trigger")) return false;
+        //if (hit.collider != null)Debug.Log("going to hit something: " + hit.collider.gameObject);
+        //if (hit.collider != null) Debug.Log("going to hit something: " + hit.collider.gameObject.tag);
+        return hit;
+    }
     void changeDirection()
     {
-
         moveVector.x *= -1;
         if (moveVector.x > 0)
         {
@@ -77,7 +122,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += (moveVector/6);
+        this.transform.position += (moveVector/4);
 
     }
 
@@ -91,9 +136,6 @@ public class FuzzyEnemy : MonoBehaviour
             && collision.gameObject.transform.position.y > this.transform.position.y+0.3)
         {
             isHurt = true;
-        }else if (collision.gameObject.tag == "Enemy")
-        {
-            changeDirection();
         }
     }
 

@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
+using System.Collections;
 
 public class LevelCompleteManager : MonoBehaviour
 {
@@ -15,10 +15,6 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] AudioSource clickButtonAudio;
     [SerializeField] AudioSource levelCompleteAudio;
     public int totalPoints = 0;
-
-    //array to know which button the user is hovering over with the keyboard
-    private Button[] buttons;
-    private int selectedIndex = 0;
 
     private void Awake()
     {
@@ -37,70 +33,68 @@ public class LevelCompleteManager : MonoBehaviour
         }
 
         //get the player stats from the previous level and update them here
-        //probably something like setText("Kill Count: " + playerStats.getKillCount())??? 
+        //probably something like setText("Kill Count: " + playerStats.getKillCount())
 
+        bool isFinalLevel = LevelTracker.Instance != null && LevelTracker.Instance.nextLevelScene == "VictoryScene";
 
-        buttons = new Button[] { nextLevelButton, mainMenuButton, quitGameButton };
-
-        if (nextLevelButton != null)
+        if (isFinalLevel)
         {
-            //not sure what the next level wil be yet
-            nextLevelButton.onClick.AddListener(NextLevel);
-        }
+            Debug.Log("Final level complete, loading VictoryScene");
 
-        if (mainMenuButton != null)
+            //nextLevelButton.gameObject.SetActive(false);
+            mainMenuButton.gameObject.SetActive(false);
+            quitGameButton.gameObject.SetActive(false);
+
+            nextLevelButton.onClick.AddListener(() =>
+            {
+                if (levelCompleteAudio.isPlaying)
+                {
+                    levelCompleteAudio.Stop();
+                }
+
+                SceneManager.LoadScene("VictoryScene");
+            });
+        }
+        else
         {
-            mainMenuButton.onClick.AddListener(MainMenu);
-        }
+            if (nextLevelButton != null)
+            {
+                //not sure what the next level wil be yet
+                nextLevelButton.onClick.AddListener(NextLevel);
+            }
 
-        if (quitGameButton != null)
-        {
-            quitGameButton.onClick.AddListener(QuitGame);
-        }
+            if (mainMenuButton != null)
+            {
+                mainMenuButton.onClick.AddListener(MainMenu);
+            }
 
-        SelectButton(selectedIndex);
+            if (quitGameButton != null)
+            {
+                quitGameButton.onClick.AddListener(QuitGame);
+            }
+        }
 
         UpdatePointsUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            selectedIndex = (selectedIndex - 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            selectedIndex = (selectedIndex + 1 + buttons.Length) % buttons.Length;
-            SelectButton(selectedIndex);
-            switchButtonAudio.Play();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-        {
-            buttons[selectedIndex].onClick.Invoke();
-            clickButtonAudio.Play();
-        }
-    }
-
-    private void SelectButton(int index)
-    {
-        EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
-    }
-
-    private void NextLevel()
+    public void NextLevel()
     {
         //Probably make an if statement where if the current level is 1 then load 2, if the current level is 2 load 3, etc.
 
+        Debug.Log("=== NEXT LEVEL PRESSED ===");
+        Debug.Log("LevelTracker.Instance is null? " + (LevelTracker.Instance == null));
+        Debug.Log("Current Level: " + LevelTracker.Instance.currentLevelScene);
+        Debug.Log("Next Level: " + LevelTracker.Instance.nextLevelScene);
+
+
         Debug.Log("Loading next level...");
-        SceneManager.LoadScene("NextLevel"); //logic for next level needs to be implemented
+
+        //uses the LevelTracker to figure out which level is next
+        SceneManager.LoadScene(LevelTracker.Instance.nextLevelScene);
+        Debug.Log("Loading next level: " + LevelTracker.Instance.currentLevelScene);
     }
 
-    private void MainMenu()
+    public void MainMenu()
     {
         //stop the menu music from playing before switching to main menu
         if (levelCompleteAudio.isPlaying)
@@ -112,7 +106,7 @@ public class LevelCompleteManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Debug.Log("Quitting game...");
 

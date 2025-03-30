@@ -8,11 +8,15 @@ TagManager:
   - Enemy
   - Moving_Platform
   - Block
+  - EscapeMenuPanel
+  - QuitConfirmationPopup
+  - IgnoreFloorColour
+  - Trigger
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - PilingSnow
+  - Snow
   - Water
   - UI
   - Ground
@@ -44,6 +48,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PilingSnow
+    uniqueID: 3744439871
     locked: 0
   m_RenderingLayers:
   - Default
