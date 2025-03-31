@@ -42,8 +42,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d2b95ce8290323f4ca71b84a3f39f7cc, type: 3}
-  m_Resource: {fileID: 8300000, guid: d2b95ce8290323f4ca71b84a3f39f7cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 304f2bf2228cba94e91cd22803e54bcf, type: 3}
+  m_Resource: {fileID: 8300000, guid: 304f2bf2228cba94e91cd22803e54bcf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockDestroyedAudio: {fileID: 257872481216228174}
+  breakEffect: {fileID: 0}
 --- !u!114 &708437494987766562
 MonoBehaviour:
   m_ObjectHideFlags: 0

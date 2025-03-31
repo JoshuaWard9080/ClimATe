@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.15, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1285494878042978585}
+  - {fileID: 4605685037254136476}
   - {fileID: 3980615113324370522}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8183cd890f3b7de4392f3e9d019e17c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockDestroyedAudio: {fileID: 8355518928036477110}
+  blockDestroyedAudio: {fileID: 306310726673744592}
+  breakEffect: {fileID: 0}
 --- !u!1 &4012256624157845570
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +210,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6493894117186071590
+--- !u!1 &8365443088377881855
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,8 +218,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1285494878042978585}
-  - component: {fileID: 8355518928036477110}
+  - component: {fileID: 4605685037254136476}
+  - component: {fileID: 306310726673744592}
   m_Layer: 0
   m_Name: BlockBreakingAudio
   m_TagString: Untagged
@@ -226,13 +227,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1285494878042978585
+--- !u!4 &4605685037254136476
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6493894117186071590}
+  m_GameObject: {fileID: 8365443088377881855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.11415291, y: 11.965726, z: 7.723128}
@@ -241,18 +242,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 202023859857052269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &8355518928036477110
+--- !u!82 &306310726673744592
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6493894117186071590}
+  m_GameObject: {fileID: 8365443088377881855}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0d4628ab9ea7fdc418e6017245f0af74, type: 3}
-  m_Resource: {fileID: 8300000, guid: 0d4628ab9ea7fdc418e6017245f0af74, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 79e6e1370ee1ca747b469e68d0dcb0fe, type: 3}
+  m_Resource: {fileID: 8300000, guid: 79e6e1370ee1ca747b469e68d0dcb0fe, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
