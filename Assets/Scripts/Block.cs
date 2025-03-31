@@ -51,6 +51,11 @@ public class Block : MonoBehaviour
             Destroy(effectInstance, 2f);
         }
 
+        if (LevelStatsManager.Instance != null)
+        {
+            LevelStatsManager.Instance.blocksDestroyed++;
+            Debug.Log("Block destroyed, incrementing blocksDestroyed count");
+        }
         Destroy(gameObject);
     }
 }

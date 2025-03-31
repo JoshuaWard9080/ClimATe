@@ -209,6 +209,14 @@ public class Bird_Enemy : MonoBehaviour
             moveVector = new Vector3(0, -1, 0);
             isHurt = true;
             animator.SetBool("isHurt", true);
+
+            if (LevelStatsManager.Instance != null)
+            {
+                LevelStatsManager.Instance.totalBirdKills++;
+                LevelStatsManager.Instance.totalKills++;
+                Debug.Log("A bird has been killed... it's okay though because the government placed them to spy on us! #giveusbackourtelephonepoles");
+            }
+
         }
         else if (collision.gameObject.tag == "Enemy")
         {
