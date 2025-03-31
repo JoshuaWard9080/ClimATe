@@ -137,7 +137,18 @@ public class Icicle : MonoBehaviour
 
             if (collision.collider.CompareTag("Player"))
             {
-                //TODO: make player lose health and play lose health animation if there is one
+                Debug.Log("Icicle damaged the player, this is a skill issue ;)");
+
+                LivesDisplay lives = FindObjectOfType<LivesDisplay>();
+
+                if (lives != null)
+                {
+                    lives.TakeDamage();
+                }
+                else
+                {
+                    Debug.LogWarning("No LivesDisplay found in scene --> OnCollisionEnter2D in Icicle.cs");
+                }
             }
 
             if (Vector2.Distance(transform.position, originalPosition) < 0.2f)

@@ -10,7 +10,6 @@ public class LivesDisplay : MonoBehaviour
     void Start()
     {
         ResetHearts();
-        //RefreshHearts();
     }
 
     //TODO: comment this Update method out when not testing, this is purely to ensure the TakeDamage method is working as expected
