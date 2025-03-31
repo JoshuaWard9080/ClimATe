@@ -67,6 +67,8 @@ public class LivesDisplay : MonoBehaviour
 
     public void PlayerDied()
     {
+        ClearHearts(); //remove all hearts from screen (if they exist) --> Specifically for when the piling snow kills the player
+
         //call player died screen, so losing screen, then send them back to Main Menu
         if (LevelFailed.Instance != null)
         {
@@ -75,6 +77,14 @@ public class LivesDisplay : MonoBehaviour
         else
         {
             Debug.LogError("LevelFailed instance is null");
+        }
+    }
+
+    public void ClearHearts()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }
