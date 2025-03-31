@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-
+    [SerializeField] TemperatureManager temperatureManager;
     public Vector2 currentPosition = new Vector2(1,0);
-    public float moveSpeed;
+    public float moveSpeed = 0.01f;
+
+    private float coldMoveSpeed = 0.01f;
+    private float warmMoveSpeed = 0.03f;
+    private float freezingMoveSpeed = 0.005f;
+
     Boolean playerOnPlatform = false;
     Vector2 previousPosition;
     Renderer sprite;
@@ -14,6 +19,9 @@ public class MovingPlatform : MonoBehaviour
     void Start()
     {
         sprite = transform.GetChild(0).GetComponent<Renderer>();
+        temperatureManager.OnTempChangeToCold.AddListener(TempChangeToCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(TempChangeToFreezing);
+        temperatureManager.OnTempChangeToWarm.AddListener(TempChangeToWarm);
     }
 
     // Update is called once per frame
@@ -69,5 +77,26 @@ public class MovingPlatform : MonoBehaviour
         float movementX = movementDirection.x * moveSpeed;
         float movementY = movementDirection.y * moveSpeed;
         this.transform.position += new Vector3(movementX,movementY,0);
+    }
+
+    void TempChangeToCold()
+    {
+        ChangeMoveSpeed(coldMoveSpeed);
+    }
+
+    void TempChangeToWarm()
+    {
+        ChangeMoveSpeed(warmMoveSpeed);
+    }
+
+    void TempChangeToFreezing()
+    {
+        ChangeMoveSpeed(freezingMoveSpeed);
+    }
+
+    void ChangeMoveSpeed(float newMoveSpeed)
+    {
+        moveSpeed = newMoveSpeed;
+        Debug.Log("platform move speed changed to: " + moveSpeed);
     }
 }

@@ -2,8 +2,20 @@ using UnityEngine;
 
 public class PilingSnow : MonoBehaviour
 {
-    [SerializeField] private float snowSpeed = 1f;
+    [SerializeField] private float snowSpeed = 0.05f;
+    [SerializeField] private TemperatureManager temperatureManager;
     private bool isRising = false;
+
+    private float coldSnowSpeed = 0.05f;
+    private float freezingSnowSpeed = 0.5f;
+    private float warmSnowSpeed = 0.01f;
+
+    private void Start()
+    {
+        temperatureManager.OnTempChangeToCold.AddListener(SetCold);
+        temperatureManager.OnTempChangeToFreezing.AddListener(SetFreezing);
+        temperatureManager.OnTempChangeToWarm.AddListener(SetWarm);
+    }
 
 
     void Update()
@@ -32,5 +44,20 @@ public class PilingSnow : MonoBehaviour
     {
         snowSpeed = newSnowSpeed;
         Debug.Log("Snow piling speed set to: " + newSnowSpeed);
+    }
+
+    public void SetFreezing()
+    {
+        SetSnowSpeed(freezingSnowSpeed);
+    }
+
+    public void SetCold()
+    {
+        SetSnowSpeed(coldSnowSpeed);
+    }
+
+    public void SetWarm()
+    {
+        SetSnowSpeed(warmSnowSpeed);
     }
 }
