@@ -46,10 +46,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62014b53a75ed4428ada747f47d8de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -2987843178875456437, guid: ba98501c14f27bd43abab9d41128b7fa, type: 3}
+  - {fileID: -6541868312297840152, guid: 8b9dbb5c70161254d852b51e3989876b, type: 3}
+  - {fileID: -5665829364717964350, guid: 133ef1e8f8a126e4ebe2fce254b1d2f0, type: 3}
+  - {fileID: 1271661819729597233, guid: 404766ca58495844e9e1012c028d9a9b, type: 3}
   fruitImg1: {fileID: -2987843178875456437, guid: ba98501c14f27bd43abab9d41128b7fa, type: 3}
   fruitImg2: {fileID: 1271661819729597233, guid: 404766ca58495844e9e1012c028d9a9b, type: 3}
   fruitImg3: {fileID: -5665829364717964350, guid: 133ef1e8f8a126e4ebe2fce254b1d2f0, type: 3}
   fruitImg4: {fileID: -6541868312297840152, guid: 8b9dbb5c70161254d852b51e3989876b, type: 3}
+  spriteRenderer: {fileID: 3740426332382803887}
 --- !u!58 &4987349820400027837
 CircleCollider2D:
   m_ObjectHideFlags: 0
