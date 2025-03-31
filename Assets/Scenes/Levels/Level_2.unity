@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeti (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4866439016729014141, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6416412206821822235, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.6602683
@@ -305,7 +309,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1054,6 +1058,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -1314,6 +1322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958222}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -1877,7 +1889,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2031,7 +2043,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2043,6 +2055,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958223}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -2303,6 +2319,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -3363,7 +3383,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3511,6 +3531,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958222}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -3732,7 +3756,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3855,6 +3879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeti
       objectReference: {fileID: 0}
+    - target: {fileID: 4866439016729014141, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6416412206821822235, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.7000003
@@ -4113,7 +4141,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4286,6 +4314,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.5
@@ -4735,7 +4767,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4871,6 +4903,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958223}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -4988,6 +5024,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.5
@@ -5050,6 +5090,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -5982,6 +6026,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12
@@ -6139,7 +6187,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6355,7 +6403,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7432,7 +7480,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7642,6 +7690,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -8026,7 +8078,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8166,6 +8218,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5
@@ -8323,7 +8379,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8837,7 +8893,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -9076,6 +9132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.5
@@ -9473,7 +9533,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -10086,7 +10146,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -10160,6 +10220,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5
@@ -10222,6 +10286,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11
@@ -10284,6 +10352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -10631,7 +10703,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
