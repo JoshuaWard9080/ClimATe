@@ -97,15 +97,13 @@ public class LevelStatsManager : MonoBehaviour
         elapsedTime = Time.time - startTime;
     }
 
-    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int blocks, int fruits, int points)
+    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int points)
     {
         totalLivesLost += lives;
         totalTime += time;
         totalYetiKills += yetKills;
         totalBirdKills += birdKills;
         totalKills += kills;
-        blocksDestroyed += blocks;
-        fruitsCollected += fruits;
         totalPoints += points;
     }
 
@@ -116,15 +114,13 @@ public class LevelStatsManager : MonoBehaviour
         totalYetiKills = 0;
         totalBirdKills = 0;
         totalKills = 0;
-        blocksDestroyed = 0;
-        fruitsCollected = 0;
         totalPoints = 0;
         remainingLives = maxLives;
     }
 
     public void UpdateGlobalStats()
     {
-        GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, blocksDestroyed, fruitsCollected, totalPoints);
+        GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, totalPoints);
     }
 
     public int CalculateLevelPoints()
