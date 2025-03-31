@@ -48,16 +48,16 @@ public class PilingSnow : MonoBehaviour
 
     public void SetFreezing()
     {
-        snowSpeed = freezingSnowSpeed;
+        SetSnowSpeed(freezingSnowSpeed);
     }
 
     public void SetCold()
     {
-        snowSpeed = coldSnowSpeed;
+        SetSnowSpeed(coldSnowSpeed);
     }
 
     public void SetWarm()
     {
-        snowSpeed = warmSnowSpeed;
+        SetSnowSpeed(warmSnowSpeed);
     }
 }
