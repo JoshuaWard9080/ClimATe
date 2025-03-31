@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using System.Linq;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,8 +12,6 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance;
     private bool isPaused = false;
-    private bool uiReady = false;
-
 
     void Awake()
     {
@@ -30,28 +27,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        Debug.Log("LevelManager start RAHHHHHHH");
-        LevelStatsManager.Instance?.ResetLevelTimer();
-        LevelStatsManager.Instance?.StartLevelTimer();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!uiReady)
-            {
-                Debug.LogWarning("UI not ready yet — ignoring Escape key.");
-                return;
-            }
-
-            Debug.Log("Escape pressed, loading escape menu...");
-            ToggleEscapeMenu();
-        }
-    }
-
     public bool IsPaused()
     {
         return isPaused;
@@ -60,13 +35,6 @@ public class LevelManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(RebindUIElements());
-        StartCoroutine(DelaySetLivesAtLevelStart());
-    }
-
-    private IEnumerator DelaySetLivesAtLevelStart()
-    {
-        yield return null;
-        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.remainingLives;
     }
 
     private IEnumerator RebindUIElements()
@@ -74,31 +42,16 @@ public class LevelManager : MonoBehaviour
         yield return null;
 
         for (int i = 0; i < 3; i++) yield return null;
-Debug.Log("Rebinding EscapeCanvas...");
 
-        var canvas = GameObject.FindObjectsOfType<Canvas>(true)
-            .FirstOrDefault(c => c.name == "EscapeCanvas")?.gameObject;
-
-        Debug.Log("Canvas found: " + canvas);
-        Debug.Log("EscapePanel: " + escapeMenuPanel);
-        Debug.Log("MenuNav: " + menuNavigator);
-
-
+        var canvas = GameObject.Find("EscapeCanvas");
         if (canvas == null)
         {
             Debug.Log("EscapeCanvas not found.");
             yield break;
         }
-        else
-        {
-            Debug.Log("EscapeCanvas found yay.");
-        }
 
-        escapeMenuPanel = canvas.GetComponentsInChildren<Transform>(true)
-            .FirstOrDefault(t => t.name == "EscapeMenuPanel")?.gameObject;
-
-        quitConfirmationPopup = canvas.GetComponentsInChildren<Transform>(true)
-            .FirstOrDefault(t => t.name == "QuitConfirmationPopup")?.gameObject;
+        escapeMenuPanel = canvas.transform.Find("EscapeMenuPanel")?.gameObject;
+        quitConfirmationPopup = canvas.transform.Find("QuitConfirmationPopup")?.gameObject;
 
         if (escapeMenuPanel != null)
         {
@@ -110,29 +63,28 @@ Debug.Log("Rebinding EscapeCanvas...");
         {
             Debug.Log("EscapeMenuPanel not found or missing MenuNavigator.");
         }
+    }
 
-        Debug.Log("EscapeMenuPanel and MenuNavigator linked.");
-        uiReady = true;
+    // void Start()
+    // {
+    //     if (escapeMenuPanel != null)
+    //     {
+    //         escapeMenuPanel.SetActive(false);
+    //     }
+    // }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape pressed, loading escape menu...");
+            ToggleEscapeMenu();
+        }
     }
 
     public void ToggleEscapeMenu()
     {
-        if (!uiReady || escapeMenuPanel == null)
-        {
-            Debug.LogWarning("Escape menu UI not ready");
-            return;
-        }
-
         isPaused = !isPaused;
-
-        if (isPaused)
-        {
-            LevelStatsManager.Instance.PauseLevelTimer();
-        }
-        else
-        {
-            LevelStatsManager.Instance.ResumeLevelTimer();
-        }
 
         if (escapeMenuPanel != null)
         {
@@ -154,7 +106,6 @@ Debug.Log("Rebinding EscapeCanvas...");
     public void ResumeGame()
     {
         isPaused = false;
-        LevelStatsManager.Instance.ResumeLevelTimer();
         escapeMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -193,8 +144,6 @@ Debug.Log("Rebinding EscapeCanvas...");
 
     public void CompleteLevel()
     {
-        LevelStatsManager.Instance?.EndLevelTimer();
-
         string current = SceneManager.GetActiveScene().name;
         string next = "";
 
@@ -238,8 +187,6 @@ Debug.Log("Rebinding EscapeCanvas...");
     {
         isPaused = false;
         Time.timeScale = 1f;
-        LevelStatsManager.Instance.ResetLevelTimer();
-        LevelStatsManager.Instance.StartLevelTimer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

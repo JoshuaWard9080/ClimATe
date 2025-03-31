@@ -225,8 +225,6 @@ MonoBehaviour:
   totalYetiKills: 5
   totalBirdKills: 5
   totalKills: 5
-  blocksDestroyed: 5
-  fruitsCollected: 5
   totalPoints: 5
 --- !u!4 &228994482
 Transform:
