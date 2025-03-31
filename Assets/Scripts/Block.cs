@@ -3,6 +3,8 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
 
+    public GameObject breakEffect;
+
     private float xBound = 0.4f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +28,29 @@ public class Block : MonoBehaviour
     }
     void onHitByPlayer()
     {
+
+        if (breakEffect != null)
+        {
+            GameObject effectInstance = Instantiate(breakEffect, transform.position, Quaternion.identity);
+
+            // Find the Renderer 
+            Renderer blockRenderer = GetComponentInChildren<Renderer>();
+            if (blockRenderer != null)
+            {
+                Color blockColor = blockRenderer.material.color;
+
+                // Apply color to the particle system
+                ParticleSystem ps = effectInstance.GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    var mainModule = ps.main;
+                    mainModule.startColor = blockColor;
+                }
+            }
+
+            Destroy(effectInstance, 2f);
+        }
+
         if (LevelStatsManager.Instance != null)
         {
             LevelStatsManager.Instance.blocksDestroyed++;
