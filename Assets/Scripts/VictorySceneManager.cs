@@ -25,6 +25,7 @@ public class VictorySceneManager : MonoBehaviour
     public TextMeshProUGUI birdKillsText;
     public TextMeshProUGUI totalKillsText;
     public TextMeshProUGUI totalBlocksDestroyed;
+    public TextMeshProUGUI totalIciclesDestroyed;
     public TextMeshProUGUI totalFruitsCollected;
     public TextMeshProUGUI totalPointsText;
 
@@ -47,6 +48,7 @@ public class VictorySceneManager : MonoBehaviour
                 birdKillsText,
                 totalKillsText,
                 totalBlocksDestroyed,
+                totalIciclesDestroyed,
                 totalFruitsCollected,
                 totalPointsText
             });
@@ -106,6 +108,7 @@ public class VictorySceneManager : MonoBehaviour
         birdKillsText.text = $"Bird Kills: {stats.totalBirdKills}";
         totalKillsText.text = $"Total Kills: {stats.totalBirdKills + stats.totalYetiKills}";
         totalBlocksDestroyed.text = $"Blocks Destroyed: {stats.blocksDestroyed}";
+        totalIciclesDestroyed.text = $"Icicles Destroyed: {stats.iciclesDestroyed}";
         totalFruitsCollected.text = $"Fruits Collected: {stats.fruitsCollected}";
         totalPointsText.text = $"Total Points: {stats.totalPoints}";
 
@@ -117,6 +120,7 @@ public class VictorySceneManager : MonoBehaviour
             birdKillsText,
             totalKillsText,
             totalBlocksDestroyed,
+            totalIciclesDestroyed,
             totalFruitsCollected,
             totalPointsText
         };

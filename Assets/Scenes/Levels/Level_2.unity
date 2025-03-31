@@ -2549,11 +2549,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.95
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.42
+      value: 24.64
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5109,6 +5109,7 @@ MonoBehaviour:
   totalPoints: 0
   fruitsCollected: 0
   blocksDestroyed: 0
+  iciclesDestroyed: 0
   elapsedTime: 0
   pausedTime: 0
   maxLives: 8

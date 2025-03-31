@@ -10,6 +10,7 @@ public class GlobalStatsManager : MonoBehaviour
     public int totalBirdKills = 0;
     public int totalKills = 0;
     public int blocksDestroyed = 0;
+    public int iciclesDestroyed = 0;
     public int fruitsCollected = 0;
     public int totalPoints = 0;
 
@@ -27,7 +28,7 @@ public class GlobalStatsManager : MonoBehaviour
         }
     }
 
-    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int blocks, int fruits, int points)
+    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int blocks, int icicles, int fruits, int points)
     {
         totalLivesLost += lives;
         totalTime += time;
@@ -35,6 +36,7 @@ public class GlobalStatsManager : MonoBehaviour
         totalBirdKills += birdKills;
         totalKills += kills;
         blocksDestroyed += blocks;
+        iciclesDestroyed += icicles;
         fruitsCollected += fruits;
         totalPoints += points;
     }
@@ -47,6 +49,7 @@ public class GlobalStatsManager : MonoBehaviour
         totalBirdKills = 0;
         totalKills = 0;
         blocksDestroyed = 0;
+        iciclesDestroyed = 0;
         fruitsCollected = 0;
         totalPoints = 0;
     }

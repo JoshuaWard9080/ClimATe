@@ -126,6 +126,12 @@ public class Icicle : MonoBehaviour
         if (!isFalling && !isShaking && !isRegenerating && canTrigger && collision.collider.CompareTag("Player"))
         {
             Debug.Log("Player collided with icicle, starting shake and fall.");
+
+            if (LevelStatsManager.Instance != null)
+            {
+                LevelStatsManager.Instance.iciclesDestroyed++;
+            }
+
             StartCoroutine(ShakeAndFall()); //call method to regrow the icicle
             return;
         }
