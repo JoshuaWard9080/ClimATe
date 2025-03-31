@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LivesDisplay : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOverPanel;
     public GameObject heart;
     public int maxLives = 8;
     private int currentLives;
@@ -25,7 +26,12 @@ public class LivesDisplay : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (currentLives > 1)
+        if (LevelStatsManager.Instance == null)
+        {
+            Debug.LogError("LevelStatsManager.Instance is NULL!!");
+        }
+
+        if (currentLives > 0)
         {
             currentLives--;
             LevelStatsManager.Instance.totalLivesLost++;
@@ -34,10 +40,11 @@ public class LivesDisplay : MonoBehaviour
             {
                 Destroy(transform.GetChild(0).gameObject);
             }
-        }
-        else
-        {
-            PlayerDied();
+
+            if (currentLives == 0)
+            {
+                PlayerDied();
+            }
         }
     }
 
@@ -64,5 +71,15 @@ public class LivesDisplay : MonoBehaviour
     public void PlayerDied()
     {
         //call player died screen, so losing screen, then send them back to Main Menu
+        Debug.Log("Player has run out of lives");
+
+        if (LevelFailed.Instance != null)
+        {
+            LevelFailed.Instance.ShowGameOver();
+        }
+        else
+        {
+            Debug.Log("LevelFailed instance is null");
+        }
     }
 }
