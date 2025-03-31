@@ -16,10 +16,10 @@ public class Fruit : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Fruit has been collected! Check Fruit.cs to implement points stuff");
+            
             if (LevelStatsManager.Instance != null)
             {
-                LevelStatsManager.Instance.fruitsCollected++;
+                LevelStatsManager.Instance.fishCollected++;
             }
             Destroy(gameObject);
         }
