@@ -385,7 +385,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vegetableSprites_0: 6948989751669368409
+      vegetableSprites_1: 6959072818243918506
+      vegetableSprites_2: 3064240539356419267
+      vegetableSprites_3: 6496740869047147685
+      vegetableSprites_4: -1388752263186626616
+      vegetableSprites_5: 8271233998587582341
+      vegetableSprites_6: 4913265196109460363
+      vegetableSprites_7: -3358292257933209122
+      vegetableSprites_8: -8358339461187109298
+      vegetableSprites_9: 816418618703528194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

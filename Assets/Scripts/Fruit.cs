@@ -17,7 +17,10 @@ public class Fruit : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Fruit has been collected! Check Fruit.cs to implement points stuff");
-            //implement points stuff here
+            if (LevelStatsManager.Instance != null)
+            {
+                LevelStatsManager.Instance.fruitsCollected++;
+            }
             Destroy(gameObject);
         }
     }
