@@ -9,8 +9,8 @@ public class LivesDisplay : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //ResetHearts();
-        RefreshHearts();
+        ResetHearts();
+        //RefreshHearts();
     }
 
     //TODO: comment this Update method out when not testing, this is purely to ensure the TakeDamage method is working as expected
@@ -29,9 +29,9 @@ public class LivesDisplay : MonoBehaviour
             Debug.LogError("LevelStatsManager.Instance is NULL!!");
         }
 
-        if (LevelStatsManager.Instance.RemainingLives > 0)
+        if (LevelStatsManager.Instance.remainingLives > 0)
         {
-            LevelStatsManager.Instance.RemainingLives--;
+            LevelStatsManager.Instance.remainingLives--;
             LevelStatsManager.Instance.totalLivesLost++;
 
             if (transform.childCount > 0)
@@ -39,7 +39,7 @@ public class LivesDisplay : MonoBehaviour
                 Destroy(transform.GetChild(0).gameObject);
             }
 
-            if (LevelStatsManager.Instance.RemainingLives == 0)
+            if (LevelStatsManager.Instance.remainingLives == 0)
             {
                 PlayerDied();
             }
@@ -48,7 +48,7 @@ public class LivesDisplay : MonoBehaviour
 
     public void ResetLives()
     {
-        LevelStatsManager.Instance.RemainingLives = LevelStatsManager.Instance.maxLives;
+        LevelStatsManager.Instance.remainingLives = LevelStatsManager.Instance.maxLives;
         LevelStatsManager.Instance.totalLivesLost = 0;
         ResetHearts();
     }
@@ -60,36 +60,36 @@ public class LivesDisplay : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        for (int i = 0; i < LevelStatsManager.Instance.RemainingLives; i++)
+        for (int i = 0; i < LevelStatsManager.Instance.remainingLives; i++)
         {
             Instantiate(heart, transform);
         }
     }
 
-    public void RefreshHearts()
-    {
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
+    // public void RefreshHearts()
+    // {
+    //     foreach (Transform child in transform)
+    //     {
+    //         Destroy(child.gameObject);
+    //     }
 
-        for (int i = 0; i < LevelStatsManager.Instance.RemainingLives; i++)
-        {
-            Instantiate(heart, transform);
-        }
-    }
+    //     for (int i = 0; i < LevelStatsManager.Instance.RemainingLives; i++)
+    //     {
+    //         Instantiate(heart, transform);
+    //     }
+    // }
 
     public void PlayerDied()
     {
         //TODO: Rebind diedPanel properly, or persist LevelFailed in DontDestroyOnLoad, the game manager LeveLFailed cant find the panel right now
         //call player died screen, so losing screen, then send them back to Main Menu
-        // if (LevelFailed.Instance != null)
-        // {
-        //     LevelFailed.Instance.ShowGameOver();
-        // }
-        // else
-        // {
-        //     Debug.LogError("LevelFailed instance is null");
-        // }
+        if (LevelFailed.Instance != null)
+        {
+            LevelFailed.Instance.ShowGameOver();
+        }
+        else
+        {
+            Debug.LogError("LevelFailed instance is null");
+        }
     }
 }

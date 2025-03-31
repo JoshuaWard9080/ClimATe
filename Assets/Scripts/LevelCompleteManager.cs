@@ -83,8 +83,18 @@ public class LevelCompleteManager : MonoBehaviour
 
         UpdatePointsUI();
 
-        LevelStatsManager.Instance?.ResetLevelTimer();
-        LevelStatsManager.Instance?.ResetStats();
+        // LevelStatsManager.Instance?.ResetLevelTimer();
+        var stats = LevelStatsManager.Instance;
+        if (stats != null)
+        {
+            stats.totalYetiKills = 0;
+            stats.totalBirdKills = 0;
+            stats.totalKills = 0;
+            stats.blocksDestroyed = 0;
+            stats.fruitsCollected = 0;
+            stats.totalPoints = 0;
+            stats.ResetLevelTimer();
+        }
     }
 
     private IEnumerator DelayedStartAnimation()
@@ -147,7 +157,7 @@ public class LevelCompleteManager : MonoBehaviour
         //get the stats from the stats manager
         var stats = LevelStatsManager.Instance;
 
-        int levelLivesLost = stats.livesAtLevelStart - stats.RemainingLives;
+        int levelLivesLost = stats.livesAtLevelStart - stats.remainingLives;
 
         livesText.text = $"Lives Lost: {levelLivesLost}";
         //timeText.text = $"Time: {stats.totalTime.ToString("F1")} seconds";

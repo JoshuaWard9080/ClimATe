@@ -109,7 +109,7 @@ public class LevelStatsManager : MonoBehaviour
         totalPoints += points;
     }
 
-    public void ResetStats()
+    public void ResetAllStats()
     {
         totalLivesLost = 0;
         totalTime = 0f;
@@ -120,6 +120,17 @@ public class LevelStatsManager : MonoBehaviour
         fruitsCollected = 0;
         totalPoints = 0;
         remainingLives = maxLives;
+    }
+
+    public void ResetLevelStats()
+    {
+        totalYetiKills = 0;
+        totalBirdKills = 0;
+        totalKills = 0;
+        blocksDestroyed = 0;
+        fruitsCollected = 0;
+        totalPoints = 0;
+        ResetLevelTimer();
     }
 
     public void UpdateGlobalStats()
@@ -146,13 +157,13 @@ public class LevelStatsManager : MonoBehaviour
 
     //debugging
 
-    public int RemainingLives
-    {
-        get => remainingLives;
-        set
-        {
-            Debug.LogWarning($"[LIVES DEBUG] Setting remainingLives to {value}.\n" + new System.Diagnostics.StackTrace(true));
-            remainingLives = value;
-        }
-    }
+    // public int RemainingLives
+    // {
+    //     get => remainingLives;
+    //     set
+    //     {
+    //         Debug.LogWarning($"[LIVES DEBUG] Setting remainingLives to {value}.\n" + new System.Diagnostics.StackTrace(true));
+    //         remainingLives = value;
+    //     }
+    // }
 }

@@ -59,6 +59,7 @@ public class LevelManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(RebindUIElements());
+        StartCoroutine(DelaySetLivesAtLevelStart());
 
         if (scene.name.StartsWith("Level_"))
         {
@@ -74,23 +75,22 @@ public class LevelManager : MonoBehaviour
                 Debug.LogWarning("No LevelStatsManager found in " + scene.name);
             }
         }
-
-        StartCoroutine(DelaySetLivesAtLevelStart());
     }
 
     private IEnumerator DelaySetLivesAtLevelStart()
     {
         yield return null;
-        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.RemainingLives;
-
-        FindObjectOfType<LivesDisplay>()?.RefreshHearts();
+        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.remainingLives;
     }
 
     private IEnumerator RebindUIElements()
     {
         yield return null;
 
-        for (int i = 0; i < 3; i++) yield return null;
+        for (int i = 0; i < 3; i++)
+        {
+            yield return null;
+        }
 
         var canvas = GameObject.Find("EscapeCanvas");
         if (canvas == null)
@@ -117,6 +117,15 @@ public class LevelManager : MonoBehaviour
     public void ToggleEscapeMenu()
     {
         isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            LevelStatsManager.Instance.PauseLevelTimer();
+        }
+        else
+        {
+            LevelStatsManager.Instance.ResumeLevelTimer();
+        }
 
         if (escapeMenuPanel != null)
         {
@@ -222,13 +231,24 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        
+        if (LevelStatsManager.Instance != null)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
 
-        LevelStatsManager.Instance.RemainingLives = LevelStatsManager.Instance.livesAtLevelStart;
+            if (currentScene == "Level_1")
+            {
+                LevelStatsManager.Instance.remainingLives = LevelStatsManager.Instance.maxLives;
+            }
+            else
+            {
+                LevelStatsManager.Instance.remainingLives = LevelStatsManager.Instance.livesAtLevelStart;
+            }
 
-        FindObjectOfType<LivesDisplay>()?.ResetLives();
+            LevelStatsManager.Instance.ResetLevelTimer();
+            LevelStatsManager.Instance.StartLevelTimer();
+        }
 
-        LevelStatsManager.Instance?.ResetLevelTimer();
-        LevelStatsManager.Instance?.StartLevelTimer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

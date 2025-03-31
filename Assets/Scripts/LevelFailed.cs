@@ -84,7 +84,7 @@ public class LevelFailed : MonoBehaviour
         Debug.Log("Heading to Level 1...");
 
         LevelStatsManager.Instance?.ResetLevelTimer();
-        LevelStatsManager.Instance?.ResetStats();
+        LevelStatsManager.Instance?.ResetAllStats();
 
         Time.timeScale = 1f;
 
@@ -100,7 +100,7 @@ public class LevelFailed : MonoBehaviour
         }
 
         LevelStatsManager.Instance?.ResetLevelTimer();
-        LevelStatsManager.Instance?.ResetStats();
+        LevelStatsManager.Instance?.ResetAllStats();
 
         Time.timeScale = 1f;
 
