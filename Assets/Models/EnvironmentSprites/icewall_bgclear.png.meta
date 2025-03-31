@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icewall_bgclear_0: 9116941814677839926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
