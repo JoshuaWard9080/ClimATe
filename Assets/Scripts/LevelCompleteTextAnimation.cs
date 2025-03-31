@@ -16,13 +16,32 @@ public class TextAnimation : MonoBehaviour
     [SerializeField] string victoryStatsScene = "VictoryStatsScene";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // void Start()
+    // {
+    //     foreach (TextMeshProUGUI text in texts)
+    //     {
+    //         text.maxVisibleCharacters = 0;
+    //     }
+
+    //     StartCoroutine(AnimateTexts());
+    // }
+
+    //set the textx
+    public void SetTexts(TextMeshProUGUI[] newTexts)
     {
+        texts = newTexts;
+    }
+
+    public IEnumerator StartAnimation()
+    {
+        Debug.Log("StartAnimation called with " + texts.Length + " texts");
+
+        yield return null; //break to ensure text has been updated with stats
+
         foreach (TextMeshProUGUI text in texts)
         {
             text.maxVisibleCharacters = 0;
         }
-
         StartCoroutine(AnimateTexts());
     }
 
@@ -55,7 +74,12 @@ public class TextAnimation : MonoBehaviour
         while (visibleCharacters <= totalCharacters)
         {
             textMesh.maxVisibleCharacters = visibleCharacters;
-            typingAudio.Play();
+            
+            if (typingAudio != null)
+            {
+                typingAudio.Play();
+            }
+
             visibleCharacters++;
             yield return new WaitForSeconds(timeBetweenCharacters);
         }
