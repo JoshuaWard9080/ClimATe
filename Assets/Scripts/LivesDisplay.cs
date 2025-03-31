@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LivesDisplay : MonoBehaviour
 {
-    //[SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gameOverPanel;
     public GameObject heart;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,16 +67,15 @@ public class LivesDisplay : MonoBehaviour
 
     public void PlayerDied()
     {
+        //TODO: Rebind diedPanel properly, or persist LevelFailed in DontDestroyOnLoad, the game manager LeveLFailed cant find the panel right now
         //call player died screen, so losing screen, then send them back to Main Menu
-        // Debug.Log("Player has run out of lives");
-
         // if (LevelFailed.Instance != null)
         // {
         //     LevelFailed.Instance.ShowGameOver();
         // }
         // else
         // {
-        //     Debug.Log("LevelFailed instance is null");
+        //     Debug.LogError("LevelFailed instance is null");
         // }
     }
 }

@@ -42,6 +42,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape pressed, loading escape menu...");
+            ToggleEscapeMenu();
+        }
+    }
 
     public bool IsPaused()
     {
@@ -66,6 +74,14 @@ public class LevelManager : MonoBehaviour
                 Debug.LogWarning("No LevelStatsManager found in " + scene.name);
             }
         }
+
+        StartCoroutine(DelaySetLivesAtLevelStart());
+    }
+
+    private IEnumerator DelaySetLivesAtLevelStart()
+    {
+        yield return null;
+        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.remainingLives;
     }
 
     private IEnumerator RebindUIElements()
@@ -96,23 +112,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // void Start()
-    // {
-    //     if (escapeMenuPanel != null)
-    //     {
-    //         escapeMenuPanel.SetActive(false);
-    //     }
-    // }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Escape pressed, loading escape menu...");
-            ToggleEscapeMenu();
-        }
-    }
-
     public void ToggleEscapeMenu()
     {
         isPaused = !isPaused;
@@ -137,6 +136,7 @@ public class LevelManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
+        LevelStatsManager.Instance.ResumeLevelTimer();
         escapeMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
