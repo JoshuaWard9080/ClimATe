@@ -192,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isJumping", true);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceStrength);
             
-        }else if (collision.gameObject.tag == "Block" && collision.gameObject.GetType() == typeof(Ice))
+        }else if (collision.gameObject.tag == "Block" && collision.gameObject.transform.GetChild(0).tag == "Ice")
         {
             Debug.Log("success!!");
         }
