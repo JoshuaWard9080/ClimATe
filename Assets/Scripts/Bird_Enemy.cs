@@ -99,13 +99,11 @@ public class Bird_Enemy : MonoBehaviour
 
             if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
             {
-                Debug.Log("is on edge x");
                 isOnScreenEdgeX = true;
             }
 
             if ((this.transform.position.y > spawnY + boundY || this.transform.position.y < spawnY - boundY))
             {
-                Debug.Log("is on edge y");
                 isOnScreenEdgeY = true;
             }
 
@@ -186,7 +184,6 @@ public class Bird_Enemy : MonoBehaviour
         }
         if (isOnScreenEdgeX)
         {
-            Debug.Log("isOnScreenEdgeX");
             float oppositeDirX = -(moveVector.x);
             moveVector = chooseFlyDirectionWarm();
             moveVector.x = oppositeDirX;
@@ -244,7 +241,6 @@ public class Bird_Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided with something");
         if (collision.gameObject.tag == "Player"
             && collision.gameObject.transform.position.y > this.transform.position.y)
         {
