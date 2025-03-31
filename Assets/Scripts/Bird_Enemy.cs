@@ -18,6 +18,10 @@ public class Bird_Enemy : MonoBehaviour
     private String state = "warm";
     [SerializeField] TemperatureManager temperatureManager;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource flappingAudio;
+    [SerializeField] private AudioSource playerHitsBirdAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,22 +56,32 @@ public class Bird_Enemy : MonoBehaviour
     {
         if (isHurt)
         {
+            if (flappingAudio != null && flappingAudio.isPlaying)
+            {
+                flappingAudio.Stop();
+            }
+
             moveDead();
         }
         else
         {
-
+            if (flappingAudio != null && !flappingAudio.isPlaying)
+            {
+                flappingAudio.Play(); //make sure audio has loop = true in the inspector
+            }
 
             if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
             {
                 Debug.Log("is on edge x");
                 isOnScreenEdgeX = true;
             }
+
             if ((this.transform.position.y > spawnY + boundY || this.transform.position.y < spawnY - boundY))
             {
                 Debug.Log("is on edge y");
                 isOnScreenEdgeY = true;
             }
+
             moveBasedOnState(state);
         }
     }
@@ -200,6 +214,7 @@ public class Bird_Enemy : MonoBehaviour
     {
         this.transform.position += moveVector * moveSpeed;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collided with something");
@@ -209,6 +224,11 @@ public class Bird_Enemy : MonoBehaviour
             moveVector = new Vector3(0, -1, 0);
             isHurt = true;
             animator.SetBool("isHurt", true);
+
+            if (playerHitsBirdAudio != null)
+            {
+                playerHitsBirdAudio.Play(); //make sure loop does NOT equal true in inspector
+            }
 
             if (LevelStatsManager.Instance != null)
             {
