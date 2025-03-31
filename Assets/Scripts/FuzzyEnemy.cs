@@ -132,21 +132,33 @@ public class FuzzyEnemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player"
-            && collision.gameObject.transform.position.y > this.transform.position.y + 0.3)
+        if (collision.gameObject.tag == "Player")
         {
-            isHurt = true;
+            if (collision.gameObject.transform.position.y > this.transform.position.y + 0.3)
+            {
+                isHurt = true;
 
-            if (LevelStatsManager.Instance != null)
-            {
-                LevelStatsManager.Instance.totalYetiKills++;
-                LevelStatsManager.Instance.totalKills++;
-                Debug.Log("A yeti has been killed... is this morally okay? He's just a chill guy :(");
+                if (LevelStatsManager.Instance != null)
+                {
+                    LevelStatsManager.Instance.totalYetiKills++;
+                    LevelStatsManager.Instance.totalKills++;
+                    Debug.Log("A yeti has been killed... is this morally okay? He's just a chill guy :(");
+                }
+                else
+                {
+                    Debug.LogWarning("No LevelStatsManager Instance in FuzzyEnemy script");
+                }
             }
-            else
+            else //if player hits the yeti
             {
-                Debug.LogWarning("No LevelStatsManager Instance in FuzzyEnemy script");
+                LivesDisplay lives = FindObjectOfType<LivesDisplay>();
+
+                if (lives != null)
+                {
+                    lives.TakeDamage();
+                }
             }
+  
         }
     }
 }
