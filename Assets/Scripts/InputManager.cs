@@ -38,8 +38,8 @@ public class InputManager : MonoBehaviour
             inputVector += Vector2.right;
         }
 
-
-        playerOneOnMove?.Invoke(inputVector);
+            playerOneOnMove?.Invoke(inputVector);
+        
 
         // there are two different jump events to handle a player holding vs tapping the jump button. allows for variable jump heights
         if (Input.GetKeyDown(playerOneJump))

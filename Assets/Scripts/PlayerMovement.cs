@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private bool isFacingRight = true;
     private Transform originalParent;
+    private Boolean isReceivingInput;
+    private Boolean isOnIce = false;
 
     [Header("Movement")]
     [SerializeField] private float playerSpeed;
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff
     void Update()
-    {        
+    {
         if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
         {
             rb.linearVelocity = Vector2.zero;
@@ -72,6 +74,15 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(input.normalized * playerSpeed, ForceMode2D.Force);
             //animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+            
+            if (Mathf.Abs(input.normalized.x) == 1)
+            {
+                isReceivingInput = true;
+            }
+            else
+            {
+                isReceivingInput = false;
+            }
             animator.SetFloat("Speed", Mathf.Abs(input.normalized.x));
         }
 
@@ -138,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 flatVelocity = new Vector2(rb.linearVelocity.x, 0f);
 
+        
         if (flatVelocity.magnitude > maxSpeed)
         {
             Vector2 limitedVelocity = flatVelocity.normalized * maxSpeed;
@@ -149,6 +161,14 @@ public class PlayerMovement : MonoBehaviour
             Vector2 limitedVelocity = flatVelocity.normalized * maxAirSpeed;
             rb.linearVelocity = new Vector2(limitedVelocity.x, rb.linearVelocity.y);
         }
+        if ((!isReceivingInput) && IsGrounded() && (!isOnIce))
+        {
+            quicklyStop();
+        }
+    }
+    public void quicklyStop()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x*0.9f, rb.linearVelocity.y);
     }
 
     public void SetParent(Transform newParent)
@@ -168,9 +188,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy") && transform.position.y > collision.transform.position.y + 0.2)
         {
-            Debug.Log("Collision with Enemy");
+            //Debug.Log("Collision with Enemy");
             animator.SetBool("isJumping", true);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceStrength);
+            
+        }else if (collision.gameObject.tag == "Block")
+        {
+            isOnIce = collision.gameObject.transform.GetChild(0).tag == "Ice";
         }
     }
+
+    
 }

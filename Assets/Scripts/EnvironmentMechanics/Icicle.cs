@@ -53,7 +53,7 @@ public class Icicle : MonoBehaviour
             if (hit.CompareTag("Block"))
             {
                 supportingBlock = hit.gameObject;
-                Debug.Log("Supported by block: " + supportingBlock.name);
+                //Debug.Log("Supported by block: " + supportingBlock.name);
                 break;
             }
         }
@@ -89,7 +89,7 @@ public class Icicle : MonoBehaviour
 
     IEnumerator ShakeAndFall()
     {
-        Debug.Log("Starting fall: setting Rigidbody to Dynamic");
+        //Debug.Log("Starting fall: setting Rigidbody to Dynamic");
 
         isShaking = true;
         canTrigger = false;
@@ -121,11 +121,10 @@ public class Icicle : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("OnCollisionEnter2D method called");
 
         if (!isFalling && !isShaking && !isRegenerating && canTrigger && collision.collider.CompareTag("Player"))
         {
-            Debug.Log("Player collided with icicle, starting shake and fall.");
+            //Debug.Log("Player collided with icicle, starting shake and fall.");
 
             if (LevelStatsManager.Instance != null)
             {
@@ -139,7 +138,7 @@ public class Icicle : MonoBehaviour
         //if the icicle htis the player or the ground
         if (isFalling && (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Block")))
         {
-            Debug.Log("Icicle hit object: " + collision.collider.name + ", Tag: " + collision.collider.tag);
+            //Debug.Log("Icicle hit object: " + collision.collider.name + ", Tag: " + collision.collider.tag);
 
             if (collision.collider.CompareTag("Player"))
             {
@@ -153,13 +152,13 @@ public class Icicle : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("No LivesDisplay found in scene --> OnCollisionEnter2D in Icicle.cs");
+                    //Debug.LogWarning("No LivesDisplay found in scene --> OnCollisionEnter2D in Icicle.cs");
                 }
             }
 
             if (Vector2.Distance(transform.position, originalPosition) < 0.2f)
     {
-                Debug.Log("Ignoring collision, the icicle hasn't fallen far enough yet.");
+                //Debug.Log("Ignoring collision, the icicle hasn't fallen far enough yet.");
                 return;
             }
 
@@ -187,7 +186,7 @@ public class Icicle : MonoBehaviour
         //check if supporting block exists
         if (supportingBlock == null)
         {
-            Debug.Log("Skipping regrowth, the block above has been destroyed.");
+            //Debug.Log("Skipping regrowth, the block above has been destroyed.");
             yield break;
         }
 
@@ -198,13 +197,13 @@ public class Icicle : MonoBehaviour
         rb.angularVelocity = 0f;
         transform.rotation = Quaternion.identity;
 
-        Debug.Log("Regrow coroutine started");
+        //Debug.Log("Regrow coroutine started");
         yield return new WaitForSeconds(regenTime);
 
         //check if supporting block was destroyed again, in case player destroyed it after the icicle falls but before it regrows
         if (supportingBlock == null)
         {
-            Debug.Log("Skipping regrowth, the block above has been destroyed.");
+            //Debug.Log("Skipping regrowth, the block above has been destroyed.");
             yield break;
         }
 
@@ -213,7 +212,7 @@ public class Icicle : MonoBehaviour
         transform.localScale = originalSize * size;
         transform.rotation = Quaternion.identity;
 
-        Debug.Log("Regrow complete: sprite & collider restored");
+        //Debug.Log("Regrow complete: sprite & collider restored");
 
         yield return new WaitForSeconds(0.1f);
 
@@ -230,18 +229,18 @@ public class Icicle : MonoBehaviour
     {
         size = icicleSize;
         transform.localScale = originalSize * size;
-        Debug.Log("Icicle size set to: " + icicleSize);
+        //Debug.Log("Icicle size set to: " + icicleSize);
     }
 
     public void CanFall(bool enableFall)
     {
         canFall = enableFall;
-        Debug.Log("Icicle can fall: " + enableFall);
+        //Debug.Log("Icicle can fall: " + enableFall);
     }
 
     public void RegenerateSpeed(float regenerateSpeed)
     {
         regenTime = regenerateSpeed;
-        Debug.Log("Icicle regenerate speed set to: " + regenerateSpeed);
+        //Debug.Log("Icicle regenerate speed set to: " + regenerateSpeed);
     }  
 }
