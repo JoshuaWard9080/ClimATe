@@ -10,6 +10,8 @@ public class LevelStatsManager : MonoBehaviour
     public int totalBirdKills = 0;
     public int totalKills = 0;
     public int totalPoints = 0;
+    public int fruitsCollected = 0;
+    public int blocksDestroyed = 0;
 
     private float startTime;
     public float elapsedTime;
@@ -119,5 +121,22 @@ public class LevelStatsManager : MonoBehaviour
     public void UpdateGlobalStats()
     {
         GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, totalPoints);
+    }
+
+    public int CalculateLevelPoints()
+    {
+        int lifePoints = remainingLives * 10;
+        int killPoints = (totalYetiKills * 10) + (totalBirdKills * 15);
+        float maxBonusTime = 120f;
+        int timePoints = Mathf.RoundToInt(Mathf.Clamp(maxBonusTime - elapsedTime, 0f, maxBonusTime) * 2);
+        int fruitPoints = fruitsCollected * 5;
+        int blockPoints = blocksDestroyed;
+
+        int levelPoints = lifePoints + killPoints + timePoints + fruitPoints + blockPoints;
+        totalPoints += levelPoints;
+
+        Debug.Log("Level Points: " + levelPoints);
+
+        return levelPoints;
     }
 }

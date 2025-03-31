@@ -155,7 +155,7 @@ public class LevelCompleteManager : MonoBehaviour
         }
 
         killText.text = $"Kill Count: {stats.totalKills}";
-        pointsText.text = $"Total Points: {stats.totalPoints}";
+        pointsText.text = $"Total Points: {stats.CalculateLevelPoints()}";
 
         //check if null, if not set the texts THEN call the animation
         //this ensures the animation does not start before the text has been updated, otherwise no stat value will be printed
