@@ -8303,6 +8303,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1555051121}
     m_Modifications:
+    - target: {fileID: -7464096095269782779, guid: b215a54a409c25043a9756f69e36ce06, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 252600404}
     - target: {fileID: 297711811098179217, guid: b215a54a409c25043a9756f69e36ce06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8343,9 +8347,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4256386573025923374, guid: b215a54a409c25043a9756f69e36ce06, type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 7504980441613933964, guid: b215a54a409c25043a9756f69e36ce06, type: 3}
       propertyPath: m_Name
       value: WindObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504980441613933964, guid: b215a54a409c25043a9756f69e36ce06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7504980441613933964, guid: b215a54a409c25043a9756f69e36ce06, type: 3}
+      propertyPath: m_TagString
+      value: Trigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9041,6 +9057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 648012827598096705, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.059506416
@@ -9081,10 +9101,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1824291885338007223, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 373442895}
+    - target: {fileID: 8967233566023891297, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -3,15 +3,19 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    [SerializeField] private float windStrength; //warm = 0, standard = 1, freezing = 3
-    [SerializeField] private float windSpeed; //warm = 0, standard = 1, freezing = 3
-    [SerializeField] private Vector2 windDirection;
-    [SerializeField] private Rigidbody2D playerRB;
+    [SerializeField] private float windStrength; //warm = 0, standard = 3, freezing = 5
+    [SerializeField] private float windSpeed; //warm = 0, standard = 3, freezing = 5
+    [SerializeField] private float windDirection; // 0 for blowing from the left, 180 for blowing from the right
     [SerializeField] TemperatureManager temperatureManager;
+    AreaEffector2D effector;
 
-    [SerializeField] private float drag = 10.0f;
+    private float coldWindStrength = 3f;
+    private float warmWindStrength = 0f;
+    private float freezingWindStrength = 5f;
+
     public void Start()
     {
+        effector = this.GetComponent<AreaEffector2D>();
         temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
         temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
         temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
@@ -19,38 +23,23 @@ public class Wind : MonoBehaviour
 
     void tempChangeToWarm()
     {
-        SetWindStrength(0f);
-        SetWindSpeed(0f);
+        SetWindSpeed(warmWindStrength);
     }
 
     void tempChangeToCold()
     {
-        SetWindStrength(1f);
-        SetWindSpeed(1f);
+        SetWindSpeed(coldWindStrength);
     }
 
     void tempChangeToFreezing()
     {
-        SetWindStrength(3f);
-        SetWindSpeed(3f);
-    }
-
-    public void SetWindStrength(float newWindStrength)
-    {
-        windStrength = newWindStrength;
-        Debug.Log("Wind strength set to: " + newWindStrength);
+        SetWindSpeed(freezingWindStrength);
     }
 
     public void SetWindSpeed(float newWindSpeed)
     {
         windSpeed = newWindSpeed;
+        effector.forceMagnitude = windSpeed;
         Debug.Log("Wind speed set to: " + newWindSpeed);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        Rigidbody2D objectRB = collision.GetComponent<Rigidbody2D>();
-        objectRB.AddForce(new Vector2(-(objectRB.linearVelocity.x * drag), 0));
-
     }
 }
