@@ -27,6 +27,30 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        Debug.Log("LevelManager started, starting timer");
+
+        if (LevelStatsManager.Instance != null)
+        {
+            LevelStatsManager.Instance.ResetLevelTimer();
+            LevelStatsManager.Instance.StartLevelTimer();
+        }
+        else
+        {
+            Debug.LogWarning("LevelStatsManager.Instance is null in LevelManager.Start()");
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape pressed, loading escape menu...");
+            ToggleEscapeMenu();
+        }
+    }
+
     public bool IsPaused()
     {
         return isPaused;
@@ -35,13 +59,38 @@ public class LevelManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(RebindUIElements());
+        StartCoroutine(DelaySetLivesAtLevelStart());
+
+        if (scene.name.StartsWith("Level_"))
+        {
+            Debug.Log("Starting level timer for scene: " + scene.name);
+
+            if (LevelStatsManager.Instance != null)
+            {
+                LevelStatsManager.Instance.ResetLevelTimer();
+                LevelStatsManager.Instance.StartLevelTimer();
+            }
+            else
+            {
+                Debug.LogWarning("No LevelStatsManager found in " + scene.name);
+            }
+        }
+    }
+
+    private IEnumerator DelaySetLivesAtLevelStart()
+    {
+        yield return null;
+        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.remainingLives;
     }
 
     private IEnumerator RebindUIElements()
     {
         yield return null;
 
-        for (int i = 0; i < 3; i++) yield return null;
+        for (int i = 0; i < 3; i++)
+        {
+            yield return null;
+        }
 
         var canvas = GameObject.Find("EscapeCanvas");
         if (canvas == null)
@@ -65,26 +114,18 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // void Start()
-    // {
-    //     if (escapeMenuPanel != null)
-    //     {
-    //         escapeMenuPanel.SetActive(false);
-    //     }
-    // }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Escape pressed, loading escape menu...");
-            ToggleEscapeMenu();
-        }
-    }
-
     public void ToggleEscapeMenu()
     {
         isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            LevelStatsManager.Instance.PauseLevelTimer();
+        }
+        else
+        {
+            LevelStatsManager.Instance.ResumeLevelTimer();
+        }
 
         if (escapeMenuPanel != null)
         {
@@ -106,6 +147,7 @@ public class LevelManager : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
+        LevelStatsManager.Instance.ResumeLevelTimer();
         escapeMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -126,6 +168,8 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        LevelStatsManager.Instance?.PauseLevelTimer();
+        LevelStatsManager.Instance?.ResetLevelTimer();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -187,6 +231,24 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        
+        if (LevelStatsManager.Instance != null)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            if (currentScene == "Level_1")
+            {
+                LevelStatsManager.Instance.remainingLives = LevelStatsManager.Instance.maxLives;
+            }
+            else
+            {
+                LevelStatsManager.Instance.remainingLives = LevelStatsManager.Instance.livesAtLevelStart;
+            }
+
+            LevelStatsManager.Instance.ResetLevelTimer();
+            LevelStatsManager.Instance.StartLevelTimer();
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
