@@ -51,6 +51,13 @@ public class LevelManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(RebindUIElements());
+        StartCoroutine(DelaySetLivesAtLevelStart());
+    }
+
+    private IEnumerator DelaySetLivesAtLevelStart()
+    {
+        yield return null;
+        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.remainingLives;
     }
 
     private IEnumerator RebindUIElements()

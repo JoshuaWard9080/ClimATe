@@ -5,13 +5,10 @@ public class LivesDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPanel;
     public GameObject heart;
-    public int maxLives = 8;
-    private int currentLives;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentLives = maxLives;
         ResetHearts();
     }
 
@@ -31,9 +28,9 @@ public class LivesDisplay : MonoBehaviour
             Debug.LogError("LevelStatsManager.Instance is NULL!!");
         }
 
-        if (currentLives > 0)
+        if (LevelStatsManager.Instance.remainingLives > 0)
         {
-            currentLives--;
+            LevelStatsManager.Instance.remainingLives--;
             LevelStatsManager.Instance.totalLivesLost++;
 
             if (transform.childCount > 0)
@@ -41,7 +38,7 @@ public class LivesDisplay : MonoBehaviour
                 Destroy(transform.GetChild(0).gameObject);
             }
 
-            if (currentLives == 0)
+            if (LevelStatsManager.Instance.remainingLives == 0)
             {
                 PlayerDied();
             }
@@ -50,7 +47,7 @@ public class LivesDisplay : MonoBehaviour
 
     public void ResetLives()
     {
-        currentLives = maxLives;
+        LevelStatsManager.Instance.remainingLives = LevelStatsManager.Instance.maxLives;
         LevelStatsManager.Instance.totalLivesLost = 0;
         ResetHearts();
     }
@@ -62,7 +59,7 @@ public class LivesDisplay : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        for (int i = 0; i < currentLives; i++)
+        for (int i = 0; i < LevelStatsManager.Instance.remainingLives; i++)
         {
             Instantiate(heart, transform);
         }

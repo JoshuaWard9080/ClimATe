@@ -134,10 +134,12 @@ public class LevelCompleteManager : MonoBehaviour
 
     private void UpdatePointsUI()
     {
-        //get the stats from the stast manager
+        //get the stats from the stats manager
         var stats = LevelStatsManager.Instance;
 
-        livesText.text = $"Lives Lost: {stats.totalLivesLost}";
+        int levelLivesLost = stats.livesAtLevelStart - stats.remainingLives;
+
+        livesText.text = $"Lives Lost: {levelLivesLost}";
         //timeText.text = $"Time: {stats.totalTime.ToString("F1")} seconds";
 
         float levelTime = stats.elapsedTime;

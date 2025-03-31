@@ -17,18 +17,23 @@ public class LevelStatsManager : MonoBehaviour
 
     private bool isTiming = false;
 
+    //lives counters
+    public int maxLives = 8;
+    public int remainingLives = 8;
+    public int livesAtLevelStart = 8;
+
     private void Awake()
     {
         if (Instance == null)
-    {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-        Debug.Log("LevelStatsManager initialized");
-    }
-    else
-    {
-        Destroy(gameObject);
-    }
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("LevelStatsManager initialized");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -46,7 +51,6 @@ public class LevelStatsManager : MonoBehaviour
         elapsedTime = 0f;
         isTiming = true;
         Debug.Log("Timer started at " + startTime);
-
     }
 
     public void EndLevelTimer()
@@ -109,6 +113,7 @@ public class LevelStatsManager : MonoBehaviour
         totalBirdKills = 0;
         totalKills = 0;
         totalPoints = 0;
+        remainingLives = maxLives;
     }
 
     public void UpdateGlobalStats()
