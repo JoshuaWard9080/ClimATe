@@ -5887,6 +5887,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2810532015820494227, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 2817851398144087488, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -5927,6 +5931,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7.85
       objectReference: {fileID: 0}
+    - target: {fileID: 6219124770910406417, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6606184854931850206, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -8308,6 +8316,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1173476730}
     m_Modifications:
+    - target: {fileID: 1247967404505862943, guid: ddc1194f3e547e1418036456409f8e37, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 2609489729681304288, guid: ddc1194f3e547e1418036456409f8e37, type: 3}
       propertyPath: m_Name
       value: MovingPlatform_SideToSide (1)
@@ -10033,6 +10045,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2383011631986310929, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 2700670295725288795, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
       propertyPath: m_Layer
       value: 6

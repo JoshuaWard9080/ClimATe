@@ -1650,6 +1650,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 440760821}
     m_Modifications:
+    - target: {fileID: 1247967404505862943, guid: ddc1194f3e547e1418036456409f8e37, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 457043192}
     - target: {fileID: 2609489729681304288, guid: ddc1194f3e547e1418036456409f8e37, type: 3}
       propertyPath: m_Name
       value: MovingPlatform_SideToSide
@@ -3011,10 +3015,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -12.85
       objectReference: {fileID: 0}
+    - target: {fileID: 2810532015820494227, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 457043192}
+    - target: {fileID: 3272340666118003319, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 457043192}
     - target: {fileID: 5886756845521345072, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.62
       objectReference: {fileID: 0}
+    - target: {fileID: 6219124770910406417, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 457043192}
     - target: {fileID: 6618397735331993044, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.55
@@ -4425,6 +4441,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1635996345}
     m_Modifications:
+    - target: {fileID: 2661028959781320060, guid: 3df9b1ce24bba15409977df984cd4572, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 457043192}
     - target: {fileID: 4646967904612765095, guid: 3df9b1ce24bba15409977df984cd4572, type: 3}
       propertyPath: level
       value: 7
@@ -7440,6 +7460,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4768288411647074355, guid: 831e924f73ff73347b13259ff92ace90, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 457043192}
     - target: {fileID: 6764353072850733292, guid: 831e924f73ff73347b13259ff92ace90, type: 3}
       propertyPath: level
       value: 6

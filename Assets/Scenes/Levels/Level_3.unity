@@ -1797,6 +1797,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1586207796}
     m_Modifications:
+    - target: {fileID: 2383011631986310929, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1723578070}
     - target: {fileID: 5707492525522100453, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
       propertyPath: m_Name
       value: Moving_1
@@ -6518,6 +6522,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4768288411647074355, guid: 831e924f73ff73347b13259ff92ace90, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1723578070}
     - target: {fileID: 6764353072850733292, guid: 831e924f73ff73347b13259ff92ace90, type: 3}
       propertyPath: level
       value: 8
@@ -8069,6 +8077,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -12.85
       objectReference: {fileID: 0}
+    - target: {fileID: 2810532015820494227, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1723578070}
+    - target: {fileID: 3272340666118003319, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1723578070}
     - target: {fileID: 5845610101222862568, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -7.8
@@ -8077,6 +8093,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -8.85
       objectReference: {fileID: 0}
+    - target: {fileID: 6219124770910406417, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1723578070}
     - target: {fileID: 6618397735331993044, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -6.85
