@@ -18,6 +18,16 @@ public class VictorySceneManager : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 endPosition;
 
+    [Header("Text Fields")]
+    public TextMeshProUGUI livesLostText;
+    public TextMeshProUGUI timePlayedText;
+    public TextMeshProUGUI yetiKillsText;
+    public TextMeshProUGUI birdKillsText;
+    public TextMeshProUGUI totalKillsText;
+    public TextMeshProUGUI totalBlocksDestroyed;
+    public TextMeshProUGUI totalFruitsCollected;
+    public TextMeshProUGUI totalPointsText;
+
     private void Start()
     {
         startPosition = statsContent.anchoredPosition;

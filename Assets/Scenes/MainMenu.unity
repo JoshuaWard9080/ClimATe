@@ -220,13 +220,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1e5263115d8fc438e4f06e3ef5a9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLivesLost: 0
-  totalTime: 0
-  totalFuzzyKills: 0
-  totalYetiKills: 0
-  totalBirdKills: 0
-  totalKills: 0
-  totalPoints: 0
+  totalLivesLost: 5
+  totalTime: 5
+  totalYetiKills: 5
+  totalBirdKills: 5
+  totalKills: 5
+  totalPoints: 5
 --- !u!4 &228994482
 Transform:
   m_ObjectHideFlags: 0

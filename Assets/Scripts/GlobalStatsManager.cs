@@ -9,6 +9,8 @@ public class GlobalStatsManager : MonoBehaviour
     public int totalYetiKills = 0;
     public int totalBirdKills = 0;
     public int totalKills = 0;
+    public int blocksDestroyed = 0;
+    public int fruitsCollected = 0;
     public int totalPoints = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,13 +27,15 @@ public class GlobalStatsManager : MonoBehaviour
         }
     }
 
-    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int points)
+    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int blocks, int fruits, int points)
     {
         totalLivesLost += lives;
         totalTime += time;
         totalYetiKills += yetKills;
         totalBirdKills += birdKills;
         totalKills += kills;
+        blocksDestroyed += blocks;
+        fruitsCollected += fruits;
         totalPoints += points;
     }
 
@@ -42,6 +46,8 @@ public class GlobalStatsManager : MonoBehaviour
         totalYetiKills = 0;
         totalBirdKills = 0;
         totalKills = 0;
+        blocksDestroyed = 0;
+        fruitsCollected = 0;
         totalPoints = 0;
     }
 }
