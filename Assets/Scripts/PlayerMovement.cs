@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     private Transform originalParent;
     private Boolean isReceivingInput;
+    private Boolean isOnIce = false;
 
     [Header("Movement")]
     [SerializeField] private float playerSpeed;
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff
     void Update()
-    {        
+    {
         if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
         {
             rb.linearVelocity = Vector2.zero;
@@ -82,8 +83,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 isReceivingInput = false;
             }
-            Debug.Log("is player recieving input: " + isReceivingInput);
-            
             animator.SetFloat("Speed", Mathf.Abs(input.normalized.x));
         }
 
@@ -162,9 +161,8 @@ public class PlayerMovement : MonoBehaviour
             Vector2 limitedVelocity = flatVelocity.normalized * maxAirSpeed;
             rb.linearVelocity = new Vector2(limitedVelocity.x, rb.linearVelocity.y);
         }
-        if ((!isReceivingInput) && (rb.linearVelocity.y == 0))
+        if ((!isReceivingInput) && IsGrounded() && (!isOnIce))
         {
-            Debug.Log("call quicklystop");
             quicklyStop();
         }
     }
@@ -190,9 +188,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy") && transform.position.y > collision.transform.position.y + 0.2)
         {
-            Debug.Log("Collision with Enemy");
+            //Debug.Log("Collision with Enemy");
             animator.SetBool("isJumping", true);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, bounceStrength);
+            
+        }else if (collision.gameObject.tag == "Block" && collision.gameObject.GetType() == typeof(Ice))
+        {
+            Debug.Log("success!!");
         }
     }
 }

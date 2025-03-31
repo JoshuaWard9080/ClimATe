@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9034789158116324895}
   - component: {fileID: 4958847624057683158}
   - component: {fileID: 8797445537941253448}
+  - component: {fileID: -5188621395551498553}
   m_Layer: 6
   m_Name: Block_Ice
   m_TagString: Block
@@ -57,7 +58,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 405e12bd62014e94a86dce2d1b9866e2, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -120,6 +121,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5188621395551498553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759671708197609067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c88d609e1ddef4f843f00d8d4fdaf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6135925704636899413
 GameObject:
   m_ObjectHideFlags: 0
