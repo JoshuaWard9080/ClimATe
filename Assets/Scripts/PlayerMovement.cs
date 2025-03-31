@@ -26,10 +26,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioSource walkingAudio;
+    [SerializeField] private AudioSource landingAudio;
+    [SerializeField] private AudioClip landingClip;
 
     private float footstepCooldown = 0.3f;
     private float lastFootstepTime;
     private bool wasWalkingLastFrame = false;
+    private bool wasGroundedLastFrame = true;
 
 
     // add the listeners for the events that InputManager throws and get the rigidbody
@@ -44,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff
     void Update()
-    {        
+    {
         if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
         {
             rb.linearVelocity = Vector2.zero;
@@ -53,17 +56,29 @@ public class PlayerMovement : MonoBehaviour
 
         SpeedControl();
         Flip();
-        if(!IsGrounded() && rb.linearVelocity.y < 0.001)
+        if (!IsGrounded() && rb.linearVelocity.y < 0.001)
         {
             animator.SetBool("isFalling", true);
             animator.SetBool("isJumping", false);
-        } else
+        }
+        else
         {
             animator.SetBool("isFalling", false);
         }
 
         if (rb.linearVelocity.y == 0)
             animator.SetBool("isJumping", false);
+
+        bool isGroundedNow = IsGrounded();
+        if (isGroundedNow && !wasGroundedLastFrame)
+        {
+            if (landingAudio != null)
+            {
+                landingAudio.PlayOneShot(landingClip);
+            }
+        }
+
+        wasGroundedLastFrame = isGroundedNow;
     }
 
     // adds force to the rigidbody to move the character. Applies a different speed if the character is in the air

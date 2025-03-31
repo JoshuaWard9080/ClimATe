@@ -4204,6 +4204,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!224 &1148398271 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+  m_PrefabInstance: {fileID: 98760784769991526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1152637426
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,8 +4251,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: db11b55b4cc9d084e8045b7972d88633, type: 3}
-  m_Resource: {fileID: 8300000, guid: db11b55b4cc9d084e8045b7972d88633, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4333,11 +4338,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!224 &1148398271 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
-  m_PrefabInstance: {fileID: 98760784769991526}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1264922434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9482,9 +9482,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: landingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
+    - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 373442895}
+    - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: landingAudio
+      value: 
+      objectReference: {fileID: 1152637428}
     - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: walkingAudio
       value: 
