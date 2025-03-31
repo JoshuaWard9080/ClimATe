@@ -10,6 +10,7 @@ public class FuzzyEnemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator animator;
     [SerializeField] TemperatureManager temperatureManager;
+    private Collider2D savedPlayerCollider = null;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -75,8 +76,13 @@ public class FuzzyEnemy : MonoBehaviour
             if (isHurt)
             {
                 isHurt = false;
+                moveSpeed = moveSpeed / 2f;
+                //if (savedPlayerCollider != null)
+                //{
+                   // Physics2D.IgnoreCollision(savedPlayerCollider, GetComponent<Collider2D>(), false);
+               // }
                 Vector3 otherSideOfTheScreen = this.transform.position;
-                otherSideOfTheScreen.x *= -1;
+                otherSideOfTheScreen.x *= -0.95f;
                 this.transform.position = otherSideOfTheScreen;
             }
             else
@@ -122,7 +128,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += (moveVector/4);
+        this.transform.position += (moveVector);
 
     }
 
@@ -132,12 +138,18 @@ public class FuzzyEnemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isHurt && collision.gameObject.tag == "Player")
+        {
+            //Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+            //savedPlayerCollider = collision.collider;
+            return;
+        }
         if (collision.gameObject.tag == "Player")
         {
             if (collision.gameObject.transform.position.y > this.transform.position.y + 0.3)
             {
                 isHurt = true;
-
+                moveSpeed = moveSpeed * 2f;
                 if (LevelStatsManager.Instance != null)
                 {
                     LevelStatsManager.Instance.totalYetiKills++;
@@ -149,7 +161,7 @@ public class FuzzyEnemy : MonoBehaviour
                     Debug.LogWarning("No LevelStatsManager Instance in FuzzyEnemy script");
                 }
             }
-            else //if player hits the yeti
+            else  //if yeti hits player
             {
                 LivesDisplay lives = FindObjectOfType<LivesDisplay>();
 
