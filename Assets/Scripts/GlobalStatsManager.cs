@@ -6,7 +6,6 @@ public class GlobalStatsManager : MonoBehaviour
 
     public int totalLivesLost = 0;
     public float totalTime = 0f;
-    public int totalFuzzyKills = 0;
     public int totalYetiKills = 0;
     public int totalBirdKills = 0;
     public int totalKills = 0;
@@ -26,11 +25,10 @@ public class GlobalStatsManager : MonoBehaviour
         }
     }
 
-    public void AddStats(int lives, float time, int fuzzyKills, int yetKills, int birdKills, int kills, int points)
+    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int points)
     {
         totalLivesLost += lives;
         totalTime += time;
-        totalFuzzyKills += fuzzyKills;
         totalYetiKills += yetKills;
         totalBirdKills += birdKills;
         totalKills += kills;
@@ -41,7 +39,6 @@ public class GlobalStatsManager : MonoBehaviour
     {
         totalLivesLost = 0;
         totalTime = 0f;
-        totalFuzzyKills = 0;
         totalYetiKills = 0;
         totalBirdKills = 0;
         totalKills = 0;
