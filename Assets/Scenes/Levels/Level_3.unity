@@ -4831,6 +4831,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8685621583365956620, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1723578070}
     - target: {fileID: 8990915341305429565, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -6902,6 +6906,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   currTemp: 1
+  player: {fileID: 0}
+  icicles: []
+  winds: []
+  crackingPlatforms: []
+  fuzzyEnemies: []
+  birdEnemies: []
   snowSystem: {fileID: 1275732496}
 --- !u!4 &1723578071
 Transform:
