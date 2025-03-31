@@ -98,22 +98,22 @@ public class PlayerMovement : MonoBehaviour
 
             bool isWalking = Mathf.Abs(input.x) > 0.1f;
 
-            if (isWalking)
-            {
-                if (!walkingAudio.isPlaying)
-                {
-                    walkingAudio.Play();
-                }
-                lastFootstepTime = Time.time;
-            }
-            else
-            {
-                if (walkingAudio.isPlaying)
-                {
-                    walkingAudio.Stop();
-                }
-            }
-            wasWalkingLastFrame = isWalking;
+            // if (isWalking)
+            // {
+            //     if (!walkingAudio.isPlaying)
+            //     {
+            //         walkingAudio.Play();
+            //     }
+            //     lastFootstepTime = Time.time;
+            // }
+            // else
+            // {
+            //     if (walkingAudio.isPlaying)
+            //     {
+            //         walkingAudio.Stop();
+            //     }
+            // }
+            // wasWalkingLastFrame = isWalking;
         }
         else if (!IsGrounded())
         {
