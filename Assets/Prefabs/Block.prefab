@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8183cd890f3b7de4392f3e9d019e17c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakEffect: {fileID: 6943260761290634997, guid: d5c46b4f536d2c94d8431262a29226f6, type: 3}
 --- !u!61 &3768240775838774359
 BoxCollider2D:
   m_ObjectHideFlags: 0
