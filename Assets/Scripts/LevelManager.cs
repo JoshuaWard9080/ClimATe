@@ -27,6 +27,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        Debug.Log("LevelManager started, starting timer");
+
+        if (LevelStatsManager.Instance != null)
+        {
+            LevelStatsManager.Instance.ResetLevelTimer();
+            LevelStatsManager.Instance.StartLevelTimer();
+        }
+        else
+        {
+            Debug.LogWarning("LevelStatsManager.Instance is null in LevelManager.Start()");
+        }
+    }
+
+
     public bool IsPaused()
     {
         return isPaused;
@@ -35,6 +51,21 @@ public class LevelManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(RebindUIElements());
+
+        if (scene.name.StartsWith("Level_"))
+        {
+            Debug.Log("Starting level timer for scene: " + scene.name);
+
+            if (LevelStatsManager.Instance != null)
+            {
+                LevelStatsManager.Instance.ResetLevelTimer();
+                LevelStatsManager.Instance.StartLevelTimer();
+            }
+            else
+            {
+                Debug.LogWarning("No LevelStatsManager found in " + scene.name);
+            }
+        }
     }
 
     private IEnumerator RebindUIElements()
@@ -126,6 +157,8 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        LevelStatsManager.Instance?.PauseLevelTimer();
+        LevelStatsManager.Instance?.ResetLevelTimer();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -171,6 +204,9 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Set current to: " + current);
         Debug.Log("Set next to: " + next);
 
+        LevelStatsManager.Instance?.PauseLevelTimer();
+        LevelStatsManager.Instance?.ResetLevelTimer();
+
         SceneManager.LoadScene("LevelComplete");
     }
 
@@ -187,6 +223,8 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        LevelStatsManager.Instance?.ResetLevelTimer();
+        LevelStatsManager.Instance?.StartLevelTimer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
