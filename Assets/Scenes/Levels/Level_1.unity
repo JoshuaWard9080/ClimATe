@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 11082490}
   - component: {fileID: 11082491}
   - component: {fileID: 11082492}
-  - component: {fileID: 11082494}
   - component: {fileID: 11082493}
   m_Layer: 0
   m_Name: LevelManager
@@ -212,24 +211,6 @@ MonoBehaviour:
   typingAudio: {fileID: 795541829}
   blinkCount: 5
   blinkInterval: 0.2
---- !u!114 &11082494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11082488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c36a0e98c180ef4197c81c8cf828154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diedPanel: {fileID: 63071758}
-  retryLevelButton: {fileID: 1021015400}
-  mainMenuButton: {fileID: 1568140811}
-  switchButtonAudio: {fileID: 241651020}
-  clickButtonAudio: {fileID: 1391786972}
-  textAnimator: {fileID: 11082493}
 --- !u!1001 &12117432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10137,6 +10118,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 457083599}
     m_Modifications:
+    - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1770838481953185075}
+    - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelFailed, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1770838481953185075}
+    - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToLevel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelFailed, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10395,8 +10400,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1770838481953185075}
   m_SourcePrefab: {fileID: 100100000, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+--- !u!1 &1770838481953185074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+  m_PrefabInstance: {fileID: 1770838481953185073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1770838481953185075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770838481953185074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c36a0e98c180ef4197c81c8cf828154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diedPanel: {fileID: 63071758}
+  retryLevelButton: {fileID: 1021015400}
+  mainMenuButton: {fileID: 1568140811}
+  switchButtonAudio: {fileID: 241651020}
+  clickButtonAudio: {fileID: 1391786972}
+  textAnimator: {fileID: 11082493}
 --- !u!1001 &8649895078416733753
 PrefabInstance:
   m_ObjectHideFlags: 0

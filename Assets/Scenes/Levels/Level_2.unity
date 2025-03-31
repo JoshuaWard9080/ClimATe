@@ -216,8 +216,8 @@ Transform:
   - {fileID: 288490173}
   - {fileID: 546947270}
   - {fileID: 1273080073}
-  - {fileID: 758084845}
   - {fileID: 781754624}
+  - {fileID: 758084845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &70903084
@@ -3222,7 +3222,7 @@ PrefabInstance:
     - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1044415410}
+      objectReference: {fileID: 781754626}
     - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
@@ -3234,7 +3234,7 @@ PrefabInstance:
     - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1044415410}
+      objectReference: {fileID: 781754626}
     - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToLevel1
@@ -3273,6 +3273,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
@@ -3471,13 +3483,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 781754626}
   m_SourcePrefab: {fileID: 100100000, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
 --- !u!224 &781754624 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
   m_PrefabInstance: {fileID: 781754623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &781754625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+  m_PrefabInstance: {fileID: 781754623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &781754626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781754625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c36a0e98c180ef4197c81c8cf828154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diedPanel: {fileID: 758084844}
+  retryLevelButton: {fileID: 758084846}
+  mainMenuButton: {fileID: 758084846}
+  switchButtonAudio: {fileID: 288490172}
+  clickButtonAudio: {fileID: 1707580319}
+  textAnimator: {fileID: 1044415409}
 --- !u!1001 &840416244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4994,7 +5032,6 @@ GameObject:
   - component: {fileID: 1044415407}
   - component: {fileID: 1044415408}
   - component: {fileID: 1044415411}
-  - component: {fileID: 1044415410}
   - component: {fileID: 1044415409}
   m_Layer: 0
   m_Name: LevelManager
@@ -5043,6 +5080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 0
+  manualText: {fileID: 0}
   texts:
   - {fileID: 758084847}
   timeBetweenCharacters: 0
@@ -5050,25 +5089,6 @@ MonoBehaviour:
   typingAudio: {fileID: 546947271}
   blinkCount: 5
   blinkInterval: 0.2
-  victoryStatsScene: VictoryStatsScene
---- !u!114 &1044415410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044415405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c36a0e98c180ef4197c81c8cf828154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diedPanel: {fileID: 758084844}
-  retryLevelButton: {fileID: 758084846}
-  mainMenuButton: {fileID: 758084846}
-  switchButtonAudio: {fileID: 288490172}
-  clickButtonAudio: {fileID: 1707580319}
-  textAnimator: {fileID: 1044415409}
 --- !u!114 &1044415411
 MonoBehaviour:
   m_ObjectHideFlags: 0

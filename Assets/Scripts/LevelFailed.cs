@@ -99,6 +99,12 @@ public class LevelFailed : MonoBehaviour
             clickButtonAudio.Play();
         }
 
+        GameObject escapeCanvas = GameObject.Find("EscapeCanvas");
+        if (escapeCanvas != null)
+        {
+            escapeCanvas.SetActive(false);
+        }
+
         LevelStatsManager.Instance?.ResetLevelTimer();
         LevelStatsManager.Instance?.ResetAllStats();
 

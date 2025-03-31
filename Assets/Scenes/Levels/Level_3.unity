@@ -1722,13 +1722,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 267166841}
   m_SourcePrefab: {fileID: 100100000, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
 --- !u!224 &267166839 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
   m_PrefabInstance: {fileID: 267166838}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &267166840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+  m_PrefabInstance: {fileID: 267166838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &267166841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267166840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c36a0e98c180ef4197c81c8cf828154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diedPanel: {fileID: 335969544}
+  retryLevelButton: {fileID: 335969546}
+  mainMenuButton: {fileID: 335969545}
+  switchButtonAudio: {fileID: 741726490}
+  clickButtonAudio: {fileID: 741726490}
+  textAnimator: {fileID: 729516260}
 --- !u!1001 &272202457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1894,7 +1920,7 @@ PrefabInstance:
     - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 729516261}
+      objectReference: {fileID: 0}
     - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
@@ -1906,7 +1932,7 @@ PrefabInstance:
     - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 729516261}
+      objectReference: {fileID: 0}
     - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToLevel1
@@ -3058,7 +3084,6 @@ GameObject:
   - component: {fileID: 729516258}
   - component: {fileID: 729516259}
   - component: {fileID: 729516262}
-  - component: {fileID: 729516261}
   - component: {fileID: 729516260}
   m_Layer: 0
   m_Name: LevelManager
@@ -3107,6 +3132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 0
+  manualText: {fileID: 0}
   texts:
   - {fileID: 335969547}
   timeBetweenCharacters: 0
@@ -3114,25 +3141,6 @@ MonoBehaviour:
   typingAudio: {fileID: 1974832186}
   blinkCount: 5
   blinkInterval: 0.2
-  victoryStatsScene: VictoryStatsScene
---- !u!114 &729516261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729516256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c36a0e98c180ef4197c81c8cf828154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diedPanel: {fileID: 335969544}
-  retryLevelButton: {fileID: 335969546}
-  mainMenuButton: {fileID: 335969545}
-  switchButtonAudio: {fileID: 741726490}
-  clickButtonAudio: {fileID: 741726490}
-  textAnimator: {fileID: 729516260}
 --- !u!114 &729516262
 MonoBehaviour:
   m_ObjectHideFlags: 0
