@@ -9,8 +9,17 @@ public class Fruit : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
         spriteRenderer.sprite = sprites[Random.Range(0,sprites.Length)];
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Fruit has been collected! Check Fruit.cs to implement points stuff");
+            //implement points stuff here
+            Destroy(gameObject);
+        }
     }
 
 }
