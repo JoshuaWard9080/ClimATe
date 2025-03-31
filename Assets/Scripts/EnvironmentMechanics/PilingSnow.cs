@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PilingSnow : MonoBehaviour
 {
-    [SerializeField] private float snowSpeed = 1f;
+    [SerializeField] private float snowSpeed = 0.05f;
     [SerializeField] private TemperatureManager temperatureManager;
     private bool isRising = false;
 
-    private float coldSnowSpeed = 1f;
-    private float freezingSnowSpeed = 2f;
-    private float warmSnowSpeed = 0.5f;
+    private float coldSnowSpeed = 0.05f;
+    private float freezingSnowSpeed = 0.5f;
+    private float warmSnowSpeed = 0.01f;
 
     private void Start()
     {
