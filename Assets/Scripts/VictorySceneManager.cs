@@ -18,12 +18,29 @@ public class VictorySceneManager : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 endPosition;
 
+    [SerializeField] private TextAnimation textAnimator;
+    [SerializeField] private TextMeshProUGUI[] animatedStatsTexts;
+
+    //points/stats
+    [SerializeField] private TextMeshProUGUI globalPointsText;
+    [SerializeField] private TextMeshProUGUI globalKillsText;
+    [SerializeField] private TextMeshProUGUI globalTimeText;
+    [SerializeField] private TextMeshProUGUI globalLivesLostText;
+
     private void Start()
     {
         startPosition = statsContent.anchoredPosition;
 
         statsContent.anchoredPosition = startPosition;
         returnToMenuText.SetActive(false);
+
+        DisplayFianlStats();
+
+        if (textAnimator != null)
+        {
+            textAnimator.SetTexts(animatedStatsTexts);
+            StartCoroutine(textAnimator.StartAnimation());
+        }
     }
 
     void Update()
@@ -56,5 +73,21 @@ public class VictorySceneManager : MonoBehaviour
         scrollEnded = true;
         yield return new WaitForSeconds(endDelay);
         returnToMenuText.SetActive(true);
+    }
+
+    void DisplayFianlStats()
+    {
+        if (GlobalStatsManager.Instance == null)
+        {
+            Debug.LogError("GlobalStatsManager is null in VictoryScene");
+            return;
+        }
+
+        var g = GlobalStatsManager.Instance;
+
+        globalPointsText.text = $"Total Points: {g.totalPoints}";
+        globalKillsText.text = $"Total Kills: {g.totalKills}";
+        globalTimeText.text = $"Total Time: {g.totalTime:F1}s";
+        globalLivesLostText.text = $"Lives Lost: {g.totalLivesLost}";
     }
 }

@@ -1135,7 +1135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 0}
   heart: {fileID: 358443199388127279, guid: c48c51a988c821742aee510a10efd0cf, type: 3}
-  maxLives: 8
 --- !u!114 &269551137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4203,6 +4202,7 @@ GameObject:
   - component: {fileID: 832009983}
   - component: {fileID: 832009982}
   - component: {fileID: 832009981}
+  - component: {fileID: 832009986}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -4289,7 +4289,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1104010609}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RetryLevel
         m_Mode: 1
@@ -4359,6 +4359,18 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &832009986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832009979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &851693865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6677,6 +6689,7 @@ GameObject:
   - component: {fileID: 1569832109}
   - component: {fileID: 1569832108}
   - component: {fileID: 1569832107}
+  - component: {fileID: 1569832112}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -6763,7 +6776,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1104010609}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -6833,6 +6846,18 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1569832112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569832105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1614084832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7150,7 +7175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1104010609}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1

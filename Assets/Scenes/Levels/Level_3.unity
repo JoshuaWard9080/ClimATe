@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 729516259}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RetryLevel
         m_Mode: 1
@@ -4105,7 +4105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 0}
   heart: {fileID: 358443199388127279, guid: c48c51a988c821742aee510a10efd0cf, type: 3}
-  maxLives: 8
 --- !u!114 &1047222597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5536,7 +5535,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 729516259}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
@@ -7421,7 +7420,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 729516259}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1

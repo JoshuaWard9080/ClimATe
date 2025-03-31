@@ -58,6 +58,7 @@ public class LevelCompleteManager : MonoBehaviour
                     levelCompleteAudio.Stop();
                 }
 
+                textAnimator.SetTexts(new TextMeshProUGUI[0]);
                 SceneManager.LoadScene("VictoryScene");
             });
         }

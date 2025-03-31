@@ -1461,8 +1461,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 860893256}
-  - component: {fileID: 860893255}
   - component: {fileID: 860893257}
+  - component: {fileID: 860893258}
   m_Layer: 0
   m_Name: VictoryManager
   m_TagString: Untagged
@@ -1470,26 +1470,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &860893255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860893254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - {fileID: 1358129134}
-  timeBetweenCharacters: 0.1
-  timeBetweenTexts: 0.5
-  typingAudio: {fileID: 1545001957}
-  blinkCount: 5
-  blinkInterval: 0.2
-  victoryStatsScene: VictoryStatsScene
 --- !u!4 &860893256
 Transform:
   m_ObjectHideFlags: 0
@@ -1521,6 +1501,36 @@ MonoBehaviour:
   scrollSpeed: 30
   endDelay: 1
   returnToMenuText: {fileID: 771962630}
+  textAnimator: {fileID: 860893258}
+  animatedStatsTexts:
+  - {fileID: 1968413569}
+  - {fileID: 2083493208}
+  - {fileID: 131827876}
+  - {fileID: 1840928942}
+  globalPointsText: {fileID: 1840928942}
+  globalKillsText: {fileID: 131827876}
+  globalTimeText: {fileID: 2083493208}
+  globalLivesLostText: {fileID: 1968413569}
+--- !u!114 &860893258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860893254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - {fileID: 1358129134}
+  timeBetweenCharacters: 0
+  timeBetweenTexts: 0.5
+  typingAudio: {fileID: 1545001957}
+  blinkCount: 5
+  blinkInterval: 0.2
+  victoryStatsScene: VictoryStatsScene
 --- !u!1 &885216691
 GameObject:
   m_ObjectHideFlags: 0

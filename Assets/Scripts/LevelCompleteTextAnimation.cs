@@ -65,7 +65,12 @@ public class TextAnimation : MonoBehaviour
         while (visibleCharacters <= totalCharacters)
         {
             textMesh.maxVisibleCharacters = visibleCharacters;
-            typingAudio.Play();
+            
+            if (typingAudio != null)
+            {
+                typingAudio.Play();
+            }
+
             visibleCharacters++;
             yield return new WaitForSeconds(timeBetweenCharacters);
         }
