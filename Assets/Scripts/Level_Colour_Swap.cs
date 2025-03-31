@@ -49,6 +49,7 @@ public class Level_Colour_Swap : MonoBehaviour
             {
                 //Debug.Log("text not null at: " + transform.gameObject + " , " + transform.gameObject.GetComponent<TextMeshProUGUI>().text);
                 changeNumber(transform.gameObject.GetComponent<TextMeshProUGUI>());
+                colourNumber(transform.gameObject.GetComponent<TextMeshProUGUI>(),colour);
             }
             changeColour(transform, colour);
         }
@@ -59,6 +60,11 @@ public class Level_Colour_Swap : MonoBehaviour
     {
         text.SetText(level.ToString());
     }
+    void colourNumber(TextMeshProUGUI text, Color colour)
+    {
+        text.color = colour;
+    }
+
     void changeColour(Transform transform,Color colour)
     {
         Renderer renderer = transform.GetComponent<Renderer>();
