@@ -12,7 +12,7 @@ public class TemperatureManager : MonoBehaviour
     //initialize player, platforms, winds, snow pile, icicles, Topi (enemies), and Nitpickers (enemies)
     [SerializeField] private PlayerMovement player;
     [SerializeField] private List<Icicle> icicles; //icicles
-    [SerializeField] private List<Wind> winds; //winds
+    [SerializeField] private List<AreaEffector2D> winds; //winds
     [SerializeField] private List<CrackingPlatform> crackingPlatforms; //platforms
     [SerializeField] private List<FuzzyEnemy> fuzzyEnemies; //fuzzy enemies
 
