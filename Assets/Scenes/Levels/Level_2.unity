@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeti (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4866439016729014141, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6416412206821822235, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.6602683
@@ -214,7 +218,10 @@ Transform:
   - {fileID: 1125833415}
   - {fileID: 1707580320}
   - {fileID: 288490173}
+  - {fileID: 546947270}
   - {fileID: 1273080073}
+  - {fileID: 781754624}
+  - {fileID: 758084845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &70903084
@@ -305,7 +312,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1100,6 +1107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -1360,6 +1371,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958222}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -1680,6 +1695,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5663030654274736321, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
+      propertyPath: tman
+      value: 
+      objectReference: {fileID: 1090364018}
+    - target: {fileID: 5762787273312089720, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
+      propertyPath: tman
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6169411916550602602, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 10
@@ -1724,6 +1747,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9001161730084064326, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
+      propertyPath: tman
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5522731682276450438, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
@@ -1923,7 +1950,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2077,10 +2104,139 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!1 &546947269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546947270}
+  - component: {fileID: 546947271}
+  m_Layer: 0
+  m_Name: TypingSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546947270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546947269}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.570862, y: 7.179474, z: 2.3761613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 51830262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &546947271
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546947269}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 10072eaf90b1b284ab10008102bddeb0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 10072eaf90b1b284ab10008102bddeb0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &577956703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2089,6 +2245,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958223}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -2349,6 +2509,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -2417,11 +2581,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.017832398
+      value: -0.05950642
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.0437117
+      value: -3.771297
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3079,6 +3243,311 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1679222360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &758084843
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 51830262}
+    m_Modifications:
+    - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 781754626}
+    - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelFailed, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 781754626}
+    - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToLevel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelFailed, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828952570475622050, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Name
+      value: PlayerDiedCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921272949633110824, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: clickButtonAudio
+      value: 
+      objectReference: {fileID: 1707580319}
+    - target: {fileID: 7921272949633110824, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: switchButtonAudio
+      value: 
+      objectReference: {fileID: 288490172}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f70b232841355534286b11059bcffd68, type: 3}
+--- !u!1 &758084844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3540580247255206273, guid: f70b232841355534286b11059bcffd68, type: 3}
+  m_PrefabInstance: {fileID: 758084843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &758084845 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
+  m_PrefabInstance: {fileID: 758084843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &758084846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
+  m_PrefabInstance: {fileID: 758084843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &758084847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1762874874015732169, guid: f70b232841355534286b11059bcffd68, type: 3}
+  m_PrefabInstance: {fileID: 758084843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &781754623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 51830262}
+    m_Modifications:
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153168253247236131, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: m_Name
+      value: StatsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883358353720539726, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 758084844}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 781754626}
+  m_SourcePrefab: {fileID: 100100000, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+--- !u!224 &781754624 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4669954323701714762, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+  m_PrefabInstance: {fileID: 781754623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &781754625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6118969034100233205, guid: 33daec087b2a1c045946f783c9159a90, type: 3}
+  m_PrefabInstance: {fileID: 781754623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &781754626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781754625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c36a0e98c180ef4197c81c8cf828154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diedPanel: {fileID: 758084844}
+  retryLevelButton: {fileID: 758084846}
+  mainMenuButton: {fileID: 758084846}
+  switchButtonAudio: {fileID: 288490172}
+  clickButtonAudio: {fileID: 1707580319}
+  textAnimator: {fileID: 1044415409}
 --- !u!1001 &840416244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3455,7 +3924,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3603,6 +4072,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958222}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -3825,7 +4298,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3993,6 +4466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeti
       objectReference: {fileID: 0}
+    - target: {fileID: 4866439016729014141, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6416412206821822235, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.7000003
@@ -4251,7 +4728,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4424,6 +4901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.5
@@ -4594,6 +5075,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1044415407}
   - component: {fileID: 1044415408}
+  - component: {fileID: 1044415411}
+  - component: {fileID: 1044415409}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -4629,6 +5112,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelSceneName: Level_3
+--- !u!114 &1044415409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044415405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  manualText: {fileID: 0}
+  texts:
+  - {fileID: 758084847}
+  timeBetweenCharacters: 0
+  timeBetweenTexts: 0.5
+  typingAudio: {fileID: 546947271}
+  blinkCount: 5
+  blinkInterval: 0.2
+--- !u!114 &1044415411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044415405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f340cc8cf35b7145a0e113ac9d33a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalLivesLost: 0
+  totalTime: 0
+  totalYetiKills: 0
+  totalBirdKills: 0
+  totalKills: 0
+  totalPoints: 0
+  fruitsCollected: 0
+  blocksDestroyed: 0
+  iciclesDestroyed: 0
+  elapsedTime: 0
+  pausedTime: 0
+  maxLives: 8
+  remainingLives: 8
+  livesAtLevelStart: 8
 --- !u!1 &1050424657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4873,7 +5403,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5009,6 +5539,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1388958223}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.5
@@ -5126,6 +5660,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.5
@@ -5188,6 +5726,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6
@@ -6120,6 +6662,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12
@@ -6277,7 +6823,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6493,7 +7039,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7616,7 +8162,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7826,6 +8372,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5
@@ -8210,7 +8760,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8350,6 +8900,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5
@@ -8507,7 +9061,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -9067,7 +9621,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -9305,6 +9859,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.5
@@ -9702,7 +10260,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -10315,7 +10873,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -10389,6 +10947,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5
@@ -10451,6 +11013,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11
@@ -10513,6 +11079,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979584952}
     m_Modifications:
+    - target: {fileID: 708437494987766562, guid: dd9cac31cc25ada48b39964230967286, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -10860,7 +11430,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 1090364018}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
