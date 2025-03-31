@@ -14,7 +14,14 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] AudioSource switchButtonAudio;
     [SerializeField] AudioSource clickButtonAudio;
     [SerializeField] AudioSource levelCompleteAudio;
+    [SerializeField] private TextAnimation textAnimator;
     public int totalPoints = 0;
+
+    //stats
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI killText;
+    public TextMeshProUGUI pointsText;
 
     private void Awake()
     {
@@ -32,14 +39,22 @@ public class LevelCompleteManager : MonoBehaviour
             Debug.Log("Level complete music started and set to loop.");
         }
 
-        //get the player stats from the previous level and update them here
-        //probably something like setText("Kill Count: " + playerStats.getKillCount())
-
         bool isFinalLevel = LevelTracker.Instance != null && LevelTracker.Instance.nextLevelScene == "VictoryScene";
 
         if (isFinalLevel)
         {
             Debug.Log("Final level complete, loading VictoryScene");
+
+            LevelStatsManager.Instance?.EndLevelTimer();
+            LevelStatsManager.Instance?.CalculateLevelPoints();
+            LevelStatsManager.Instance?.UpdateGlobalStats(); //update stats to be displayed in the victory scene
+
+            var statsManager = LevelStatsManager.Instance;
+            if (statsManager != null)
+            {
+                Debug.Log($"[Final Level] Pushed stats: Yeti={statsManager.totalYetiKills}, Birds={statsManager.totalBirdKills}, Points={statsManager.totalPoints}");
+                statsManager.ResetLevelStats(); 
+            }
 
             //nextLevelButton.gameObject.SetActive(false);
             mainMenuButton.gameObject.SetActive(false);
@@ -59,7 +74,6 @@ public class LevelCompleteManager : MonoBehaviour
         {
             if (nextLevelButton != null)
             {
-                //not sure what the next level wil be yet
                 nextLevelButton.onClick.AddListener(NextLevel);
             }
 
@@ -75,6 +89,13 @@ public class LevelCompleteManager : MonoBehaviour
         }
 
         UpdatePointsUI();
+    }
+
+    private IEnumerator DelayedStartAnimation()
+    {
+        Debug.Log("Waiting before starting text animation...");
+        yield return null;
+        yield return textAnimator.StartAnimation();
     }
 
     public void NextLevel()
@@ -127,6 +148,46 @@ public class LevelCompleteManager : MonoBehaviour
 
     private void UpdatePointsUI()
     {
-        totalPointsText.text = "Total Points: " + totalPoints;
+        //get the stats from the stats manager
+        var stats = LevelStatsManager.Instance;
+
+        int levelLivesLost = stats.livesAtLevelStart - stats.remainingLives;
+
+        livesText.text = $"Lives Lost: {levelLivesLost}";
+        //timeText.text = $"Time: {stats.totalTime.ToString("F1")} seconds";
+
+        float levelTime = stats.elapsedTime;
+
+        if (levelTime > 60.0f)
+        {
+            float minutes = levelTime / 60;
+            timeText.text = $"Time: {minutes.ToString("F2")} minutes";
+        }
+        else
+        {
+            timeText.text = $"Time: {levelTime.ToString("F2")} seconds";
+        }
+
+        killText.text = $"Kill Count: {stats.totalKills}";
+        pointsText.text = $"Total Points: {stats.CalculateLevelPoints()}";
+
+        //check if null, if not set the texts THEN call the animation
+        //this ensures the animation does not start before the text has been updated, otherwise no stat value will be printed
+        if (textAnimator != null)
+        {
+            textAnimator.SetTexts(new TextMeshProUGUI[]
+           {
+                livesText,
+                timeText,
+                killText,
+                pointsText
+           });
+
+            StartCoroutine(DelayedStartAnimation());
+        }
+        else
+        {
+            Debug.LogError("TextAnimator reference is missing :/");
+        }
     }
 }

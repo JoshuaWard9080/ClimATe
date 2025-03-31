@@ -18,12 +18,52 @@ public class VictorySceneManager : MonoBehaviour
     private Vector2 startPosition;
     private Vector2 endPosition;
 
+    [Header("Text Fields")]
+    public TextMeshProUGUI livesLostText;
+    public TextMeshProUGUI timePlayedText;
+    public TextMeshProUGUI yetiKillsText;
+    public TextMeshProUGUI birdKillsText;
+    public TextMeshProUGUI totalKillsText;
+    public TextMeshProUGUI totalBlocksDestroyed;
+    public TextMeshProUGUI totalIciclesDestroyed;
+    public TextMeshProUGUI totalFruitsCollected;
+    public TextMeshProUGUI totalPointsText;
+
     private void Start()
     {
         startPosition = statsContent.anchoredPosition;
 
         statsContent.anchoredPosition = startPosition;
         returnToMenuText.SetActive(false);
+
+        DisplayStats();
+
+        var textAnimator = FindObjectOfType<TextAnimation>();
+        if (textAnimator != null)
+        {
+            textAnimator.SetTexts(new TextMeshProUGUI[] {
+                livesLostText,
+                timePlayedText,
+                yetiKillsText,
+                birdKillsText,
+                totalKillsText,
+                totalBlocksDestroyed,
+                totalIciclesDestroyed,
+                totalFruitsCollected,
+                totalPointsText
+            });
+
+            // foreach (var txt in textAnimator.GetTexts())
+            // {
+            //     Debug.Log($"Assigned text: {txt?.name ?? "NULL"}");
+            // }
+
+            StartCoroutine(textAnimator.StartAnimation());
+        }
+        else
+        {
+            Debug.LogError("TextAnimation script not found in VictoryScene!");
+        }
     }
 
     void Update()
@@ -56,5 +96,44 @@ public class VictorySceneManager : MonoBehaviour
         scrollEnded = true;
         yield return new WaitForSeconds(endDelay);
         returnToMenuText.SetActive(true);
+    }
+
+    public void DisplayStats()
+    {
+        var stats = GlobalStatsManager.Instance;
+
+        livesLostText.text = $"Lives Lost: {stats.totalLivesLost}";
+        timePlayedText.text = $"Time Played: {stats.totalTime:F2}s";
+        yetiKillsText.text = $"Yeti Kills: {stats.totalYetiKills}";
+        birdKillsText.text = $"Bird Kills: {stats.totalBirdKills}";
+        totalKillsText.text = $"Total Kills: {stats.totalBirdKills + stats.totalYetiKills}";
+        totalBlocksDestroyed.text = $"Blocks Destroyed: {stats.blocksDestroyed}";
+        totalIciclesDestroyed.text = $"Icicles Destroyed: {stats.iciclesDestroyed}";
+        totalFruitsCollected.text = $"Fruits Collected: {stats.fruitsCollected}";
+        totalPointsText.text = $"Total Points: {stats.totalPoints}";
+
+        TextMeshProUGUI[] statTexts = new TextMeshProUGUI[]
+        {
+            livesLostText,
+            timePlayedText,
+            yetiKillsText,
+            birdKillsText,
+            totalKillsText,
+            totalBlocksDestroyed,
+            totalIciclesDestroyed,
+            totalFruitsCollected,
+            totalPointsText
+        };
+
+        var anim = GetComponent<TextAnimation>();
+        if (anim != null)
+        {
+            anim.SetTexts(statTexts);
+            StartCoroutine(anim.StartAnimation());
+        }
+        else
+        {
+            Debug.LogError("TextAnimation not found on VictoryManager");
+        }
     }
 }

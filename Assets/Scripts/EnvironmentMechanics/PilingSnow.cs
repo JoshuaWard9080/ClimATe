@@ -31,7 +31,7 @@ public class PilingSnow : MonoBehaviour
         {
             return;
         }
-        
+
         transform.position += Vector3.up * snowSpeed * Time.deltaTime;
     }
 
