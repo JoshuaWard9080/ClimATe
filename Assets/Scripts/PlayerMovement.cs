@@ -24,6 +24,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource walkingAudio;
+
+    private float footstepCooldown = 0.3f;
+    private float lastFootstepTime;
+    private bool wasWalkingLastFrame = false;
+
 
     // add the listeners for the events that InputManager throws and get the rigidbody
     void Start()
@@ -73,11 +80,35 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(input.normalized * playerSpeed, ForceMode2D.Force);
             //animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
             animator.SetFloat("Speed", Mathf.Abs(input.normalized.x));
+
+            bool isWalking = Mathf.Abs(input.x) > 0.1f;
+
+            if (isWalking)
+            {
+                if (!walkingAudio.isPlaying)
+                {
+                    walkingAudio.Play();
+                }
+                lastFootstepTime = Time.time;
+            }
+            else
+            {
+                if (walkingAudio.isPlaying)
+                {
+                    walkingAudio.Stop();
+                }
+            }
+            wasWalkingLastFrame = isWalking;
         }
-
-
         else if (!IsGrounded())
+        {
             rb.AddForce(input.normalized * playerSpeed * airMultiplier, ForceMode2D.Force);
+
+            if (walkingAudio.isPlaying)
+            {
+                walkingAudio.Stop();
+            }
+        }
 
         horizontal = input.normalized.x;
     }
