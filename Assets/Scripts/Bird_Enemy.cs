@@ -205,6 +205,7 @@ public class Bird_Enemy : MonoBehaviour
                 moveVector = new Vector3(0, -1, 0);
                 isHurt = true;
                 animator.SetBool("isHurt", true);
+                gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 
                 if (LevelStatsManager.Instance != null)
                 {

@@ -5,6 +5,7 @@ public class LivesDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPanel;
     public GameObject heart;
+    public int invincibilityFrames = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,6 +16,7 @@ public class LivesDisplay : MonoBehaviour
     //TODO: comment this Update method out when not testing, this is purely to ensure the TakeDamage method is working as expected
     void Update()
     {
+        if (invincibilityFrames > 0) invincibilityFrames--;
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage();
@@ -23,6 +25,8 @@ public class LivesDisplay : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (invincibilityFrames > 0) return;
+
         if (LevelStatsManager.Instance == null)
         {
             Debug.LogError("LevelStatsManager.Instance is NULL!!");
@@ -43,7 +47,10 @@ public class LivesDisplay : MonoBehaviour
                 PlayerDied();
             }
         }
+        invincibilityFrames = 400;
     }
+
+    
 
     public void ResetLives()
     {
