@@ -20,6 +20,7 @@ public class Bird_Enemy : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioSource flappingAudio;
+    [SerializeField] private AudioSource walkingAudio;
     [SerializeField] private AudioSource playerHitsBirdAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -56,18 +57,34 @@ public class Bird_Enemy : MonoBehaviour
     {
         if (isHurt)
         {
+            //dead, stop all sound
             if (flappingAudio != null && flappingAudio.isPlaying)
             {
                 flappingAudio.Stop();
+            }
+
+            if (walkingAudio != null && walkingAudio.isPlaying)
+            {
+                walkingAudio.Stop();
             }
 
             moveDead();
         }
         else
         {
-            if (flappingAudio != null && !flappingAudio.isPlaying)
+            if (state == "freezing")
             {
-                flappingAudio.Play(); //make sure audio has loop = true in the inspector
+                if (flappingAudio != null && !flappingAudio.isPlaying)
+                {
+                    flappingAudio.Play(); //make sure audio has loop = true in the inspector
+                }
+            }
+            else if (state == "warm" || state == "cold")
+            {
+                if (walkingAudio != null && !walkingAudio.isPlaying)
+                {
+                    walkingAudio.Play();
+                }
             }
 
             if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
