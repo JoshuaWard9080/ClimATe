@@ -276,7 +276,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -536,7 +536,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1361,6 +1361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeti (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4866439016729014141, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 252600404}
     - target: {fileID: 6416412206821822235, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.993576
@@ -1514,7 +1518,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2352,6 +2356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeti
       objectReference: {fileID: 0}
+    - target: {fileID: 4866439016729014141, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 252600404}
     - target: {fileID: 6416412206821822235, guid: 5efb0fd172d852e41a3e1d55567bae39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.38094938
@@ -3199,7 +3207,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3489,7 +3497,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3818,7 +3826,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5184,7 +5192,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6118,7 +6126,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6225,7 +6233,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7224,7 +7232,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8147,7 +8155,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8387,7 +8395,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8503,7 +8511,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8595,7 +8603,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -8702,7 +8710,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -9198,7 +9206,7 @@ MonoBehaviour:
   regenTime: 1
   size: 1
   canTrigger: 1
-  temperatureManager: {fileID: 0}
+  temperatureManager: {fileID: 252600404}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
