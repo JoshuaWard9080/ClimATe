@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2903628282484142854}
   - component: {fileID: 7212444003019245346}
   - component: {fileID: 2273665051301888893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 6102850989493735831}
   - component: {fileID: 1284996080050311939}
   - component: {fileID: 3474056576887934324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2405672651882498910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

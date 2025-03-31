@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    [SerializeField] private float windStrength; //warm = 0, standard = 3, freezing = 5
     [SerializeField] private float windSpeed; //warm = 0, standard = 3, freezing = 5
     [SerializeField] private float windDirection; // 0 for blowing from the left, 180 for blowing from the right
     [SerializeField] TemperatureManager temperatureManager;
     AreaEffector2D effector;
 
-    private float coldWindStrength = 3f;
-    private float warmWindStrength = 0f;
-    private float freezingWindStrength = 5f;
+    private float coldWindSpeed = 3f;
+    private float warmWindSpeed = 0f;
+    private float freezingWindSpeed = 5f;
 
     public void Start()
     {
@@ -23,17 +22,17 @@ public class Wind : MonoBehaviour
 
     void tempChangeToWarm()
     {
-        SetWindSpeed(warmWindStrength);
+        SetWindSpeed(warmWindSpeed);
     }
 
     void tempChangeToCold()
     {
-        SetWindSpeed(coldWindStrength);
+        SetWindSpeed(coldWindSpeed);
     }
 
     void tempChangeToFreezing()
     {
-        SetWindSpeed(freezingWindStrength);
+        SetWindSpeed(freezingWindSpeed);
     }
 
     public void SetWindSpeed(float newWindSpeed)
