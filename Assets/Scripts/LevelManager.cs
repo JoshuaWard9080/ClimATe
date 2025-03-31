@@ -204,9 +204,6 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Set current to: " + current);
         Debug.Log("Set next to: " + next);
 
-        LevelStatsManager.Instance?.PauseLevelTimer();
-        LevelStatsManager.Instance?.ResetLevelTimer();
-
         SceneManager.LoadScene("LevelComplete");
     }
 

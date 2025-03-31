@@ -14,7 +14,14 @@ public class LevelCompleteManager : MonoBehaviour
     [SerializeField] AudioSource switchButtonAudio;
     [SerializeField] AudioSource clickButtonAudio;
     [SerializeField] AudioSource levelCompleteAudio;
+    [SerializeField] private TextAnimation textAnimator;
     public int totalPoints = 0;
+
+    //stats
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI killText;
+    public TextMeshProUGUI pointsText;
 
     private void Awake()
     {
@@ -75,6 +82,16 @@ public class LevelCompleteManager : MonoBehaviour
         }
 
         UpdatePointsUI();
+
+        LevelStatsManager.Instance?.ResetLevelTimer();
+        LevelStatsManager.Instance?.ResetStats();
+    }
+
+    private IEnumerator DelayedStartAnimation()
+    {
+        Debug.Log("Waiting before starting text animation...");
+        yield return null;
+        yield return textAnimator.StartAnimation();
     }
 
     public void NextLevel()
@@ -127,6 +144,46 @@ public class LevelCompleteManager : MonoBehaviour
 
     private void UpdatePointsUI()
     {
-        totalPointsText.text = "Total Points: " + totalPoints;
+        //get the stats from the stats manager
+        var stats = LevelStatsManager.Instance;
+
+        int levelLivesLost = stats.livesAtLevelStart - stats.remainingLives;
+
+        livesText.text = $"Lives Lost: {levelLivesLost}";
+        //timeText.text = $"Time: {stats.totalTime.ToString("F1")} seconds";
+
+        float levelTime = stats.elapsedTime;
+
+        if (levelTime > 60.0f)
+        {
+            float minutes = levelTime / 60;
+            timeText.text = $"Time: {minutes.ToString("F2")} minutes";
+        }
+        else
+        {
+            timeText.text = $"Time: {levelTime.ToString("F2")} seconds";
+        }
+
+        killText.text = $"Kill Count: {stats.totalKills}";
+        pointsText.text = $"Total Points: {stats.CalculateLevelPoints()}";
+
+        //check if null, if not set the texts THEN call the animation
+        //this ensures the animation does not start before the text has been updated, otherwise no stat value will be printed
+        if (textAnimator != null)
+        {
+            textAnimator.SetTexts(new TextMeshProUGUI[]
+           {
+                livesText,
+                timeText,
+                killText,
+                pointsText
+           });
+
+            StartCoroutine(DelayedStartAnimation());
+        }
+        else
+        {
+            Debug.LogError("TextAnimator reference is missing :/");
+        }
     }
 }
