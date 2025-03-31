@@ -11,6 +11,10 @@ public class Icicle : MonoBehaviour
     [SerializeField] private bool canTrigger = true;
     [SerializeField] TemperatureManager temperatureManager;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource playerHittingIcicleAudio;
+    [SerializeField] private AudioSource icicleHurtingPlayer;
+
     private bool isFalling = false;
     private bool canFall = true;
     private bool isRegenerating = false;
@@ -27,6 +31,7 @@ public class Icicle : MonoBehaviour
     //getting block the icicle is attached too
     private GameObject supportingBlock;
     [SerializeField] private LayerMask blockLayer;
+
 
     void Start()
     {
@@ -127,6 +132,11 @@ public class Icicle : MonoBehaviour
         {
             Debug.Log("Player collided with icicle, starting shake and fall.");
 
+            if (playerHittingIcicleAudio != null)
+            {
+                playerHittingIcicleAudio.Play();
+            }
+
             if (LevelStatsManager.Instance != null)
             {
                 LevelStatsManager.Instance.iciclesDestroyed++;
@@ -147,6 +157,11 @@ public class Icicle : MonoBehaviour
 
                 LivesDisplay lives = FindObjectOfType<LivesDisplay>();
 
+                if (icicleHurtingPlayer != null)
+                {
+                    icicleHurtingPlayer.Play();
+                }
+
                 if (lives != null)
                 {
                     lives.TakeDamage();
@@ -157,8 +172,10 @@ public class Icicle : MonoBehaviour
                 }
             }
 
+            //TODO: Add sound for when the icicle hits the ground
+
             if (Vector2.Distance(transform.position, originalPosition) < 0.2f)
-    {
+            {
                 Debug.Log("Ignoring collision, the icicle hasn't fallen far enough yet.");
                 return;
             }
