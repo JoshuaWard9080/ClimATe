@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Timers;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class VictorySceneManager : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class VictorySceneManager : MonoBehaviour
 
         statsContent.anchoredPosition = startPosition;
         returnToMenuText.SetActive(false);
+
+        DisplayStats();
     }
 
     void Update()
@@ -66,5 +69,17 @@ public class VictorySceneManager : MonoBehaviour
         scrollEnded = true;
         yield return new WaitForSeconds(endDelay);
         returnToMenuText.SetActive(true);
+    }
+
+    public void DisplayStats()
+    {
+        var stats = GlobalStatsManager.Instance;
+
+        livesLostText.text = $"Lives Lost: {stats.totalLivesLost}";
+        timePlayedText.text = $"Time Played: {stats.totalTime:F2}s";
+        yetiKillsText.text = $"Yeti Kills: {stats.totalYetiKills}";
+        birdKillsText.text = $"Bird Kills: {stats.totalBirdKills}";
+        totalKillsText.text = $"Total Kills: {stats.totalKills}";
+        totalPointsText.text = $"Total Points: {stats.totalPoints}";
     }
 }
