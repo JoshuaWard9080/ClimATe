@@ -81,7 +81,9 @@ public class LevelManager : MonoBehaviour
     private IEnumerator DelaySetLivesAtLevelStart()
     {
         yield return null;
-        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.remainingLives;
+        LevelStatsManager.Instance.livesAtLevelStart = LevelStatsManager.Instance.RemainingLives;
+
+        FindObjectOfType<LivesDisplay>()?.RefreshHearts();
     }
 
     private IEnumerator RebindUIElements()
@@ -220,6 +222,11 @@ public class LevelManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+
+        LevelStatsManager.Instance.RemainingLives = LevelStatsManager.Instance.livesAtLevelStart;
+
+        FindObjectOfType<LivesDisplay>()?.ResetLives();
+
         LevelStatsManager.Instance?.ResetLevelTimer();
         LevelStatsManager.Instance?.StartLevelTimer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

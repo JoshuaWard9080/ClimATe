@@ -97,13 +97,13 @@ public class LevelStatsManager : MonoBehaviour
         elapsedTime = Time.time - startTime;
     }
 
-    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int blocks, int fruits, int points)
+    public void AddStats(int lives, float time, int yetiKills, int birdKills, int kills, int blocks, int fruits, int points)
     {
         totalLivesLost += lives;
         totalTime += time;
-        totalYetiKills += yetKills;
+        totalYetiKills += yetiKills;
         totalBirdKills += birdKills;
-        totalKills += kills;
+        totalKills += totalYetiKills + totalBirdKills;
         blocksDestroyed += blocks;
         fruitsCollected += fruits;
         totalPoints += points;
@@ -142,5 +142,17 @@ public class LevelStatsManager : MonoBehaviour
         Debug.Log("Level Points: " + levelPoints);
 
         return levelPoints;
+    }
+
+    //debugging
+
+    public int RemainingLives
+    {
+        get => remainingLives;
+        set
+        {
+            Debug.LogWarning($"[LIVES DEBUG] Setting remainingLives to {value}.\n" + new System.Diagnostics.StackTrace(true));
+            remainingLives = value;
+        }
     }
 }

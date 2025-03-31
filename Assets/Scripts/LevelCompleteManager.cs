@@ -147,7 +147,7 @@ public class LevelCompleteManager : MonoBehaviour
         //get the stats from the stats manager
         var stats = LevelStatsManager.Instance;
 
-        int levelLivesLost = stats.livesAtLevelStart - stats.remainingLives;
+        int levelLivesLost = stats.livesAtLevelStart - stats.RemainingLives;
 
         livesText.text = $"Lives Lost: {levelLivesLost}";
         //timeText.text = $"Time: {stats.totalTime.ToString("F1")} seconds";
