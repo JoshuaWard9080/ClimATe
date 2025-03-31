@@ -74,16 +74,26 @@ public class Bird_Enemy : MonoBehaviour
         {
             if (state == "freezing")
             {
-                if (flappingAudio != null && !flappingAudio.isPlaying)
+                if (walkingAudio != null && !walkingAudio.isPlaying)
                 {
-                    flappingAudio.Play(); //make sure audio has loop = true in the inspector
+                    walkingAudio.Play();
+                }
+
+                if (flappingAudio != null && flappingAudio.isPlaying)
+                {
+                    flappingAudio.Stop();
                 }
             }
             else if (state == "warm" || state == "cold")
             {
-                if (walkingAudio != null && !walkingAudio.isPlaying)
+                if (flappingAudio != null && !flappingAudio.isPlaying)
                 {
-                    walkingAudio.Play();
+                    flappingAudio.Play(); //make sure audio has loop = true in the inspector
+                }
+
+                if (walkingAudio != null && walkingAudio.isPlaying)
+                {
+                    walkingAudio.Stop();
                 }
             }
 
