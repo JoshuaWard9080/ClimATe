@@ -1,5 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Level_Colour_Swap : MonoBehaviour
 {
@@ -36,13 +39,30 @@ public class Level_Colour_Swap : MonoBehaviour
             for (int i = 0; i < numOfChildren; ++i)
             {
                 findChildren(transform.GetChild(i),colour);
-
+                
             }
         }
         else
         {
+            //Debug.Log("Leaf child: " + transform.gameObject + " TM Pro: " + transform.gameObject.GetComponent<TextMeshProUGUI>());
+            if (transform.gameObject.GetComponent<TextMeshProUGUI>() != null)
+            {
+                //Debug.Log("text not null at: " + transform.gameObject + " , " + transform.gameObject.GetComponent<TextMeshProUGUI>().text);
+                changeNumber(transform.gameObject.GetComponent<TextMeshProUGUI>());
+                colourNumber(transform.gameObject.GetComponent<TextMeshProUGUI>(),colour);
+            }
             changeColour(transform, colour);
         }
+        
+    }
+
+    void changeNumber(TextMeshProUGUI text)
+    {
+        text.SetText(level.ToString());
+    }
+    void colourNumber(TextMeshProUGUI text, Color colour)
+    {
+        text.color = colour;
     }
 
     void changeColour(Transform transform,Color colour)

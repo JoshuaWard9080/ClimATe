@@ -662,6 +662,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1375756632}
     m_Modifications:
+    - target: {fileID: 1100391578556611796, guid: 36823593d3f836049ad10fbe7fe4cbd5, type: 3}
+      propertyPath: level
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6120191549857532999, guid: 36823593d3f836049ad10fbe7fe4cbd5, type: 3}
       propertyPath: m_Name
       value: Gaps_2
@@ -728,6 +732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6653158771897534706, guid: 65f899e84bd791144b41286db3258e50, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8264874107339110581, guid: 65f899e84bd791144b41286db3258e50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -789,6 +797,10 @@ PrefabInstance:
     - target: {fileID: 5707492525522100453, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
       propertyPath: m_Name
       value: Moving_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532498689666460762, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
+      propertyPath: level
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7634815407729933531, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
       propertyPath: m_LocalPosition.x
