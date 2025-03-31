@@ -1786,7 +1786,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &560715222
 RectTransform:
@@ -3584,6 +3584,7 @@ GameObject:
   - component: {fileID: 832009983}
   - component: {fileID: 832009982}
   - component: {fileID: 832009981}
+  - component: {fileID: 832009986}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -3741,6 +3742,18 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &832009986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832009979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &851693865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5400,6 +5413,7 @@ GameObject:
   - component: {fileID: 1569832109}
   - component: {fileID: 1569832108}
   - component: {fileID: 1569832107}
+  - component: {fileID: 1569832112}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -5557,6 +5571,18 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1569832112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569832105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1614084832
 PrefabInstance:
   m_ObjectHideFlags: 0

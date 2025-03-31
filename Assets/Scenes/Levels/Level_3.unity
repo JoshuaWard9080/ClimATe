@@ -3673,6 +3673,7 @@ GameObject:
   - component: {fileID: 1069160551}
   - component: {fileID: 1069160550}
   - component: {fileID: 1069160549}
+  - component: {fileID: 1069160554}
   m_Layer: 5
   m_Name: NoQuitButton
   m_TagString: Untagged
@@ -3830,6 +3831,18 @@ MonoBehaviour:
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1069160554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069160547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4819b810ff943434abd3cdb582d30a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1078755635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6190,7 +6203,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1628215024
 RectTransform:
