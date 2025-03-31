@@ -53,6 +53,7 @@ public class LevelFailed : MonoBehaviour
 
         Time.timeScale = 1f;
 
+        LevelStatsManager.Instance?.StartLevelTimer();
         SceneManager.LoadScene("Level_1");
     }
 
