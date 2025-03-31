@@ -1769,6 +1769,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2383011631986310929, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 252600404}
     - target: {fileID: 2700670295725288795, guid: 01309cdcefdc99046833ebd388e73285, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -10363,6 +10367,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2810532015820494227, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 252600404}
     - target: {fileID: 2815611665378535796, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -10407,6 +10415,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3272340666118003319, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 252600404}
     - target: {fileID: 3430569060071589642, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -10675,6 +10687,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6219124770910406417, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 252600404}
     - target: {fileID: 6230249666195284345, guid: 631f309226359ac4fb3ebb9d9bf5c9e2, type: 3}
       propertyPath: m_Layer
       value: 6
