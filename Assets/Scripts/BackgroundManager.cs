@@ -26,10 +26,6 @@ public class BackgroundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("CloudsFirst: " + CloudsFirst.transform.position.x);
-        Debug.Log("CloudsSecond: " + CloudsSecond.transform.position.x);
-        Debug.Log("cloudAnchor: " + cloudAnchor);
-
         Vector3 deltaPosition = calculateChangeInCameraPosition();
         transform.position += deltaPosition;
         Clouds.position -= (deltaPosition / 40);

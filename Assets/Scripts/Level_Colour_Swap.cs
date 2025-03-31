@@ -44,11 +44,11 @@ public class Level_Colour_Swap : MonoBehaviour
         }
         else
         {
-            Debug.Log("Leaf child: " + transform.gameObject);
-            if (transform.gameObject.GetComponent<UnityEngine.UI.Text>() != null)
+            //Debug.Log("Leaf child: " + transform.gameObject + " TM Pro: " + transform.gameObject.GetComponent<TextMeshProUGUI>());
+            if (transform.gameObject.GetComponent<TextMeshProUGUI>() != null)
             {
-                Debug.Log("Not null at: " + transform.gameObject + " , " + transform.gameObject.GetComponent<UnityEngine.UI.Text>());
-                //changeNumber();
+                //Debug.Log("text not null at: " + transform.gameObject + " , " + transform.gameObject.GetComponent<TextMeshProUGUI>().text);
+                changeNumber(transform.gameObject.GetComponent<TextMeshProUGUI>());
             }
             changeColour(transform, colour);
         }
