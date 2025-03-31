@@ -36,6 +36,32 @@ public class VictorySceneManager : MonoBehaviour
         returnToMenuText.SetActive(false);
 
         DisplayStats();
+
+        var textAnimator = FindObjectOfType<TextAnimation>();
+        if (textAnimator != null)
+        {
+            textAnimator.SetTexts(new TextMeshProUGUI[] {
+                livesLostText,
+                timePlayedText,
+                yetiKillsText,
+                birdKillsText,
+                totalKillsText,
+                totalBlocksDestroyed,
+                totalFruitsCollected,
+                totalPointsText
+            });
+
+            // foreach (var txt in textAnimator.GetTexts())
+            // {
+            //     Debug.Log($"Assigned text: {txt?.name ?? "NULL"}");
+            // }
+
+            StartCoroutine(textAnimator.StartAnimation());
+        }
+        else
+        {
+            Debug.LogError("TextAnimation script not found in VictoryScene!");
+        }
     }
 
     void Update()
@@ -80,5 +106,28 @@ public class VictorySceneManager : MonoBehaviour
         birdKillsText.text = $"Bird Kills: {stats.totalBirdKills}";
         totalKillsText.text = $"Total Kills: {stats.totalKills}";
         totalPointsText.text = $"Total Points: {stats.totalPoints}";
+
+        TextMeshProUGUI[] statTexts = new TextMeshProUGUI[]
+        {
+            livesLostText,
+            timePlayedText,
+            yetiKillsText,
+            birdKillsText,
+            totalKillsText,
+            totalBlocksDestroyed,
+            totalFruitsCollected,
+            totalPointsText
+        };
+
+        var anim = GetComponent<TextAnimation>();
+        if (anim != null)
+        {
+            anim.SetTexts(statTexts);
+            StartCoroutine(anim.StartAnimation());
+        }
+        else
+        {
+            Debug.LogError("TextAnimation not found on VictoryManager");
+        }
     }
 }

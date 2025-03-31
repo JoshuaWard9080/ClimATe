@@ -1346,14 +1346,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - {fileID: 1358129134}
+  mode: 0
+  manualText: {fileID: 1358129134}
+  texts: []
   timeBetweenCharacters: 0.1
   timeBetweenTexts: 0.5
   typingAudio: {fileID: 1545001957}
   blinkCount: 5
   blinkInterval: 0.2
-  victoryStatsScene: VictoryStatsScene
 --- !u!4 &860893256
 Transform:
   m_ObjectHideFlags: 0

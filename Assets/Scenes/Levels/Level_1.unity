@@ -204,14 +204,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  texts:
-  - {fileID: 1052274987}
+  mode: 0
+  manualText: {fileID: 1052274987}
+  texts: []
   timeBetweenCharacters: 0
   timeBetweenTexts: 0.5
   typingAudio: {fileID: 795541829}
   blinkCount: 5
   blinkInterval: 0.2
-  victoryStatsScene: VictoryStatsScene
 --- !u!114 &11082494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9154,7 +9154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.03
+      value: 31.6
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.z
