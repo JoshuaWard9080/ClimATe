@@ -31,8 +31,26 @@ public class Block : MonoBehaviour
 
         if (breakEffect != null)
         {
-            Instantiate(breakEffect, transform.position, Quaternion.identity);
+            GameObject effectInstance = Instantiate(breakEffect, transform.position, Quaternion.identity);
+
+            // Find the Renderer 
+            Renderer blockRenderer = GetComponentInChildren<Renderer>();
+            if (blockRenderer != null)
+            {
+                Color blockColor = blockRenderer.material.color;
+
+                // Apply color to the particle system
+                ParticleSystem ps = effectInstance.GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    var mainModule = ps.main;
+                    mainModule.startColor = blockColor;
+                }
+            }
+
+            Destroy(effectInstance, 2f);
         }
+
         Destroy(gameObject);
     }
 }
