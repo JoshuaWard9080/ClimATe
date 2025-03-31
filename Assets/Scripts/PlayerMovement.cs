@@ -150,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 flatVelocity = new Vector2(rb.linearVelocity.x, 0f);
 
+        
         if (flatVelocity.magnitude > maxSpeed)
         {
             Vector2 limitedVelocity = flatVelocity.normalized * maxSpeed;
@@ -161,6 +162,15 @@ public class PlayerMovement : MonoBehaviour
             Vector2 limitedVelocity = flatVelocity.normalized * maxAirSpeed;
             rb.linearVelocity = new Vector2(limitedVelocity.x, rb.linearVelocity.y);
         }
+        if ((!isReceivingInput) && (rb.linearVelocity.y == 0))
+        {
+            Debug.Log("call quicklystop");
+            quicklyStop();
+        }
+    }
+    public void quicklyStop()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x*0.9f, rb.linearVelocity.y);
     }
 
     public void SetParent(Transform newParent)
