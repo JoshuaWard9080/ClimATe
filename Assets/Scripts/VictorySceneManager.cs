@@ -104,7 +104,9 @@ public class VictorySceneManager : MonoBehaviour
         timePlayedText.text = $"Time Played: {stats.totalTime:F2}s";
         yetiKillsText.text = $"Yeti Kills: {stats.totalYetiKills}";
         birdKillsText.text = $"Bird Kills: {stats.totalBirdKills}";
-        totalKillsText.text = $"Total Kills: {stats.totalKills}";
+        totalKillsText.text = $"Total Kills: {stats.totalBirdKills + stats.totalYetiKills}";
+        totalBlocksDestroyed.text = $"Blocks Destroyed: {stats.blocksDestroyed}";
+        totalFruitsCollected.text = $"Fruits Collected: {stats.fruitsCollected}";
         totalPointsText.text = $"Total Points: {stats.totalPoints}";
 
         TextMeshProUGUI[] statTexts = new TextMeshProUGUI[]

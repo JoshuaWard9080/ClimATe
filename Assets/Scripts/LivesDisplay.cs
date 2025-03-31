@@ -66,22 +66,8 @@ public class LivesDisplay : MonoBehaviour
         }
     }
 
-    // public void RefreshHearts()
-    // {
-    //     foreach (Transform child in transform)
-    //     {
-    //         Destroy(child.gameObject);
-    //     }
-
-    //     for (int i = 0; i < LevelStatsManager.Instance.RemainingLives; i++)
-    //     {
-    //         Instantiate(heart, transform);
-    //     }
-    // }
-
     public void PlayerDied()
     {
-        //TODO: Rebind diedPanel properly, or persist LevelFailed in DontDestroyOnLoad, the game manager LeveLFailed cant find the panel right now
         //call player died screen, so losing screen, then send them back to Main Menu
         if (LevelFailed.Instance != null)
         {

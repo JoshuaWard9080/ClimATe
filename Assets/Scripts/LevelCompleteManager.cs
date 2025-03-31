@@ -39,14 +39,22 @@ public class LevelCompleteManager : MonoBehaviour
             Debug.Log("Level complete music started and set to loop.");
         }
 
-        //get the player stats from the previous level and update them here
-        //probably something like setText("Kill Count: " + playerStats.getKillCount())
-
         bool isFinalLevel = LevelTracker.Instance != null && LevelTracker.Instance.nextLevelScene == "VictoryScene";
 
         if (isFinalLevel)
         {
             Debug.Log("Final level complete, loading VictoryScene");
+
+            LevelStatsManager.Instance?.EndLevelTimer();
+            LevelStatsManager.Instance?.CalculateLevelPoints();
+            LevelStatsManager.Instance?.UpdateGlobalStats(); //update stats to be displayed in the victory scene
+
+            var statsManager = LevelStatsManager.Instance;
+            if (statsManager != null)
+            {
+                Debug.Log($"[Final Level] Pushed stats: Yeti={statsManager.totalYetiKills}, Birds={statsManager.totalBirdKills}, Points={statsManager.totalPoints}");
+                statsManager.ResetLevelStats(); 
+            }
 
             //nextLevelButton.gameObject.SetActive(false);
             mainMenuButton.gameObject.SetActive(false);
@@ -66,7 +74,6 @@ public class LevelCompleteManager : MonoBehaviour
         {
             if (nextLevelButton != null)
             {
-                //not sure what the next level wil be yet
                 nextLevelButton.onClick.AddListener(NextLevel);
             }
 
@@ -82,19 +89,6 @@ public class LevelCompleteManager : MonoBehaviour
         }
 
         UpdatePointsUI();
-
-        // LevelStatsManager.Instance?.ResetLevelTimer();
-        var stats = LevelStatsManager.Instance;
-        if (stats != null)
-        {
-            stats.totalYetiKills = 0;
-            stats.totalBirdKills = 0;
-            stats.totalKills = 0;
-            stats.blocksDestroyed = 0;
-            stats.fruitsCollected = 0;
-            stats.totalPoints = 0;
-            stats.ResetLevelTimer();
-        }
     }
 
     private IEnumerator DelayedStartAnimation()
