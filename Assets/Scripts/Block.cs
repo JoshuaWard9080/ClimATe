@@ -3,6 +3,8 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
 
+    public GameObject breakEffect;
+
     private float xBound = 0.4f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +28,11 @@ public class Block : MonoBehaviour
     }
     void onHitByPlayer()
     {
+
+        if (breakEffect != null)
+        {
+            Instantiate(breakEffect, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }
