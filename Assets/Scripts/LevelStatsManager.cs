@@ -10,7 +10,7 @@ public class LevelStatsManager : MonoBehaviour
     public int totalBirdKills = 0;
     public int totalKills = 0;
     public int totalPoints = 0;
-    public int fruitsCollected = 0;
+    public int fishCollected = 0;
     public int blocksDestroyed = 0;
     public int iciclesDestroyed = 0;
 
@@ -107,7 +107,7 @@ public class LevelStatsManager : MonoBehaviour
         totalKills += totalYetiKills + totalBirdKills;
         blocksDestroyed += blocks;
         iciclesDestroyed += icicles;
-        fruitsCollected += fruits;
+        fishCollected += fruits;
         totalPoints += points;
     }
 
@@ -120,7 +120,7 @@ public class LevelStatsManager : MonoBehaviour
         totalKills = 0;
         blocksDestroyed = 0;
         iciclesDestroyed = 0;
-        fruitsCollected = 0;
+        fishCollected = 0;
         totalPoints = 0;
         remainingLives = maxLives;
     }
@@ -132,14 +132,14 @@ public class LevelStatsManager : MonoBehaviour
         totalKills = 0;
         blocksDestroyed = 0;
         iciclesDestroyed = 0;
-        fruitsCollected = 0;
+        fishCollected = 0;
         totalPoints = 0;
         ResetLevelTimer();
     }
 
     public void UpdateGlobalStats()
     {
-        GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, blocksDestroyed, iciclesDestroyed, fruitsCollected, totalPoints);
+        GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, blocksDestroyed, iciclesDestroyed, fishCollected, totalPoints);
     }
 
     public int CalculateLevelPoints()
@@ -148,11 +148,11 @@ public class LevelStatsManager : MonoBehaviour
         int killPoints = (totalYetiKills * 10) + (totalBirdKills * 15);
         float maxBonusTime = 120f;
         int timePoints = Mathf.RoundToInt(Mathf.Clamp(maxBonusTime - elapsedTime, 0f, maxBonusTime) * 2);
-        int fruitPoints = fruitsCollected * 5;
+        int fishPoints = fishCollected * 5;
         int blockPoints = blocksDestroyed;
         int iciclePoints = iciclesDestroyed * 5;
 
-        int levelPoints = lifePoints + killPoints + timePoints + fruitPoints + blockPoints + iciclePoints;
+        int levelPoints = lifePoints + killPoints + timePoints + fishPoints + blockPoints + iciclePoints;
         totalPoints += levelPoints;
 
         Debug.Log("Level Points: " + levelPoints);

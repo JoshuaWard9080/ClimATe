@@ -2348,7 +2348,7 @@ MonoBehaviour:
   totalKillsText: {fileID: 131827876}
   totalBlocksDestroyed: {fileID: 920109438}
   totalIciclesDestroyed: {fileID: 66389498}
-  totalFruitsCollected: {fileID: 2016831242}
+  totalFishCollected: {fileID: 2016831242}
   totalPointsText: {fileID: 1840928942}
 --- !u!1 &885216691
 GameObject:
@@ -4252,7 +4252,7 @@ GameObject:
   - component: {fileID: 2016831243}
   - component: {fileID: 2016831242}
   m_Layer: 5
-  m_Name: TotalFruitsCollectedText
+  m_Name: TotalfishCollectedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4297,7 +4297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fruits Collected: '
+  m_text: 'Fish Collected: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d6aac6047e9d8644a602dcb344cc4db, type: 2}
   m_sharedMaterial: {fileID: -2286130898777252402, guid: 7d6aac6047e9d8644a602dcb344cc4db, type: 2}
