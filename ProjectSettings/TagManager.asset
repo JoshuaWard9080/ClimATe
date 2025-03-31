@@ -12,6 +12,8 @@ TagManager:
   - QuitConfirmationPopup
   - IgnoreFloorColour
   - Trigger
+  - FloorNumber
+  - PilingSnow
   layers:
   - Default
   - TransparentFX

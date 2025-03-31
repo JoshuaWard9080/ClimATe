@@ -2654,7 +2654,12 @@ MonoBehaviour:
   switchButtonAudio: {fileID: 1398818255}
   clickButtonAudio: {fileID: 1725165917}
   levelCompleteAudio: {fileID: 373357005}
+  textAnimator: {fileID: 1203337433}
   totalPoints: 0
+  livesText: {fileID: 545690456}
+  timeText: {fileID: 2115389650}
+  killText: {fileID: 749776086}
+  pointsText: {fileID: 129617836}
 --- !u!4 &1203337432
 Transform:
   m_ObjectHideFlags: 0
@@ -2682,8 +2687,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b2f3456f6821a4299e7ce1e4a9d5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 1
+  manualText: {fileID: 0}
   texts:
-  - {fileID: 978922487}
+  - {fileID: 129617836}
   - {fileID: 545690456}
   - {fileID: 2115389650}
   - {fileID: 749776086}
@@ -2692,7 +2699,6 @@ MonoBehaviour:
   typingAudio: {fileID: 1996199906}
   blinkCount: 5
   blinkInterval: 0.2
-  victoryStatsScene: VictoryStatsScene
 --- !u!114 &1203337434
 MonoBehaviour:
   m_ObjectHideFlags: 0
