@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private bool isFacingRight = true;
     private Transform originalParent;
+    private Boolean isReceivingInput;
 
     [Header("Movement")]
     [SerializeField] private float playerSpeed;
@@ -72,6 +73,17 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(input.normalized * playerSpeed, ForceMode2D.Force);
             //animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+            
+            if (Mathf.Abs(input.normalized.x) == 1)
+            {
+                isReceivingInput = true;
+            }
+            else
+            {
+                isReceivingInput = false;
+            }
+            Debug.Log("is player recieving input: " + isReceivingInput);
+            
             animator.SetFloat("Speed", Mathf.Abs(input.normalized.x));
         }
 
