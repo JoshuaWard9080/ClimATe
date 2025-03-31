@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelSceneName: Level_2
+  levelMusic: {fileID: 0}
 --- !u!114 &11082492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,8 +1120,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bceb905316cdfcf47bd8e51e0af260e9, type: 3}
-  m_Resource: {fileID: 8300000, guid: bceb905316cdfcf47bd8e51e0af260e9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0d4628ab9ea7fdc418e6017245f0af74, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0d4628ab9ea7fdc418e6017245f0af74, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2164,7 +2165,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 05c42e498b8744744ad3fbf2055f3624, type: 3}
   m_Resource: {fileID: 8300000, guid: 05c42e498b8744744ad3fbf2055f3624, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
