@@ -108,7 +108,7 @@ ClimATe is a 2D platformer game built with Unity, inspired by the retro classic 
 - **Piling Snow (`PilingSnow.cs`)**  
   - Rises throughout each level  
   - Speed is controlled by temperature  
-  - Kills player if touched  
+  - Kills player if it reaches up to their ears
 
 - **Lives Manager (`LivesDisplay.cs`)**  
   - Manages player’s current lives  
