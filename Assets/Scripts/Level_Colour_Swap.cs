@@ -1,8 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
 
 public class Level_Colour_Swap : MonoBehaviour
 {
