@@ -53,7 +53,7 @@ public class LevelCompleteManager : MonoBehaviour
             if (statsManager != null)
             {
                 Debug.Log($"[Final Level] Pushed stats: Yeti={statsManager.totalYetiKills}, Birds={statsManager.totalBirdKills}, Points={statsManager.totalPoints}");
-                statsManager.ResetLevelStats(); 
+                //statsManager.ResetLevelStats(); 
             }
 
             //nextLevelButton.gameObject.SetActive(false);
@@ -96,6 +96,7 @@ public class LevelCompleteManager : MonoBehaviour
         Debug.Log("Waiting before starting text animation...");
         yield return null;
         yield return textAnimator.StartAnimation();
+        LevelStatsManager.Instance?.ResetLevelStats();
     }
 
     public void NextLevel()
