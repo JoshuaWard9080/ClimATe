@@ -9,8 +9,8 @@ public class MovingPlatform : MonoBehaviour
     public float moveSpeed = 0.01f;
 
     private float coldMoveSpeed = 0.01f;
-    private float warmMoveSpeed = 0.03f;
-    private float freezingMoveSpeed = 0.005f;
+    private float warmMoveSpeed = 0.005f;
+    private float freezingMoveSpeed = 0.015f;
 
     Boolean playerOnPlatform = false;
     Vector2 previousPosition;

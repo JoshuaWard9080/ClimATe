@@ -94,7 +94,7 @@ AreaEffector2D:
     serializedVersion: 2
     m_Bits: 256
   m_UseGlobalAngle: 0
-  m_ForceAngle: 0
+  m_ForceAngle: 180
   m_ForceMagnitude: 5
   m_ForceVariation: 0
   m_ForceTarget: 0
@@ -112,9 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efe60c00e46bd241877151c577e67aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 0
   windSpeed: 0
-  windDirection: {x: 0, y: 0}
-  playerRB: {fileID: 0}
+  windDirection: 0
   temperatureManager: {fileID: 0}
-  drag: 10
