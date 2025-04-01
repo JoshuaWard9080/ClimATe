@@ -5,6 +5,7 @@ public class LivesDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPanel;
     public GameObject heart;
+    public int invincibilityFrames = 0;
 
     [Header("Audio")]
     [SerializeField] private AudioSource takeDamageAudio;
@@ -19,6 +20,7 @@ public class LivesDisplay : MonoBehaviour
     //TODO: comment this Update method out when not testing, this is purely to ensure the TakeDamage method is working as expected
     void Update()
     {
+        if (invincibilityFrames > 0) invincibilityFrames--;
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage();
@@ -27,6 +29,8 @@ public class LivesDisplay : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (invincibilityFrames > 0) return;
+
         if (takeDamageAudio != null)
         {
             takeDamageAudio.Play();
@@ -52,7 +56,10 @@ public class LivesDisplay : MonoBehaviour
                 PlayerDied();
             }
         }
+        invincibilityFrames = 400;
     }
+
+    
 
     public void ResetLives()
     {

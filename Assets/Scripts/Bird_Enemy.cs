@@ -241,25 +241,37 @@ public class Bird_Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player"
-            && collision.gameObject.transform.position.y > this.transform.position.y)
-        {
-            moveVector = new Vector3(0, -1, 0);
-            isHurt = true;
-            animator.SetBool("isHurt", true);
+        if (collision.gameObject.tag == "Player"){
+            if (collision.gameObject.transform.position.y > this.transform.position.y + 0.3)
+            {
+                moveVector = new Vector3(0, -1, 0);
+                isHurt = true;
+                animator.SetBool("isHurt", true);
+                gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
 
-            if (playerHitsBirdAudio != null)
+                if (playerHitsBirdAudio != null)
             {
                 playerHitsBirdAudio.Play(); //make sure loop does NOT equal true in inspector
             }
 
-            if (LevelStatsManager.Instance != null)
-            {
-                LevelStatsManager.Instance.totalBirdKills++;
-                LevelStatsManager.Instance.totalKills++;
-                Debug.Log("A bird has been killed... it's okay though because the government placed them to spy on us! #giveusbackourtelephonepoles");
-            }
+                if (LevelStatsManager.Instance != null)
+                {
+                    LevelStatsManager.Instance.totalBirdKills++;
+                    LevelStatsManager.Instance.totalKills++;
+                    Debug.Log("A bird has been killed... it's okay though because the government placed them to spy on us! #giveusbackourtelephonepoles");
+                }
 
+            }
+            else //bird hits player
+            {
+                LivesDisplay lives = FindObjectOfType<LivesDisplay>();
+
+                if (lives != null)
+                {
+                    lives.TakeDamage();
+                }
+            }
         }
         else if (collision.gameObject.tag == "Enemy")
         {
