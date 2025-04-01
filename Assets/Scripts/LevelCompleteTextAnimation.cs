@@ -1,9 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
-using UnityEngine.Rendering;
 
 //used to ensure that if there is more than one text field we consider that, otherwise we dont
 //VictoryScene was causing issues due to the scroll behavior, where all texts were being considered
