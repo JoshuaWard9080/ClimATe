@@ -226,7 +226,8 @@ MonoBehaviour:
   totalBirdKills: 0
   totalKills: 0
   blocksDestroyed: 0
-  fruitsCollected: 0
+  iciclesDestroyed: 0
+  fishCollected: 0
   totalPoints: 0
 --- !u!4 &228994482
 Transform:
@@ -273,7 +274,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 77beb8ffeee3c15428312212d831994d, type: 3}
   m_Resource: {fileID: 8300000, guid: 77beb8ffeee3c15428312212d831994d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
