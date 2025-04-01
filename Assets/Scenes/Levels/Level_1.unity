@@ -191,9 +191,9 @@ MonoBehaviour:
   timeBonus: 0
   elapsedTime: 0
   pausedTime: 0
-  maxLives: 8
-  remainingLives: 8
-  livesAtLevelStart: 8
+  maxLives: 9
+  remainingLives: 9
+  livesAtLevelStart: 9
 --- !u!114 &11082493
 MonoBehaviour:
   m_ObjectHideFlags: 0

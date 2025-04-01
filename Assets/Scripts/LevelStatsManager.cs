@@ -22,9 +22,9 @@ public class LevelStatsManager : MonoBehaviour
     private bool isTiming = false;
 
     //lives counters
-    public int maxLives = 8;
-    public int remainingLives = 8;
-    public int livesAtLevelStart = 8;
+    public int maxLives = 9;
+    public int remainingLives = 9;
+    public int livesAtLevelStart = 9;
 
     private void Awake()
     {
