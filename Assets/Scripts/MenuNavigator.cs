@@ -60,7 +60,25 @@ public class MenuNavigator : MonoBehaviour
 
     private void SelectButton(int index)
     {
-        EventSystem.current.SetSelectedGameObject(null); // clear the old EventSystem stuff
+        if (buttons == null)
+        {
+            Debug.LogError("buttons array is null!");
+            return;
+        }
+
+        if (index < 0 || index >= buttons.Count)
+        {
+            Debug.LogError($"index {index} is out of range! buttons.Length = {buttons.Count}");
+            return;
+        }
+
+        if (buttons[index] == null)
+        {
+            Debug.LogError($"buttons[{index}] is null!");
+            return;
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
