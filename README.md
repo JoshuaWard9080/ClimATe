@@ -6,7 +6,7 @@ ClimATe is a 2D platformer game built with Unity, inspired by the retro classic 
 
 ## Objective
 
-**Reach the top of each level without losing all 8 lives — or being buried by the rising snow.**
+**Reach the top of each level without losing all 9 lives — or being buried by the rising snow.**
 
 ---
 
