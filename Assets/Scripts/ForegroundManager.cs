@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class ForegroundManager : MonoBehaviour
 {
-    [SerializeField] private Camera playerCamera;
     [SerializeField] private Transform Clouds;
     [SerializeField] private float speed;
     [SerializeField] TemperatureManager temperatureManager;
     [SerializeField] private Transform CloudsFirst;
     [SerializeField] private Transform CloudsSecond;
-    private float cloudAnchor = -25f;
+    private float cloudAnchor = -20f;
     private float cloudRespawn = 35f;
 
     private float coldSpeed = 1f;
@@ -20,7 +19,6 @@ public class ForegroundManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y, 0);
         CloudsFirst = Clouds.GetChild(0);
         CloudsSecond = Clouds.GetChild(1);
         temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
@@ -31,40 +29,19 @@ public class ForegroundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 deltaPosition = calculateChangeInCameraPosition();
-        transform.position += deltaPosition;
-        Clouds.position -= deltaPosition;
-        moveClouds();
-    }
-
-    Vector3 calculateChangeInCameraPosition()
-    {
-        Vector3 newPosition = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y, 0);
-        return newPosition - transform.position;
-    }
-
-    void moveClouds()
-    {
         float moveAmount = speed * Time.deltaTime;
 
         CloudsFirst.transform.position -= new Vector3(moveAmount, 0, 0);
         CloudsSecond.transform.position -= new Vector3(moveAmount, 0, 0);
 
-        if(CloudsFirst.transform.position.x < cloudAnchor)
+        if (CloudsFirst.transform.position.x < cloudAnchor)
         {
-            CloudsFirst.transform.position = new Vector2(cloudRespawn, CloudsFirst.transform.position.y);
+            CloudsFirst.transform.position = new Vector3(cloudRespawn, CloudsFirst.transform.position.y, -1);
         }
-        if(CloudsSecond.transform.position.x < cloudAnchor)
+        if (CloudsSecond.transform.position.x < cloudAnchor)
         {
-            CloudsSecond.transform.position = new Vector2(cloudRespawn, CloudsSecond.transform.position.y);
+            CloudsSecond.transform.position = new Vector3(cloudRespawn, CloudsSecond.transform.position.y, -1);
         }
-
-        //if (CloudsSecond.transform.position.x < cloudAnchor)
-        //{
-        //    CloudsFirst.transform.position = CloudsSecond.transform.position;
-        //    CloudsSecond.transform.position = new Vector3(cloudRespawn, CloudsSecond.transform.position.y, 0);
-        //}
-
     }
 
     void tempChangeToCold()
