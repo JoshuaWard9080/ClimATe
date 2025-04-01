@@ -560,8 +560,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 652922218762519301}
   - {fileID: 345932873665025365}
+  - {fileID: 652922218762519301}
   - {fileID: 1682332462266941741}
   - {fileID: 8113887252554618640}
   - {fileID: 8570989560645427601}
@@ -658,10 +658,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6933384249725542192}
   animator: {fileID: 8974804069412704185}
   temperatureManager: {fileID: 0}
-  groundCheck: {fileID: 652922218762519301}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
   flappingAudio: {fileID: 3438596211340825860}
   walkingAudio: {fileID: 1585614477046766194}
   playerHitsBirdAudio: {fileID: 8994445321336831301}

@@ -12,17 +12,26 @@ public class Level_Colour_Swap : MonoBehaviour
     void Start()
     {
         Color colour = Color.white;
-        if (level <= 2)
+        
+        if (level <= 0)
         {
-            colour = Color.green;
+            colour = new Color(180 / 255f, 226 / 255f, 255 / 255f);
+        }
+        else if (level <= 2)
+        {
+            colour = new Color(78/255f,183 / 255f, 72 / 255f);
         }
         else if (level <= 5)
         {
-            colour = Color.gray;
+            colour = new Color(86 / 255f,51 / 255f,100 / 255f);
+        }
+        else if (level <= 8)
+        {
+            colour= new Color(89 / 255f, 144 / 255f, 204 / 255f);
         }
         else
         {
-            colour= Color.blue;
+            colour = new Color(180 / 255f, 226 / 255f, 255 / 255f);
         }
         findChildren(this.transform,colour);
         //    int children = transform.childCount;
