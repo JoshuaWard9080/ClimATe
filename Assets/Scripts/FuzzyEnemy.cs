@@ -10,7 +10,6 @@ public class FuzzyEnemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator animator;
     [SerializeField] TemperatureManager temperatureManager;
-    private Collider2D savedPlayerCollider = null;
 
     [Header("Audio")]
     [SerializeField] private AudioSource playerHitYetiAudio;
@@ -63,10 +62,12 @@ public class FuzzyEnemy : MonoBehaviour
         }
         if (!checkIfGoingToFallOffEdge())
         {
+            Debug.Log("Turning cause edge detected");
             changeDirection();
         }
         if (checkIfGoingToHitWall())
         {
+            Debug.Log("Turning cause wall detected");
             changeDirection();
         }
         float movementX = moveVector.x * moveSpeed;
@@ -80,16 +81,13 @@ public class FuzzyEnemy : MonoBehaviour
             {
                 isHurt = false;
                 moveSpeed = moveSpeed / 2f;
-                //if (savedPlayerCollider != null)
-                //{
-                   // Physics2D.IgnoreCollision(savedPlayerCollider, GetComponent<Collider2D>(), false);
-               // }
                 Vector3 otherSideOfTheScreen = this.transform.position;
                 otherSideOfTheScreen.x *= -0.95f;
                 this.transform.position = otherSideOfTheScreen;
             }
             else
             {
+                Debug.Log("Turning cause offscreen ");
                 changeDirection();
             }
 
@@ -115,10 +113,10 @@ public class FuzzyEnemy : MonoBehaviour
         float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        if (hit.collider == null || (hit.collider.gameObject.tag == "Player") || (hit.collider.gameObject.tag == "Trigger")) return false;
+        if (hit.collider.gameObject.tag == "Block") return hit;
         //if (hit.collider != null)Debug.Log("going to hit something: " + hit.collider.gameObject);
         //if (hit.collider != null) Debug.Log("going to hit something: " + hit.collider.gameObject.tag);
-        return hit;
+        return false;
     }
     void changeDirection()
     {
@@ -131,7 +129,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-        this.transform.position += (moveVector);
+        this.transform.position += (moveVector)/4;
 
     }
 
