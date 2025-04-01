@@ -4489,7 +4489,7 @@ MonoBehaviour:
   totalBirdKills: 0
   totalKills: 0
   totalPoints: 0
-  fruitsCollected: 0
+  fishCollected: 0
   blocksDestroyed: 0
   iciclesDestroyed: 0
   elapsedTime: 0
@@ -8121,7 +8121,6 @@ PrefabInstance:
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 33.64
-      value: 35.9
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8157,7 +8156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5857088085515415165, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LinearDamping
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: landingClip
