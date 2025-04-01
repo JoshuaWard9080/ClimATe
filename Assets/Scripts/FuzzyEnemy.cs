@@ -148,7 +148,12 @@ public class FuzzyEnemy : MonoBehaviour
         {
             //Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
             //savedPlayerCollider = collision.collider;
-            return;
+            if (collision.gameObject.transform.position.y > this.transform.position.y + 0.3 && playerHitYetiAudio != null)
+            {
+                    playerHitYetiAudio.Play();
+                
+            }
+                return;
         }
         if (collision.gameObject.tag == "Player")
         {
