@@ -7553,7 +7553,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1763396500}
-  - component: {fileID: 1763396499}
   m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
@@ -7561,23 +7560,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1763396499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763396498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d283a35041910e49bf8fdbf9a56e463, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Clouds: {fileID: 0}
-  speed: 1
-  temperatureManager: {fileID: 457043192}
-  CloudsFirst: {fileID: 0}
-  CloudsSecond: {fileID: 0}
 --- !u!4 &1763396500
 Transform:
   m_ObjectHideFlags: 0
