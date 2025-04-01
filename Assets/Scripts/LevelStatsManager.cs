@@ -13,6 +13,7 @@ public class LevelStatsManager : MonoBehaviour
     public int fishCollected = 0;
     public int blocksDestroyed = 0;
     public int iciclesDestroyed = 0;
+    public int timeBonus = 0;
 
     private float startTime;
     public float elapsedTime;
@@ -21,9 +22,9 @@ public class LevelStatsManager : MonoBehaviour
     private bool isTiming = false;
 
     //lives counters
-    public int maxLives = 8;
-    public int remainingLives = 8;
-    public int livesAtLevelStart = 8;
+    public int maxLives = 9;
+    public int remainingLives = 9;
+    public int livesAtLevelStart = 9;
 
     private void Awake()
     {
@@ -139,21 +140,25 @@ public class LevelStatsManager : MonoBehaviour
 
     public void UpdateGlobalStats()
     {
-        GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, blocksDestroyed, iciclesDestroyed, fishCollected, totalPoints);
+        GlobalStatsManager.Instance.AddStats(totalLivesLost, totalTime, totalYetiKills, totalBirdKills, totalKills, blocksDestroyed, iciclesDestroyed, fishCollected, totalPoints, timeBonus);
     }
 
     public int CalculateLevelPoints()
     {
         int lifePoints = remainingLives * 10;
         int killPoints = (totalYetiKills * 10) + (totalBirdKills * 15);
-        float maxBonusTime = 120f;
-        int timePoints = Mathf.RoundToInt(Mathf.Clamp(maxBonusTime - elapsedTime, 0f, maxBonusTime) * 2);
+        float maxBonusTime = 300f;
+        int timeBonusPoints = Mathf.RoundToInt(Mathf.Clamp(maxBonusTime - elapsedTime, 0f, maxBonusTime) * 2);
+        timeBonus = timeBonusPoints;
         int fishPoints = fishCollected * 5;
         int blockPoints = blocksDestroyed;
         int iciclePoints = iciclesDestroyed * 5;
 
-        int levelPoints = lifePoints + killPoints + timePoints + fishPoints + blockPoints + iciclePoints;
+        int levelPoints = lifePoints + killPoints + timeBonusPoints + fishPoints + blockPoints + iciclePoints;
+
         totalPoints += levelPoints;
+
+        GlobalStatsManager.Instance.timeBonus = timeBonusPoints; 
 
         Debug.Log("Level Points: " + levelPoints);
 

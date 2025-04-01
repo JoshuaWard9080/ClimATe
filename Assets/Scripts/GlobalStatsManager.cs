@@ -12,6 +12,7 @@ public class GlobalStatsManager : MonoBehaviour
     public int blocksDestroyed = 0;
     public int iciclesDestroyed = 0;
     public int fishCollected = 0;
+    public int timeBonus = 0;
     public int totalPoints = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,7 +29,7 @@ public class GlobalStatsManager : MonoBehaviour
         }
     }
 
-    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int blocks, int icicles, int fish, int points)
+    public void AddStats(int lives, float time, int yetKills, int birdKills, int kills, int blocks, int icicles, int fish, int points, int timeBonusPoints)
     {
         totalLivesLost += lives;
         totalTime += time;
@@ -39,6 +40,7 @@ public class GlobalStatsManager : MonoBehaviour
         iciclesDestroyed += icicles;
         fishCollected += fish;
         totalPoints += points;
+        timeBonus += timeBonusPoints;
     }
 
     public void ResetStats()
@@ -52,5 +54,6 @@ public class GlobalStatsManager : MonoBehaviour
         iciclesDestroyed = 0;
         fishCollected = 0;
         totalPoints = 0;
+        timeBonus = 0;
     }
 }
