@@ -27,6 +27,7 @@ public class VictorySceneManager : MonoBehaviour
     public TextMeshProUGUI totalBlocksDestroyed;
     public TextMeshProUGUI totalIciclesDestroyed;
     public TextMeshProUGUI totalFishCollected;
+    public TextMeshProUGUI timeBonus;
     public TextMeshProUGUI totalPointsText;
 
     [Header("Audio")]
@@ -59,6 +60,7 @@ public class VictorySceneManager : MonoBehaviour
                 totalBlocksDestroyed,
                 totalIciclesDestroyed,
                 totalFishCollected,
+                timeBonus,
                 totalPointsText
             });
 
@@ -119,6 +121,7 @@ public class VictorySceneManager : MonoBehaviour
         totalBlocksDestroyed.text = $"Blocks Destroyed: {stats.blocksDestroyed}";
         totalIciclesDestroyed.text = $"Icicles Destroyed: {stats.iciclesDestroyed}";
         totalFishCollected.text = $"Fish Collected: {stats.fishCollected}";
+        timeBonus.text = $"Time Bonus: {stats.timeBonus}";
         totalPointsText.text = $"Total Points: {stats.totalPoints}";
 
         TextMeshProUGUI[] statTexts = new TextMeshProUGUI[]
@@ -131,6 +134,7 @@ public class VictorySceneManager : MonoBehaviour
             totalBlocksDestroyed,
             totalIciclesDestroyed,
             totalFishCollected,
+            timeBonus,
             totalPointsText
         };
 
