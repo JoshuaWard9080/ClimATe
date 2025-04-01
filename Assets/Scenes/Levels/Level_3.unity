@@ -2115,6 +2115,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1839306318}
     m_Modifications:
+    - target: {fileID: 169900409593382098, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1360181086}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 741726490}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4609,11 +4629,6 @@ PrefabInstance:
 --- !u!4 &1081809914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2199307298702945736, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-  m_PrefabInstance: {fileID: 1081809913}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1081809915 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 1081809913}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1104492352
@@ -8561,7 +8576,10 @@ PrefabInstance:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1944118718}
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &1944118716 stripped
 Transform:
@@ -8591,6 +8609,8 @@ MonoBehaviour:
   size: 1
   canTrigger: 1
   temperatureManager: {fileID: 1723578070}
+  playerHittingIcicleAudio: {fileID: 0}
+  icicleHurtingPlayer: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
