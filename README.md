@@ -10,6 +10,12 @@ ClimATe is a 2D platformer game built with Unity, inspired by the retro classic 
 
 ---
 
+## Video Demo
+
+**[Link to video showcase of the game](https://youtu.be/8Jas2a7Jvu0)**
+
+---
+
 ## Gameplay Overview
 
 - **Platformer Mechanics:**  
