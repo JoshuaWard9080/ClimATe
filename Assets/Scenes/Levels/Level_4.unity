@@ -4317,7 +4317,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
   m_Resource: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -7015,6 +7015,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1978959889}
     m_Modifications:
+    - target: {fileID: 169900409593382098, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 246960985}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 606960781}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782529772984457570, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 3576074113663393393, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7038,6 +7058,22 @@ PrefabInstance:
     - target: {fileID: 6335478181044674183, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: LevelFailed, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634826602377235783, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 246960985}
+    - target: {fileID: 6634826602377235783, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 606960781}
+    - target: {fileID: 6634826602377235783, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634826602377235783, guid: f70b232841355534286b11059bcffd68, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 7588167966816339891, guid: f70b232841355534286b11059bcffd68, type: 3}
       propertyPath: m_Pivot.x
@@ -8234,7 +8270,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 05c42e498b8744744ad3fbf2055f3624, type: 3}
   m_Resource: {fileID: 8300000, guid: 05c42e498b8744744ad3fbf2055f3624, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
