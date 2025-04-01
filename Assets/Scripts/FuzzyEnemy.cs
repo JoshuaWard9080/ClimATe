@@ -60,7 +60,7 @@ public class FuzzyEnemy : MonoBehaviour
         {
             manageOffScreen();
         }
-        if (!checkIfGoingToFallOffEdge())
+        if (checkIfGoingToFallOffEdge())
         {
             Debug.Log("Turning cause edge detected");
             changeDirection();
@@ -102,7 +102,11 @@ public class FuzzyEnemy : MonoBehaviour
         float maxDistance = 0.2f;
         Debug.DrawRay(raycastStart, raycastDirection* maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        return hit;
+        //if (hit.collider.gameObject.tag == "Block") return false;
+        if (hit.collider == null) return true;
+        if (hit.collider != null)Debug.Log("below me: " + hit.collider.gameObject);
+        if (hit.collider != null) Debug.Log("below me: " + hit.collider.gameObject.tag);
+        return false;
     }
     Boolean checkIfGoingToHitWall()
     {
@@ -113,9 +117,9 @@ public class FuzzyEnemy : MonoBehaviour
         float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        if (hit.collider.gameObject.tag == "Block") return hit;
-        //if (hit.collider != null)Debug.Log("going to hit something: " + hit.collider.gameObject);
-        //if (hit.collider != null) Debug.Log("going to hit something: " + hit.collider.gameObject.tag);
+        if (hit.collider != null && hit.collider.gameObject.tag == "Block") return hit;
+        if (hit.collider != null && hit.collider.gameObject.tag == "Block") Debug.Log("going to hit something: " + hit.collider.gameObject);
+        if (hit.collider != null && hit.collider.gameObject.tag == "Block") Debug.Log("going to hit something: " + hit.collider.gameObject.tag);
         return false;
     }
     void changeDirection()
