@@ -6,6 +6,10 @@ using UnityEngine.EventSystems;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private string nextLevelSceneName;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource levelMusic;
+
     private GameObject escapeMenuPanel;
     private GameObject quitConfirmationPopup;
     private MenuNavigator menuNavigator;
@@ -29,7 +33,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("LevelManager started, starting timer");
+        Debug.Log("LevelManager started, starting timer and music");
 
         if (LevelStatsManager.Instance != null)
         {
@@ -39,6 +43,11 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.LogWarning("LevelStatsManager.Instance is null in LevelManager.Start()");
+        }
+
+        if (levelMusic != null)
+        {
+            levelMusic.Play();
         }
     }
 
@@ -141,6 +150,11 @@ public class LevelManager : MonoBehaviour
             }
         }
 
+        if (levelMusic != null)
+        {
+            levelMusic.Pause();
+        }
+
         Time.timeScale = isPaused ? 0f : 1f;
     }
 
@@ -149,6 +163,12 @@ public class LevelManager : MonoBehaviour
         isPaused = false;
         LevelStatsManager.Instance.ResumeLevelTimer();
         escapeMenuPanel.SetActive(false);
+
+        if (levelMusic != null)
+        {
+            levelMusic.UnPause();
+        }
+
         Time.timeScale = 1f;
     }
 
@@ -188,6 +208,11 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
+        if (levelMusic != null)
+        {
+            levelMusic.Stop();
+        }
+
         string current = SceneManager.GetActiveScene().name;
         string next = "";
 
@@ -229,6 +254,13 @@ public class LevelManager : MonoBehaviour
 
     public void RetryLevel()
     {
+        if (levelMusic != null)
+        {
+            //replay from beginning
+            levelMusic.Stop();
+            levelMusic.Play();
+        }
+
         isPaused = false;
         Time.timeScale = 1f;
         

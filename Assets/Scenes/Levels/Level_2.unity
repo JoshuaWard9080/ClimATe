@@ -276,14 +276,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Large (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7512652961164897434, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 70903087}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &70903085 stripped
 Transform:
@@ -2154,46 +2155,21 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 0.551562
       objectReference: {fileID: 0}
+    - target: {fileID: 7512652961164897434, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 519049430}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &519049428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2199307298702945736, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 519049427}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &519049429 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-  m_PrefabInstance: {fileID: 519049427}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &519049430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519049429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &543447812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2308,46 +2284,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Large
       objectReference: {fileID: 0}
+    - target: {fileID: 7512652961164897434, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 546530469}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &546530467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2199307298702945736, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 546530466}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &546530468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-  m_PrefabInstance: {fileID: 546530466}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &546530469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546530468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &546947269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,6 +2347,135 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &556140019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556140020}
+  - component: {fileID: 556140021}
+  m_Layer: 0
+  m_Name: LevelMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &556140020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556140019}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1264600403}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &556140021
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556140019}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c5d3a81ddaf17e4db1638a23cbc92f9, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9c5d3a81ddaf17e4db1638a23cbc92f9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2825,11 +2905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.05950642
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.771297
+      value: 32.64
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2868,9 +2948,21 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: landingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
+    - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 1616180370}
+    - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: landingAudio
+      value: 
+      objectReference: {fileID: 1978362468}
+    - target: {fileID: 7212444003019245346, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
+      propertyPath: walkingAudio
+      value: 
+      objectReference: {fileID: 1013508954}
     - target: {fileID: 8967233566023891297, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -4249,46 +4341,21 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 0.54739016
       objectReference: {fileID: 0}
+    - target: {fileID: 7512652961164897434, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 855677705}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &855677703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2199307298702945736, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 855677702}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &855677704 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-  m_PrefabInstance: {fileID: 855677702}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &855677705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855677704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &876895022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,27 +4709,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913919663}
   m_CullTransparentMesh: 1
---- !u!114 &913919669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935810600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &913919670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4796,23 +4842,19 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 0.551562
       objectReference: {fileID: 0}
+    - target: {fileID: 7512652961164897434, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 913919669}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &935810599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2199307298702945736, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-  m_PrefabInstance: {fileID: 935810598}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &935810600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 935810598}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &946130055
@@ -5038,6 +5080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: -0.18493578
@@ -5057,42 +5103,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 994160511}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &994160509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 994160508}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &994160510 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 994160508}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &994160511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994160510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1002880990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5320,6 +5337,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
   m_PrefabInstance: {fileID: 1013355545}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1013508952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013508953}
+  - component: {fileID: 1013508954}
+  m_Layer: 0
+  m_Name: PlayerWalkingAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013508953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013508952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1264600403}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1013508954
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013508952}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 05c42e498b8744744ad3fbf2055f3624, type: 3}
+  m_Resource: {fileID: 8300000, guid: 05c42e498b8744744ad3fbf2055f3624, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1014509331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5473,6 +5619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelSceneName: Level_3
+  levelMusic: {fileID: 556140021}
 --- !u!114 &1044415409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5728,46 +5875,21 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 0.5485117
       objectReference: {fileID: 0}
+    - target: {fileID: 7512652961164897434, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1056673065}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &1056673063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2199307298702945736, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 1056673062}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1056673064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-  m_PrefabInstance: {fileID: 1056673062}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1056673065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056673064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1057773005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7147,6 +7269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: -0.18493578
@@ -7166,42 +7292,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1213935540}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1213935538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1213935537}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1213935539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 1213935537}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1213935540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213935539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1216774913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7392,6 +7489,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1374772979201635452, guid: daa83bf1954bc3e4da3762f226ff4773, type: 3}
   m_PrefabInstance: {fileID: 1256781677}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1264600402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1264600403}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1264600403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264600402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.24200067, y: -2.6762228, z: 3.8803756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1013508953}
+  - {fileID: 1978362467}
+  - {fileID: 556140020}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1269585475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7444,46 +7575,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 5472038083378337139, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1269585478}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1269585476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1269585475}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1269585477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 1269585475}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1269585478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269585477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &1273080069
 GameObject:
   m_ObjectHideFlags: 0
@@ -8552,6 +8658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: -0.18493578
@@ -8571,42 +8681,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1458336839}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1458336837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1458336836}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1458336838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 1458336836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1458336839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458336838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1462314318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9216,6 +9297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: -0.18493578
@@ -9235,42 +9320,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1532620044}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1532620042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1532620041}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1532620043 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 1532620041}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1532620044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532620043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1542400631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9521,6 +9577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: -0.18493578
@@ -9540,42 +9600,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1551802517}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1551802515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1551802514}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1551802516 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 1551802514}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1551802517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551802516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &1554488285
 GameObject:
   m_ObjectHideFlags: 0
@@ -10096,46 +10127,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 5472038083378337139, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1660884375}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1660884373 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1660884372}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1660884374 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 1660884372}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1660884375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660884374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1671898881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10862,46 +10868,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 5472038083378337139, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1799939356}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &1799939354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 1799939353}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1799939355 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 1799939353}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1799939356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799939355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1863341027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11545,46 +11526,21 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 0.551562
       objectReference: {fileID: 0}
+    - target: {fileID: 7512652961164897434, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     m_RemovedComponents:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1942526176}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &1942526174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2199307298702945736, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
   m_PrefabInstance: {fileID: 1942526173}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1942526175 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
-  m_PrefabInstance: {fileID: 1942526173}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1942526176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942526175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &1958887342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11713,6 +11669,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6212565913371047557, guid: dd9cac31cc25ada48b39964230967286, type: 3}
   m_PrefabInstance: {fileID: 1968283096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1978362466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978362467}
+  - component: {fileID: 1978362468}
+  m_Layer: 0
+  m_Name: PlayerLandingAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978362467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978362466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1264600403}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1978362468
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978362466}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1704430881abe874391385f39be8f965, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2040697731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12087,6 +12172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icicle_Blue_Small (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3884493387163295865, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 4861028811013899690, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: -0.18493578
@@ -12106,42 +12195,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2128036748}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
 --- !u!4 &2128036746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2534339262285974293, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
   m_PrefabInstance: {fileID: 2128036745}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2128036747 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2829226664422013189, guid: b00b9d2ea1a293d4d82a8a99bd9e716b, type: 3}
-  m_PrefabInstance: {fileID: 2128036745}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2128036748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128036747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 1090364018}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -12156,5 +12216,6 @@ SceneRoots:
   - {fileID: 1679222360}
   - {fileID: 1918514662}
   - {fileID: 1044415407}
+  - {fileID: 1264600403}
   - {fileID: 1774485822}
   - {fileID: 421221643}
