@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockDestroyedAudio: {fileID: 306310726673744592}
-  breakEffect: {fileID: 0}
+  breakEffect: {fileID: 6943260761290634997, guid: d5c46b4f536d2c94d8431262a29226f6, type: 3}
 --- !u!1 &4012256624157845570
 GameObject:
   m_ObjectHideFlags: 0
