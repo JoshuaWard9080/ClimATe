@@ -284,7 +284,10 @@ PrefabInstance:
     - {fileID: 6315838941535848688, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4026323361684292353, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 70903087}
   m_SourcePrefab: {fileID: 100100000, guid: 82137726aebb0ec4795428a8ad71ca71, type: 3}
 --- !u!4 &70903085 stripped
 Transform:
@@ -314,6 +317,8 @@ MonoBehaviour:
   size: 1
   canTrigger: 1
   temperatureManager: {fileID: 1090364018}
+  playerHittingIcicleAudio: {fileID: 0}
+  icicleHurtingPlayer: {fileID: 0}
   blockLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2905,11 +2910,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.6
+      value: -4.35
       objectReference: {fileID: 0}
     - target: {fileID: 655371875734399070, guid: 980c8214f6ae7534a9c2ad5f5364f5c3, type: 3}
       propertyPath: m_LocalPosition.z
