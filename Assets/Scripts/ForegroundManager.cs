@@ -11,8 +11,8 @@ public class ForegroundManager : MonoBehaviour
     private float cloudAnchor = -20f;
     private float cloudRespawn = 35f;
 
-    private float coldSpeed = 1f;
-    private float freezingSpeed = 2f;
+    private float coldSpeed = 2f;
+    private float freezingSpeed = 4f;
     private float warmSpeed = 0.5f;
 
 
