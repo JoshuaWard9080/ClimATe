@@ -26,6 +26,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource walkingAudio;
+    [SerializeField] private AudioSource landingAudio;
+    [SerializeField] private AudioClip landingClip;
+
+    private float footstepCooldown = 0.3f;
+    private float lastFootstepTime;
+    private bool wasWalkingLastFrame = false;
+    private bool wasGroundedLastFrame = true;
+
 
     // add the listeners for the events that InputManager throws and get the rigidbody
     void Start()
@@ -48,17 +58,29 @@ public class PlayerMovement : MonoBehaviour
 
         SpeedControl();
         Flip();
-        if(!IsGrounded() && rb.linearVelocity.y < 0.001)
+        if (!IsGrounded() && rb.linearVelocity.y < 0.001)
         {
             animator.SetBool("isFalling", true);
             animator.SetBool("isJumping", false);
-        } else
+        }
+        else
         {
             animator.SetBool("isFalling", false);
         }
 
         if (rb.linearVelocity.y == 0)
             animator.SetBool("isJumping", false);
+
+        bool isGroundedNow = IsGrounded();
+        if (isGroundedNow && !wasGroundedLastFrame)
+        {
+            if (landingAudio != null)
+            {
+                landingAudio.PlayOneShot(landingClip);
+            }
+        }
+
+        wasGroundedLastFrame = isGroundedNow;
     }
 
     // adds force to the rigidbody to move the character. Applies a different speed if the character is in the air
@@ -84,11 +106,35 @@ public class PlayerMovement : MonoBehaviour
                 isReceivingInput = false;
             }
             animator.SetFloat("Speed", Mathf.Abs(input.normalized.x));
+
+            bool isWalking = Mathf.Abs(input.x) > 0.1f;
+
+            // if (isWalking)
+            // {
+            //     if (!walkingAudio.isPlaying)
+            //     {
+            //         walkingAudio.Play();
+            //     }
+            //     lastFootstepTime = Time.time;
+            // }
+            // else
+            // {
+            //     if (walkingAudio.isPlaying)
+            //     {
+            //         walkingAudio.Stop();
+            //     }
+            // }
+            // wasWalkingLastFrame = isWalking;
         }
-
-
         else if (!IsGrounded())
+        {
             rb.AddForce(input.normalized * playerSpeed * airMultiplier, ForceMode2D.Force);
+
+            if (walkingAudio.isPlaying)
+            {
+                walkingAudio.Stop();
+            }
+        }
 
         horizontal = input.normalized.x;
     }

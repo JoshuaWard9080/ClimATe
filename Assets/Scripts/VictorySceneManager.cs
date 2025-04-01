@@ -29,8 +29,17 @@ public class VictorySceneManager : MonoBehaviour
     public TextMeshProUGUI totalFishCollected;
     public TextMeshProUGUI totalPointsText;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource victorySceneAudio;
+
     private void Start()
     {
+        //play music
+        if (victorySceneAudio != null)
+        {
+            victorySceneAudio.Play();
+        }
+
         startPosition = statsContent.anchoredPosition;
 
         statsContent.anchoredPosition = startPosition;

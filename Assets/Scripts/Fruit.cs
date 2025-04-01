@@ -6,6 +6,10 @@ public class Fruit : MonoBehaviour
 {
     [SerializeField] public Sprite[] sprites;
     [SerializeField] public SpriteRenderer spriteRenderer;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource collectFishAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +20,16 @@ public class Fruit : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (collectFishAudio != null)
+            {
+                AudioSource.PlayClipAtPoint(collectFishAudio.clip, transform.position);
+            }
             
             if (LevelStatsManager.Instance != null)
             {
                 LevelStatsManager.Instance.fishCollected++;
             }
+
             Destroy(gameObject);
         }
     }
