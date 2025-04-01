@@ -13,7 +13,11 @@ public class Level_Colour_Swap : MonoBehaviour
     {
         Color colour = Color.white;
         
-        if (level <= 2 && level > 0)
+        if (level <= 0)
+        {
+            colour = new Color(180 / 255f, 226 / 255f, 255 / 255f);
+        }
+        else if (level <= 2)
         {
             colour = new Color(78/255f,183 / 255f, 72 / 255f);
         }
