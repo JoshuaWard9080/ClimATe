@@ -7,6 +7,10 @@ public class LivesDisplay : MonoBehaviour
     public GameObject heart;
     public int invincibilityFrames = 0;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource takeDamageAudio;
+    [SerializeField] private AudioSource playerDiedAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +30,11 @@ public class LivesDisplay : MonoBehaviour
     public void TakeDamage()
     {
         if (invincibilityFrames > 0) return;
+
+        if (takeDamageAudio != null)
+        {
+            takeDamageAudio.Play();
+        }
 
         if (LevelStatsManager.Instance == null)
         {
@@ -74,6 +83,11 @@ public class LivesDisplay : MonoBehaviour
 
     public void PlayerDied()
     {
+        if (playerDiedAudio != null)
+        {
+            playerDiedAudio.Play();
+        }
+
         ClearHearts(); //remove all hearts from screen (if they exist) --> Specifically for when the piling snow kills the player
 
         //call player died screen, so losing screen, then send them back to Main Menu

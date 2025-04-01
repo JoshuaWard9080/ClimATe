@@ -18,6 +18,11 @@ public class Bird_Enemy : MonoBehaviour
     private String state = "warm";
     [SerializeField] TemperatureManager temperatureManager;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource flappingAudio;
+    [SerializeField] private AudioSource walkingAudio;
+    [SerializeField] private AudioSource playerHitsBirdAudio;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,20 +57,56 @@ public class Bird_Enemy : MonoBehaviour
     {
         if (isHurt)
         {
+            //dead, stop all sound
+            if (flappingAudio != null && flappingAudio.isPlaying)
+            {
+                flappingAudio.Stop();
+            }
+
+            if (walkingAudio != null && walkingAudio.isPlaying)
+            {
+                walkingAudio.Stop();
+            }
+
             moveDead();
         }
         else
         {
+            if (state == "freezing")
+            {
+                if (walkingAudio != null && !walkingAudio.isPlaying)
+                {
+                    walkingAudio.Play();
+                }
 
+                if (flappingAudio != null && flappingAudio.isPlaying)
+                {
+                    flappingAudio.Stop();
+                }
+            }
+            else if (state == "warm" || state == "cold")
+            {
+                if (flappingAudio != null && !flappingAudio.isPlaying)
+                {
+                    flappingAudio.Play(); //make sure audio has loop = true in the inspector
+                }
+
+                if (walkingAudio != null && walkingAudio.isPlaying)
+                {
+                    walkingAudio.Stop();
+                }
+            }
 
             if ((this.transform.position.x > boundX || this.transform.position.x < -boundX))
             {
                 isOnScreenEdgeX = true;
             }
+
             if ((this.transform.position.y > spawnY + boundY || this.transform.position.y < spawnY - boundY))
             {
                 isOnScreenEdgeY = true;
             }
+
             moveBasedOnState(state);
         }
     }
@@ -197,6 +238,7 @@ public class Bird_Enemy : MonoBehaviour
     {
         this.transform.position += moveVector * moveSpeed;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player"){
@@ -206,6 +248,11 @@ public class Bird_Enemy : MonoBehaviour
                 isHurt = true;
                 animator.SetBool("isHurt", true);
                 gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+
+            if (playerHitsBirdAudio != null)
+            {
+                playerHitsBirdAudio.Play(); //make sure loop does NOT equal true in inspector
+            }
 
                 if (LevelStatsManager.Instance != null)
                 {

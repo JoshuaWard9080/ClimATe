@@ -12,6 +12,9 @@ public class FuzzyEnemy : MonoBehaviour
     [SerializeField] TemperatureManager temperatureManager;
     private Collider2D savedPlayerCollider = null;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource playerHitYetiAudio;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -136,6 +139,7 @@ public class FuzzyEnemy : MonoBehaviour
     {
         Debug.Log("Fuzzy enemy can push blocks: " + canPush);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isHurt && collision.gameObject.tag == "Player")
@@ -148,7 +152,13 @@ public class FuzzyEnemy : MonoBehaviour
         {
             if (collision.gameObject.transform.position.y > this.transform.position.y + 0.3)
             {
-                isHurt = true;
+    
+            if (playerHitYetiAudio != null)
+            {
+                playerHitYetiAudio.Play();
+            }
+
+            isHurt = true;
                 moveSpeed = moveSpeed * 2f;
                 if (LevelStatsManager.Instance != null)
                 {
