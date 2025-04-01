@@ -40,16 +40,19 @@ public class FuzzyEnemy : MonoBehaviour
     void tempChangeToWarm()
     {
         PushBlocks(false);
+        moveSpeed = 0.006f;
     }
 
     void tempChangeToCold()
     {
         PushBlocks(true);
+        moveSpeed = 0.003f;
     }
 
     void tempChangeToFreezing()
     {
         PushBlocks(true);
+        moveSpeed = 0.0015f;
     }
     void move(Vector3 moveVector)
     {
