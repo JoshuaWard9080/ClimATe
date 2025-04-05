@@ -53,6 +53,14 @@ Additonal descriptions of the features and PRs are included in video description
   - **[Piling Snow PR](https://github.com/JoshuaWard9080/ClimATe/pull/24)**
 ##### Video Link: **[Piling snow death video link](https://youtu.be/-N4rrRgr6T0)**
 
+### Joshua Ward
+
+#### Feature 1: Player Movement/Interactions
+
+#### Feature 2: Temperature Changing
+
+
+
 ---
 
 ## Gameplay Overview
