@@ -17,6 +17,7 @@ ClimATe is a 2D platformer game built with Unity, inspired by the retro classic 
 ---
 
 ## [TAs] Individual features commit links
+Additonal descriptions of the features and PRs are included in video descriptions and commit messages
 ### Lucas Slunt
 
 Feature 1: Enemies **[Enemies do Damage PR](https://github.com/JoshuaWard9080/ClimATe/pull/46)**
@@ -24,6 +25,10 @@ Feature 1: Enemies **[Enemies do Damage PR](https://github.com/JoshuaWard9080/Cl
 
 Feature 2: Modular Levels **[Modular Levels PR](https://github.com/JoshuaWard9080/ClimATe/pull/16)**
 **[Levels video link](https://youtu.be/19a6PPCgrDw)**
+
+Feature 3: Backgrounds **[Backgrounds PR](https://github.com/JoshuaWard9080/ClimATe/pull/30)**
+**[Backgrounds video link](https://youtu.be/HfqSDD9P6rk)**
+
 ---
 
 ## Gameplay Overview
