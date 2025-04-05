@@ -56,10 +56,19 @@ Additonal descriptions of the features and PRs are included in video description
 ### Joshua Ward
 
 #### Feature 1: Player Movement/Interactions
+- **[First Player Movement PR](https://github.com/JoshuaWard9080/ClimATe/pull/18)**
+- **[Player Implementation PR](https://github.com/JoshuaWard9080/ClimATe/pull/21)**
+- **[Extra Player Juice PR](https://github.com/JoshuaWard9080/ClimATe/pull/29)**
+#### Video Link: **[]()**
 
 #### Feature 2: Temperature Changing
+-**[Temperature Change Implementation PR](https://github.com/JoshuaWard9080/ClimATe/pull/40)**
+#### Video Link: **[]()**
 
-
+#### Feature 3: Wind
+- **[Wind Prefab PR](https://github.com/JoshuaWard9080/ClimATe/pull/23)**
+- **[Wind Visuals PR](https://github.com/JoshuaWard9080/ClimATe/pull/50)**
+- #### Video Link: **[]()**
 
 ---
 
