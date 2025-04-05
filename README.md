@@ -29,6 +29,18 @@ Feature 2: Modular Levels **[Modular Levels PR](https://github.com/JoshuaWard908
 Feature 3: Backgrounds **[Backgrounds PR](https://github.com/JoshuaWard9080/ClimATe/pull/30)**
 **[Backgrounds video link](https://youtu.be/HfqSDD9P6rk)**
 
+
+###Timmi Draper
+
+Feture 1: Icicles **[First Icicles PR](https://github.com/JoshuaWard9080/ClimATe/pull/11)** **[Second Icicles PR](https://github.com/JoshuaWard9080/ClimATe/pull/24)**
+**[Icicle functionality and sound effects video link](https://youtu.be/LJCm6boBRBg)**
+
+Feture 2: Victory Scene UI **[First Main Menu UI PR](https://github.com/JoshuaWard9080/ClimATe/pull/3)** **[Second Main Menu UI PR](https://github.com/JoshuaWard9080/ClimATe/pull/5)** **[Level Complete UI](https://github.com/JoshuaWard9080/ClimATe/pull/6)** **[Victory Scene UI](https://github.com/JoshuaWard9080/ClimATe/pull/27)** **[Score and Stats UI](https://github.com/JoshuaWard9080/ClimATe/pull/38)**
+**[UI video link](https://youtu.be/JHX6elKbxBs)**
+
+Feture 3: Piling Snow Death **[Piling Snow PR](https://github.com/JoshuaWard9080/ClimATe/pull/24)**
+**[Piling snow death video link](https://youtu.be/-N4rrRgr6T0)**
+
 ---
 
 ## Gameplay Overview
