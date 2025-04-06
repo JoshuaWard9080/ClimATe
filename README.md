@@ -21,7 +21,11 @@ Additonal descriptions of the features and PRs are included in video description
 ### Lucas Slunt
 
 #### Feature 1: Enemies 
-  - **[Enemies do Damage PR](https://github.com/JoshuaWard9080/ClimATe/pull/46)**
+  - **[First Enemies PR](https://github.com/JoshuaWard9080/ClimATe/pull/46)**
+  - **[Second Enemies PR](https://github.com/JoshuaWard9080/ClimATe/pull/28)**
+  - **[Third Enemies PR](https://github.com/JoshuaWard9080/ClimATe/pull/25)**
+  - **[Fourth Enemies PR](https://github.com/JoshuaWard9080/ClimATe/pull/12)**
+  - **[Fifth Enemies PR](https://github.com/JoshuaWard9080/ClimATe/pull/7)**
 ##### Video Link: **[Enemies video link](https://youtu.be/6iscubNR0Cs)**
 
 #### Feature 2: Modular Levels 
