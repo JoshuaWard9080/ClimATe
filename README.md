@@ -74,6 +74,16 @@ Additonal descriptions of the features and PRs are included in video description
 - **[Wind Visuals PR](https://github.com/JoshuaWard9080/ClimATe/pull/50)**
 ##### Video Link: **[Wind](https://youtu.be/LGgiE4Nl6uU)**
 
+### Lucille Walters
+
+#### Feature 1: Particles
+- **[Brick particle PR](https://github.com/JoshuaWard9080/ClimATe/pull/39)**
+##### Video Link: **[Particles](https://youtu.be/vhyScDZsE9M)**
+
+#### Feature 2: Environment textures
+- **[Panel textures PR](https://github.com/JoshuaWard9080/ClimATe/pull/32)**
+##### Video Link: **[Panels](https://youtu.be/afq7DUhQK6E)**
+
 ---
 
 ## Gameplay Overview
