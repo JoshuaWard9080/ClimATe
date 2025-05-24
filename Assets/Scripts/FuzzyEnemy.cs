@@ -39,19 +39,16 @@ public class FuzzyEnemy : MonoBehaviour
     }
     void tempChangeToWarm()
     {
-        PushBlocks(false);
         moveSpeed = 0.006f;
     }
 
     void tempChangeToCold()
     {
-        PushBlocks(true);
         moveSpeed = 0.003f;
     }
 
     void tempChangeToFreezing()
     {
-        PushBlocks(true);
         moveSpeed = 0.0015f;
     }
     void move(Vector3 moveVector)
@@ -64,12 +61,10 @@ public class FuzzyEnemy : MonoBehaviour
         }
         if (checkIfGoingToFallOffEdge())
         {
-            Debug.Log("Turning cause edge detected");
             changeDirection();
         }
         if (checkIfGoingToHitWall())
         {
-            Debug.Log("Turning cause wall detected");
             changeDirection();
         }
         float movementX = moveVector.x * moveSpeed;
@@ -89,10 +84,8 @@ public class FuzzyEnemy : MonoBehaviour
             }
             else
             {
-                Debug.Log("Turning cause offscreen ");
                 changeDirection();
             }
-
         }
     }
     Boolean checkIfGoingToFallOffEdge()
@@ -106,8 +99,6 @@ public class FuzzyEnemy : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
         //if (hit.collider.gameObject.tag == "Block") return false;
         if (hit.collider == null) return true;
-        if (hit.collider != null)Debug.Log("below me: " + hit.collider.gameObject);
-        if (hit.collider != null) Debug.Log("below me: " + hit.collider.gameObject.tag);
         return false;
     }
     Boolean checkIfGoingToHitWall()
@@ -120,8 +111,6 @@ public class FuzzyEnemy : MonoBehaviour
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
         if (hit.collider != null && hit.collider.gameObject.tag == "Block") return hit;
-        if (hit.collider != null && hit.collider.gameObject.tag == "Block") Debug.Log("going to hit something: " + hit.collider.gameObject);
-        if (hit.collider != null && hit.collider.gameObject.tag == "Block") Debug.Log("going to hit something: " + hit.collider.gameObject.tag);
         return false;
     }
     void changeDirection()
@@ -137,11 +126,6 @@ public class FuzzyEnemy : MonoBehaviour
         }
         this.transform.position += (moveVector)/4;
 
-    }
-
-    public void PushBlocks(bool canPush)
-    {
-        Debug.Log("Fuzzy enemy can push blocks: " + canPush);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -173,16 +157,11 @@ public class FuzzyEnemy : MonoBehaviour
                 {
                     LevelStatsManager.Instance.totalYetiKills++;
                     LevelStatsManager.Instance.totalKills++;
-                    Debug.Log("A yeti has been killed... is this morally okay? He's just a chill guy :(");
-                }
-                else
-                {
-                    Debug.LogWarning("No LevelStatsManager Instance in FuzzyEnemy script");
                 }
             }
             else  //if yeti hits player
             {
-                LivesDisplay lives = FindObjectOfType<LivesDisplay>();
+                LivesDisplay lives = FindFirstObjectByType<LivesDisplay>();
 
                 if (lives != null)
                 {
