@@ -149,7 +149,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7999873657960995819}
   - component: {fileID: 1939180931992876583}
-  - component: {fileID: 5472038083378337139}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -227,29 +226,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5472038083378337139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403450830494555973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba391b649a326934da10287f6c09c4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallDelay: 1
-  fallSpeed: 1
-  regenTime: 1
-  size: 1
-  canTrigger: 1
-  temperatureManager: {fileID: 0}
-  playerHittingIcicleAudio: {fileID: 0}
-  icicleHurtingPlayer: {fileID: 0}
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &5275918910607368559
 GameObject:
   m_ObjectHideFlags: 0

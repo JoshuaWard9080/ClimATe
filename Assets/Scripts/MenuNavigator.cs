@@ -62,19 +62,19 @@ public class MenuNavigator : MonoBehaviour
     {
         if (buttons == null)
         {
-            Debug.LogError("buttons array is null!");
+            Debug.Log("buttons array is null!");
             return;
         }
 
         if (index < 0 || index >= buttons.Count)
         {
-            Debug.LogError($"index {index} is out of range! buttons.Length = {buttons.Count}");
+            Debug.Log($"index {index} is out of range! buttons.Length = {buttons.Count}");
             return;
         }
 
         if (buttons[index] == null)
         {
-            Debug.LogError($"buttons[{index}] is null!");
+            Debug.Log($"buttons[{index}] is null!");
             return;
         }
 
