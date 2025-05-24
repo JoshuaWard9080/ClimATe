@@ -110,7 +110,7 @@ public class FuzzyEnemy : MonoBehaviour
         float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        if (hit.collider != null && hit.collider.gameObject.tag == "Block") return hit;
+        if (hit.collider != null && (hit.collider.gameObject.tag == "Block" || hit.collider.gameObject.tag == "Enemy")) return hit;
         return false;
     }
     void changeDirection()

@@ -30,10 +30,6 @@ public class Block : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(blockDestroyedAudio.clip, transform.position);
             }
-            else
-            {
-                Debug.Log("Audio is null for destroying a block");
-            }
 
             onHitByPlayer();
         }
@@ -66,7 +62,6 @@ public class Block : MonoBehaviour
         if (LevelStatsManager.Instance != null)
         {
             LevelStatsManager.Instance.blocksDestroyed++;
-            Debug.Log("Block destroyed, incrementing blocksDestroyed count");
         }
         Destroy(gameObject);
     }

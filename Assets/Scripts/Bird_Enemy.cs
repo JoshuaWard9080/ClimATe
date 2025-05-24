@@ -41,11 +41,6 @@ public class Bird_Enemy : MonoBehaviour
             animator.SetBool("isColdTemp", true);
             tempChangeToFreezing();
         }
-        else
-        {
-            Debug.Log("Invalid temperature for bird in start method");
-
-        }
 
         temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
         temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
@@ -259,13 +254,12 @@ public class Bird_Enemy : MonoBehaviour
                 {
                     LevelStatsManager.Instance.totalBirdKills++;
                     LevelStatsManager.Instance.totalKills++;
-                    Debug.Log("A bird has been killed... it's okay though because the government placed them to spy on us! #giveusbackourtelephonepoles");
                 }
 
             }
             else //bird hits player
             {
-                LivesDisplay lives = FindObjectOfType<LivesDisplay>();
+                LivesDisplay lives = FindFirstObjectByType<LivesDisplay>();
 
                 if (lives != null)
                 {

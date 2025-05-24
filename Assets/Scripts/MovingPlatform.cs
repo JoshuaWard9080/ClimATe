@@ -96,6 +96,5 @@ public class MovingPlatform : MonoBehaviour
     void ChangeMoveSpeed(float newMoveSpeed)
     {
         moveSpeed = newMoveSpeed;
-        Debug.Log("platform move speed changed to: " + moveSpeed);
     }
 }

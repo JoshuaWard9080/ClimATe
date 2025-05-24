@@ -43,7 +43,6 @@ public class PilingSnow : MonoBehaviour
     public void SetSnowSpeed(float newSnowSpeed)
     {
         snowSpeed = newSnowSpeed;
-        Debug.Log("Snow piling speed set to: " + newSnowSpeed);
     }
 
     public void SetFreezing()
