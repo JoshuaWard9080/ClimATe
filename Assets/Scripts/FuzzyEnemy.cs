@@ -41,19 +41,19 @@ public class FuzzyEnemy : MonoBehaviour
     void tempChangeToWarm()
     {
         this.transform.localScale = new Vector3(0.6f, 0.6f, 0);
-        moveSpeed = 0.006f;
+        moveSpeed = 0.007f;
     }
 
     void tempChangeToCold()
     {
         this.transform.localScale = new Vector3(0.9f, 0.9f, 0);
-        moveSpeed = 0.003f;
+        moveSpeed = 0.005f;
     }
 
     void tempChangeToFreezing()
     {
-        this.transform.localScale = new Vector3(1.2f, 1.2f, 0);
-        moveSpeed = 0.0015f;
+        this.transform.localScale = new Vector3(1.5f, 1.5f, 0);
+        moveSpeed = 0.003f;
     }
     void move(Vector3 moveVector)
     {
@@ -96,7 +96,7 @@ public class FuzzyEnemy : MonoBehaviour
     {
         float direction = moveVector.x;
         Vector2 raycastStart =
-            new Vector2(this.transform.position.x+(direction*0.3f), this.transform.position.y-0.2f);
+            new Vector2(this.transform.position.x+(direction*0.3f*(this.transform.localScale.x+0.3f)), this.transform.position.y-(0.5f*this.transform.localScale.y));
         Vector2 raycastDirection = transform.TransformDirection(Vector2.down);
         float maxDistance = 0.2f;
         Debug.DrawRay(raycastStart, raycastDirection* maxDistance);
