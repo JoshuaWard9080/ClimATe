@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LivesDisplay : MonoBehaviour
@@ -16,18 +17,14 @@ public class LivesDisplay : MonoBehaviour
         ResetHearts();
     }
 
-    //TODO: comment this Update method out when not testing, this is purely to ensure the TakeDamage method is working as expected
-    // void Update()
-    // {
-    //     if (invincibilityFrames > 0) invincibilityFrames--;
-    //     if (Input.GetKeyDown(KeyCode.H))
-    //     {
-    //         TakeDamage();
-    //     }
-    // }
+     void Update()
+     {
+         if (invincibilityFrames > 0) invincibilityFrames--;
+     }
 
     public void TakeDamage()
     {
+        Debug.Log("number of invincibility frames: " + invincibilityFrames);
         if (invincibilityFrames > 0) return;
 
         if (takeDamageAudio != null)
