@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FuzzyEnemy : MonoBehaviour
 {
@@ -39,16 +40,19 @@ public class FuzzyEnemy : MonoBehaviour
     }
     void tempChangeToWarm()
     {
+        this.transform.localScale = new Vector3(0.6f, 0.6f, 0);
         moveSpeed = 0.006f;
     }
 
     void tempChangeToCold()
     {
+        this.transform.localScale = new Vector3(0.9f, 0.9f, 0);
         moveSpeed = 0.003f;
     }
 
     void tempChangeToFreezing()
     {
+        this.transform.localScale = new Vector3(1.2f, 1.2f, 0);
         moveSpeed = 0.0015f;
     }
     void move(Vector3 moveVector)
@@ -105,12 +109,12 @@ public class FuzzyEnemy : MonoBehaviour
     {
         float direction = moveVector.x;
         Vector2 raycastStart =
-            new Vector2(this.transform.position.x + (direction * 0.4f), this.transform.position.y);
+            new Vector2(this.transform.position.x + (direction * 0.4f *(this.transform.localScale.x+0.3f)), this.transform.position.y);
         Vector2 raycastDirection = transform.TransformDirection(moveVector);
         float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        if (hit.collider != null && (hit.collider.gameObject.tag == "Block" || hit.collider.gameObject.tag == "Enemy")) return hit;
+        if (hit.collider != null && (hit.collider.gameObject.CompareTag("Block") || hit.collider.gameObject.CompareTag("Enemy"))) return hit;
         return false;
     }
     void changeDirection()
@@ -130,7 +134,7 @@ public class FuzzyEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isHurt && collision.gameObject.tag == "Player")
+        if (isHurt && collision.gameObject.CompareTag("Player"))
         {
             //Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
             //savedPlayerCollider = collision.collider;
@@ -141,7 +145,7 @@ public class FuzzyEnemy : MonoBehaviour
             }
                 return;
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             if (collision.gameObject.transform.position.y > this.transform.position.y + 0.3)
             {
