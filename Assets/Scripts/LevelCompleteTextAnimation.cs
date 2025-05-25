@@ -80,16 +80,19 @@ public class TextAnimation : MonoBehaviour
 
         for (int i = 0; i < texts.Length; i++)
         {
-            if (i == texts.Length - 1 && currentScene.name == "VictoryScene")
-            {
-                yield return StartCoroutine(TypeText(texts[i]));
-                yield return StartCoroutine(BlinkText(texts[i]));
+            if (texts[i] != null) {
+                if (i == texts.Length - 1 && currentScene.name == "VictoryScene")
+                {
+                    yield return StartCoroutine(TypeText(texts[i]));
+                    yield return StartCoroutine(BlinkText(texts[i]));
+                }
+                else
+                {
+                    yield return StartCoroutine(TypeText(texts[i]));
+                    yield return new WaitForSeconds(timeBetweenTexts);
+                }
             }
-            else
-            {
-                yield return StartCoroutine(TypeText(texts[i]));
-                yield return new WaitForSeconds(timeBetweenTexts);
-            }
+            
         }
     }
 

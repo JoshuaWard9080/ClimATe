@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
@@ -29,7 +29,7 @@ public class SceneLoader : MonoBehaviour
     //once scene is loaded it fades into the scene
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        var fade = FindObjectOfType<CloudFadeUI>();
+        var fade = FindFirstObjectByType<CloudFadeUI>();
         if (fade != null)
         {
             fade.FadeOut(null);
