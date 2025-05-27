@@ -98,7 +98,7 @@ public class FuzzyEnemy : MonoBehaviour
         Vector2 raycastStart =
             new Vector2(this.transform.position.x+(direction*(this.transform.localScale.x*0.5f)), this.transform.position.y-(0.5f*this.transform.localScale.y));
         Vector2 raycastDirection = transform.TransformDirection(Vector2.down);
-        float maxDistance = 0.2f;
+        float maxDistance = 0.3f;
         Debug.DrawRay(raycastStart, raycastDirection* maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
         if (hit.collider == null) return true;
