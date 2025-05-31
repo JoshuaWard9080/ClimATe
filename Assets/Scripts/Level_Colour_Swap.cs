@@ -9,7 +9,7 @@ public class Level_Colour_Swap : MonoBehaviour
 
     Color bonusWarm = new Color(180 / 255f, 186 / 255f, 215 / 255f);
     Color bonusCold = new Color(180 / 255f, 226 / 255f, 255 / 255f);
-    Color bonusFreezing = new Color(225 / 255f, 245 / 255f, 255 / 255f);
+    Color bonusFreezing = new Color(240 / 255f, 245 / 255f, 255 / 255f);
 
     Color firstWarm = new Color(78 / 255f, 143 / 255f, 32 / 255f);
     Color firstCold = new Color(78 / 255f, 183 / 255f, 72 / 255f);
