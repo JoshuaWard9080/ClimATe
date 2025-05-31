@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class LivesDisplay : MonoBehaviour
@@ -10,6 +9,7 @@ public class LivesDisplay : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource takeDamageAudio;
     [SerializeField] private AudioSource playerDiedAudio;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
