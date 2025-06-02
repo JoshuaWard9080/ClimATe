@@ -23,7 +23,7 @@ public class FuzzyEnemy : MonoBehaviour
         temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
         temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
 
-        
+        changeDirection();
     }
 
     // Update is called once per frame
