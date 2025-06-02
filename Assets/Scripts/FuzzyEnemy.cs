@@ -63,14 +63,15 @@ public class FuzzyEnemy : MonoBehaviour
         {
             manageOffScreen();
         }
-        else if (checkIfGoingToHitWall())
-        {
-            changeDirection();
-        }
         else if (checkIfGoingToFallOffEdge())
         {
             changeDirection();
         }
+        else if (checkIfGoingToHitWall())
+        {
+            changeDirection();
+        }
+        
         float movementX = moveVector.x * moveSpeed;
         this.transform.position += new Vector3(movementX, 0, 0);
     }
