@@ -146,6 +146,6 @@ public class TextAnimation : MonoBehaviour
             yield return new WaitForSeconds(blinkInterval);
         }
 
-        FindObjectOfType<VictorySceneManager>()?.BeginScrolling();
+        FindFirstObjectByType<VictorySceneManager>()?.BeginScrolling();
     }
 }

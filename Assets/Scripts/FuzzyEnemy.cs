@@ -58,16 +58,16 @@ public class FuzzyEnemy : MonoBehaviour
     void move(Vector3 moveVector)
     {
         moveVector.Normalize();
-        
+
         if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
         {
             manageOffScreen();
         }
-        if (checkIfGoingToFallOffEdge())
+        else if (checkIfGoingToHitWall())
         {
             changeDirection();
         }
-        if (checkIfGoingToHitWall())
+        else if (checkIfGoingToFallOffEdge())
         {
             changeDirection();
         }
@@ -76,21 +76,7 @@ public class FuzzyEnemy : MonoBehaviour
     }
     void manageOffScreen()
     {
-        if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
-        {
-            if (isHurt)
-            {
-                isHurt = false;
-                moveSpeed = moveSpeed / 2f;
-                Vector3 otherSideOfTheScreen = this.transform.position;
-                otherSideOfTheScreen.x *= -0.95f;
-                this.transform.position = otherSideOfTheScreen;
-            }
-            else
-            {
-                changeDirection();
-            }
-        }
+        return;
     }
     Boolean checkIfGoingToFallOffEdge()
     {
@@ -113,8 +99,21 @@ public class FuzzyEnemy : MonoBehaviour
         float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        if (hit.collider != null && (hit.collider.gameObject.CompareTag("Block") || hit.collider.gameObject.CompareTag("Enemy"))) return hit;
+        if (hit.collider != null && (hit.collider.gameObject.CompareTag("Block") || hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("BoundaryWalll"))) return hit;
+        if (isHurt && hit.collider != null && hit.collider.gameObject.CompareTag("BoundaryWalll"))
+        {
+            respawnYeti();
+        }
         return false;
+    }
+
+    void respawnYeti()
+    {
+        isHurt = false;
+        moveSpeed = moveSpeed / 2f;
+        Vector3 otherSideOfTheScreen = this.transform.position;
+        otherSideOfTheScreen.x *= -0.95f;
+        this.transform.position = otherSideOfTheScreen;
     }
     void changeDirection()
     {

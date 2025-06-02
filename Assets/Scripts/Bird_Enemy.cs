@@ -50,6 +50,10 @@ public class Bird_Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
+        {
+            return;
+        }
         if (isHurt)
         {
             //dead, stop all sound
@@ -152,7 +156,7 @@ public class Bird_Enemy : MonoBehaviour
     {
         float theta = UnityEngine.Random.Range((float)-(Math.PI/8),(float)Math.PI/8);
         float dirX = 30;
-        float dirY = (float)Math.Sin(theta);
+        float dirY = (float)(Math.Sin(theta)/2);
         flipSprite(dirX);
 
         return new Vector3(dirX, dirY, 0);
