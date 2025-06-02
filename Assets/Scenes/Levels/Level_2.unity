@@ -1794,6 +1794,10 @@ PrefabInstance:
       propertyPath: tman
       value: 
       objectReference: {fileID: 1090364018}
+    - target: {fileID: 5913374933275498922, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
+      propertyPath: temperatureManager
+      value: 
+      objectReference: {fileID: 1090364018}
     - target: {fileID: 6169411916550602602, guid: 21cd55e8ed8333b4aabaf4a9a185e520, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 10
