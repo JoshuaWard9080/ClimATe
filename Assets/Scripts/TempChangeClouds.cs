@@ -5,31 +5,29 @@ public class TempChangeClouds : MonoBehaviour
 {
     [SerializeField] TemperatureManager temperatureManager;
     [SerializeField] Transform player;
-    float moveSpeed = -0.013f;
+    float moveSpeed = -0.018f;
     Color warmColour = new Color(81 / 100f, 72 / 100f, 60 / 100f);
     Color coldColour = new Color(180 / 255f, 226 / 255f, 255 / 255f);
     Color freezingColour = new Color(16 / 100f, 42 / 100f, 100 / 100f);
-    Boolean hasTempChanged = false;
+    String currentTemp = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         temperatureManager.OnTempChangeToWarm.AddListener(tempChangeToWarm);
         temperatureManager.OnTempChangeToCold.AddListener(tempChangeToCold);
         temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
-        hasTempChanged = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!hasTempChanged) return;
 
         for (int i = 0; i < transform.childCount; i++)
         {
             float thetaMultiplier = 0.8f+(27 % (i + 1)) / 27; 
             transform.GetChild(i).transform.position = new Vector3(
                 transform.GetChild(i).transform.position.x +moveSpeed,
-                player.position.y+ 2*thetaMultiplier+((float)(thetaMultiplier*((1/2.0)*Math.Sin((1 / 2.0) * transform.GetChild(i).transform.position.x)))),
+                player.position.y-6+ 2*thetaMultiplier+((float)(thetaMultiplier*((1/2.0)*Math.Sin((1 / 2.0) * transform.GetChild(i).transform.position.x)))),
                 0);
 
 
@@ -40,28 +38,39 @@ public class TempChangeClouds : MonoBehaviour
 
     void tempChangeToWarm()
     {
-        changeCloudColour(warmColour);
-        resetCloudPosition();
-        hasTempChanged = true;
+        if (!currentTemp.Equals("Warm"))
+        {
+            changeCloudColour(warmColour);
+            resetCloudPosition();
+            currentTemp = "Warm";
+        }
+        
     }
 
     void tempChangeToCold()
     {
-        changeCloudColour(coldColour);
-        resetCloudPosition();
-        hasTempChanged = true;
+        if (!currentTemp.Equals("Cold"))
+        {
+            changeCloudColour(coldColour);
+            resetCloudPosition();
+            currentTemp = "Cold";
+        }
+        
     }
 
     void tempChangeToFreezing()
     {
-        changeCloudColour(freezingColour);
-        resetCloudPosition();
-        hasTempChanged = true;
+        if (!currentTemp.Equals("Freezing"))
+        {
+            changeCloudColour(freezingColour);
+            resetCloudPosition();
+            currentTemp = "Freezing";
+        }
     }
 
     void resetCloudPosition()
     {
-       float  distanceTravelled = -transform.GetChild(0).transform.position.x-11f;
+       float  distanceTravelled = -transform.GetChild(0).transform.position.x+11f;
 
         for (int i = 0; i < transform.childCount; i++)
         {
