@@ -68,5 +68,8 @@ TagManager:
   - name: PilingSnow
     uniqueID: 3744439871
     locked: 0
+  - name: temperatureFog
+    uniqueID: 1579482895
+    locked: 0
   m_RenderingLayers:
   - Default

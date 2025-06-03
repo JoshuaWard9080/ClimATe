@@ -8,7 +8,7 @@ public class TempChangeClouds : MonoBehaviour
     float moveSpeed = -0.018f;
     Color warmColour = new Color(81 / 100f, 72 / 100f, 60 / 100f);
     Color coldColour = new Color(180 / 255f, 226 / 255f, 255 / 255f);
-    Color freezingColour = new Color(16 / 100f, 42 / 100f, 100 / 100f);
+    Color freezingColour = new Color(32 / 100f, 50 / 100f, 92 / 100f);
     String currentTemp = "";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
