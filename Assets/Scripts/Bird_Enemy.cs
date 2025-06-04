@@ -54,6 +54,10 @@ public class Bird_Enemy : MonoBehaviour
         {
             return;
         }
+        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        {
+            return;
+        }
         if (isHurt)
         {
             //dead, stop all sound

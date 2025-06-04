@@ -7,8 +7,8 @@ public class PilingSnow : MonoBehaviour
     private bool isRising = false;
 
     private float coldSnowSpeed = 0.05f;
-    private float freezingSnowSpeed = 0.5f;
-    private float warmSnowSpeed = 0.01f;
+    private float freezingSnowSpeed = 0.1f;
+    private float warmSnowSpeed = 0.03f;
 
     private void Start()
     {
