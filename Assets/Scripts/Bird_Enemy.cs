@@ -58,6 +58,7 @@ public class Bird_Enemy : MonoBehaviour
         {
             return;
         }
+
         if (isHurt)
         {
             //dead, stop all sound
@@ -116,12 +117,14 @@ public class Bird_Enemy : MonoBehaviour
 
     void tempChangeToWarm()
     {
+        animator.SetBool("isColdTemp", false);
         moveSpeed = 0.008f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
     void tempChangeToCold()
     {
+        animator.SetBool("isColdTemp", false);
         moveSpeed = 0.008f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
