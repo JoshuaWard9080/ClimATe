@@ -144,12 +144,12 @@ public class LevelStatsManager : MonoBehaviour
 
     public int CalculateLevelPoints()
     {
-        int lifePoints = remainingLives * 10;
-        int killPoints = (totalYetiKills * 10) + (totalBirdKills * 15);
+        int lifePoints = remainingLives * 20;
+        int killPoints = (totalYetiKills * 100) + (totalBirdKills * 150);
         float maxBonusTime = 300f;
         int timeBonusPoints = Mathf.RoundToInt(Mathf.Clamp(maxBonusTime - elapsedTime, 0f, maxBonusTime) * 2);
         timeBonus = timeBonusPoints;
-        int fishPoints = fishCollected * 5;
+        int fishPoints = fishCollected * 50;
         int blockPoints = blocksDestroyed;
         int iciclePoints = iciclesDestroyed * 5;
 

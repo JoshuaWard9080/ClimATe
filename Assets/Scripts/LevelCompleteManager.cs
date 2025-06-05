@@ -41,13 +41,14 @@ public class LevelCompleteManager : MonoBehaviour
 
         bool isFinalLevel = LevelTracker.Instance != null && LevelTracker.Instance.nextLevelScene == "VictoryScene";
 
+        LevelStatsManager.Instance?.EndLevelTimer();
+        LevelStatsManager.Instance?.CalculateLevelPoints();
+        LevelStatsManager.Instance?.UpdateGlobalStats(); //update stats to be displayed in the victory scene
+
         if (isFinalLevel)
         {
             Debug.Log("Final level complete, loading VictoryScene");
 
-            LevelStatsManager.Instance?.EndLevelTimer();
-            LevelStatsManager.Instance?.CalculateLevelPoints();
-            LevelStatsManager.Instance?.UpdateGlobalStats(); //update stats to be displayed in the victory scene
 
             var statsManager = LevelStatsManager.Instance;
             if (statsManager != null)
@@ -72,8 +73,6 @@ public class LevelCompleteManager : MonoBehaviour
         }
         else
         {
-            LevelStatsManager.Instance?.CalculateLevelPoints();
-            LevelStatsManager.Instance?.UpdateGlobalStats();
 
             if (nextLevelButton != null)
             {
@@ -96,8 +95,6 @@ public class LevelCompleteManager : MonoBehaviour
 
     private IEnumerator DelayedStartAnimation()
     {
-        Debug.Log("resetting level stats");
-        LevelStatsManager.Instance?.ResetLevelStats();
         Debug.Log("Waiting before starting text animation...");
         yield return null;
         yield return textAnimator.StartAnimation();
@@ -190,6 +187,8 @@ public class LevelCompleteManager : MonoBehaviour
                 pointsText
            });
 
+            Debug.Log("resetting level stats");
+            LevelStatsManager.Instance?.ResetLevelStats();
             StartCoroutine(DelayedStartAnimation());
         }
         else
