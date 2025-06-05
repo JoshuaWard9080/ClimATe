@@ -72,6 +72,9 @@ public class LevelCompleteManager : MonoBehaviour
         }
         else
         {
+            LevelStatsManager.Instance?.CalculateLevelPoints();
+            LevelStatsManager.Instance?.UpdateGlobalStats();
+
             if (nextLevelButton != null)
             {
                 nextLevelButton.onClick.AddListener(NextLevel);
