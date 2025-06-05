@@ -16,9 +16,9 @@ public class Fruit : MonoBehaviour
         spriteRenderer.sprite = sprites[Random.Range(0,sprites.Length)];
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.tag == "Player")
         {
             if (collectFishAudio != null)
             {

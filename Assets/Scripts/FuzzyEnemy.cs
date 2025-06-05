@@ -61,7 +61,7 @@ public class FuzzyEnemy : MonoBehaviour
 
         if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
         {
-            manageOffScreen();
+            //do nothing
         }
         else if (checkIfGoingToFallOffEdge())
         {
@@ -74,10 +74,6 @@ public class FuzzyEnemy : MonoBehaviour
         
         float movementX = moveVector.x * moveSpeed;
         this.transform.position += new Vector3(movementX, 0, 0);
-    }
-    void manageOffScreen()
-    {
-        return;
     }
     Boolean checkIfGoingToFallOffEdge()
     {
@@ -100,11 +96,12 @@ public class FuzzyEnemy : MonoBehaviour
         float maxDistance = 0.1f;
         Debug.DrawRay(raycastStart, raycastDirection * maxDistance);
         RaycastHit2D hit = Physics2D.Raycast(raycastStart, raycastDirection, maxDistance);
-        if (hit.collider != null && (hit.collider.gameObject.CompareTag("Block") || hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("BoundaryWalll"))) return hit;
         if (isHurt && hit.collider != null && hit.collider.gameObject.CompareTag("BoundaryWalll"))
         {
             respawnYeti();
         }
+        if (hit.collider != null && (hit.collider.gameObject.CompareTag("Block") || hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("BoundaryWalll"))) return hit;
+        
         return false;
     }
 

@@ -30,7 +30,7 @@ public class Bird_Enemy : MonoBehaviour
         animator.SetBool("isColdTemp", false);
 
         moveVector = new Vector3(1, 0, 0);
-        boundX = 9;
+        boundX = 8;
         boundY = 6;
         spawnY = this.transform.position.y;
 
