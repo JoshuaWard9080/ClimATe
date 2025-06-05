@@ -93,10 +93,12 @@ public class LevelCompleteManager : MonoBehaviour
 
     private IEnumerator DelayedStartAnimation()
     {
+        Debug.Log("resetting level stats");
+        LevelStatsManager.Instance?.ResetLevelStats();
         Debug.Log("Waiting before starting text animation...");
         yield return null;
         yield return textAnimator.StartAnimation();
-        LevelStatsManager.Instance?.ResetLevelStats();
+        
     }
 
     public void NextLevel()
@@ -104,16 +106,16 @@ public class LevelCompleteManager : MonoBehaviour
         //Probably make an if statement where if the current level is 1 then load 2, if the current level is 2 load 3, etc.
 
         Debug.Log("=== NEXT LEVEL PRESSED ===");
-        Debug.Log("LevelTracker.Instance is null? " + (LevelTracker.Instance == null));
-        Debug.Log("Current Level: " + LevelTracker.Instance.currentLevelScene);
-        Debug.Log("Next Level: " + LevelTracker.Instance.nextLevelScene);
+        //Debug.Log("LevelTracker.Instance is null? " + (LevelTracker.Instance == null));
+        //Debug.Log("Current Level: " + LevelTracker.Instance.currentLevelScene);
+        //Debug.Log("Next Level: " + LevelTracker.Instance.nextLevelScene);
 
 
         Debug.Log("Loading next level...");
 
         //uses the LevelTracker to figure out which level is next
         SceneManager.LoadScene(LevelTracker.Instance.nextLevelScene);
-        Debug.Log("Loading next level: " + LevelTracker.Instance.currentLevelScene);
+        //Debug.Log("Loading next level: " + LevelTracker.Instance.currentLevelScene);
     }
 
     public void MainMenu()
@@ -124,7 +126,7 @@ public class LevelCompleteManager : MonoBehaviour
             levelCompleteAudio.Stop();
         }
 
-        Debug.Log("Loading main menu...");
+        //Debug.Log("Loading main menu...");
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -134,8 +136,8 @@ public class LevelCompleteManager : MonoBehaviour
         /*
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
+#else */
+            Application.Quit(); /*
 #endif
         */
     }
