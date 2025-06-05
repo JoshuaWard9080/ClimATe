@@ -6,8 +6,8 @@ public class PilingSnow : MonoBehaviour
     [SerializeField] private TemperatureManager temperatureManager;
     private bool isRising = false;
 
-    private float coldSnowSpeed = 0.05f;
-    private float freezingSnowSpeed = 0.1f;
+    private float coldSnowSpeed = 0.06f;
+    private float freezingSnowSpeed = 0.12f;
     private float warmSnowSpeed = 0.03f;
 
     private void Start()
