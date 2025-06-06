@@ -18,7 +18,7 @@ public class PilingSnow : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (!isRising)
         {
@@ -27,7 +27,7 @@ public class PilingSnow : MonoBehaviour
 
         //start rising
         //pause everything if the pause menu is active
-        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        if (LevelManager.Instance.IsPaused() && LevelManager.Instance != null)
         {
             return;
         }

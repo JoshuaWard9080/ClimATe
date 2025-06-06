@@ -30,7 +30,7 @@ public class CrackingPlatform : MonoBehaviour
         temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         //pause everything if the pause menu is active
         if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())

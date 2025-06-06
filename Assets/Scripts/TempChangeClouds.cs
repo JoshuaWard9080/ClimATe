@@ -5,7 +5,7 @@ public class TempChangeClouds : MonoBehaviour
 {
     [SerializeField] TemperatureManager temperatureManager;
     [SerializeField] Transform player;
-    float moveSpeed = -0.018f;
+    float moveSpeed = -0.08f;
     Color warmColour = new Color(81 / 100f, 72 / 100f, 60 / 100f);
     Color coldColour = new Color(180 / 255f, 226 / 255f, 255 / 255f);
     Color freezingColour = new Color(32 / 100f, 50 / 100f, 92 / 100f);
@@ -19,12 +19,12 @@ public class TempChangeClouds : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            float thetaMultiplier = 0.8f+(27 % (i + 1)) / 27; 
+            float thetaMultiplier = 0.8f+(27 % (i + 1)) / 23; 
             transform.GetChild(i).transform.position = new Vector3(
                 transform.GetChild(i).transform.position.x +moveSpeed,
                 player.position.y-6+ 2*thetaMultiplier+((float)(thetaMultiplier*((1/2.0)*Math.Sin((1 / 2.0) * transform.GetChild(i).transform.position.x)))),
