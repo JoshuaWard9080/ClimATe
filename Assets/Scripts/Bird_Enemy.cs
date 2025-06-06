@@ -48,7 +48,7 @@ public class Bird_Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
         {
@@ -107,21 +107,21 @@ public class Bird_Enemy : MonoBehaviour
     void tempChangeToWarm()
     {
         animator.SetBool("isColdTemp", false);
-        moveSpeed = 0.016f;
+        moveSpeed = 0.025f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
     void tempChangeToCold()
     {
         animator.SetBool("isColdTemp", false);
-        moveSpeed = 0.016f;
+        moveSpeed = 0.025f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
     void tempChangeToFreezing()
     {
         animator.SetBool("isColdTemp", true);
-        moveSpeed = 0.005f;
+        moveSpeed = 0.01f;
         moveVector = new Vector3(1, 0, 0);
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }

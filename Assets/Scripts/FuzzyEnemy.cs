@@ -27,7 +27,7 @@ public class FuzzyEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //pause everything if the pause menu is active
         if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
@@ -41,19 +41,19 @@ public class FuzzyEnemy : MonoBehaviour
     void tempChangeToWarm()
     {
         this.transform.localScale = new Vector3(0.6f, 0.6f, 0);
-        moveSpeed = 0.01f;
+        moveSpeed = 0.017f;
     }
 
     void tempChangeToCold()
     {
         this.transform.localScale = new Vector3(0.9f, 0.9f, 0);
-        moveSpeed = 0.0075f;
+        moveSpeed = 0.0135f;
     }
 
     void tempChangeToFreezing()
     {
         this.transform.localScale = new Vector3(1.5f, 1.5f, 0);
-        moveSpeed = 0.005f;
+        moveSpeed = 0.01f;
     }
     void move(Vector3 moveVector)
     {

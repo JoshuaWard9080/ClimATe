@@ -12,9 +12,9 @@ public class FruitScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, initialHeight + (Mathf.Sin(theta) / 3), this.gameObject.transform.position.z);
-        theta += 0.01f;
+        theta += 0.045f;
     }
 }
