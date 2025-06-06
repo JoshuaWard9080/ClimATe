@@ -61,24 +61,13 @@ public class Bird_Enemy : MonoBehaviour
 
         if (isHurt)
         {
-            //dead, stop all sound
-            if (flappingAudio != null && flappingAudio.isPlaying)
-            {
-                flappingAudio.Stop();
-            }
-
-            if (walkingAudio != null && walkingAudio.isPlaying)
-            {
-                walkingAudio.Stop();
-            }
-
             moveDead();
         }
         else
         {
-                if (state == "freezing")
+        if (state == "freezing")
             {
-                if (walkingAudio != null && !walkingAudio.isPlaying && this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
+                if (walkingAudio != null && !walkingAudio.isPlaying)
                 {
                     walkingAudio.Play();
                 }
@@ -90,7 +79,7 @@ public class Bird_Enemy : MonoBehaviour
             }
             else if (state == "warm" || state == "cold")
             {
-                if (flappingAudio != null && !flappingAudio.isPlaying && this.transform.GetChild(0).GetComponent<Renderer>().isVisible)
+                if (flappingAudio != null && !flappingAudio.isPlaying)
                 {
                     flappingAudio.Play(); //make sure audio has loop = true in the inspector
                 }
@@ -118,21 +107,21 @@ public class Bird_Enemy : MonoBehaviour
     void tempChangeToWarm()
     {
         animator.SetBool("isColdTemp", false);
-        moveSpeed = 0.008f;
+        moveSpeed = 0.016f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
     void tempChangeToCold()
     {
         animator.SetBool("isColdTemp", false);
-        moveSpeed = 0.008f;
+        moveSpeed = 0.016f;
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
     void tempChangeToFreezing()
     {
         animator.SetBool("isColdTemp", true);
-        moveSpeed = 0.002f;
+        moveSpeed = 0.005f;
         moveVector = new Vector3(1, 0, 0);
         gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
@@ -251,6 +240,16 @@ public class Bird_Enemy : MonoBehaviour
             if (collision.gameObject.transform.position.y > this.transform.position.y + 0.3)
             {
                 moveVector = new Vector3(0, -1, 0);
+                //dead, stop all sound
+                if (flappingAudio != null && flappingAudio.isPlaying)
+                {
+                    flappingAudio.Stop();
+                }
+
+                if (walkingAudio != null && walkingAudio.isPlaying)
+                {
+                    walkingAudio.Stop();
+                }
                 isHurt = true;
                 animator.SetBool("isHurt", true);
                 gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;

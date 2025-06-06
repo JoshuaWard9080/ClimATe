@@ -41,19 +41,19 @@ public class FuzzyEnemy : MonoBehaviour
     void tempChangeToWarm()
     {
         this.transform.localScale = new Vector3(0.6f, 0.6f, 0);
-        moveSpeed = 0.007f;
+        moveSpeed = 0.01f;
     }
 
     void tempChangeToCold()
     {
         this.transform.localScale = new Vector3(0.9f, 0.9f, 0);
-        moveSpeed = 0.005f;
+        moveSpeed = 0.0075f;
     }
 
     void tempChangeToFreezing()
     {
         this.transform.localScale = new Vector3(1.5f, 1.5f, 0);
-        moveSpeed = 0.003f;
+        moveSpeed = 0.005f;
     }
     void move(Vector3 moveVector)
     {
