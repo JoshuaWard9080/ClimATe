@@ -8,13 +8,12 @@ public class FadeTrigger : MonoBehaviour
     //when player jumps into the trigger, it fades 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger entered by Player");
 
         if (other.CompareTag("Player"))
         {
             Debug.Log("Fading...");
 
-            var fade = FindObjectOfType<CloudFadeUI>();
+            var fade = FindFirstObjectByType<CloudFadeUI>();
             if (fade != null)
             {
                 fade.FadeIn(() =>

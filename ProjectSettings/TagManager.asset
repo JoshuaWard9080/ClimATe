@@ -15,6 +15,7 @@ TagManager:
   - FloorNumber
   - PilingSnow
   - Ice
+  - BoundaryWalll
   layers:
   - Default
   - TransparentFX
@@ -55,8 +56,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Walls
+    uniqueID: 1233492591
+    locked: 0
+  - name: Enemies&Blocks
+    uniqueID: 4151593653
+    locked: 0
+  - name: Player
+    uniqueID: 1541166153
+    locked: 0
   - name: PilingSnow
     uniqueID: 3744439871
+    locked: 0
+  - name: temperatureFog
+    uniqueID: 1579482895
     locked: 0
   m_RenderingLayers:
   - Default

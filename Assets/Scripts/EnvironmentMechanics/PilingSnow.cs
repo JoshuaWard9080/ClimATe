@@ -6,9 +6,9 @@ public class PilingSnow : MonoBehaviour
     [SerializeField] private TemperatureManager temperatureManager;
     private bool isRising = false;
 
-    private float coldSnowSpeed = 0.05f;
-    private float freezingSnowSpeed = 0.5f;
-    private float warmSnowSpeed = 0.01f;
+    private float coldSnowSpeed = 0.06f;
+    private float freezingSnowSpeed = 0.12f;
+    private float warmSnowSpeed = 0.03f;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class PilingSnow : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (!isRising)
         {
@@ -27,7 +27,7 @@ public class PilingSnow : MonoBehaviour
 
         //start rising
         //pause everything if the pause menu is active
-        if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
+        if (LevelManager.Instance.IsPaused() && LevelManager.Instance != null)
         {
             return;
         }
@@ -43,7 +43,6 @@ public class PilingSnow : MonoBehaviour
     public void SetSnowSpeed(float newSnowSpeed)
     {
         snowSpeed = newSnowSpeed;
-        Debug.Log("Snow piling speed set to: " + newSnowSpeed);
     }
 
     public void SetFreezing()

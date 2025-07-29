@@ -3,8 +3,8 @@ using UnityEngine;
 public class FlagWaver : MonoBehaviour
 {
     [Header("Waving Animation")]
-    public float frequency = 2f;
-    public float amplitude = 0.1f;
+    public float frequency = 4f;
+    public float amplitude = 0.2f;
     private Vector3 originalScale;
 
     [Header("Color Animation")]
@@ -22,7 +22,7 @@ public class FlagWaver : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float wave = Mathf.Sin(Time.time * frequency) * amplitude;
         transform.localScale = new Vector3(originalScale.x + wave, originalScale.y, originalScale.z); //sine wave equation, hopefully makes the flag wave properly

@@ -166,8 +166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -70, y: -35}
-  m_SizeDelta: {x: 100, y: 40}
+  m_AnchoredPosition: {x: -101.4, y: -47.2}
+  m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &961999361727502337
 CanvasRenderer:
@@ -273,7 +273,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -3}
-  m_SizeDelta: {x: 100, y: 50}
+  m_SizeDelta: {x: 150, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8579174914235186165
 CanvasRenderer:
@@ -569,6 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 0}
   heart: {fileID: 7317482456610268905, guid: 90399c8693a57c74db40412dc5f54772, type: 3}
+  invincibilityFrames: 0
   takeDamageAudio: {fileID: 1571189734844968906}
   playerDiedAudio: {fileID: 4818179807968774594}
 --- !u!1 &7902974296526260671

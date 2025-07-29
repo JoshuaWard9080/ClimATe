@@ -154,7 +154,7 @@ public class Icicle : MonoBehaviour
             {
                 Debug.Log("Icicle damaged the player, this is a skill issue ;)");
 
-                LivesDisplay lives = FindObjectOfType<LivesDisplay>();
+                LivesDisplay lives = FindFirstObjectByType<LivesDisplay>();
 
                 if (icicleHurtingPlayer != null)
                 {

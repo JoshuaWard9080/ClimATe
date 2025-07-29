@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         inputManager.playerOneOnJumpEnd.AddListener(JumpEnd);
         rb = GetComponent<Rigidbody2D>();
         originalParent = transform.parent;
+
+
     }
 
     // update ensures that the player doesn't go above the speed limit and handles flipping the character for sprite stuff

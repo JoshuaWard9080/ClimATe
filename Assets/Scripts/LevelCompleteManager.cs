@@ -41,13 +41,14 @@ public class LevelCompleteManager : MonoBehaviour
 
         bool isFinalLevel = LevelTracker.Instance != null && LevelTracker.Instance.nextLevelScene == "VictoryScene";
 
+        LevelStatsManager.Instance?.EndLevelTimer();
+        LevelStatsManager.Instance?.CalculateLevelPoints();
+        LevelStatsManager.Instance?.UpdateGlobalStats(); //update stats to be displayed in the victory scene
+
         if (isFinalLevel)
         {
             Debug.Log("Final level complete, loading VictoryScene");
 
-            LevelStatsManager.Instance?.EndLevelTimer();
-            LevelStatsManager.Instance?.CalculateLevelPoints();
-            LevelStatsManager.Instance?.UpdateGlobalStats(); //update stats to be displayed in the victory scene
 
             var statsManager = LevelStatsManager.Instance;
             if (statsManager != null)
@@ -72,6 +73,7 @@ public class LevelCompleteManager : MonoBehaviour
         }
         else
         {
+
             if (nextLevelButton != null)
             {
                 nextLevelButton.onClick.AddListener(NextLevel);
@@ -96,7 +98,7 @@ public class LevelCompleteManager : MonoBehaviour
         Debug.Log("Waiting before starting text animation...");
         yield return null;
         yield return textAnimator.StartAnimation();
-        LevelStatsManager.Instance?.ResetLevelStats();
+        
     }
 
     public void NextLevel()
@@ -104,16 +106,16 @@ public class LevelCompleteManager : MonoBehaviour
         //Probably make an if statement where if the current level is 1 then load 2, if the current level is 2 load 3, etc.
 
         Debug.Log("=== NEXT LEVEL PRESSED ===");
-        Debug.Log("LevelTracker.Instance is null? " + (LevelTracker.Instance == null));
-        Debug.Log("Current Level: " + LevelTracker.Instance.currentLevelScene);
-        Debug.Log("Next Level: " + LevelTracker.Instance.nextLevelScene);
+        //Debug.Log("LevelTracker.Instance is null? " + (LevelTracker.Instance == null));
+        //Debug.Log("Current Level: " + LevelTracker.Instance.currentLevelScene);
+        //Debug.Log("Next Level: " + LevelTracker.Instance.nextLevelScene);
 
 
         Debug.Log("Loading next level...");
 
         //uses the LevelTracker to figure out which level is next
         SceneManager.LoadScene(LevelTracker.Instance.nextLevelScene);
-        Debug.Log("Loading next level: " + LevelTracker.Instance.currentLevelScene);
+        //Debug.Log("Loading next level: " + LevelTracker.Instance.currentLevelScene);
     }
 
     public void MainMenu()
@@ -124,7 +126,7 @@ public class LevelCompleteManager : MonoBehaviour
             levelCompleteAudio.Stop();
         }
 
-        Debug.Log("Loading main menu...");
+        //Debug.Log("Loading main menu...");
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -134,8 +136,8 @@ public class LevelCompleteManager : MonoBehaviour
         /*
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
+#else */
+            Application.Quit(); /*
 #endif
         */
     }
@@ -185,6 +187,8 @@ public class LevelCompleteManager : MonoBehaviour
                 pointsText
            });
 
+            Debug.Log("resetting level stats");
+            LevelStatsManager.Instance?.ResetLevelStats();
             StartCoroutine(DelayedStartAnimation());
         }
         else

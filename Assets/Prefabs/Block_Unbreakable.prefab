@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -143373643
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -9108510612523565119, guid: 226dcf51b20637d43b740f4fd066e2a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,7 +115,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.55, y: -3.35, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.3, z: 0.5}
+  m_LocalScale: {x: 0.525, y: 0.315, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2498261791383442295}

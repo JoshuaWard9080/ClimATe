@@ -5,11 +5,11 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] TemperatureManager temperatureManager;
     public Vector2 currentPosition = new Vector2(1,0);
-    public float moveSpeed = 0.01f;
+    public float moveSpeed = 0.015f;
 
-    private float coldMoveSpeed = 0.01f;
-    private float warmMoveSpeed = 0.005f;
-    private float freezingMoveSpeed = 0.015f;
+    private float coldMoveSpeed = 0.04f;
+    private float warmMoveSpeed = 0.03f;
+    private float freezingMoveSpeed = 0.05f;
 
     Boolean playerOnPlatform = false;
     Vector2 previousPosition;
@@ -24,7 +24,7 @@ public class MovingPlatform : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //pause everything if the pause menu is active
         if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
@@ -33,7 +33,7 @@ public class MovingPlatform : MonoBehaviour
         }
 
         if (!sprite.isVisible)
-        {//if the object is invisible, flip it's ovement direction
+        {//if the object is invisible, flip it's movement direction
 
             currentPosition *= -1;
         }
@@ -96,6 +96,5 @@ public class MovingPlatform : MonoBehaviour
     void ChangeMoveSpeed(float newMoveSpeed)
     {
         moveSpeed = newMoveSpeed;
-        Debug.Log("platform move speed changed to: " + moveSpeed);
     }
 }

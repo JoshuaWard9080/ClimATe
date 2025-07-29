@@ -8,7 +8,7 @@ public class ForegroundManager : MonoBehaviour
     [SerializeField] private Transform CloudsFirst;
     [SerializeField] private Transform CloudsSecond;
     private float cloudAnchor = -20f;
-    private float cloudRespawn = 35f;
+    private float cloudRespawn = 15f;
 
     private float coldSpeed = 2f;
     private float freezingSpeed = 4f;

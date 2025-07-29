@@ -30,7 +30,7 @@ public class CrackingPlatform : MonoBehaviour
         temperatureManager.OnTempChangeToFreezing.AddListener(tempChangeToFreezing);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         //pause everything if the pause menu is active
         if (LevelManager.Instance != null && LevelManager.Instance.IsPaused())
@@ -84,7 +84,6 @@ public class CrackingPlatform : MonoBehaviour
 
         Invoke(nameof(DisableRenderer), 0.25f); 
 
-        Debug.Log("Platform has broken.");
     }
 
     private void DisableRenderer()
@@ -95,13 +94,11 @@ public class CrackingPlatform : MonoBehaviour
     public void SetCrackSpeed(float newCrackSpeed)
     {
         crackSpeed = newCrackSpeed;
-        Debug.Log("CrackingPlatform crack speed set to: " + newCrackSpeed);
     }
 
     public void SetMeltSpeed(float newMeltSpeed)
     {
         meltSpeed = newMeltSpeed;
-        Debug.Log("CrackingPlatform melt speed set to: " + newMeltSpeed);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -109,7 +106,6 @@ public class CrackingPlatform : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             isPlayerOn = true;
-            Debug.Log("Player stepped on cracking platform.");
         }
     }
 
@@ -119,7 +115,6 @@ public class CrackingPlatform : MonoBehaviour
         {
             isPlayerOn = false;
             timer = 0f;
-            Debug.Log("Player stepped off cracking platform.");
         }
     }
 }
